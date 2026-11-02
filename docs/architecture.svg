@@ -1,0 +1,127 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 570" width="1080" height="570" role="img" aria-labelledby="title desc">
+  <title id="title">TVMazeApp architecture</title>
+  <desc id="desc">App: shows the Search and Favorites tabs and gives the SwiftData container to every view. UI: the search screen owns the ViewModel, sends it the search and renders its state; tapping a card opens the show detail; the heart button sits on every card and on the detail; the Favorites tab lists saved shows. ViewModel: fetches API models from the API service and passes them to the transformer, which fills the display models. Networking: the API service sends a GET through a network session to the TVMaze API and decodes the JSON. Persistence: the heart button inserts or deletes favorites and the Favorites tab deletes them, both reading SwiftData with @Query.</desc>
+  <style>
+    .band { fill: #f6f8fa; }
+    .box { fill: #ffffff; stroke: #8c959f; stroke-width: 1.5; }
+    .protocol { stroke-dasharray: 6 4; }
+    .accent { stroke: #0969da; stroke-width: 2; }
+    .type { font: 600 15px -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; fill: #1f2328; }
+    .role { font: 13px -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; fill: #59636e; }
+    .row { font: 700 12px -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; fill: #59636e; letter-spacing: 0.08em; }
+    .edge { stroke: #59636e; stroke-width: 1.5; fill: none; }
+    .edge-label { font: 12px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #59636e; }
+    .arrowhead { fill: #59636e; }
+    @media (prefers-color-scheme: dark) {
+      .band { fill: #151b23; }
+      .box { fill: #0d1117; stroke: #9198a1; }
+      .accent { stroke: #4493f8; }
+      .type { fill: #f0f6fc; }
+      .role, .row, .edge-label { fill: #9198a1; }
+      .edge { stroke: #9198a1; }
+      .arrowhead { fill: #9198a1; }
+    }
+  </style>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path class="arrowhead" d="M0,0 L10,5 L0,10 z"/>
+    </marker>
+  </defs>
+
+  <rect class="band" x="10" y="40" width="1060" height="80" rx="12"/>
+  <rect class="band" x="10" y="140" width="1060" height="80" rx="12"/>
+  <rect class="band" x="10" y="240" width="1060" height="80" rx="12"/>
+  <rect class="band" x="10" y="340" width="1060" height="80" rx="12"/>
+  <rect class="band" x="10" y="440" width="1060" height="80" rx="12"/>
+  <text class="row" x="28" y="84">APP</text>
+  <text class="row" x="28" y="184">UI</text>
+  <text class="row" x="28" y="284">VIEWMODEL</text>
+  <text class="row" x="28" y="384">NETWORKING</text>
+  <text class="row" x="28" y="484">PERSISTENCE</text>
+
+  <rect class="box" x="140" y="50" width="880" height="60" rx="10"/>
+  <text class="type" x="580" y="76" text-anchor="middle">App</text>
+  <text class="role" x="580" y="97" text-anchor="middle">entry point · tab bar</text>
+
+  <rect class="box" x="140" y="150" width="170" height="60" rx="10"/>
+  <text class="type" x="225" y="176" text-anchor="middle">Search screen</text>
+  <text class="role" x="225" y="197" text-anchor="middle">poster cards · alert</text>
+
+  <rect class="box" x="420" y="150" width="170" height="60" rx="10"/>
+  <text class="type" x="505" y="176" text-anchor="middle">Show detail</text>
+  <text class="role" x="505" y="197" text-anchor="middle">poster · info · website</text>
+
+  <rect class="box" x="640" y="150" width="170" height="60" rx="10"/>
+  <text class="type" x="725" y="176" text-anchor="middle">Heart button</text>
+  <text class="role" x="725" y="197" text-anchor="middle">on cards and detail</text>
+
+  <rect class="box" x="850" y="150" width="170" height="60" rx="10"/>
+  <text class="type" x="935" y="176" text-anchor="middle">Favorites tab</text>
+  <text class="role" x="935" y="197" text-anchor="middle">saved shows list</text>
+
+  <rect class="box accent" x="140" y="250" width="170" height="60" rx="10"/>
+  <text class="type" x="225" y="276" text-anchor="middle">ViewModel</text>
+  <text class="role" x="225" y="297" text-anchor="middle">@Observable state</text>
+
+  <rect class="box" x="420" y="250" width="170" height="60" rx="10"/>
+  <text class="type" x="505" y="276" text-anchor="middle">Transformer</text>
+  <text class="role" x="505" y="297" text-anchor="middle">fills the display model</text>
+
+  <rect class="box protocol" x="140" y="350" width="170" height="60" rx="10"/>
+  <text class="type" x="225" y="376" text-anchor="middle">API service</text>
+  <text class="role" x="225" y="397" text-anchor="middle">decode · typed errors</text>
+
+  <rect class="box protocol" x="420" y="350" width="170" height="60" rx="10"/>
+  <text class="type" x="505" y="376" text-anchor="middle">Network session</text>
+  <text class="role" x="505" y="397" text-anchor="middle">URLSession · TVMaze</text>
+
+
+  <rect class="box accent" x="640" y="450" width="380" height="60" rx="10"/>
+  <text class="type" x="830" y="476" text-anchor="middle">SwiftData</text>
+  <text class="role" x="830" y="497" text-anchor="middle">favorites stored on device</text>
+
+  <path class="edge" d="M310,180 H418" marker-end="url(#arrow)"/>
+  <text class="edge-label" x="364" y="172" text-anchor="middle">opens</text>
+
+  <path class="edge" d="M195,210 V248" marker-end="url(#arrow)"/>
+  <text class="edge-label" x="189" y="233" text-anchor="end">search</text>
+  <path class="edge" d="M255,250 V212" marker-end="url(#arrow)"/>
+  <text class="edge-label" x="261" y="233">state</text>
+
+  <path class="edge" d="M310,268 H418" marker-end="url(#arrow)"/>
+  <text class="edge-label" x="364" y="262" text-anchor="middle">API models</text>
+  <path class="edge" d="M420,292 H312" marker-end="url(#arrow)"/>
+  <text class="edge-label" x="364" y="306" text-anchor="middle">display models</text>
+
+  <path class="edge" d="M195,310 V348" marker-end="url(#arrow)"/>
+  <text class="edge-label" x="189" y="333" text-anchor="end">fetch</text>
+  <path class="edge" d="M255,350 V312" marker-end="url(#arrow)"/>
+  <text class="edge-label" x="261" y="333">API models</text>
+
+  <path class="edge" d="M310,368 H418" marker-end="url(#arrow)"/>
+  <text class="edge-label" x="364" y="362" text-anchor="middle">GET</text>
+  <path class="edge" d="M420,392 H312" marker-end="url(#arrow)"/>
+  <text class="edge-label" x="364" y="406" text-anchor="middle">JSON</text>
+
+
+  <path class="edge" d="M690,210 V448" marker-end="url(#arrow)"/>
+  <text class="edge-label" x="696" y="282">insert</text>
+  <text class="edge-label" x="696" y="298">delete</text>
+  <path class="edge" d="M760,450 V212" marker-end="url(#arrow)"/>
+  <text class="edge-label" x="766" y="290">@Query</text>
+
+  <path class="edge" d="M900,210 V448" marker-end="url(#arrow)"/>
+  <text class="edge-label" x="906" y="290">delete</text>
+  <path class="edge" d="M970,450 V212" marker-end="url(#arrow)"/>
+  <text class="edge-label" x="976" y="290">@Query</text>
+
+  <path class="edge" d="M225,110 V148" marker-end="url(#arrow)"/>
+  <text class="edge-label" x="231" y="133">tab</text>
+  <path class="edge" d="M935,110 V148" marker-end="url(#arrow)"/>
+  <text class="edge-label" x="941" y="133">tab</text>
+  <path class="edge" d="M1020,80 H1048 V480 H1022" marker-end="url(#arrow)"/>
+  <text class="edge-label" x="1056" y="280" transform="rotate(90 1056 280)" text-anchor="middle">container</text>
+
+  <rect class="box protocol" x="140" y="538" width="34" height="18" rx="5"/>
+  <text class="role" x="184" y="552">Behind a protocol, replaced by a mock in unit tests</text>
+</svg>
