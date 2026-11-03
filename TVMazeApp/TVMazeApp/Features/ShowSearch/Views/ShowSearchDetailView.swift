@@ -24,7 +24,7 @@ struct ShowDetailView: View {
                 PosterView(url: show.largePosterURL)
                     .aspectRatio(Constants.posterAspectRatio, contentMode: .fit)
                     .frame(maxWidth: .infinity)
-                    .cornerRadius(Constants.cornerRadius)
+                    .clipShape(.rect(cornerRadius: Constants.cornerRadius))
                 
                 HStack {
                     Text(show.name).font(.title.bold())

@@ -22,7 +22,7 @@ struct CardView: View {
             ZStack(alignment: .topTrailing) {
                 PosterView(url: show.posterURL)
                     .frame(width: Constants.posterWidth, height: Constants.posterHeight)
-                    .cornerRadius(Constants.cornerRadius)
+                    .clipShape(.rect(cornerRadius: Constants.cornerRadius))
                 
                 FavoriteButton(show: show)
                     .glassEffect(.regular.interactive(), in: .circle)
