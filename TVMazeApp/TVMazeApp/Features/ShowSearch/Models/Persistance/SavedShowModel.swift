@@ -40,4 +40,21 @@ final class SavedShowModel {
         websiteURL = show.websiteURL
         lastUpdated = show.lastUpdated
     }
+
+    var showItem: ShowItemModel {
+        ShowItemModel(
+            id: id,
+            name: name,
+            posterURL: posterURL,
+            years: years,
+            status: status,
+            genres: genres,
+            rating: rating,
+            largePosterURL: largePosterURL,
+            summary: summary,
+            type: type,
+            language: language ?? "",
+            websiteURL: websiteURL,
+            lastUpdated: lastUpdated)
+    }
 }
