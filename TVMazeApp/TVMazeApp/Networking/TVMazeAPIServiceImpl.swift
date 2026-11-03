@@ -10,18 +10,18 @@ import SwiftUI
 final class TVMazeAPIServiceImpl: TVMazeAPIService {
     private enum Constant {
         static let successCode = 200
+        static let searchEndpoint = "https://api.tvmaze.com/search/shows"
+        static let searchQueryName = "q"
     }
-    
+
     private let session: DataSession
-    
+
     init(session: DataSession = URLSession.shared) {
         self.session = session
     }
-    
+
     func fetchShowsFromAPI(show: String) async throws -> [ShowSearchModel] {
-        guard let url = URL(string: "https://api.tvmaze.com/search/shows?q=\(show)") else {
-            throw TVMazeAPIServiceError.invalidURL
-        }
+        let url = try makeSearchURL(for: show)
         let (data, response) = try await session.data(from: url)
         
         guard let response = response as? HTTPURLResponse, response.statusCode == Constant.successCode else {
@@ -33,5 +33,12 @@ final class TVMazeAPIServiceImpl: TVMazeAPIService {
         } catch {
             throw TVMazeAPIServiceError.decodingError
         }
+    }
+
+    private func makeSearchURL(for show: String) throws -> URL {
+        guard let endpoint = URL(string: Constant.searchEndpoint) else {
+            throw TVMazeAPIServiceError.invalidURL
+        }
+        return endpoint.appending(queryItems: [URLQueryItem(name: Constant.searchQueryName, value: show)])
     }
 }
