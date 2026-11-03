@@ -93,6 +93,21 @@ struct ShowSearchViewModelTests {
         #expect(sut.shows.isEmpty)
         #expect(sut.isShowingAlert == false)
     }
+
+    @Test func viewModel_whenSearchSucceeds_remembersTheSearchedEntry() async {
+        let service = MockTVMazeAPIService(mockedShows: [])
+        let sut = makeSut(service: service)
+        await sut.loadShows(entry: "unknown show")
+        #expect(sut.searchedEntry == "unknown show")
+        #expect(sut.shows.isEmpty)
+    }
+
+    @Test func viewModel_whenSearchFails_forgetsTheSearchedEntry() async {
+        let service = MockTVMazeAPIService(mockedShows: [], error: TVMazeAPIServiceError.invalidResponse)
+        let sut = makeSut(service: service)
+        await sut.loadShows(entry: "girls")
+        #expect(sut.searchedEntry == nil)
+    }
 }
 
 extension ShowSearchViewModelTests {

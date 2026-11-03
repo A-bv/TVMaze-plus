@@ -13,6 +13,9 @@ struct ShowSearchMainView: View {
         static let searchPrompt = "Search a show"
         static let alertTitle = "Error"
         static let alertMessage = "Something went wrong, try again later."
+        static let emptyTitle = "Search for a show"
+        static let emptyMessage = "Type a show's name and press Search."
+        static let emptyIcon = "tv"
     }
     
     @State private var viewModel = ShowSearchViewModel(service: TVMazeAPIServiceImpl())
@@ -38,6 +41,15 @@ struct ShowSearchMainView: View {
             .overlay {
                 if viewModel.isLoading {
                     ProgressView()
+                } else if viewModel.shows.isEmpty {
+                    if let searchedEntry = viewModel.searchedEntry {
+                        ContentUnavailableView.search(text: searchedEntry)
+                    } else {
+                        ContentUnavailableView(
+                            Constants.emptyTitle,
+                            systemImage: Constants.emptyIcon,
+                            description: Text(Constants.emptyMessage))
+                    }
                 }
             }
             .navigationTitle(Constants.title)
