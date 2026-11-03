@@ -17,7 +17,8 @@ struct ShowSearchMainView: View {
     
     @State private var viewModel = ShowSearchViewModel(service: TVMazeAPIServiceImpl())
     @State private var searchText = ""
-    
+    @State private var submittedSearch = ""
+
     var body: some View {
         NavigationStack {
             ScrollView(.horizontal) {
@@ -45,7 +46,11 @@ struct ShowSearchMainView: View {
                 placement: .navigationBarDrawer(displayMode: .always),
                 prompt: Constants.searchPrompt)
             .onSubmit(of: .search) {
-                Task { await viewModel.loadShows(entry: searchText) }
+                submittedSearch = searchText
+            }
+            .task(id: submittedSearch) {
+                guard !submittedSearch.isEmpty else { return }
+                await viewModel.loadShows(entry: submittedSearch)
             }
             .alert(Constants.alertTitle, isPresented: $viewModel.isShowingAlert) {
             } message: {

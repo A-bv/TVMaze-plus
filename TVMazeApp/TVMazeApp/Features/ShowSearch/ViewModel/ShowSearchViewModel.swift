@@ -19,7 +19,7 @@ final class ShowSearchViewModel {
     var apiError: TVMazeAPIServiceError?
     var unexpectedError: Error?
     var isShowingAlert: Bool = false
-    
+
     init(service: TVMazeAPIService,
          transformer: ShowSearchTransformer = ShowSearchTransformer()) {
         self.service = service
@@ -28,22 +28,23 @@ final class ShowSearchViewModel {
     
     func loadShows(entry: String) async {
         isLoading = true
-        defer {
-            isLoading = false
-        }
         do {
             let results = try await service.fetchShowsFromAPI(show: entry)
+            if Task.isCancelled { return }
             shows = transformer.transform(results)
             apiError = nil
             unexpectedError = nil
         } catch let error as TVMazeAPIServiceError {
+            if Task.isCancelled { return }
             shows = []
             apiError = error
             isShowingAlert = true
         } catch {
+            if Task.isCancelled { return }
             shows = []
             unexpectedError = error
             isShowingAlert = true
         }
+        isLoading = false
     }
 }

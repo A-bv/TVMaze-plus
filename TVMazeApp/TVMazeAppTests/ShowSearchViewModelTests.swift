@@ -72,6 +72,27 @@ struct ShowSearchViewModelTests {
         #expect(sut.unexpectedError as? URLError == expected)
         #expect(sut.shows.isEmpty)
     }
+
+    @Test func viewModel_whenCancelledSearchFails_showsNoAlert() async {
+        let service = MockTVMazeAPIService(mockedShows: [], error: URLError(.cancelled))
+        let sut = makeSut(service: service)
+        let search = Task { await sut.loadShows(entry: "") }
+        search.cancel()
+        await search.value
+        #expect(sut.isShowingAlert == false)
+        #expect(sut.apiError == nil)
+        #expect(sut.unexpectedError == nil)
+    }
+
+    @Test func viewModel_whenSearchIsCancelled_doesNotReplaceShows() async {
+        let service = MockTVMazeAPIService(mockedShows: FakeShowSearchData.makeShows())
+        let sut = makeSut(service: service)
+        let search = Task { await sut.loadShows(entry: "") }
+        search.cancel()
+        await search.value
+        #expect(sut.shows.isEmpty)
+        #expect(sut.isShowingAlert == false)
+    }
 }
 
 extension ShowSearchViewModelTests {
