@@ -5,7 +5,7 @@
 //  Created by Alexandre Bevilacqua on 04.10.2026.
 //
 
-import SwiftUI
+import Foundation
 
 final class TVMazeAPIServiceImpl: TVMazeAPIService {
     private enum Constant {
