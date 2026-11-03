@@ -13,6 +13,7 @@ struct ShowDetailView: View {
         static let websiteTitle = "Website"
         static let updatedTitle = "Last updated:"
         static let cornerRadius: CGFloat = 16
+        static let posterAspectRatio: CGFloat = 2 / 3
     }
     
     let show: ShowItemModel
@@ -20,13 +21,10 @@ struct ShowDetailView: View {
     var body: some View {
         ScrollView {
             VStack(alignment: .leading) {
-                AsyncImage(url: show.largePosterURL) { image in
-                    image.resizable().scaledToFit()
-                } placeholder: {
-                    ProgressView()
-                }
-                .frame(maxWidth: .infinity)
-                .cornerRadius(Constants.cornerRadius)
+                PosterView(url: show.largePosterURL)
+                    .aspectRatio(Constants.posterAspectRatio, contentMode: .fit)
+                    .frame(maxWidth: .infinity)
+                    .cornerRadius(Constants.cornerRadius)
                 
                 HStack {
                     Text(show.name).font(.title.bold())

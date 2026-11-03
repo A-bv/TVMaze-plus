@@ -20,13 +20,9 @@ struct CardView: View {
     var body: some View {
         VStack(alignment: .leading) {
             ZStack(alignment: .topTrailing) {
-                AsyncImage(url: show.posterURL) { image in
-                    image.resizable()
-                } placeholder: {
-                    ProgressView()
-                }
-                .frame(width: Constants.posterWidth, height: Constants.posterHeight)
-                .cornerRadius(Constants.cornerRadius)
+                PosterView(url: show.posterURL)
+                    .frame(width: Constants.posterWidth, height: Constants.posterHeight)
+                    .cornerRadius(Constants.cornerRadius)
                 
                 FavoriteButton(show: show)
                     .glassEffect(.regular.interactive(), in: .circle)
