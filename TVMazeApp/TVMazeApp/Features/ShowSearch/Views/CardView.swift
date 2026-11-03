@@ -1,5 +1,5 @@
 //
-//  ShowCardView.swift
+//  CardView.swift
 //  TVMazeApp
 //
 //  Created by Alexandre Bevilacqua on 06.10.2026.

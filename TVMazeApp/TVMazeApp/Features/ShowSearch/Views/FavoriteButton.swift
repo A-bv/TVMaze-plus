@@ -1,5 +1,5 @@
 //
-//  FavoriteButtonView.swift
+//  FavoriteButton.swift
 //  TVMazeApp
 //
 //  Created by Alexandre Bevilacqua on 07.10.2026.
@@ -13,7 +13,7 @@ struct FavoriteButton: View {
     
     private enum Constants {
         static let buttonSize: CGFloat = 40
-        static let backgroudPoacity: CGFloat = 0.3
+        static let backgroundOpacity: CGFloat = 0.3
     }
 
     @Environment(\.modelContext) private var context
@@ -33,7 +33,7 @@ struct FavoriteButton: View {
                     .font(.title2)
                     .foregroundStyle(.black)
                     .frame(width: Constants.buttonSize, height: Constants.buttonSize)
-                    .background(.white.opacity(Constants.backgroudPoacity), in: Circle())
+                    .background(.white.opacity(Constants.backgroundOpacity), in: Circle())
         }
     }
 }

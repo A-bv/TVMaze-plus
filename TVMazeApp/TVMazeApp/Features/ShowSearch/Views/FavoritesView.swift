@@ -1,5 +1,5 @@
 //
-//  FavoriteListView.swift
+//  FavoritesView.swift
 //  TVMazeApp
 //
 //  Created by Alexandre Bevilacqua on 07.10.2026.

@@ -1,5 +1,5 @@
 //
-//  TVMazeAppTests.swift
+//  ShowSearchViewModelTests.swift
 //  TVMazeAppTests
 //
 //  Created by Alexandre Bevilacqua on 30.09.2026.
