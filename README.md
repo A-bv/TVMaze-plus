@@ -9,7 +9,7 @@ Search TV shows, open their details and keep favorites on device. A native Swift
 <p align="center">
   <img src="docs/screenshots/search.png" width="190" alt="Search results for “stranger” shown as a horizontal carousel of poster cards">
   <img src="docs/screenshots/detail.png" width="190" alt="Stranger Things detail screen with poster, rating, favorite button, genres and summary">
-  <img src="docs/screenshots/favorites.png" width="190" alt="Favorites tab listing two saved shows">
+  <img src="docs/screenshots/favorites.png" width="190" alt="Favorites tab listing two saved shows, each with its poster thumbnail, name and years">
   <img src="docs/screenshots/detail-dark.png" width="190" alt="The detail screen in dark mode">
 </p>
 
