@@ -34,17 +34,22 @@ final class ShowSearchViewModel {
             shows = transformer.transform(results)
             apiError = nil
             unexpectedError = nil
-        } catch let error as TVMazeAPIServiceError {
-            if Task.isCancelled { return }
-            shows = []
-            apiError = error
-            isShowingAlert = true
         } catch {
             if Task.isCancelled { return }
-            shows = []
-            unexpectedError = error
-            isShowingAlert = true
+            showError(error)
         }
         isLoading = false
+    }
+
+    private func showError(_ error: Error) {
+        shows = []
+        apiError = nil
+        unexpectedError = nil
+        if let error = error as? TVMazeAPIServiceError {
+            apiError = error
+        } else {
+            unexpectedError = error
+        }
+        isShowingAlert = true
     }
 }
