@@ -10,49 +10,34 @@ import Foundation
 
 @Observable
 final class ShowSearchViewModel {
-    
+
+    enum SearchState: Equatable {
+        case idle
+        case loading
+        case loaded(shows: [ShowItemModel], entry: String)
+        case failed
+    }
+
     private let service: TVMazeAPIService
     private let transformer: ShowSearchTransformer
-    
-    var shows: [ShowItemModel] = []
-    var isLoading: Bool = false
-    var apiError: TVMazeAPIServiceError?
-    var unexpectedError: Error?
-    var isShowingAlert: Bool = false
-    var searchedEntry: String?
+
+    private(set) var state: SearchState = .idle
 
     init(service: TVMazeAPIService,
          transformer: ShowSearchTransformer = ShowSearchTransformer()) {
         self.service = service
         self.transformer = transformer
     }
-    
+
     func loadShows(entry: String) async {
-        isLoading = true
+        state = .loading
         do {
             let results = try await service.fetchShowsFromAPI(show: entry)
             if Task.isCancelled { return }
-            shows = transformer.transform(results)
-            searchedEntry = entry
-            apiError = nil
-            unexpectedError = nil
+            state = .loaded(shows: transformer.transform(results), entry: entry)
         } catch {
             if Task.isCancelled { return }
-            showError(error)
+            state = .failed
         }
-        isLoading = false
-    }
-
-    private func showError(_ error: Error) {
-        shows = []
-        searchedEntry = nil
-        apiError = nil
-        unexpectedError = nil
-        if let error = error as? TVMazeAPIServiceError {
-            apiError = error
-        } else {
-            unexpectedError = error
-        }
-        isShowingAlert = true
     }
 }

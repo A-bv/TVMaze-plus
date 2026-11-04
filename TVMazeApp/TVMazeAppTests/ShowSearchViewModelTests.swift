@@ -11,102 +11,54 @@ import Foundation
 
 @MainActor
 struct ShowSearchViewModelTests {
-    @Test func viewModel_callsLoadShows_succeedsAndPopulatesShows() async {
+    @Test func viewModel_whenSearchSucceeds_isLoadedWithShowsAndEntry() async {
         let fakeData = FakeShowSearchData.makeShows()
-        let service = MockTVMazeAPIService(mockedShows: fakeData)
         let expected = ShowSearchTransformer().transform(fakeData)
-        
-        let sut = makeSut(service: service)
-        await sut.loadShows(entry: "")
-        
-        #expect(sut.shows == expected)
-        #expect(sut.isShowingAlert == false)
-        #expect(sut.isLoading == false)
-        #expect(sut.unexpectedError == nil)
-    }
-    
-    @Test func viewModel_callsLoadShows_failsAndSetsApiErrorWithDecodingError() async {
-        let service = MockTVMazeAPIService(mockedShows: [], error: TVMazeAPIServiceError.decodingError)
-        let sut = makeSut(service: service)
-        let expected = TVMazeAPIServiceError.decodingError
-        await sut.loadShows(entry: "")
-        #expect(sut.apiError == expected)
-        #expect(sut.isShowingAlert == true)
-        #expect(sut.isLoading == false)
-        #expect(sut.unexpectedError == nil)
-        #expect(sut.shows.isEmpty)
-    }
-    
-    @Test func viewModel_callsLoadShows_failsAndSetsApiErrorWithInvalidResponse() async {
-        let service = MockTVMazeAPIService(mockedShows: [], error: TVMazeAPIServiceError.invalidResponse)
-        let sut = makeSut(service: service)
-        let expected = TVMazeAPIServiceError.invalidResponse
-        await sut.loadShows(entry: "")
-        #expect(sut.apiError == expected)
-        #expect(sut.isShowingAlert == true)
-        #expect(sut.isLoading == false)
-        #expect(sut.unexpectedError == nil)
-        #expect(sut.shows.isEmpty)
-    }
-    
-    @Test func viewModel_callsLoadShows_failsAndSetsApiErrorWithInvalidURL() async {
-        let service = MockTVMazeAPIService(mockedShows: [], error: TVMazeAPIServiceError.invalidURL)
-        let sut = makeSut(service: service)
-        let expected = TVMazeAPIServiceError.invalidURL
-        await sut.loadShows(entry: "")
-        #expect(sut.apiError == expected)
-        #expect(sut.isShowingAlert == true)
-        #expect(sut.isLoading == false)
-        #expect(sut.unexpectedError == nil)
-        #expect(sut.shows.isEmpty)
-    }
-    
-    @Test func viewModel_callsLoadShows_failsAndSetsUnexpectedErrorWithAnyError() async {
-        let expected = URLError(.notConnectedToInternet)
-        let service = MockTVMazeAPIService(mockedShows: [], error: expected)
-        let sut = makeSut(service: service)
-        await sut.loadShows(entry: "")
-        #expect(sut.apiError == nil)
-        #expect(sut.isShowingAlert == true)
-        #expect(sut.isLoading == false)
-        #expect(sut.unexpectedError as? URLError == expected)
-        #expect(sut.shows.isEmpty)
+        let sut = makeSut(service: MockTVMazeAPIService(mockedShows: fakeData))
+
+        await sut.loadShows(entry: "girls")
+
+        #expect(sut.state == .loaded(shows: expected, entry: "girls"))
     }
 
-    @Test func viewModel_whenCancelledSearchFails_showsNoAlert() async {
+    @Test func viewModel_whenSearchFindsNothing_isLoadedWithNoShows() async {
+        let sut = makeSut(service: MockTVMazeAPIService(mockedShows: []))
+
+        await sut.loadShows(entry: "unknown show")
+
+        #expect(sut.state == .loaded(shows: [], entry: "unknown show"))
+    }
+
+    @Test(arguments: [
+        TVMazeAPIServiceError.decodingError,
+        TVMazeAPIServiceError.invalidResponse,
+        TVMazeAPIServiceError.invalidURL,
+        URLError(.notConnectedToInternet),
+    ] as [any Error])
+    func viewModel_whenSearchFails_isFailed(error: any Error) async {
+        let sut = makeSut(service: MockTVMazeAPIService(mockedShows: [], error: error))
+
+        await sut.loadShows(entry: "girls")
+
+        #expect(sut.state == .failed)
+    }
+
+    @Test func viewModel_whenCancelledSearchFails_staysLoading() async {
         let service = MockTVMazeAPIService(mockedShows: [], error: URLError(.cancelled))
         let sut = makeSut(service: service)
         let search = Task { await sut.loadShows(entry: "") }
         search.cancel()
         await search.value
-        #expect(sut.isShowingAlert == false)
-        #expect(sut.apiError == nil)
-        #expect(sut.unexpectedError == nil)
+        #expect(sut.state == .loading)
     }
 
-    @Test func viewModel_whenSearchIsCancelled_doesNotReplaceShows() async {
+    @Test func viewModel_whenSearchIsCancelled_doesNotShowResults() async {
         let service = MockTVMazeAPIService(mockedShows: FakeShowSearchData.makeShows())
         let sut = makeSut(service: service)
         let search = Task { await sut.loadShows(entry: "") }
         search.cancel()
         await search.value
-        #expect(sut.shows.isEmpty)
-        #expect(sut.isShowingAlert == false)
-    }
-
-    @Test func viewModel_whenSearchSucceeds_remembersTheSearchedEntry() async {
-        let service = MockTVMazeAPIService(mockedShows: [])
-        let sut = makeSut(service: service)
-        await sut.loadShows(entry: "unknown show")
-        #expect(sut.searchedEntry == "unknown show")
-        #expect(sut.shows.isEmpty)
-    }
-
-    @Test func viewModel_whenSearchFails_forgetsTheSearchedEntry() async {
-        let service = MockTVMazeAPIService(mockedShows: [], error: TVMazeAPIServiceError.invalidResponse)
-        let sut = makeSut(service: service)
-        await sut.loadShows(entry: "girls")
-        #expect(sut.searchedEntry == nil)
+        #expect(sut.state == .loading)
     }
 }
 
