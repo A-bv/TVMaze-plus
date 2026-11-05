@@ -32,5 +32,6 @@ struct PosterView: View {
                 }
             }
             .clipped()
+            .accessibilityHidden(true)
     }
 }

@@ -12,6 +12,7 @@ struct CardView: View {
         static let posterWidth: CGFloat = 210
         static let posterHeight: CGFloat = 295
         static let ratingIcon = "star.fill"
+        static let ratingAccessibilityLabel = "Rating"
         static let cornerRadius: CGFloat = 16
     }
     
@@ -30,9 +31,12 @@ struct CardView: View {
             }
             
             Text(show.name).font(.headline)
-            Text("\(show.years) • \(show.status)").foregroundStyle(.secondary)
+            Text("\(show.years) • \(show.status)")
+                .foregroundStyle(.secondary)
+                .fixedSize(horizontal: false, vertical: true)
             Label(show.rating, systemImage: Constants.ratingIcon)
                 .glassEffect()
+                .accessibilityLabel("\(Constants.ratingAccessibilityLabel) \(show.rating)")
         }
         .frame(width: Constants.posterWidth)
     }

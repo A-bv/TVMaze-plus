@@ -40,6 +40,7 @@ With SwiftData, simple reads and writes can stay in the views, since SwiftData k
 - **Liquid Glass (iOS 26):** Apple's new see-through design. `glassEffect` gives any view the glass look, and the `.glassProminent` button style makes a button stand out with it.
 - **Search:** `.searchable` adds the standard iOS search bar, and `.onSubmit(of: .search)` asks the ViewModel for results when the user presses Search on the keyboard.
 - **Empty states (iOS 17):** `ContentUnavailableView` shows a message before the first search, and Apple's standard "No Results" view when nothing is found.
+- **Accessibility:** VoiceOver labels describe what buttons do and what values mean, and text adapts to the user's chosen size.
 - **Tabs (iOS 18):** each tab is declared with the new `Tab` API, instead of the older `.tabItem`.
 
 ### ViewModel (logic)

@@ -10,6 +10,7 @@ import SwiftUI
 struct ShowDetailView: View {
     private enum Constants {
         static let ratingIcon = "star.fill"
+        static let ratingAccessibilityLabel = "Rating"
         static let websiteTitle = "Website"
         static let updatedTitle = "Last updated:"
         static let cornerRadius: CGFloat = 16
@@ -31,6 +32,7 @@ struct ShowDetailView: View {
                     Spacer()
                     Label(show.rating, systemImage: Constants.ratingIcon)
                         .glassEffect()
+                        .accessibilityLabel("\(Constants.ratingAccessibilityLabel) \(show.rating)")
                     FavoriteButton(show: show)
                         .glassEffect()
                 }
