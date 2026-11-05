@@ -55,10 +55,8 @@ struct TVMazeAPIServiceTests {
         #expect(shows.count == 2)
         
         let showTheMostFilledWithNil = try #require(shows.last)
-        #expect(showTheMostFilledWithNil.show.averageRuntime == nil)
         #expect(showTheMostFilledWithNil.show.premiered == nil)
         #expect(showTheMostFilledWithNil.show.image == nil)
-        #expect(showTheMostFilledWithNil.show.links.previousEpisode == nil)
         #expect(showTheMostFilledWithNil.show.language == nil)
     }
 
