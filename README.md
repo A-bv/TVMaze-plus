@@ -51,7 +51,7 @@ With SwiftData, simple reads and writes can stay in the views, since SwiftData k
 - **Concurrency (Xcode 26):** with the new `MainActor` default isolation, all code runs on the main thread, the one that updates the screen, unless marked otherwise. So the ViewModel needs no `@MainActor`, and the app passes Swift 6's strict concurrency checks.
 - **Loading and errors:** the ViewModel tracks loading and errors, so the screen shows a spinner while waiting and an error message when something fails.
 - **Transformer:** the API sends raw data, such as dates like "2016-07-15" and summaries with HTML tags. The Transformer turns it into the domain models the screens use: years like "2016 – 2025", a rating like "8.4", the summary as plain text, and a default when a field is missing. When the API changes, the screens don't have to.
-- **Dependency injection:** to make the ViewModel testable, it receives its service through a protocol instead of creating it, so tests can pass a fake one, called a mock.
+- **Dependency injection:** to make the ViewModel testable, its service goes through a protocol, with the real one as the default, so tests can pass a fake one, called a mock.
 
 ### Networking
 
@@ -73,7 +73,7 @@ Requires Xcode 26.5 or later. Open `TVMazeApp/TVMazeApp.xcodeproj`, run the app 
 ## Tests
 
 - **Swift Testing:** Apple's testing framework, newer than XCTest. `@Test` marks a test, `#expect` checks a result or an error, and `#require` stops a test early when something it needs is missing.
-- **Coverage:** the service, the ViewModel, the Transformer and the saved favorites are tested without internet, using mocks.
+- **Coverage:** the service, the ViewModel and the Transformer are tested with mocks, and the saved favorites with an in-memory database, all without internet.
 - **UI tests:** `XCUIAutomation` drives the real app through search and favorites using the live API, and `performAccessibilityAudit` checks the results screen. They're written in XCTest because Swift Testing doesn't support UI tests.
 - **Real API data:** a JSON file recorded from the real API, with one show fully filled and one with every optional field empty or missing, so decoding is checked against what the API really sends.
 
