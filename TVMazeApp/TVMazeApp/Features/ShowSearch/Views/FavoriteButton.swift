@@ -14,8 +14,8 @@ struct FavoriteButton: View {
     private enum Constants {
         static let buttonSize: CGFloat = 40
         static let backgroundOpacity: CGFloat = 0.3
-        static let addAccessibilityLabel = "Add to favorites"
-        static let removeAccessibilityLabel = "Remove from favorites"
+        static let addAccessibilityLabel = String(localized: "Add to favorites")
+        static let removeAccessibilityLabel = String(localized: "Remove from favorites")
     }
 
     @Environment(\.modelContext) private var context

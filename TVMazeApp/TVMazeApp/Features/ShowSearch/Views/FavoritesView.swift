@@ -10,7 +10,7 @@ import SwiftData
 
 struct FavoritesView: View {
     private enum Constants {
-        static let title = "Favorites"
+        static let title = String(localized: "Favorites")
         static let thumbnailWidth: CGFloat = 50
         static let thumbnailHeight: CGFloat = 75
         static let thumbnailCornerRadius: CGFloat = 8

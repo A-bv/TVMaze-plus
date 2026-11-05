@@ -31,8 +31,8 @@ struct ShowSearchTransformerTests {
         let transformedShows = sut.transform(shows)
         
         #expect(transformedShows.first?.years == "2021 – ")
-        #expect(transformedShows.first?.rating == "N/A")
-        #expect(transformedShows.first?.summary == "No summary available.")
+        #expect(transformedShows.first?.rating == String(localized: "N/A"))
+        #expect(transformedShows.first?.summary == String(localized: "No summary available."))
         #expect(transformedShows.first?.websiteURL == URL(string: "www.maze-url.com"))
     }
 }

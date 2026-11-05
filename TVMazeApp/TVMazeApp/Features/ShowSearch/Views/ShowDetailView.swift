@@ -10,9 +10,9 @@ import SwiftUI
 struct ShowDetailView: View {
     private enum Constants {
         static let ratingIcon = "star.fill"
-        static let ratingAccessibilityLabel = "Rating"
-        static let websiteTitle = "Website"
-        static let updatedTitle = "Last updated:"
+        static let ratingAccessibilityLabel = String(localized: "Rating")
+        static let websiteTitle = String(localized: "Website")
+        static let updatedTitle = String(localized: "Last updated:")
         static let cornerRadius: CGFloat = 16
         static let posterAspectRatio: CGFloat = 2 / 3
     }

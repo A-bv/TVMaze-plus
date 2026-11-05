@@ -12,7 +12,7 @@ struct CardView: View {
         static let posterWidth: CGFloat = 210
         static let posterHeight: CGFloat = 295
         static let ratingIcon = "star.fill"
-        static let ratingAccessibilityLabel = "Rating"
+        static let ratingAccessibilityLabel = String(localized: "Rating")
         static let cornerRadius: CGFloat = 16
     }
     

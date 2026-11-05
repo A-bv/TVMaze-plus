@@ -18,6 +18,7 @@ Search TV shows, open their details and keep favorites on device. A native Swift
 - Search shows by name and browse the results as poster cards.
 - Open a show for its full details and a link to its website.
 - Save favorites on device from any card or detail screen, and find them in their own tab.
+- Use the app in English or French.
 
 ## Architecture
 
@@ -41,6 +42,7 @@ With SwiftData, simple reads and writes can stay in the views, since SwiftData k
 - **Search:** `.searchable` adds the standard iOS search bar, and `.onSubmit(of: .search)` asks the ViewModel for results when the user presses Search on the keyboard.
 - **Empty states (iOS 17):** `ContentUnavailableView` shows a message before the first search or when a search fails, and Apple's standard "No Results" view when nothing is found.
 - **Accessibility:** VoiceOver labels describe what buttons do and what values mean, and text adapts to the user's chosen size.
+- **Localization (Xcode 15):** a String Catalog holds the app's text in English and French, instead of the older `.strings` files.
 - **Tabs (iOS 18):** each tab is declared with the new `Tab` API, instead of the older `.tabItem`.
 
 ### ViewModel (logic)

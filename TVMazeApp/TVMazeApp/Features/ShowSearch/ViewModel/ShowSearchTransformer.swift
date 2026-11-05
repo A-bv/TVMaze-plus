@@ -9,9 +9,9 @@ import Foundation
 
 struct ShowSearchTransformer {
     private enum Constants {
-        static let noSummaryMessage = "No summary available."
-        static let noRatingMessage = "N/A"
-        static let unknownYear = "Upcoming"
+        static let noSummaryMessage = String(localized: "No summary available.")
+        static let noRatingMessage = String(localized: "N/A")
+        static let unknownYear = String(localized: "Upcoming")
     }
     
     func transform(_ models: [ShowSearchModel]) -> [ShowItemModel] {

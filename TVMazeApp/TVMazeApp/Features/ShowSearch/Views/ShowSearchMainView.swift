@@ -10,13 +10,13 @@ import SwiftUI
 
 struct ShowSearchMainView: View {
     private enum Constants {
-        static let title = "TV Shows"
-        static let searchPrompt = "Search a show"
-        static let errorTitle = "Something went wrong"
-        static let errorMessage = "Check your connection or search for something else."
+        static let title = String(localized: "TV Shows")
+        static let searchPrompt = String(localized: "Search a show")
+        static let errorTitle = String(localized: "Something went wrong")
+        static let errorMessage = String(localized: "Check your connection or search for something else.")
         static let errorIcon = "exclamationmark.triangle"
-        static let emptyTitle = "Search for a show"
-        static let emptyMessage = "Type a show's name and press Search."
+        static let emptyTitle = String(localized: "Search for a show")
+        static let emptyMessage = String(localized: "Type a show's name and press Search.")
         static let emptyIcon = "tv"
     }
     
