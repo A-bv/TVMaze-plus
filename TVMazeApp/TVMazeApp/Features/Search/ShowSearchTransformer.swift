@@ -15,12 +15,10 @@ struct ShowSearchTransformer {
     }
     
     func transform(_ models: [ShowSearchModel]) -> [ShowItemModel] {
-        var items: [ShowItemModel] = []
-        
-        for model in models {
+        models.map { model in
             let show = model.show
-            
-            let item = ShowItemModel(
+
+            return ShowItemModel(
                 id: show.id,
                 name: show.name,
                 posterURL: makeURL(string: show.image?.medium),
@@ -34,11 +32,7 @@ struct ShowSearchTransformer {
                 language: show.language ?? "",
                 websiteURL: URL(string: show.officialSite ?? show.url),
                 lastUpdated: Date(timeIntervalSince1970: TimeInterval(show.updated)))
-            
-            items.append(item)
         }
-        
-        return items
     }
     
     private func buildTimeRange(start: String?, end: String?) -> String {

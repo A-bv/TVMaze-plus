@@ -11,7 +11,7 @@ import Foundation
 
 @MainActor
 struct ShowSearchTransformerTests {
-    @Test func transformer_withInitialData_transformsToExpecedData() {
+    @Test func transformer_withInitialData_transformsToExpectedData() {
         let sut = makeSut()
         let shows = FakeShowSearchData.makeShows()
         let transformedShows = sut.transform(shows)
@@ -25,7 +25,7 @@ struct ShowSearchTransformerTests {
         #expect(transformedShows.first?.lastUpdated == Date(timeIntervalSince1970: 1790843609))
     }
     
-    @Test func transformer_withNilData_transformsToExpecedData() {
+    @Test func transformer_withNilData_transformsToExpectedData() {
         let sut = makeSut()
         let shows = FakeShowSearchData.makeShows(withNilValues: true)
         let transformedShows = sut.transform(shows)
@@ -49,7 +49,7 @@ struct ShowSearchTransformerTests {
 }
 
 extension ShowSearchTransformerTests {
-    func makeSut() -> ShowSearchTransformer {
+    private func makeSut() -> ShowSearchTransformer {
         ShowSearchTransformer()
     }
 }
