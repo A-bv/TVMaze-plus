@@ -13,7 +13,7 @@ struct ShowSearchMainView: View {
         static let title = String(localized: "TV Shows")
         static let searchPrompt = String(localized: "Search a show")
         static let errorTitle = String(localized: "Something went wrong")
-        static let errorMessage = String(localized: "Check your connection or search for something else.")
+        static let errorMessage = String(localized: "Try a different search.")
         static let errorIcon = "exclamationmark.triangle"
         static let emptyTitle = String(localized: "Search for a show")
         static let emptyMessage = String(localized: "Type a show's name and press Search.")
