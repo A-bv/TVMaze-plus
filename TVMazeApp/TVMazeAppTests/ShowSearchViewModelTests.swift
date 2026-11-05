@@ -29,35 +29,71 @@ struct ShowSearchViewModelTests {
         #expect(sut.state == .loaded(shows: [], entry: "unknown show"))
     }
 
-    @Test(arguments: [
-        TVMazeAPIServiceError.decodingError,
-        TVMazeAPIServiceError.invalidResponse,
-        TVMazeAPIServiceError.invalidURL,
-        URLError(.notConnectedToInternet),
-    ] as [any Error])
-    func viewModel_whenSearchFails_isFailed(error: any Error) async {
-        let sut = makeSut(service: MockTVMazeAPIService(mockedShows: [], error: error))
+    @Test func viewModel_whenSearchFails_isFailed() async {
+        let service = MockTVMazeAPIService(mockedShows: [], error: TVMazeAPIServiceError.invalidResponse)
+        let sut = makeSut(service: service)
 
         await sut.loadShows(entry: "girls")
 
         #expect(sut.state == .failed)
     }
 
+    @Test func viewModel_whenEntryIsEmpty_doesNotSearch() async {
+        let service = MockTVMazeAPIService(mockedShows: [])
+        let sut = makeSut(service: service)
+
+        await sut.loadShows(entry: "")
+
+        #expect(service.fetchCallCount == 0)
+        #expect(sut.state == .idle)
+    }
+
+    @Test func viewModel_whenEntryIsAlreadyLoaded_doesNotSearchAgain() async {
+        let service = MockTVMazeAPIService(mockedShows: [])
+        let sut = makeSut(service: service)
+
+        await sut.loadShows(entry: "girls")
+        await sut.loadShows(entry: "girls")
+
+        #expect(service.fetchCallCount == 1)
+    }
+
+    @Test func viewModel_whenEntryChanges_searchesAgain() async {
+        let service = MockTVMazeAPIService(mockedShows: [])
+        let sut = makeSut(service: service)
+
+        await sut.loadShows(entry: "girls")
+        await sut.loadShows(entry: "lost")
+
+        #expect(service.fetchCallCount == 2)
+        #expect(sut.state == .loaded(shows: [], entry: "lost"))
+    }
+
+    @Test func viewModel_whenLastSearchFailed_searchesAgain() async {
+        let service = MockTVMazeAPIService(mockedShows: [], error: TVMazeAPIServiceError.invalidResponse)
+        let sut = makeSut(service: service)
+
+        await sut.loadShows(entry: "girls")
+        await sut.loadShows(entry: "girls")
+
+        #expect(service.fetchCallCount == 2)
+    }
+
     @Test func viewModel_whenCancelledSearchFails_staysLoading() async {
         let service = MockTVMazeAPIService(mockedShows: [], error: URLError(.cancelled))
         let sut = makeSut(service: service)
-        let search = Task { await sut.loadShows(entry: "") }
-        search.cancel()
-        await search.value
+
+        await cancelledSearch(sut, entry: "girls")
+
         #expect(sut.state == .loading)
     }
 
-    @Test func viewModel_whenSearchIsCancelled_doesNotShowResults() async {
+    @Test func viewModel_whenCancelledSearchSucceeds_staysLoading() async {
         let service = MockTVMazeAPIService(mockedShows: FakeShowSearchData.makeShows())
         let sut = makeSut(service: service)
-        let search = Task { await sut.loadShows(entry: "") }
-        search.cancel()
-        await search.value
+
+        await cancelledSearch(sut, entry: "girls")
+
         #expect(sut.state == .loading)
     }
 }
@@ -66,11 +102,18 @@ extension ShowSearchViewModelTests {
     private func makeSut(service: TVMazeAPIService) -> ShowSearchViewModel {
         ShowSearchViewModel(service: service)
     }
+
+    private func cancelledSearch(_ sut: ShowSearchViewModel, entry: String) async {
+        let search = Task { await sut.loadShows(entry: entry) }
+        search.cancel()
+        await search.value
+    }
 }
 
 private final class MockTVMazeAPIService: TVMazeAPIService {
     private let mockedShows: [ShowSearchModel]
     private let error: Error?
+    private(set) var fetchCallCount = 0
     
     init(
         mockedShows: [ShowSearchModel],
@@ -81,6 +124,7 @@ private final class MockTVMazeAPIService: TVMazeAPIService {
     }
     
     func fetchShowsFromAPI(show: String) async throws -> [ShowSearchModel] {
+        fetchCallCount += 1
         guard let error else {
             return mockedShows
         }

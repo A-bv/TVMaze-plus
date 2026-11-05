@@ -5,6 +5,7 @@
 //  Created by Alexandre Bevilacqua on 26.09.2026.
 //
 
+import SwiftData
 import SwiftUI
 
 struct ShowSearchMainView: View {
@@ -12,33 +13,31 @@ struct ShowSearchMainView: View {
         static let title = "TV Shows"
         static let searchPrompt = "Search a show"
         static let errorTitle = "Something went wrong"
-        static let errorMessage = "Try again later."
+        static let errorMessage = "Check your connection or search for something else."
         static let errorIcon = "exclamationmark.triangle"
         static let emptyTitle = "Search for a show"
         static let emptyMessage = "Type a show's name and press Search."
         static let emptyIcon = "tv"
     }
     
-    @State private var viewModel = ShowSearchViewModel(service: TVMazeAPIServiceImpl())
+    @State private var viewModel = ShowSearchViewModel()
     @State private var searchText = ""
-    @State private var pendingSearch: String?
+    @State private var submittedSearch = ""
 
     var body: some View {
         NavigationStack {
             content
-            .navigationTitle(Constants.title)
-            .searchable(
-                text: $searchText,
-                placement: .navigationBarDrawer(displayMode: .always),
-                prompt: Constants.searchPrompt)
-            .onSubmit(of: .search) {
-                pendingSearch = searchText
-            }
-            .task(id: pendingSearch) {
-                guard let entry = pendingSearch, !entry.isEmpty else { return }
-                await viewModel.loadShows(entry: entry)
-                if !Task.isCancelled { pendingSearch = nil }
-            }
+                .navigationTitle(Constants.title)
+                .searchable(
+                    text: $searchText,
+                    placement: .navigationBarDrawer(displayMode: .always),
+                    prompt: Constants.searchPrompt)
+                .onSubmit(of: .search) {
+                    submittedSearch = searchText
+                }
+                .task(id: submittedSearch) {
+                    await viewModel.loadShows(entry: submittedSearch)
+                }
         }
     }
 
@@ -81,4 +80,5 @@ struct ShowSearchMainView: View {
 
 #Preview {
     ShowSearchMainView()
+        .modelContainer(for: SavedShowModel.self, inMemory: true)
 }

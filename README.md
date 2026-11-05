@@ -46,7 +46,7 @@ With SwiftData, simple reads and writes can stay in the views, since SwiftData k
 
 - **Observation (iOS 17):** marking the ViewModel `@Observable` lets the view observe its changes, with no extra code. It replaces the older `ObservableObject` and works with `@State` in the view.
 - **Concurrency (Xcode 26):** with the new `MainActor` default isolation, all code runs on the main thread, the one that updates the screen, unless marked otherwise. So the ViewModel needs no `@MainActor`, and the app passes Swift 6's strict concurrency checks.
-- **Loading and errors:** the ViewModel tracks loading and errors, so the screen shows a spinner while waiting and an alert when something fails.
+- **Loading and errors:** the ViewModel tracks loading and errors, so the screen shows a spinner while waiting and an error message when something fails.
 - **Transformer:** the API sends raw data, such as dates like "2016-07-15" and summaries with HTML tags. The Transformer turns it into the domain models the screens use: years like "2016 – 2025", a rating like "8.4", the summary as plain text, and a default when a field is missing. When the API changes, the screens don't have to.
 - **Dependency injection:** to make the ViewModel testable, it receives its service through a protocol instead of creating it, so tests can pass a fake one, called a mock.
 
@@ -54,7 +54,7 @@ With SwiftData, simple reads and writes can stay in the views, since SwiftData k
 
 - **`async/await`:** the app waits for the API's answer without freezing the screen, instead of using the older completion handlers.
 - **`Decodable`:** turns the API's JSON text into networking models automatically. Fields the API sometimes leaves out are optional, so a missing one doesn't cause an error.
-- **Typed errors:** API failures use their own error type, so the ViewModel can tell them apart from unexpected ones.
+- **Typed errors:** API failures use their own error type, so each failure is clear and easy to test.
 - **DataSession:** a protocol that exists only for tests. In the app the service uses `URLSession`, but for tests we give it a fake session instead. Both follow `DataSession`, so the service accepts either one and is tested without internet.
 
 ### Persistence

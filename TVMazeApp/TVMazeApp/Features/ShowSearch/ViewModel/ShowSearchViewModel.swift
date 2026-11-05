@@ -19,17 +19,17 @@ final class ShowSearchViewModel {
     }
 
     private let service: TVMazeAPIService
-    private let transformer: ShowSearchTransformer
+    private let transformer = ShowSearchTransformer()
 
     private(set) var state: SearchState = .idle
 
-    init(service: TVMazeAPIService,
-         transformer: ShowSearchTransformer = ShowSearchTransformer()) {
+    init(service: TVMazeAPIService = TVMazeAPIServiceImpl()) {
         self.service = service
-        self.transformer = transformer
     }
 
     func loadShows(entry: String) async {
+        guard !entry.isEmpty else { return }
+        if case .loaded(_, entry) = state { return }
         state = .loading
         do {
             let results = try await service.fetchShowsFromAPI(show: entry)
