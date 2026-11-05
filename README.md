@@ -39,7 +39,7 @@ With SwiftData, simple reads and writes can stay in the views, since SwiftData k
 - **Navigation:** screens open the next one themselves. Tapping a card follows a `NavigationLink` to the detail screen, inside a `NavigationStack`. UIKit apps often needed a separate coordinator object to move between screens.
 - **Liquid Glass (iOS 26):** Apple's new see-through design. `glassEffect` gives any view the glass look, and the `.glassProminent` button style makes a button stand out with it.
 - **Search:** `.searchable` adds the standard iOS search bar, and `.onSubmit(of: .search)` asks the ViewModel for results when the user presses Search on the keyboard.
-- **Empty states (iOS 17):** `ContentUnavailableView` shows a message before the first search, and Apple's standard "No Results" view when nothing is found.
+- **Empty states (iOS 17):** `ContentUnavailableView` shows a message before the first search or when a search fails, and Apple's standard "No Results" view when nothing is found.
 - **Accessibility:** VoiceOver labels describe what buttons do and what values mean, and text adapts to the user's chosen size.
 - **Tabs (iOS 18):** each tab is declared with the new `Tab` API, instead of the older `.tabItem`.
 
@@ -54,7 +54,7 @@ With SwiftData, simple reads and writes can stay in the views, since SwiftData k
 ### Networking
 
 - **`async/await`:** the app waits for the API's answer without freezing the screen, instead of using the older completion handlers.
-- **`Decodable`:** turns the API's JSON text into networking models automatically. Fields the API sometimes leaves out are optional, so a missing one doesn't cause an error.
+- **`Decodable`:** turns the API's JSON text into networking models automatically. Fields the API sometimes leaves out are optional, so a missing one doesn't cause an error. Only the fields the app uses are decoded, so changes to the others can't break a search.
 - **Typed errors:** API failures use their own error type, so each failure is clear and easy to test.
 - **DataSession:** a protocol that exists only for tests. In the app the service uses `URLSession`, but for tests we give it a fake session instead. Both follow `DataSession`, so the service accepts either one and is tested without internet.
 
