@@ -73,7 +73,7 @@ Requires Xcode 26.5 or later. Open `TVMazeApp/TVMazeApp.xcodeproj`, run the app 
 ## Tests
 
 - **Swift Testing:** Apple's testing framework, newer than XCTest. `@Test` marks a test, `#expect` checks a result or an error, and `#require` stops a test early when something it needs is missing.
-- **Coverage:** the service, the ViewModel and the Transformer are tested without internet, using mocks.
+- **Coverage:** the service, the ViewModel, the Transformer and the saved favorites are tested without internet, using mocks.
 - **Real API data:** a JSON file recorded from the real API, with one show fully filled and one with every optional field empty or missing, so decoding is checked against what the API really sends.
 
 ## License

@@ -35,6 +35,17 @@ struct ShowSearchTransformerTests {
         #expect(transformedShows.first?.summary == String(localized: "No summary available."))
         #expect(transformedShows.first?.websiteURL == URL(string: "www.maze-url.com"))
     }
+
+    @Test func transformer_withUpcomingShow_usesDefaults() {
+        let sut = makeSut()
+        let shows = FakeShowSearchData.makeShows(isUpcoming: true)
+        let transformedShows = sut.transform(shows)
+
+        #expect(transformedShows.first?.years == String(localized: "Upcoming"))
+        #expect(transformedShows.first?.posterURL == nil)
+        #expect(transformedShows.first?.largePosterURL == nil)
+        #expect(transformedShows.first?.language == "")
+    }
 }
 
 extension ShowSearchTransformerTests {
