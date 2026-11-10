@@ -8,7 +8,18 @@
 import Foundation
 
 extension String {
-    func strippingHTMLTags() -> String {
-        replacingOccurrences(of: "<[^>]+>", with: "", options: .regularExpression)
+    private static let htmlEntities = [
+        ("&quot;", "\""),
+        ("&#39;", "'"),
+        ("&nbsp;", " "),
+        ("&lt;", "<"),
+        ("&gt;", ">"),
+        ("&amp;", "&")
+    ]
+
+    func strippingHTML() -> String {
+        Self.htmlEntities.reduce(replacingOccurrences(of: "<[^>]+>", with: "", options: .regularExpression)) { text, entity in
+            text.replacingOccurrences(of: entity.0, with: entity.1)
+        }
     }
 }

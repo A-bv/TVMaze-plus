@@ -23,7 +23,7 @@ struct EpisodeTransformer {
     }
 
     private func cleanSummary(htmlSummary: String?) -> String? {
-        guard let summary = htmlSummary?.strippingHTMLTags(), !summary.isEmpty else {
+        guard let summary = htmlSummary?.strippingHTML(), !summary.isEmpty else {
             return nil
         }
         return summary

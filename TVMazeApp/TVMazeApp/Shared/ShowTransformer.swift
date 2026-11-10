@@ -64,6 +64,6 @@ struct ShowTransformer {
         guard let htmlSummary else {
             return Constants.noSummaryMessage
         }
-        return htmlSummary.strippingHTMLTags()
+        return htmlSummary.strippingHTML()
     }
 }
