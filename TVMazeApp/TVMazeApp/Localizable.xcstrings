@@ -131,12 +131,42 @@
         }
       }
     },
+    "Date added" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Date d'ajout"
+          }
+        }
+      }
+    },
     "Died %@" : {
       "localizations" : {
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Décès : %@"
+          }
+        }
+      }
+    },
+    "Done" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "OK"
+          }
+        }
+      }
+    },
+    "Edit" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Modifier"
           }
         }
       }
@@ -177,6 +207,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Galerie"
+          }
+        }
+      }
+    },
+    "Grid" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Grille"
           }
         }
       }
@@ -251,6 +291,36 @@
         }
       }
     },
+    "Layout" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Disposition"
+          }
+        }
+      }
+    },
+    "List" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Liste"
+          }
+        }
+      }
+    },
+    "Name" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nom"
+          }
+        }
+      }
+    },
     "New episodes on streaming" : {
       "localizations" : {
         "fr" : {
@@ -267,6 +337,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Suivant"
+          }
+        }
+      }
+    },
+    "Next episode" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Prochain épisode"
           }
         }
       }
@@ -561,6 +641,16 @@
         }
       }
     },
+    "Sort by" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Trier par"
+          }
+        }
+      }
+    },
     "Tap the heart on a show to keep it here." : {
       "localizations" : {
         "fr" : {
@@ -647,6 +737,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "À venir"
+          }
+        }
+      }
+    },
+    "View options" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Affichage"
           }
         }
       }

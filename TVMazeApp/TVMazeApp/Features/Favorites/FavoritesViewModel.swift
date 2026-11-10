@@ -10,6 +10,15 @@ import Observation
 
 @Observable
 final class FavoritesViewModel {
+    enum SortOrder: String, CaseIterable, Identifiable {
+        case dateAdded
+        case nextEpisode
+        case name
+        case rating
+
+        var id: Self { self }
+    }
+
     private let service: TVMazeAPIService
     private let transformer = UpNextTransformer()
     private let showTransformer = ShowTransformer()
@@ -34,5 +43,26 @@ final class FavoritesViewModel {
         upNext = showIDs
             .compactMap { upNextByShow[$0] }
             .sorted { $0.airDate < $1.airDate }
+    }
+
+    func nextAirDate(of showID: Int) -> Date? {
+        upNextByShow[showID]?.airDate
+    }
+
+    func sorted(_ favorites: [SavedShowModel], by order: SortOrder) -> [SavedShowModel] {
+        switch order {
+        case .dateAdded:
+            favorites.sorted { $0.savedAt > $1.savedAt }
+        case .nextEpisode:
+            favorites.sorted { nextAirDate(of: $0.id) ?? .distantFuture < nextAirDate(of: $1.id) ?? .distantFuture }
+        case .name:
+            favorites.sorted { $0.name.localizedStandardCompare($1.name) == .orderedAscending }
+        case .rating:
+            favorites.sorted { ratingValue(of: $0) > ratingValue(of: $1) }
+        }
+    }
+
+    private func ratingValue(of favorite: SavedShowModel) -> Double {
+        favorite.rating.flatMap(Double.init) ?? 0
     }
 }

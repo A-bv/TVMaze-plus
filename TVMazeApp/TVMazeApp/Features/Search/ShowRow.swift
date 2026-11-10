@@ -21,6 +21,7 @@ struct ShowRow: View {
     }
 
     let show: ShowItemModel
+    var detail: String?
 
     var body: some View {
         HStack(spacing: Constants.spacing) {
@@ -42,6 +43,11 @@ struct ShowRow: View {
                         .font(.footnote.weight(.semibold))
                         .foregroundStyle(.tint)
                         .accessibilityLabel("\(Constants.ratingAccessibilityLabel) \(rating)")
+                }
+                if let detail {
+                    Text(detail)
+                        .font(.footnote.weight(.semibold))
+                        .foregroundStyle(Color.primary)
                 }
             }
             .font(.subheadline)

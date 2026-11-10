@@ -23,6 +23,7 @@ struct GlassChip: View {
                 Image(systemName: icon)
             }
             Text(text)
+                .lineLimit(1)
         }
         .font(.caption.weight(.bold))
         .padding(.horizontal, Constants.horizontalPadding)
