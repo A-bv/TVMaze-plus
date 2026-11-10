@@ -44,6 +44,31 @@ struct ShowTransformerTests {
         #expect(transformedShow.largePosterURL == nil)
         #expect(transformedShow.language == "")
     }
+
+    @Test func transformer_withShowEndingTheYearItStarted_showsOneYear() {
+        let sut = makeSut()
+        let show = Show(
+            id: 0,
+            url: "www.maze-url.com",
+            name: "name",
+            type: "type",
+            language: nil,
+            genres: [],
+            status: "Ended",
+            averageRuntime: nil,
+            premiered: "2025-01-10",
+            ended: "2025-03-28",
+            officialSite: nil,
+            schedule: ShowSchedule(time: "", days: []),
+            rating: Rating(average: nil),
+            network: nil,
+            webChannel: nil,
+            image: nil,
+            summary: nil,
+            updated: 0)
+
+        #expect(sut.transform(show).years == "2025")
+    }
 }
 
 extension ShowTransformerTests {

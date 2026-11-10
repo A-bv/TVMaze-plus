@@ -36,7 +36,7 @@ struct ShowTransformer {
         guard let startYear = start?.split(separator: "-").first else {
             return Constants.unknownYear
         }
-        guard let endYear = end?.split(separator: "-").first else {
+        guard let endYear = end?.split(separator: "-").first, endYear != startYear else {
             return String(startYear)
         }
         return "\(startYear) – \(endYear)"
