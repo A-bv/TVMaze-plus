@@ -13,7 +13,7 @@ import Foundation
 struct ShowSearchViewModelTests {
     @Test func viewModel_whenSearchSucceeds_isLoadedWithShowsAndEntry() async {
         let fakeData = FakeShowSearchData.makeShows()
-        let expected = ShowSearchTransformer().transform(fakeData)
+        let expected = fakeData.map { ShowTransformer().transform($0.show) }
         let sut = makeSut(service: MockTVMazeAPIService(mockedShows: fakeData))
 
         await sut.loadShows(entry: "girls")

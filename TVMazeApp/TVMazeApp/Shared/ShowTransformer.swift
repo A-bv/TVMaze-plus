@@ -1,5 +1,5 @@
 //
-//  ShowSearchTransformer.swift
+//  ShowTransformer.swift
 //  TVMazeApp
 //
 //  Created by Alexandre Bevilacqua on 05.10.2026.
@@ -7,32 +7,28 @@
 
 import Foundation
 
-struct ShowSearchTransformer {
+struct ShowTransformer {
     private enum Constants {
         static let noSummaryMessage = String(localized: "No summary available.")
         static let noRatingMessage = String(localized: "N/A")
         static let unknownYear = String(localized: "Upcoming")
     }
     
-    func transform(_ models: [ShowSearchModel]) -> [ShowItemModel] {
-        models.map { model in
-            let show = model.show
-
-            return ShowItemModel(
-                id: show.id,
-                name: show.name,
-                posterURL: makeURL(string: show.image?.medium),
-                years: buildTimeRange(start: show.premiered, end: show.ended),
-                status: show.status,
-                genres: show.genres.joined(separator: ", "),
-                rating: formatRating(rating: show.rating.average),
-                largePosterURL: makeURL(string: show.image?.original),
-                summary: cleanSummary(htmlSummary: show.summary),
-                type: show.type,
-                language: show.language ?? "",
-                websiteURL: URL(string: show.officialSite ?? show.url),
-                lastUpdated: Date(timeIntervalSince1970: TimeInterval(show.updated)))
-        }
+    func transform(_ show: Show) -> ShowItemModel {
+        ShowItemModel(
+            id: show.id,
+            name: show.name,
+            posterURL: makeURL(string: show.image?.medium),
+            years: buildTimeRange(start: show.premiered, end: show.ended),
+            status: show.status,
+            genres: show.genres.joined(separator: ", "),
+            rating: formatRating(rating: show.rating.average),
+            largePosterURL: makeURL(string: show.image?.original),
+            summary: cleanSummary(htmlSummary: show.summary),
+            type: show.type,
+            language: show.language ?? "",
+            websiteURL: URL(string: show.officialSite ?? show.url),
+            lastUpdated: Date(timeIntervalSince1970: TimeInterval(show.updated)))
     }
     
     private func buildTimeRange(start: String?, end: String?) -> String {

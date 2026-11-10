@@ -12,7 +12,7 @@ import Testing
 @MainActor
 struct SavedShowModelTests {
     @Test func savedShow_whenConvertedBack_matchesTheOriginalShow() throws {
-        let show = try #require(ShowSearchTransformer().transform(FakeShowSearchData.makeShows()).first)
+        let show = try #require(FakeShowSearchData.makeShows().first.map { ShowTransformer().transform($0.show) })
         let savedShow = SavedShowModel(from: show)
         #expect(savedShow.showItem == show)
     }
@@ -45,7 +45,7 @@ struct SavedShowModelTests {
 
 extension SavedShowModelTests {
     private func makeShow() throws -> ShowItemModel {
-        try #require(ShowSearchTransformer().transform(FakeShowSearchData.makeShows()).first)
+        try #require(FakeShowSearchData.makeShows().first.map { ShowTransformer().transform($0.show) })
     }
 
     private func makeContainer() throws -> ModelContainer {

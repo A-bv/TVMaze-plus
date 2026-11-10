@@ -19,7 +19,7 @@ final class ShowSearchViewModel {
     }
 
     private let service: TVMazeAPIService
-    private let transformer = ShowSearchTransformer()
+    private let transformer = ShowTransformer()
 
     private(set) var state: SearchState = .idle
 
@@ -34,7 +34,7 @@ final class ShowSearchViewModel {
         do {
             let results = try await service.fetchShows(name: entry)
             if Task.isCancelled { return }
-            state = .loaded(shows: transformer.transform(results), entry: entry)
+            state = .loaded(shows: results.map { transformer.transform($0.show) }, entry: entry)
         } catch {
             if Task.isCancelled { return }
             state = .failed
