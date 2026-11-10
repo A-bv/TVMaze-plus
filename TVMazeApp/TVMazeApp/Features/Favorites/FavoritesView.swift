@@ -5,7 +5,6 @@
 //  Created by Alexandre Bevilacqua on 07.10.2026.
 //
 
-import NeumorphicSwiftUI
 import SwiftData
 import SwiftUI
 
@@ -13,9 +12,6 @@ struct FavoritesView: View {
     private enum Constants {
         static let title = String(localized: "Favorites")
         static let showsTitle = String(localized: "Your shows")
-        static let removeTitle = String(localized: "Remove from favorites")
-        static let removeIcon = "heart.slash"
-        static let removeBadgeIcon = "minus.circle.fill"
         static let editTitle = String(localized: "Edit")
         static let doneTitle = String(localized: "Done")
         static let optionsTitle = String(localized: "View options")
@@ -26,14 +22,6 @@ struct FavoritesView: View {
         static let emptyMessage = String(localized: "Tap the heart on a show to keep it here.")
         static let emptyIcon = "heart"
         static let sectionSpacing: CGFloat = 32
-        static let gridSpacing: CGFloat = 14
-        static let rowSpacing: CGFloat = 14
-        static let columnCount = 3
-        static let posterAspectRatio: CGFloat = 2 / 3
-        static let posterCornerRadius: CGFloat = 14
-        static let chipPadding: CGFloat = 6
-        static let badgeOffset: CGFloat = -8
-        static let rowBadgePadding: CGFloat = 16
     }
 
     enum Layout: String, CaseIterable, Identifiable {
@@ -57,7 +45,6 @@ struct FavoritesView: View {
         }
     }
 
-    @Environment(\.modelContext) private var context
     @Query(sort: \SavedShowModel.savedAt, order: .reverse) private var favorites: [SavedShowModel]
     @State private var viewModel = FavoritesViewModel()
     @State private var isEditing = false
@@ -113,8 +100,10 @@ struct FavoritesView: View {
                     }
                     DetailSection(title: Constants.showsTitle) {
                         switch layout {
-                        case .grid: grid
-                        case .list: list
+                        case .grid:
+                            FavoritesGrid(favorites: sortedFavorites, viewModel: viewModel, isEditing: isEditing)
+                        case .list:
+                            FavoritesList(favorites: sortedFavorites, viewModel: viewModel, isEditing: isEditing)
                         }
                     }
                     AttributionFooter()
@@ -143,86 +132,6 @@ struct FavoritesView: View {
 
     private var sortedFavorites: [SavedShowModel] {
         viewModel.sorted(favorites, by: sortOrder)
-    }
-
-    private var grid: some View {
-        LazyVGrid(
-            columns: Array(repeating: GridItem(spacing: Constants.gridSpacing), count: Constants.columnCount),
-            spacing: Constants.gridSpacing
-        ) {
-            ForEach(sortedFavorites) { favorite in
-                NavigationLink {
-                    ShowDetailView(show: favorite.showItem)
-                } label: {
-                    PosterView(url: favorite.posterURL)
-                        .aspectRatio(Constants.posterAspectRatio, contentMode: .fit)
-                        .overlay(alignment: .bottomLeading) {
-                            GlassChip(text: viewModel.status(of: favorite))
-                                .foregroundStyle(.white)
-                                .padding(Constants.chipPadding)
-                        }
-                        .clipShape(.rect(cornerRadius: Constants.posterCornerRadius))
-                        .neumorphicShadow()
-                }
-                .buttonStyle(.plain)
-                .disabled(isEditing)
-                .accessibilityLabel(favorite.name)
-                .accessibilityValue(viewModel.status(of: favorite, includesTime: true))
-                .overlay(alignment: .topLeading) {
-                    if isEditing {
-                        removeButton(for: favorite)
-                            .offset(x: Constants.badgeOffset, y: Constants.badgeOffset)
-                    }
-                }
-                .contextMenu {
-                    removeMenuButton(for: favorite)
-                }
-            }
-        }
-    }
-
-    private var list: some View {
-        LazyVStack(spacing: Constants.rowSpacing) {
-            ForEach(sortedFavorites) { favorite in
-                NavigationLink {
-                    ShowDetailView(show: favorite.showItem)
-                } label: {
-                    ShowRow(show: favorite.showItem, detail: viewModel.status(of: favorite, includesTime: true))
-                }
-                .buttonStyle(NeumorphicButtonStyle())
-                .disabled(isEditing)
-                .overlay(alignment: .trailing) {
-                    if isEditing {
-                        removeButton(for: favorite)
-                            .padding(.trailing, Constants.rowBadgePadding)
-                    }
-                }
-                .contextMenu {
-                    removeMenuButton(for: favorite)
-                }
-            }
-        }
-    }
-
-    private func removeButton(for favorite: SavedShowModel) -> some View {
-        Button {
-            withAnimation {
-                context.delete(favorite)
-            }
-        } label: {
-            Image(systemName: Constants.removeBadgeIcon)
-                .font(.title2)
-                .symbolRenderingMode(.palette)
-                .foregroundStyle(.white, .red)
-        }
-        .accessibilityLabel("\(Constants.removeTitle), \(favorite.name)")
-        .transition(.scale.combined(with: .opacity))
-    }
-
-    private func removeMenuButton(for favorite: SavedShowModel) -> some View {
-        Button(Constants.removeTitle, systemImage: Constants.removeIcon, role: .destructive) {
-            context.delete(favorite)
-        }
     }
 
     private func title(of order: FavoritesViewModel.SortOrder) -> String {
