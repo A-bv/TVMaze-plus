@@ -13,12 +13,20 @@ struct DetailSection<Content: View>: View {
     }
 
     let title: String
+    var icon: String?
     @ViewBuilder let content: Content
 
     var body: some View {
         VStack(alignment: .leading, spacing: Constants.spacing) {
-            Text(title)
-                .font(.title2.weight(.bold))
+            Label {
+                Text(title)
+            } icon: {
+                if let icon {
+                    Image(systemName: icon)
+                        .foregroundStyle(.tint)
+                }
+            }
+            .font(.title2.weight(.bold))
                 .accessibilityAddTraits(.isHeader)
             content
         }

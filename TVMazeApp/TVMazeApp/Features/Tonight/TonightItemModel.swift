@@ -9,6 +9,7 @@ import Foundation
 
 struct TonightItemModel: Equatable {
     let pick: ScheduleItemModel?
+    let isPickOnTV: Bool
     let streaming: [ScheduleItemModel]
     let timeSlots: [TimeSlotItemModel]
     let timeZone: TimeZone

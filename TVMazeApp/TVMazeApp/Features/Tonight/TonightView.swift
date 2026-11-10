@@ -15,6 +15,7 @@ struct TonightView: View {
         static let streamingTitle = String(localized: "New episodes on streaming")
         static let tonightTitle = String(localized: "On TV tonight")
         static let tonightPick = String(localized: "Tonight's pick")
+        static let streamingIcon = "play.tv"
         static let sectionSpacing: CGFloat = 32
         static let separator = " · "
     }
@@ -53,7 +54,7 @@ struct TonightView: View {
                     pick: pick,
                     eyebrow: eyebrow,
                     timeZone: tonight.timeZone,
-                    timeZoneName: tonight.timeZoneName,
+                    timeZoneName: tonight.isPickOnTV ? tonight.timeZoneName : nil,
                     scrollOffset: scrollOffset)
             }
             .buttonStyle(.plain)
@@ -74,7 +75,7 @@ struct TonightView: View {
             }
         case .loaded(let tonight):
             if !tonight.streaming.isEmpty {
-                DetailSection(title: Constants.streamingTitle) {
+                DetailSection(title: Constants.streamingTitle, icon: Constants.streamingIcon) {
                     ShowCarousel(items: tonight.streaming, show: \.show, caption: caption) { entry in
                         EpisodeDetailView(episode: entry.episode, show: entry.show)
                     }

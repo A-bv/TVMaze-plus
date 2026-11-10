@@ -10,6 +10,7 @@ import SwiftUI
 struct TimelineSection: View {
     private enum Constants {
         static let emptyMessage = String(localized: "No evening listings on this day.")
+        static let icon = "tv"
     }
 
     let title: String
@@ -21,7 +22,7 @@ struct TimelineSection: View {
     let timeSlots: [TimeSlotItemModel]
 
     var body: some View {
-        DetailSection(title: title) {
+        DetailSection(title: title, icon: Constants.icon) {
             HStack {
                 RegionMenu(region: region, regions: regions, countryCode: $countryCode)
                 Spacer()

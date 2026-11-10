@@ -42,6 +42,17 @@ struct TonightTransformerTests {
 
         #expect(tonight.pick?.show.name == "FBI")
         #expect(tonight.pick?.episode.name == "Ultimatum")
+        #expect(tonight.isPickOnTV)
+    }
+
+    @Test func transformer_withoutTVListings_picksTheMostPopularStreamingShow() throws {
+        let tonight = TonightTransformer().transform(
+            schedule: [],
+            webSchedule: try Fixtures.decode([ScheduleEpisodeModel].self, named: "web_schedule_response"),
+            countryCode: "US")
+
+        #expect(tonight.pick?.show.name == "Murdoch Mysteries")
+        #expect(!tonight.isPickOnTV)
     }
 
     @Test func transformer_namesTheTimeZoneByItsGMTOffset() throws {

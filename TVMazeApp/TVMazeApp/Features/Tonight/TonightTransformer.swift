@@ -31,15 +31,15 @@ struct TonightTransformer {
             .filter { $0.show.image != nil }
             .sorted { $0.show.weight > $1.show.weight }
             .prefix(Constants.streamingLimit)
-        let pick = (evening + streaming)
-            .filter { $0.show.image != nil }
-            .max { $0.show.weight < $1.show.weight }
+        let tvPick = evening.first { $0.show.image != nil }
+        let pick = tvPick ?? streaming.first
 
         let timeSlots = groupByTime(evening.map(transform))
         let timeZone = evening.first?.show.network?.country.flatMap { TimeZone(identifier: $0.timezone) } ?? .current
 
         return TonightItemModel(
             pick: pick.map(transform),
+            isPickOnTV: tvPick != nil,
             streaming: streaming.map(transform),
             timeSlots: timeSlots,
             timeZone: timeZone,
