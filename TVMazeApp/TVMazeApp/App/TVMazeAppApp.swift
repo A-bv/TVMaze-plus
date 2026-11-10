@@ -13,6 +13,7 @@ struct TVMazeAppApp: App {
     var body: some Scene {
         WindowGroup {
             MainTabView()
+                .softCinemaTheme()
         }
         .modelContainer(for: SavedShowModel.self)
     }
