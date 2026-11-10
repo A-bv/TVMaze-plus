@@ -49,7 +49,12 @@ struct TonightView: View {
             NavigationLink {
                 EpisodeDetailView(episode: pick.episode, show: pick.show)
             } label: {
-                TonightHero(pick: pick, eyebrow: eyebrow, timeZone: tonight.timeZone, scrollOffset: scrollOffset)
+                TonightHero(
+                    pick: pick,
+                    eyebrow: eyebrow,
+                    timeZone: tonight.timeZone,
+                    timeZoneName: tonight.timeZoneName,
+                    scrollOffset: scrollOffset)
             }
             .buttonStyle(.plain)
         } else {
@@ -81,6 +86,7 @@ struct TonightView: View {
                 regions: viewModel.regions,
                 countryCode: $viewModel.countryCode,
                 timeZone: tonight.timeZone,
+                timeZoneName: tonight.timeZoneName,
                 timeSlots: tonight.timeSlots)
         }
     }

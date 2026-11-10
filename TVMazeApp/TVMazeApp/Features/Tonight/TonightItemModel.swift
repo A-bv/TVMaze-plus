@@ -12,6 +12,7 @@ struct TonightItemModel: Equatable {
     let streaming: [ScheduleItemModel]
     let timeSlots: [TimeSlotItemModel]
     let timeZone: TimeZone
+    let timeZoneName: String
 }
 
 struct ScheduleItemModel: Identifiable, Equatable {

@@ -17,6 +17,7 @@ struct TimelineSection: View {
     let regions: [RegionItemModel]
     @Binding var countryCode: String
     let timeZone: TimeZone
+    let timeZoneName: String
     let timeSlots: [TimeSlotItemModel]
 
     var body: some View {
@@ -24,7 +25,7 @@ struct TimelineSection: View {
             HStack {
                 RegionMenu(region: region, regions: regions, countryCode: $countryCode)
                 Spacer()
-                Text(timeZone.localizedName(for: .generic, locale: .current) ?? "")
+                Text(verbatim: timeZoneName)
                     .font(.subheadline)
                     .foregroundStyle(.secondaryText)
             }

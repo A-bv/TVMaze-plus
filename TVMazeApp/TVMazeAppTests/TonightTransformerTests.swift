@@ -44,10 +44,23 @@ struct TonightTransformerTests {
         #expect(tonight.pick?.episode.name == "Ultimatum")
     }
 
-    @Test func transformer_namesTheCountryAndItsTimeZone() throws {
+    @Test func transformer_namesTheTimeZoneByItsGMTOffset() throws {
         let tonight = try makeTonight()
 
         #expect(tonight.timeZone.identifier == "America/New_York")
+        #expect(tonight.timeZoneName == "GMT-5")
+    }
+
+    @Test func transformer_namesAHalfHourTimeZoneWithItsMinutes() throws {
+        let tonight = try makeTonight(timeZoneIdentifier: "Asia/Kolkata")
+
+        #expect(tonight.timeZoneName == "GMT+5:30")
+    }
+
+    @Test func transformer_namesUTCAsGMT() throws {
+        let tonight = try makeTonight(timeZoneIdentifier: "Africa/Abidjan")
+
+        #expect(tonight.timeZoneName == "GMT")
     }
 
     @Test func transformer_withEmptySchedules_hasNoPick() {
@@ -66,5 +79,12 @@ extension TonightTransformerTests {
             schedule: try Fixtures.decode([ScheduleEpisodeModel].self, named: "schedule_response"),
             webSchedule: try Fixtures.decode([ScheduleEpisodeModel].self, named: "web_schedule_response"),
             countryCode: "US")
+    }
+
+    private func makeTonight(timeZoneIdentifier: String) throws -> TonightItemModel {
+        let json = String(decoding: try Fixtures.data(named: "schedule_response"), as: UTF8.self)
+            .replacing("America/New_York", with: timeZoneIdentifier)
+        let schedule = try JSONDecoder().decode([ScheduleEpisodeModel].self, from: Data(json.utf8))
+        return TonightTransformer().transform(schedule: schedule, webSchedule: [], countryCode: "US")
     }
 }

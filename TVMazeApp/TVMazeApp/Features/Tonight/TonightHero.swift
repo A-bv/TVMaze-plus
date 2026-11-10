@@ -22,6 +22,7 @@ struct TonightHero: View {
     let pick: ScheduleItemModel
     let eyebrow: String
     let timeZone: TimeZone
+    let timeZoneName: String
     let scrollOffset: CGFloat
 
     var body: some View {
@@ -57,8 +58,7 @@ struct TonightHero: View {
                 GlassChip(text: channel)
             }
             if let airDate = pick.episode.airDate {
-                GlassChip(text: airDate.formatted(
-                    Date.FormatStyle(timeZone: timeZone).hour().minute().timeZone(.specificName(.short))))
+                GlassChip(text: "\(airDate.formatted(Date.FormatStyle(timeZone: timeZone).hour().minute())) \(timeZoneName)")
             }
         }
     }
