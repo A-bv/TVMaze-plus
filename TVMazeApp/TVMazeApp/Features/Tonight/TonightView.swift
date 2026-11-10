@@ -48,7 +48,7 @@ struct TonightView: View {
     private func header(scrollOffset: CGFloat) -> some View {
         if let pick {
             NavigationLink {
-                ShowDetailView(show: pick.show)
+                EpisodeDetailView(episode: pick.episode, show: pick.show)
             } label: {
                 StretchyHeaderTitle(title: pick.show.name, subtitle: subtitle(for: pick), scrollOffset: scrollOffset)
                     .multilineTextAlignment(.leading)
@@ -72,7 +72,9 @@ struct TonightView: View {
         case .loaded(let tonight):
             if !tonight.streaming.isEmpty {
                 DetailSection(title: Constants.streamingTitle) {
-                    ShowCarousel(items: tonight.streaming, show: \.show, caption: caption)
+                    ShowCarousel(items: tonight.streaming, show: \.show, caption: caption) { entry in
+                        EpisodeDetailView(episode: entry.episode, show: entry.show)
+                    }
                 }
             }
             TimelineSection(

@@ -28,7 +28,7 @@ struct TimeSlotView: View {
                 .accessibilityAddTraits(.isHeader)
             ForEach(visibleEntries) { entry in
                 NavigationLink {
-                    ShowDetailView(show: entry.show)
+                    EpisodeDetailView(episode: entry.episode, show: entry.show)
                 } label: {
                     ScheduleRow(entry: entry)
                 }

@@ -19,7 +19,7 @@ See what's on TV tonight, search shows and people, and keep favorites on device.
 - See tonight's TV listings by time, in their channels' time zone, with new episodes on streaming and a pick of the night, or the same for any of the next six days. Listings come from the device's country, or from the US when TVMaze has none for it.
 - Search shows or people by name and browse the results as soft, raised rows.
 - Open a show behind a stretchy hero picture, and browse its episodes by season, its cast, crew, gallery and titles in other countries.
-- Open an episode for its guests and crew, and move to the previous or next one in place.
+- Open an episode for its guests and crew, and move to the previous or next one in place. Tonight's listings and the Up next cards open their episode directly, with a link to its show.
 - Open anyone in the cast or crew to see the shows they're known for, their work behind the camera and their guest appearances.
 - Save favorites on device from any search result or show screen. Their tab shows the next episode of each one still airing, soonest first, above a grid of their posters; a long press removes one.
 - Use the app in English or French.

@@ -8,7 +8,7 @@
 import ParallaxKit
 import SwiftUI
 
-struct ShowCarousel<Item: Identifiable>: View {
+struct ShowCarousel<Item: Identifiable, Destination: View>: View {
     private enum Constants {
         static var height: CGFloat { 340 }
         static var horizontalBleed: CGFloat { -16 }
@@ -22,13 +22,14 @@ struct ShowCarousel<Item: Identifiable>: View {
     let items: [Item]
     let show: (Item) -> ShowItemModel
     let caption: (Item) -> String
+    @ViewBuilder let destination: (Item) -> Destination
 
     var body: some View {
         ParallaxCarousel(items, style: Constants.style) { item in
             PosterView(url: show(item).largePosterURL)
         } overlay: { item in
             NavigationLink {
-                ShowDetailView(show: show(item))
+                destination(item)
             } label: {
                 VStack(alignment: .leading, spacing: Constants.textSpacing) {
                     Text(show(item).name)

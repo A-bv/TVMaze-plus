@@ -481,6 +481,16 @@
         }
       }
     },
+    "See the show" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Voir la série"
+          }
+        }
+      }
+    },
     "Share" : {
       "localizations" : {
         "fr" : {

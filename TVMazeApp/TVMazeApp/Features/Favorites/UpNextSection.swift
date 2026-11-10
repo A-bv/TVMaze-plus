@@ -29,7 +29,7 @@ struct UpNextSection: View {
                 PosterView(url: item.backgroundURL)
             } overlay: { item in
                 NavigationLink {
-                    ShowDetailView(show: item.show)
+                    EpisodeDetailView(episode: item.episode, show: item.show)
                 } label: {
                     card(for: item)
                 }

@@ -25,13 +25,22 @@ struct EpisodeDetailView: View {
 
     let showName: String
     let fallbackImageURL: URL?
+    let show: ShowItemModel?
 
     @State private var viewModel: EpisodeDetailViewModel
 
     init(episode: EpisodeItemModel, episodes: [EpisodeItemModel], showName: String, fallbackImageURL: URL?) {
         self.showName = showName
         self.fallbackImageURL = fallbackImageURL
+        show = nil
         _viewModel = State(initialValue: EpisodeDetailViewModel(episode: episode, episodes: episodes))
+    }
+
+    init(episode: EpisodeItemModel, show: ShowItemModel) {
+        showName = show.name
+        fallbackImageURL = show.largePosterURL
+        self.show = show
+        _viewModel = State(initialValue: EpisodeDetailViewModel(episode: episode, episodes: [episode]))
     }
 
     var body: some View {
@@ -47,6 +56,9 @@ struct EpisodeDetailView: View {
         } content: {
             VStack(alignment: .leading, spacing: Constants.sectionSpacing) {
                 tiles
+                if let show {
+                    ShowLinkRow(show: show)
+                }
                 if let summary = episode.summary {
                     Text(summary)
                 }

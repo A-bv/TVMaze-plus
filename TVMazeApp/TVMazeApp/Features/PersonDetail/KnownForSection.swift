@@ -16,7 +16,9 @@ struct KnownForSection: View {
 
     var body: some View {
         DetailSection(title: Constants.title) {
-            ShowCarousel(items: credits, show: \.show, caption: \.role)
+            ShowCarousel(items: credits, show: \.show, caption: \.role) { credit in
+                ShowDetailView(show: credit.show)
+            }
         }
     }
 }
