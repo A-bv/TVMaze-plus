@@ -7,10 +7,11 @@ See what's on TV tonight, search shows and people, and keep favorites on device.
 [![License: MIT](https://img.shields.io/badge/License-MIT-lightgrey)](LICENSE)
 
 <p align="center">
-  <img src="docs/screenshots/search.png" width="190" alt="Search results for “stranger” shown as a horizontal carousel of poster cards (previous design)">
-  <img src="docs/screenshots/detail.png" width="190" alt="Stranger Things detail screen with poster, rating, favorite button, genres and summary">
-  <img src="docs/screenshots/favorites.png" width="190" alt="Favorites tab listing two saved shows, each with its poster thumbnail, name and years">
-  <img src="docs/screenshots/detail-dark.png" width="190" alt="The detail screen in dark mode">
+  <img src="docs/screenshots/tonight.png" width="160" alt="Tonight tab with NCIS as tonight's pick behind a large hero picture, a strip of seven days and new streaming shows">
+  <img src="docs/screenshots/search.png" width="160" alt="Search results for “stranger” as soft raised rows, each with a poster, years, channel, rating and a heart">
+  <img src="docs/screenshots/show.png" width="160" alt="Stranger Things show screen with its poster as a stretchy header, rating, episode and runtime tiles, and a favorite button">
+  <img src="docs/screenshots/favorites.png" width="160" alt="Favorites tab with the next episode of a saved show in an Up next card, above a grid of saved show posters">
+  <img src="docs/screenshots/show-dark.png" width="160" alt="The Stranger Things show screen in dark mode">
 </p>
 
 ## Features
