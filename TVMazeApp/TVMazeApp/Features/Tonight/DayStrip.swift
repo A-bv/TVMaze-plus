@@ -10,15 +10,16 @@ import SwiftUI
 
 struct DayStrip: View {
     private enum Constants {
-        static let spacing: CGFloat = 6
         static let textSpacing: CGFloat = 4
+        static let cornerRadius: CGFloat = 14
+        static let weekdayKerning: CGFloat = 0.5
     }
 
     let days: [Date]
     @Binding var selectedDay: Date
 
     var body: some View {
-        HStack(spacing: Constants.spacing) {
+        HStack(spacing: 0) {
             ForEach(days, id: \.self) { day in
                 Toggle(isOn: Binding(
                     get: { selectedDay == day },
@@ -26,10 +27,12 @@ struct DayStrip: View {
                 )) {
                     VStack(spacing: Constants.textSpacing) {
                         Text(day.formatted(.dateTime.weekday(.abbreviated)))
-                            .font(.caption2.weight(.semibold))
+                            .font(.caption2.weight(.bold))
+                            .textCase(.uppercase)
+                            .kerning(Constants.weekdayKerning)
                             .foregroundStyle(.secondaryText)
                         Text(day.formatted(.dateTime.day()))
-                            .font(.headline)
+                            .font(.title3.weight(.bold))
                             .foregroundStyle(selectedDay == day ? Color.accentColor : Color.primary)
                     }
                     .frame(maxWidth: .infinity)
@@ -37,6 +40,9 @@ struct DayStrip: View {
                 .toggleStyle(NeumorphicToggleStyle())
                 .accessibilityLabel(day.formatted(date: .complete, time: .omitted))
             }
+        }
+        .transformEnvironment(\.neumorphicMetrics) { metrics in
+            metrics.cornerRadius = Constants.cornerRadius
         }
     }
 }
