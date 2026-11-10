@@ -20,7 +20,7 @@ See what's on TV tonight, search shows and people, and keep favorites on device.
 - Open a show behind a stretchy hero picture, and browse its episodes by season, its cast, crew, gallery and titles in other countries.
 - Open an episode for its guests and crew, and move to the previous or next one in place.
 - Open anyone in the cast or crew to see the shows they're known for, their work behind the camera and their guest appearances.
-- Save favorites on device from any search result or show screen, and find them in their own tab.
+- Save favorites on device from any search result or show screen. Their tab shows the next episode of each one still airing, soonest first, above a grid of their posters; a long press removes one.
 - Use the app in English or French.
 
 ## Architecture
@@ -31,7 +31,7 @@ The app follows the MVVM architecture (Model–View–ViewModel), which splits t
 - **Views** are what the user sees and taps, like a list of shows or a search bar. In SwiftUI, they update automatically when their data changes.
 - **The ViewModel** holds the logic behind a screen, like loading search results or handling an error. It gives the views what to display, and since it has no UI, it can be tested without one.
 
-With SwiftData, simple reads and writes can stay in the views, since SwiftData keeps the screen up to date by itself. Favorites work this way, so they skip the ViewModel.
+With SwiftData, simple reads and writes can stay in the views, since SwiftData keeps the screen up to date by itself. Favorites work this way: the hearts and the poster grid read and write SwiftData directly, and only the Up next row, which calls the API, has a ViewModel.
 
 <p align="center">
   <img src="docs/architecture.svg" width="860" alt="The App (@main) shows the tab bar and creates the SwiftData store. The tab bar, a TabView, has one tab per feature. In a feature, here search: the main view sends the search to the ViewModel and gets its state back, and opens the detail view with a NavigationLink. The ViewModel fetches from the service and gets networking models back, then passes them to the Transformer and gets domain models back. The service calls the TVMaze API over HTTPS with URLSession, behind the DataSession protocol that tests replace with a fake. Favorites: the favorite button, on the main and detail views, and the favorite list save, delete and read favorites directly in SwiftData, the persistence layer, at the same level as networking.">

@@ -291,6 +291,16 @@
         }
       }
     },
+    "No favorites yet" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aucun favori pour l’instant"
+          }
+        }
+      }
+    },
     "No summary available." : {
       "localizations" : {
         "fr" : {
@@ -521,6 +531,16 @@
         }
       }
     },
+    "Tap the heart on a show to keep it here." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Touchez le cœur d’une série pour la garder ici."
+          }
+        }
+      }
+    },
     "To Be Determined" : {
       "localizations" : {
         "fr" : {
@@ -591,6 +611,16 @@
         }
       }
     },
+    "Up next" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "À suivre"
+          }
+        }
+      }
+    },
     "Upcoming" : {
       "localizations" : {
         "fr" : {
@@ -607,6 +637,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Site web"
+          }
+        }
+      }
+    },
+    "Your shows" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vos séries"
           }
         }
       }
