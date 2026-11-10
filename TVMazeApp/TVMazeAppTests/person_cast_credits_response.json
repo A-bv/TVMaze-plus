@@ -1,0 +1,585 @@
+[
+  {
+    "self": false,
+    "voice": false,
+    "_links": {
+      "show": {
+        "href": "https://api.tvmaze.com/shows/174",
+        "name": "Parks and Recreation"
+      },
+      "character": {
+        "href": "https://api.tvmaze.com/characters/47333",
+        "name": "Ben Wyatt"
+      }
+    },
+    "_embedded": {
+      "show": {
+        "id": 174,
+        "url": "https://www.tvmaze.com/shows/174/parks-and-recreation",
+        "name": "Parks and Recreation",
+        "type": "Scripted",
+        "language": "English",
+        "genres": [
+          "Comedy"
+        ],
+        "status": "Ended",
+        "runtime": 30,
+        "averageRuntime": 30,
+        "premiered": "2009-04-09",
+        "ended": "2015-02-24",
+        "officialSite": "http://www.nbc.com/parks-and-recreation",
+        "schedule": {
+          "time": "20:00",
+          "days": [
+            "Tuesday"
+          ]
+        },
+        "rating": {
+          "average": 8.1
+        },
+        "weight": 99,
+        "network": {
+          "id": 1,
+          "name": "NBC",
+          "country": {
+            "name": "United States",
+            "code": "US",
+            "timezone": "America/New_York"
+          },
+          "officialSite": "https://www.nbc.com/"
+        },
+        "webChannel": null,
+        "dvdCountry": null,
+        "externals": {
+          "tvrage": 21686,
+          "thetvdb": 84912,
+          "imdb": "tt1266020"
+        },
+        "image": {
+          "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/481/1204341.jpg",
+          "original": "https://static.tvmaze.com/uploads/images/original_untouched/481/1204341.jpg"
+        },
+        "summary": "<p><b>Parks and Recreation</b> is a comedy series based around the main character Leslie Knope (a bureaucrat) in the parks department of Pawnee.</p>",
+        "updated": 1793606740,
+        "_links": {
+          "self": {
+            "href": "https://api.tvmaze.com/shows/174"
+          },
+          "previousepisode": {
+            "href": "https://api.tvmaze.com/episodes/57787",
+            "name": "One Last Ride (2)"
+          }
+        }
+      }
+    }
+  },
+  {
+    "self": false,
+    "voice": false,
+    "_links": {
+      "show": {
+        "href": "https://api.tvmaze.com/shows/1137",
+        "name": "Party Down"
+      },
+      "character": {
+        "href": "https://api.tvmaze.com/characters/91890",
+        "name": "Henry Pollard"
+      }
+    },
+    "_embedded": {
+      "show": {
+        "id": 1137,
+        "url": "https://www.tvmaze.com/shows/1137/party-down",
+        "name": "Party Down",
+        "type": "Scripted",
+        "language": "English",
+        "genres": [
+          "Comedy"
+        ],
+        "status": "Ended",
+        "runtime": null,
+        "averageRuntime": 30,
+        "premiered": "2009-03-20",
+        "ended": "2023-03-31",
+        "officialSite": "https://www.starz.com/us/en/series/party-down/2011",
+        "schedule": {
+          "time": "",
+          "days": [
+            "Friday"
+          ]
+        },
+        "rating": {
+          "average": 7.2
+        },
+        "weight": 97,
+        "network": null,
+        "webChannel": {
+          "id": 46,
+          "name": "Lionsgate+",
+          "country": null,
+          "officialSite": "https://www.lionsgateplus.com/"
+        },
+        "dvdCountry": null,
+        "externals": {
+          "tvrage": 21884,
+          "thetvdb": 83616,
+          "imdb": "tt1073507"
+        },
+        "image": {
+          "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/453/1134634.jpg",
+          "original": "https://static.tvmaze.com/uploads/images/original_untouched/453/1134634.jpg"
+        },
+        "summary": "<p><b>Party Down</b> follows a group of Hollywood dreamers - struggling actors and writers - stuck working as caterers while waiting for their big show business break.</p>",
+        "updated": 1761479257,
+        "_links": {
+          "self": {
+            "href": "https://api.tvmaze.com/shows/1137"
+          },
+          "previousepisode": {
+            "href": "https://api.tvmaze.com/episodes/2466499",
+            "name": "Sepulveda Basin High School Spring Play Opening Night"
+          }
+        }
+      }
+    }
+  },
+  {
+    "self": false,
+    "voice": false,
+    "_links": {
+      "show": {
+        "href": "https://api.tvmaze.com/shows/6251",
+        "name": "Tell Me You Love Me"
+      },
+      "character": {
+        "href": "https://api.tvmaze.com/characters/185312",
+        "name": "Palek"
+      }
+    },
+    "_embedded": {
+      "show": {
+        "id": 6251,
+        "url": "https://www.tvmaze.com/shows/6251/tell-me-you-love-me",
+        "name": "Tell Me You Love Me",
+        "type": "Scripted",
+        "language": "English",
+        "genres": [
+          "Drama",
+          "Romance"
+        ],
+        "status": "Ended",
+        "runtime": 60,
+        "averageRuntime": 60,
+        "premiered": "2007-09-09",
+        "ended": "2007-11-11",
+        "officialSite": null,
+        "schedule": {
+          "time": "21:00",
+          "days": [
+            "Sunday"
+          ]
+        },
+        "rating": {
+          "average": 6
+        },
+        "weight": 91,
+        "network": {
+          "id": 8,
+          "name": "HBO",
+          "country": {
+            "name": "United States",
+            "code": "US",
+            "timezone": "America/New_York"
+          },
+          "officialSite": "https://www.hbo.com/"
+        },
+        "webChannel": null,
+        "dvdCountry": null,
+        "externals": {
+          "tvrage": 11150,
+          "thetvdb": 80462,
+          "imdb": "tt0809497"
+        },
+        "image": {
+          "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/24/60014.jpg",
+          "original": "https://static.tvmaze.com/uploads/images/original_untouched/24/60014.jpg"
+        },
+        "summary": "<p><b>Tell Me You Love Me</b> revolves around three couples, Jamie and Hugo, Katie and David, and Carolyn and Palek, each with their own problems concerning intimacy in their relationships. They seek the help of therapist May Foster, who herself has relationship problems with her partner Arthur.</p>",
+        "updated": 1707577486,
+        "_links": {
+          "self": {
+            "href": "https://api.tvmaze.com/shows/6251"
+          },
+          "previousepisode": {
+            "href": "https://api.tvmaze.com/episodes/371729",
+            "name": "Episode 10"
+          }
+        }
+      }
+    }
+  },
+  {
+    "self": false,
+    "voice": false,
+    "_links": {
+      "show": {
+        "href": "https://api.tvmaze.com/shows/3080",
+        "name": "Big Little Lies"
+      },
+      "character": {
+        "href": "https://api.tvmaze.com/characters/261914",
+        "name": "Ed Mackenzie"
+      }
+    },
+    "_embedded": {
+      "show": {
+        "id": 3080,
+        "url": "https://www.tvmaze.com/shows/3080/big-little-lies",
+        "name": "Big Little Lies",
+        "type": "Scripted",
+        "language": "English",
+        "genres": [
+          "Drama",
+          "Comedy",
+          "Mystery"
+        ],
+        "status": "Running",
+        "runtime": 60,
+        "averageRuntime": 60,
+        "premiered": "2017-02-19",
+        "ended": null,
+        "officialSite": "http://www.hbo.com/big-little-lies",
+        "schedule": {
+          "time": "21:00",
+          "days": [
+            "Sunday"
+          ]
+        },
+        "rating": {
+          "average": 7.8
+        },
+        "weight": 99,
+        "network": {
+          "id": 8,
+          "name": "HBO",
+          "country": {
+            "name": "United States",
+            "code": "US",
+            "timezone": "America/New_York"
+          },
+          "officialSite": "https://www.hbo.com/"
+        },
+        "webChannel": null,
+        "dvdCountry": null,
+        "externals": {
+          "tvrage": null,
+          "thetvdb": 305719,
+          "imdb": "tt3920596"
+        },
+        "image": {
+          "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/196/490640.jpg",
+          "original": "https://static.tvmaze.com/uploads/images/original_untouched/196/490640.jpg"
+        },
+        "summary": "<p>In the tranquil seaside town of Monterey, California, nothing is quite as it seems. Doting moms, successful husbands, adorable children, beautiful homes: What lies will be told to keep their perfect worlds from unraveling?</p><p>Told through the eyes of three mothers – Madeline, Celeste and Jane – <b>Big Little Lies</b> paints a picture of a town fueled by rumors and divided into the haves and have-nots, exposing the conflicts, secrets and betrayals that compromise relationships between husbands and wives, parents and children, and friends and neighbors.</p>",
+        "updated": 1778402536,
+        "_links": {
+          "self": {
+            "href": "https://api.tvmaze.com/shows/3080"
+          },
+          "previousepisode": {
+            "href": "https://api.tvmaze.com/episodes/1651308",
+            "name": "I Want to Know"
+          }
+        }
+      }
+    }
+  },
+  {
+    "self": false,
+    "voice": false,
+    "_links": {
+      "show": {
+        "href": "https://api.tvmaze.com/shows/20652",
+        "name": "Ghosted"
+      },
+      "character": {
+        "href": "https://api.tvmaze.com/characters/418446",
+        "name": "Max Jennifer"
+      }
+    },
+    "_embedded": {
+      "show": {
+        "id": 20652,
+        "url": "https://www.tvmaze.com/shows/20652/ghosted",
+        "name": "Ghosted",
+        "type": "Scripted",
+        "language": "English",
+        "genres": [
+          "Comedy",
+          "Mystery",
+          "Supernatural"
+        ],
+        "status": "Ended",
+        "runtime": 30,
+        "averageRuntime": 30,
+        "premiered": "2017-10-01",
+        "ended": "2018-07-22",
+        "officialSite": "http://www.fox.com/ghosted",
+        "schedule": {
+          "time": "21:30",
+          "days": [
+            "Sunday"
+          ]
+        },
+        "rating": {
+          "average": 5.5
+        },
+        "weight": 94,
+        "network": {
+          "id": 4,
+          "name": "FOX",
+          "country": {
+            "name": "United States",
+            "code": "US",
+            "timezone": "America/New_York"
+          },
+          "officialSite": "https://www.fox.com/"
+        },
+        "webChannel": null,
+        "dvdCountry": null,
+        "externals": {
+          "tvrage": null,
+          "thetvdb": 328568,
+          "imdb": "tt6053538"
+        },
+        "image": {
+          "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/121/302697.jpg",
+          "original": "https://static.tvmaze.com/uploads/images/original_untouched/121/302697.jpg"
+        },
+        "summary": "<p>Described as a sort of comedic X-Files<i>, </i><b>Ghosted</b> centers on Leroy Wright, a cynical, hilarious skeptic, and Max Allison, a genius \"true believer\" in the paranormal, who are hired by the Underground Investigative Service to look into the rampant \"unexplained\" activity in Los Angeles — all while uncovering a larger mystery that could threaten the existence of the human race.</p>",
+        "updated": 1726438646,
+        "_links": {
+          "self": {
+            "href": "https://api.tvmaze.com/shows/20652"
+          },
+          "previousepisode": {
+            "href": "https://api.tvmaze.com/episodes/1428859",
+            "name": "Hello Boys"
+          }
+        }
+      }
+    }
+  },
+  {
+    "self": true,
+    "voice": false,
+    "_links": {
+      "show": {
+        "href": "https://api.tvmaze.com/shows/41690",
+        "name": "Don't"
+      },
+      "character": {
+        "href": "https://api.tvmaze.com/characters/747102",
+        "name": "Host"
+      }
+    },
+    "_embedded": {
+      "show": {
+        "id": 41690,
+        "url": "https://www.tvmaze.com/shows/41690/dont",
+        "name": "Don't",
+        "type": "Game Show",
+        "language": "English",
+        "genres": [],
+        "status": "Ended",
+        "runtime": 60,
+        "averageRuntime": 60,
+        "premiered": "2020-06-11",
+        "ended": "2020-08-13",
+        "officialSite": "https://abc.com/shows/dont",
+        "schedule": {
+          "time": "21:00",
+          "days": [
+            "Thursday"
+          ]
+        },
+        "rating": {
+          "average": 5.9
+        },
+        "weight": 78,
+        "network": {
+          "id": 3,
+          "name": "ABC",
+          "country": {
+            "name": "United States",
+            "code": "US",
+            "timezone": "America/New_York"
+          },
+          "officialSite": "https://abc.com/"
+        },
+        "webChannel": null,
+        "dvdCountry": null,
+        "externals": {
+          "tvrage": null,
+          "thetvdb": 381494,
+          "imdb": "tt10150154"
+        },
+        "image": {
+          "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/259/649560.jpg",
+          "original": "https://static.tvmaze.com/uploads/images/original_untouched/259/649560.jpg"
+        },
+        "summary": "<p>A game show that offers contestants the chance to win cash by tackling hilarious tasks, each with the simple rule: \"DON'T.\"</p>",
+        "updated": 1675241365,
+        "_links": {
+          "self": {
+            "href": "https://api.tvmaze.com/shows/41690"
+          },
+          "previousepisode": {
+            "href": "https://api.tvmaze.com/episodes/1907305",
+            "name": "Don't Quit Your Day Job"
+          }
+        }
+      }
+    }
+  },
+  {
+    "self": false,
+    "voice": false,
+    "_links": {
+      "show": {
+        "href": "https://api.tvmaze.com/shows/44933",
+        "name": "Severance"
+      },
+      "character": {
+        "href": "https://api.tvmaze.com/characters/673312",
+        "name": "Mark Scout"
+      }
+    },
+    "_embedded": {
+      "show": {
+        "id": 44933,
+        "url": "https://www.tvmaze.com/shows/44933/severance",
+        "name": "Severance",
+        "type": "Scripted",
+        "language": "English",
+        "genres": [
+          "Drama",
+          "Science-Fiction",
+          "Mystery"
+        ],
+        "status": "Running",
+        "runtime": null,
+        "averageRuntime": 49,
+        "premiered": "2022-02-18",
+        "ended": null,
+        "officialSite": "https://tv.apple.com/show/severance/umc.cmc.1srk2goyh2q2zdxcx605w8vtx",
+        "schedule": {
+          "time": "",
+          "days": [
+            "Friday"
+          ]
+        },
+        "rating": {
+          "average": 7.7
+        },
+        "weight": 100,
+        "network": null,
+        "webChannel": {
+          "id": 310,
+          "name": "Apple TV",
+          "country": null,
+          "officialSite": "https://tv.apple.com/"
+        },
+        "dvdCountry": null,
+        "externals": {
+          "tvrage": null,
+          "thetvdb": 371980,
+          "imdb": "tt11280740"
+        },
+        "image": {
+          "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/548/1371406.jpg",
+          "original": "https://static.tvmaze.com/uploads/images/original_untouched/548/1371406.jpg"
+        },
+        "summary": "<p>Mark Scout leads a team at Lumon Industries, whose employees have undergone a severance procedure, which surgically divides their memories between their work and personal lives. This daring experiment in \"work-life balance\" is called into question as Mark finds himself at the center of an unraveling mystery that will force him to confront the true nature of his work… and of himself.</p>",
+        "updated": 1790712623,
+        "_links": {
+          "self": {
+            "href": "https://api.tvmaze.com/shows/44933"
+          },
+          "previousepisode": {
+            "href": "https://api.tvmaze.com/episodes/2939710",
+            "name": "Cold Harbor"
+          }
+        }
+      }
+    }
+  },
+  {
+    "self": false,
+    "voice": true,
+    "_links": {
+      "show": {
+        "href": "https://api.tvmaze.com/shows/89444",
+        "name": "Strip Law"
+      },
+      "character": {
+        "href": "https://api.tvmaze.com/characters/1498742",
+        "name": "Lincoln Gumb"
+      }
+    },
+    "_embedded": {
+      "show": {
+        "id": 89444,
+        "url": "https://www.tvmaze.com/shows/89444/strip-law",
+        "name": "Strip Law",
+        "type": "Animation",
+        "language": null,
+        "genres": [
+          "Comedy"
+        ],
+        "status": "Ended",
+        "runtime": null,
+        "averageRuntime": 26,
+        "premiered": "2026-02-20",
+        "ended": "2026-02-20",
+        "officialSite": "https://www.netflix.com/title/81677608",
+        "schedule": {
+          "time": "",
+          "days": []
+        },
+        "rating": {
+          "average": null
+        },
+        "weight": 86,
+        "network": null,
+        "webChannel": {
+          "id": 1,
+          "name": "Netflix",
+          "country": null,
+          "officialSite": "https://www.netflix.com/"
+        },
+        "dvdCountry": null,
+        "externals": {
+          "tvrage": null,
+          "thetvdb": 466887,
+          "imdb": "tt37937030"
+        },
+        "image": {
+          "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/611/1529080.jpg",
+          "original": "https://static.tvmaze.com/uploads/images/original_untouched/611/1529080.jpg"
+        },
+        "summary": "<p>Outlandish cases. Unconventional tactics. And a flash of razzmatazz. Las Vegas has seen it all — but it's never seen lawyering quite like this.</p>",
+        "updated": 1780441032,
+        "_links": {
+          "self": {
+            "href": "https://api.tvmaze.com/shows/89444"
+          },
+          "previousepisode": {
+            "href": "https://api.tvmaze.com/episodes/3550039",
+            "name": "Finale: A Show About Lawyers"
+          }
+        }
+      }
+    }
+  }
+]

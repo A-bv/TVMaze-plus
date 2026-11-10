@@ -12,6 +12,10 @@ final class MockTVMazeAPIService: TVMazeAPIService {
     private let error: Error?
     var showDetail: ShowDetailModel?
     var episodeDetail: EpisodeDetailModel?
+    var people: [PersonSearchModel] = []
+    var castCredits: [PersonCastCreditModel] = []
+    var crewCredits: [PersonCrewCreditModel] = []
+    var guestCredits: [PersonGuestCreditModel] = []
     private(set) var fetchCallCount = 0
 
     init(
@@ -32,6 +36,22 @@ final class MockTVMazeAPIService: TVMazeAPIService {
 
     func fetchEpisode(id: Int) async throws -> EpisodeDetailModel {
         try respond(with: episodeDetail)
+    }
+
+    func fetchPeople(name: String) async throws -> [PersonSearchModel] {
+        try respond(with: people)
+    }
+
+    func fetchCastCredits(personID: Int) async throws -> [PersonCastCreditModel] {
+        try respond(with: castCredits)
+    }
+
+    func fetchCrewCredits(personID: Int) async throws -> [PersonCrewCreditModel] {
+        try respond(with: crewCredits)
+    }
+
+    func fetchGuestCredits(personID: Int) async throws -> [PersonGuestCreditModel] {
+        try respond(with: guestCredits)
     }
 
     private func respond<Model>(with model: Model?) throws -> Model {

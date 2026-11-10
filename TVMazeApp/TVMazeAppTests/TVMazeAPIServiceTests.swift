@@ -98,6 +98,61 @@ struct TVMazeAPIServiceTests {
         #expect(detail.embedded.guestcast.count == 5)
         #expect(detail.embedded.guestcrew.count == 3)
     }
+
+    @Test func service_whenRealPeopleResponse_decodesAllPeople() async throws {
+        let mockedSession = MockedURLSession(fakeData: try Fixtures.data(named: "people_search_response"), statusCode: 200)
+        let sut = makeSut(session: mockedSession)
+
+        let people = try await sut.fetchPeople(name: "adam scott")
+
+        #expect(mockedSession.requestedURL?.absoluteString == "https://api.tvmaze.com/search/people?q=adam%20scott")
+        #expect(people.count == 10)
+        let personWithNilValues = try #require(people.first)
+        #expect(personWithNilValues.person.country == nil)
+        #expect(personWithNilValues.person.birthday == nil)
+        let personTheMostFilled = try #require(people.dropFirst().first)
+        #expect(personTheMostFilled.person.birthday == "1973-04-03")
+        #expect(personTheMostFilled.person.country?.name == "United States")
+    }
+
+    @Test func service_whenRealCastCreditsResponse_decodesTheShowsAndCharacters() async throws {
+        let mockedSession = MockedURLSession(fakeData: try Fixtures.data(named: "person_cast_credits_response"), statusCode: 200)
+        let sut = makeSut(session: mockedSession)
+
+        let credits = try await sut.fetchCastCredits(personID: 31964)
+
+        #expect(mockedSession.requestedURL?.absoluteString == "https://api.tvmaze.com/people/31964/castcredits?embed=show")
+        #expect(credits.count == 8)
+        #expect(credits.first?.embedded.show.name == "Parks and Recreation")
+        #expect(credits.first?.links.character.name == "Ben Wyatt")
+    }
+
+    @Test func service_whenRealCrewCreditsResponse_decodesTheShowsAndJobs() async throws {
+        let mockedSession = MockedURLSession(fakeData: try Fixtures.data(named: "person_crew_credits_response"), statusCode: 200)
+        let sut = makeSut(session: mockedSession)
+
+        let credits = try await sut.fetchCrewCredits(personID: 31964)
+
+        #expect(mockedSession.requestedURL?.absoluteString == "https://api.tvmaze.com/people/31964/crewcredits?embed=show")
+        #expect(credits.count == 7)
+        #expect(credits.first?.embedded.show.name == "Ghosted")
+        #expect(credits.first?.type == "Executive Producer")
+    }
+
+    @Test func service_whenRealGuestCreditsResponse_decodesTheEpisodesAndTheirShows() async throws {
+        let mockedSession = MockedURLSession(fakeData: try Fixtures.data(named: "person_guest_credits_response"), statusCode: 200)
+        let sut = makeSut(session: mockedSession)
+
+        let credits = try await sut.fetchGuestCredits(personID: 31964)
+
+        let expectedURL = "https://api.tvmaze.com/people/31964/guestcastcredits?embed=episode"
+        #expect(mockedSession.requestedURL?.absoluteString == expectedURL)
+        #expect(credits.count == 4)
+        let credit = try #require(credits.first)
+        #expect(credit.embedded.episode.episode.name == "The Master Plan")
+        #expect(credit.embedded.episode.links.show.name == "Parks and Recreation")
+        #expect(credit.links.character.name == "Ben Wyatt")
+    }
 }
 
 extension TVMazeAPIServiceTests {

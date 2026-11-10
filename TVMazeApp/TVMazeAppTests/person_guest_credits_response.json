@@ -1,0 +1,182 @@
+[
+  {
+    "self": false,
+    "voice": false,
+    "_links": {
+      "episode": {
+        "href": "https://api.tvmaze.com/episodes/12580",
+        "name": "The Master Plan"
+      },
+      "character": {
+        "href": "https://api.tvmaze.com/characters/47333",
+        "name": "Ben Wyatt"
+      }
+    },
+    "_embedded": {
+      "episode": {
+        "id": 12580,
+        "url": "https://www.tvmaze.com/episodes/12580/parks-and-recreation-2x23-the-master-plan",
+        "name": "The Master Plan",
+        "season": 2,
+        "number": 23,
+        "type": "regular",
+        "airdate": "2010-05-13",
+        "airtime": "20:30",
+        "airstamp": "2010-05-14T00:30:00+00:00",
+        "runtime": 30,
+        "rating": {
+          "average": 8.5
+        },
+        "image": {
+          "medium": "https://static.tvmaze.com/uploads/images/medium_landscape/8/20331.jpg",
+          "original": "https://static.tvmaze.com/uploads/images/original_untouched/8/20331.jpg"
+        },
+        "summary": "<p>Leslie is disappointed when her new park plans are put on hold by a visit from two state auditors. April has plans for Andy at her birthday party, and Ann tries to piece together a romantic mystery.</p>",
+        "_links": {
+          "self": {
+            "href": "https://api.tvmaze.com/episodes/12580"
+          },
+          "show": {
+            "href": "https://api.tvmaze.com/shows/174",
+            "name": "Parks and Recreation"
+          }
+        }
+      }
+    }
+  },
+  {
+    "self": false,
+    "voice": false,
+    "_links": {
+      "episode": {
+        "href": "https://api.tvmaze.com/episodes/12581",
+        "name": "Freddy Spaghetti"
+      },
+      "character": {
+        "href": "https://api.tvmaze.com/characters/47333",
+        "name": "Ben Wyatt"
+      }
+    },
+    "_embedded": {
+      "episode": {
+        "id": 12581,
+        "url": "https://www.tvmaze.com/episodes/12581/parks-and-recreation-2x24-freddy-spaghetti",
+        "name": "Freddy Spaghetti",
+        "season": 2,
+        "number": 24,
+        "type": "regular",
+        "airdate": "2010-05-20",
+        "airtime": "20:30",
+        "airstamp": "2010-05-21T00:30:00+00:00",
+        "runtime": 30,
+        "rating": {
+          "average": 8.5
+        },
+        "image": {
+          "medium": "https://static.tvmaze.com/uploads/images/medium_landscape/8/20332.jpg",
+          "original": "https://static.tvmaze.com/uploads/images/original_untouched/8/20332.jpg"
+        },
+        "summary": "<p>When Ben prevents Leslie from holding a children's concert, she takes matters into her own hands. Mark makes some big decisions about his life, and Andy gets some unexpected romantic attention.</p>",
+        "_links": {
+          "self": {
+            "href": "https://api.tvmaze.com/episodes/12581"
+          },
+          "show": {
+            "href": "https://api.tvmaze.com/shows/174",
+            "name": "Parks and Recreation"
+          }
+        }
+      }
+    }
+  },
+  {
+    "self": false,
+    "voice": false,
+    "_links": {
+      "episode": {
+        "href": "https://api.tvmaze.com/episodes/55902",
+        "name": "The Risky Business of Being Alone in Your Home"
+      },
+      "character": {
+        "href": "https://api.tvmaze.com/characters/105148",
+        "name": "Van Damm"
+      }
+    },
+    "_embedded": {
+      "episode": {
+        "id": 55902,
+        "url": "https://www.tvmaze.com/episodes/55902/ntsfsdsuv-1x04-the-risky-business-of-being-alone-in-your-home",
+        "name": "The Risky Business of Being Alone in Your Home",
+        "season": 1,
+        "number": 4,
+        "type": "regular",
+        "airdate": "2011-08-12",
+        "airtime": "00:15",
+        "airstamp": "2011-08-13T04:15:00+00:00",
+        "runtime": 15,
+        "rating": {
+          "average": 7.5
+        },
+        "image": {
+          "medium": "https://static.tvmaze.com/uploads/images/medium_landscape/60/151633.jpg",
+          "original": "https://static.tvmaze.com/uploads/images/original_untouched/60/151633.jpg"
+        },
+        "summary": "<p>Trent is suspended and forced to spend time at home, where terrorists plot to attack him. His replacement, an old nemesis, is a hit at the NTSF.</p>",
+        "_links": {
+          "self": {
+            "href": "https://api.tvmaze.com/episodes/55902"
+          },
+          "show": {
+            "href": "https://api.tvmaze.com/shows/588",
+            "name": "NTSF:SD:SUV"
+          }
+        }
+      }
+    }
+  },
+  {
+    "self": true,
+    "voice": false,
+    "_links": {
+      "episode": {
+        "href": "https://api.tvmaze.com/episodes/111193",
+        "name": "Battle of the Champions"
+      },
+      "character": {
+        "href": "https://api.tvmaze.com/characters/115718",
+        "name": "Adam Scott"
+      }
+    },
+    "_embedded": {
+      "episode": {
+        "id": 111193,
+        "url": "https://www.tvmaze.com/episodes/111193/hollywood-game-night-2x08-battle-of-the-champions",
+        "name": "Battle of the Champions",
+        "season": 2,
+        "number": 8,
+        "type": "regular",
+        "airdate": "2014-03-06",
+        "airtime": "21:00",
+        "airstamp": "2014-03-07T02:00:00+00:00",
+        "runtime": 60,
+        "rating": {
+          "average": null
+        },
+        "image": {
+          "medium": "https://static.tvmaze.com/uploads/images/medium_landscape/312/780085.jpg",
+          "original": "https://static.tvmaze.com/uploads/images/original_untouched/312/780085.jpg"
+        },
+        "summary": "<p>Two contestants will lead a team of three celebrities, which include Anthony Anderson, Yvette Nicole Brown, Gary Dell'abate, Adam Scott, Tiffanie Thiesen and Pete Wentz in hopes of winning the $25,000 grand prize. A series of unique party games will bring out the best, funniest and most competitive sides of some of Hollywood's most beloved stars in this hilarious no-holds-bar competition hosted by Jane Lynch.</p>",
+        "_links": {
+          "self": {
+            "href": "https://api.tvmaze.com/episodes/111193"
+          },
+          "show": {
+            "href": "https://api.tvmaze.com/shows/1320",
+            "name": "Hollywood Game Night"
+          }
+        }
+      }
+    }
+  }
+]
