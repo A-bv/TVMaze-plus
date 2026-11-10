@@ -12,6 +12,7 @@ struct GlassChip: View {
         static let spacing: CGFloat = 4
         static let horizontalPadding: CGFloat = 12
         static let verticalPadding: CGFloat = 6
+        static let tintOpacity = 0.3
     }
 
     let text: String
@@ -28,6 +29,6 @@ struct GlassChip: View {
         .font(.caption.weight(.bold))
         .padding(.horizontal, Constants.horizontalPadding)
         .padding(.vertical, Constants.verticalPadding)
-        .glassEffect(.clear, in: .capsule)
+        .glassEffect(.clear.tint(.black.opacity(Constants.tintOpacity)), in: .capsule)
     }
 }
