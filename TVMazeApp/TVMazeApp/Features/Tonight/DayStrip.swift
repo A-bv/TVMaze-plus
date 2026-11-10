@@ -12,7 +12,7 @@ struct DayStrip: View {
     private enum Constants {
         static let textSpacing: CGFloat = 4
         static let verticalPadding: CGFloat = 8
-        static let cornerRadius: CGFloat = 18
+        static let cornerRadius: CGFloat = 12
         static let weekdayKerning: CGFloat = 0.5
     }
 
