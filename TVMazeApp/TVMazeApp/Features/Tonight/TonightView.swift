@@ -50,7 +50,11 @@ struct TonightView: View {
                     Button(Constants.settingsTitle, systemImage: Constants.settingsIcon) {
                         isShowingSettings = true
                     }
+                    .labelStyle(.iconOnly)
+                    .buttonStyle(.glass(.clear))
+                    .buttonBorderShape(.circle)
                 }
+                .sharedBackgroundVisibility(.hidden)
             }
             .sheet(isPresented: $isShowingSettings) {
                 SettingsView(regions: viewModel.regions, countryCode: $viewModel.countryCode)
