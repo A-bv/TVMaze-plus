@@ -46,12 +46,11 @@ struct TonightView: View {
 
     @ViewBuilder
     private func header(scrollOffset: CGFloat) -> some View {
-        if let pick {
+        if case .loaded(let tonight) = viewModel.state, let pick = tonight.pick {
             NavigationLink {
                 EpisodeDetailView(episode: pick.episode, show: pick.show)
             } label: {
-                StretchyHeaderTitle(title: pick.show.name, subtitle: subtitle(for: pick), scrollOffset: scrollOffset)
-                    .multilineTextAlignment(.leading)
+                TonightHero(pick: pick, eyebrow: eyebrow, timeZone: tonight.timeZone, scrollOffset: scrollOffset)
             }
             .buttonStyle(.plain)
         } else {
@@ -98,14 +97,8 @@ struct TonightView: View {
         viewModel.isTonight ? Constants.tonightTitle : String(localized: "On TV \(weekday) evening")
     }
 
-    private func subtitle(for pick: ScheduleItemModel) -> String {
-        [
-            viewModel.isTonight ? Constants.tonightPick : String(localized: "Pick for \(weekday)"),
-            pick.episode.code,
-            pick.show.channel
-        ]
-            .compactMap { $0 }
-            .joined(separator: Constants.separator)
+    private var eyebrow: String {
+        viewModel.isTonight ? Constants.tonightPick : String(localized: "Pick for \(weekday)")
     }
 
     private func caption(for entry: ScheduleItemModel) -> String {

@@ -14,8 +14,6 @@ struct UpNextSection: View {
         static let height: CGFloat = 200
         static let horizontalBleed: CGFloat = -16
         static let textSpacing: CGFloat = 3
-        static let chipHorizontalPadding: CGFloat = 12
-        static let chipVerticalPadding: CGFloat = 6
         static let shadeOpacity = 0.85
         static let separator = " · "
         static let style = ParallaxCarouselStyle(cardWidthInset: 90, cornerRadius: 24, parallaxDistance: 50)
@@ -43,11 +41,8 @@ struct UpNextSection: View {
 
     private func card(for item: UpNextItemModel) -> some View {
         VStack(alignment: .leading) {
-            Text(item.airDate.formatted(.relative(presentation: .named)))
-                .font(.caption.weight(.bold))
-                .padding(.horizontal, Constants.chipHorizontalPadding)
-                .padding(.vertical, Constants.chipVerticalPadding)
-                .background(.ultraThinMaterial, in: .capsule)
+            GlassChip(text: item.airDate.formatted(.relative(presentation: .named)))
+                .foregroundStyle(.white)
             Spacer()
             VStack(alignment: .leading, spacing: Constants.textSpacing) {
                 Text(item.show.name)
