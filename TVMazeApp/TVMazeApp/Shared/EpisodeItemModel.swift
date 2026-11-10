@@ -23,4 +23,9 @@ struct EpisodeItemModel: Identifiable, Equatable {
         guard let number else { return String(localized: "S\(String(season))") }
         return String(localized: "S\(String(season)) E\(String(number))")
     }
+
+    var label: String {
+        guard name.wholeMatch(of: /Episode \d+/) == nil else { return code }
+        return "\(code) · \(name)"
+    }
 }

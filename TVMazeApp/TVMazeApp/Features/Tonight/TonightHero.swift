@@ -10,7 +10,6 @@ import SwiftUI
 struct TonightHero: View {
     private enum Constants {
         static let ratingIcon = "star.fill"
-        static let separator = " · "
         static let spacing: CGFloat = 8
         static let chipTopPadding: CGFloat = 6
         static let eyebrowKerning: CGFloat = 1.5
@@ -34,7 +33,7 @@ struct TonightHero: View {
                 .opacity(Constants.eyebrowOpacity)
             Text(pick.show.name)
                 .font(.largeTitle.weight(.bold))
-            Text(verbatim: "\(pick.episode.code)\(Constants.separator)\(pick.episode.name)")
+            Text(verbatim: pick.episode.label)
                 .font(.subheadline)
             chips
                 .padding(.top, Constants.chipTopPadding)

@@ -15,7 +15,6 @@ struct ScheduleRow: View {
         static let posterCornerRadius: CGFloat = 10
         static let spacing: CGFloat = 12
         static let textSpacing: CGFloat = 3
-        static let separator = " · "
     }
 
     let entry: ScheduleItemModel
@@ -30,7 +29,7 @@ struct ScheduleRow: View {
                 Text(entry.show.name)
                     .font(.headline)
                     .lineLimit(1)
-                Text(verbatim: "\(entry.episode.code)\(Constants.separator)\(entry.episode.name)")
+                Text(verbatim: entry.episode.label)
                     .font(.subheadline)
                     .foregroundStyle(.secondaryText)
                     .lineLimit(1)

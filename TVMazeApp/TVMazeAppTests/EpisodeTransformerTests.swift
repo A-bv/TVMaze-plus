@@ -69,10 +69,40 @@ struct EpisodeTransformerTests {
         #expect(transformedEpisode.code.contains("2026"))
         #expect(transformedEpisode.code.contains("1168"))
     }
+
+    @Test func transformer_withPlaceholderName_labelsTheEpisodeWithItsCodeOnly() {
+        let sut = makeSut()
+
+        let transformedEpisode = sut.transform(makeEpisode(name: "Episode 5"))
+
+        #expect(transformedEpisode.label == transformedEpisode.code)
+    }
+
+    @Test func transformer_withRealName_labelsTheEpisodeWithItsCodeAndName() {
+        let sut = makeSut()
+
+        let transformedEpisode = sut.transform(makeEpisode(name: "Episode 5: The Return"))
+
+        #expect(transformedEpisode.label == "\(transformedEpisode.code) · Episode 5: The Return")
+    }
 }
 
 extension EpisodeTransformerTests {
     private func makeSut() -> EpisodeTransformer {
         EpisodeTransformer()
+    }
+
+    private func makeEpisode(name: String) -> Episode {
+        Episode(
+            id: 1,
+            name: name,
+            season: 3,
+            number: 5,
+            airdate: nil,
+            airstamp: nil,
+            runtime: nil,
+            rating: Rating(average: nil),
+            image: nil,
+            summary: nil)
     }
 }

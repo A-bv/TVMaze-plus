@@ -15,7 +15,6 @@ struct UpNextSection: View {
         static let horizontalBleed: CGFloat = -16
         static let textSpacing: CGFloat = 3
         static let shadeOpacity = 0.85
-        static let separator = " · "
         static let style = ParallaxCarouselStyle(cardWidthInset: 90, cornerRadius: 24, parallaxDistance: 50)
     }
 
@@ -47,7 +46,7 @@ struct UpNextSection: View {
             VStack(alignment: .leading, spacing: Constants.textSpacing) {
                 Text(item.show.name)
                     .font(.title3.weight(.bold))
-                Text(verbatim: [item.episode.code, item.episode.name].joined(separator: Constants.separator))
+                Text(verbatim: item.episode.label)
                     .font(.footnote.weight(.medium))
                     .opacity(Constants.shadeOpacity)
                     .lineLimit(1)
