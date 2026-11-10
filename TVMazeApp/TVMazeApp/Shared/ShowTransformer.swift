@@ -58,6 +58,6 @@ struct ShowTransformer {
         guard let htmlSummary else {
             return Constants.noSummaryMessage
         }
-        return htmlSummary.replacingOccurrences(of: "<[^>]+>", with: "", options: .regularExpression)
+        return htmlSummary.strippingHTMLTags()
     }
 }
