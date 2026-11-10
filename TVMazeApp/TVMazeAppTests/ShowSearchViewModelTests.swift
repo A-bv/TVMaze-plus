@@ -109,26 +109,3 @@ extension ShowSearchViewModelTests {
         await search.value
     }
 }
-
-private final class MockTVMazeAPIService: TVMazeAPIService {
-    private let mockedShows: [ShowSearchModel]
-    private let error: Error?
-    private(set) var fetchCallCount = 0
-    
-    init(
-        mockedShows: [ShowSearchModel],
-        error: Error? = nil
-    ) {
-        self.mockedShows = mockedShows
-        self.error = error
-    }
-    
-    func fetchShows(name: String) async throws -> [ShowSearchModel] {
-        fetchCallCount += 1
-        guard let error else {
-            return mockedShows
-        }
-        
-        throw error
-    }
-}

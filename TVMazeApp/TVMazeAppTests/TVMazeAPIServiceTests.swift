@@ -39,15 +39,7 @@ struct TVMazeAPIServiceTests {
     }
     
     @Test func service_whenRealGirlsResponse_decodesAllShows() async throws {
-        let bundle = Bundle(for: MockedURLSession.self)
-        
-        let jsonLocation = bundle.url(forResource: "girls_search_response", withExtension: "json")
-        let jsonLocalURL = try #require(jsonLocation)
-        
-        let fakeFetchedData = try Data(contentsOf: jsonLocalURL)
-        let fakeSuccessCode = 200
-        
-        let mockedSession = MockedURLSession(fakeData: fakeFetchedData, statusCode: fakeSuccessCode)
+        let mockedSession = MockedURLSession(fakeData: try Fixtures.data(named: "girls_search_response"), statusCode: 200)
         let sut = makeSut(session: mockedSession)
         
         let shows = try await sut.fetchShows(name: "girls")
@@ -72,6 +64,39 @@ struct TVMazeAPIServiceTests {
 
         let expectedURL = "https://api.tvmaze.com/search/shows?q=law%20%26%20order%20c%23?"
         #expect(mockedSession.requestedURL?.absoluteString == expectedURL)
+    }
+
+    @Test func service_whenRealShowResponse_decodesTheShowWithItsDetails() async throws {
+        let mockedSession = MockedURLSession(fakeData: try Fixtures.data(named: "show_detail_response"), statusCode: 200)
+        let sut = makeSut(session: mockedSession)
+
+        let detail = try await sut.fetchShow(id: 44933)
+
+        let expectedURL = "https://api.tvmaze.com/shows/44933?embed%5B%5D=seasons&embed%5B%5D=episodes"
+            + "&embed%5B%5D=cast&embed%5B%5D=crew&embed%5B%5D=images&embed%5B%5D=akas"
+        #expect(mockedSession.requestedURL?.absoluteString == expectedURL)
+        #expect(detail.show.name == "Severance")
+        #expect(detail.embedded.seasons.count == 3)
+        #expect(detail.embedded.episodes.count == 19)
+        #expect(detail.embedded.cast.count == 11)
+        #expect(detail.embedded.crew.count == 71)
+        #expect(detail.embedded.images.count == 15)
+        #expect(detail.embedded.akas.count == 7)
+    }
+
+    @Test func service_whenRealEpisodeResponse_decodesTheEpisodeWithItsGuests() async throws {
+        let mockedSession = MockedURLSession(fakeData: try Fixtures.data(named: "episode_detail_response"), statusCode: 200)
+        let sut = makeSut(session: mockedSession)
+
+        let detail = try await sut.fetchEpisode(id: 2939707)
+
+        let expectedURL = "https://api.tvmaze.com/episodes/2939707?embed%5B%5D=guestcast&embed%5B%5D=guestcrew"
+        #expect(mockedSession.requestedURL?.absoluteString == expectedURL)
+        #expect(detail.episode.name == "Chikhai Bardo")
+        #expect(detail.episode.season == 2)
+        #expect(detail.episode.number == 7)
+        #expect(detail.embedded.guestcast.count == 5)
+        #expect(detail.embedded.guestcrew.count == 3)
     }
 }
 

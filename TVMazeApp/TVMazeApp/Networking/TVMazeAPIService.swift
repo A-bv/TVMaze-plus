@@ -9,4 +9,6 @@ import Foundation
 
 protocol TVMazeAPIService {
     func fetchShows(name: String) async throws -> [ShowSearchModel]
+    func fetchShow(id: Int) async throws -> ShowDetailModel
+    func fetchEpisode(id: Int) async throws -> EpisodeDetailModel
 }
