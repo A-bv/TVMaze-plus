@@ -44,10 +44,7 @@ struct SearchView: View {
             }
             .background(.surface)
             .navigationTitle(Constants.title)
-            .searchable(
-                text: $searchText,
-                placement: .navigationBarDrawer(displayMode: .always),
-                prompt: scope == .shows ? Constants.showsPrompt : Constants.peoplePrompt)
+            .searchable(text: $searchText, prompt: scope == .shows ? Constants.showsPrompt : Constants.peoplePrompt)
             .onSubmit(of: .search) {
                 submittedSearch = searchText
             }

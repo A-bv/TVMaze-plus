@@ -251,6 +251,16 @@
         }
       }
     },
+    "New on streaming" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nouveau en streaming"
+          }
+        }
+      }
+    },
     "Next" : {
       "localizations" : {
         "fr" : {
@@ -271,6 +281,16 @@
         }
       }
     },
+    "No evening listings on this day." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aucun programme ce soir-là."
+          }
+        }
+      }
+    },
     "No summary available." : {
       "localizations" : {
         "fr" : {
@@ -281,12 +301,42 @@
         }
       }
     },
+    "On TV %@ evening" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "À la télé %@ soir"
+          }
+        }
+      }
+    },
+    "On TV tonight" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "À la télé ce soir"
+          }
+        }
+      }
+    },
     "People" : {
       "localizations" : {
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Personnes"
+          }
+        }
+      }
+    },
+    "Pick for %@" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "À voir %@"
           }
         }
       }
@@ -477,6 +527,26 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "À déterminer"
+          }
+        }
+      }
+    },
+    "Tonight" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ce soir"
+          }
+        }
+      }
+    },
+    "Tonight's pick" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "À voir ce soir"
           }
         }
       }

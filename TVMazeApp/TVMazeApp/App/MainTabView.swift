@@ -9,19 +9,24 @@ import SwiftUI
 
 struct MainTabView: View {
     private enum Constants {
-        static let searchTitle = String(localized: "Search")
-        static let searchIcon = "magnifyingglass"
+        static let tonightTitle = String(localized: "Tonight")
+        static let tonightIcon = "tv"
         static let favoritesTitle = String(localized: "Favorites")
         static let favoritesIcon = "heart"
+        static let searchTitle = String(localized: "Search")
+        static let searchIcon = "magnifyingglass"
     }
 
     var body: some View {
         TabView {
-            Tab(Constants.searchTitle, systemImage: Constants.searchIcon) {
-                SearchView()
+            Tab(Constants.tonightTitle, systemImage: Constants.tonightIcon) {
+                TonightView()
             }
             Tab(Constants.favoritesTitle, systemImage: Constants.favoritesIcon) {
                 FavoritesView()
+            }
+            Tab(Constants.searchTitle, systemImage: Constants.searchIcon, role: .search) {
+                SearchView()
             }
         }
     }

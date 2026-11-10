@@ -17,10 +17,11 @@ final class MockTVMazeAPIService: TVMazeAPIService {
     var castCredits: [PersonCastCreditModel] = []
     var crewCredits: [PersonCrewCreditModel] = []
     var guestCredits: [PersonGuestCreditModel] = []
-    var schedule: [ScheduleEpisodeModel] = []
+    var schedules: [String: [ScheduleEpisodeModel]] = [:]
     var webSchedule: [ScheduleEpisodeModel] = []
     var upNext: [Int: ShowUpNextModel] = [:]
     private(set) var fetchCallCount = 0
+    private(set) var requestedCountryCodes: [String] = []
 
     init(
         mockedShows: [ShowSearchModel] = [],
@@ -59,7 +60,8 @@ final class MockTVMazeAPIService: TVMazeAPIService {
     }
 
     func fetchSchedule(date: Date, countryCode: String) async throws -> [ScheduleEpisodeModel] {
-        try respond(with: schedule)
+        requestedCountryCodes.append(countryCode)
+        return try respond(with: schedules[countryCode, default: []])
     }
 
     func fetchWebSchedule(date: Date) async throws -> [ScheduleEpisodeModel] {

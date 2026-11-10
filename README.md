@@ -1,6 +1,6 @@
 # TVMazeApp
 
-Search TV shows, open their details and keep favorites on device. A native SwiftUI app for iOS 26.5, built on the [TVMaze API](https://www.tvmaze.com/api). Its only dependencies are two design kits of my own, [NeumorphicSwiftUI](https://github.com/A-bv/NeumorphicSwiftUI) and [ParallaxKit](https://github.com/A-bv/ParallaxKit), added as Swift packages.
+See what's on TV tonight, search shows and people, and keep favorites on device. A native SwiftUI app for iOS 26.5, built on the [TVMaze API](https://www.tvmaze.com/api). Its only dependencies are two design kits of my own, [NeumorphicSwiftUI](https://github.com/A-bv/NeumorphicSwiftUI) and [ParallaxKit](https://github.com/A-bv/ParallaxKit), added as Swift packages.
 
 ![Swift 6](https://img.shields.io/badge/Swift-6-F05138?logo=swift&logoColor=white)
 ![iOS 26.5+](https://img.shields.io/badge/iOS-26.5%2B-007AFF?logo=apple&logoColor=white)
@@ -15,6 +15,7 @@ Search TV shows, open their details and keep favorites on device. A native Swift
 
 ## Features
 
+- See tonight's TV listings by time, in their channels' time zone, with new episodes on streaming and a pick of the night, or the same for any of the next six days. Listings come from the device's country, or from the US when TVMaze has none for it.
 - Search shows or people by name and browse the results as soft, raised rows.
 - Open a show behind a stretchy hero picture, and browse its episodes by season, its cast, crew, gallery and titles in other countries.
 - Open an episode for its guests and crew, and move to the previous or next one in place.
@@ -46,7 +47,7 @@ With SwiftData, simple reads and writes can stay in the views, since SwiftData k
 - **Empty states (iOS 17):** `ContentUnavailableView` shows a message before the first search or when a search fails, and Apple's standard "No Results" view when nothing is found.
 - **Accessibility:** VoiceOver labels describe what buttons do and what values mean, and text adapts to the user's chosen size.
 - **Localization (Xcode 15):** a String Catalog holds the app's text in English and French, instead of the older `.strings` files.
-- **Tabs (iOS 18):** each tab is declared with the new `Tab` API, instead of the older `.tabItem`.
+- **Tabs (iOS 18):** each tab is declared with the new `Tab` API, instead of the older `.tabItem`. The Search tab has the search role, which iOS 26 shows as its own round button beside the tab bar.
 
 ### ViewModel (logic)
 
