@@ -49,7 +49,7 @@ struct AroundEpisodeSection: View {
                 PosterView(url: episode.imageURL ?? fallbackImageURL)
                     .aspectRatio(Constants.imageAspectRatio, contentMode: .fit)
                     .clipShape(.rect(cornerRadius: Constants.cornerRadius))
-                Text("\(label)\(Constants.separator)\(episode.code)")
+                Text(verbatim: "\(label)\(Constants.separator)\(episode.code)")
                     .font(.caption)
                     .foregroundStyle(.secondary)
                 Text(episode.name)
