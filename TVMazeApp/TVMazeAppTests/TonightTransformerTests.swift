@@ -47,7 +47,6 @@ struct TonightTransformerTests {
     @Test func transformer_namesTheCountryAndItsTimeZone() throws {
         let tonight = try makeTonight()
 
-        #expect(tonight.country == Locale.current.localizedString(forRegionCode: "US"))
         #expect(tonight.timeZone.identifier == "America/New_York")
     }
 

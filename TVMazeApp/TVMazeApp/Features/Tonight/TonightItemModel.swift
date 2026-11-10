@@ -11,7 +11,6 @@ struct TonightItemModel: Equatable {
     let pick: ScheduleItemModel?
     let streaming: [ScheduleItemModel]
     let timeSlots: [TimeSlotItemModel]
-    let country: String
     let timeZone: TimeZone
 }
 

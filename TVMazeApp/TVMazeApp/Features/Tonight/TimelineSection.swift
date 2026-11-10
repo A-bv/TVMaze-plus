@@ -10,19 +10,24 @@ import SwiftUI
 struct TimelineSection: View {
     private enum Constants {
         static let emptyMessage = String(localized: "No evening listings on this day.")
-        static let separator = " · "
     }
 
     let title: String
-    let country: String
+    let region: RegionItemModel
+    let regions: [RegionItemModel]
+    @Binding var countryCode: String
     let timeZone: TimeZone
     let timeSlots: [TimeSlotItemModel]
 
     var body: some View {
         DetailSection(title: title) {
-            Text(verbatim: caption)
-                .font(.subheadline)
-                .foregroundStyle(.secondaryText)
+            HStack {
+                RegionMenu(region: region, regions: regions, countryCode: $countryCode)
+                Spacer()
+                Text(timeZone.localizedName(for: .generic, locale: .current) ?? "")
+                    .font(.subheadline)
+                    .foregroundStyle(.secondaryText)
+            }
             if timeSlots.isEmpty {
                 Text(Constants.emptyMessage)
                     .foregroundStyle(.secondaryText)
@@ -36,11 +41,5 @@ struct TimelineSection: View {
                 TimeSlotView(timeSlot: timeSlot, timeZone: timeZone)
             }
         }
-    }
-
-    private var caption: String {
-        [country, timeZone.localizedName(for: .generic, locale: .current)]
-            .compactMap { $0 }
-            .joined(separator: Constants.separator)
     }
 }

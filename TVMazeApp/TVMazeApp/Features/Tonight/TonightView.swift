@@ -15,7 +15,6 @@ struct TonightView: View {
         static let streamingTitle = String(localized: "New episodes on streaming")
         static let tonightTitle = String(localized: "On TV tonight")
         static let tonightPick = String(localized: "Tonight's pick")
-        static let regionTitle = String(localized: "Region")
         static let sectionSpacing: CGFloat = 32
         static let separator = " · "
     }
@@ -38,11 +37,6 @@ struct TonightView: View {
             }
             .background(.surface)
             .heroNavigationBar(title: Constants.title)
-            .toolbar {
-                ToolbarItem(placement: .topBarTrailing) {
-                    regionMenu
-                }
-            }
             .task(id: viewModel.request) {
                 await viewModel.loadSchedule()
             }
@@ -61,20 +55,6 @@ struct TonightView: View {
         } else {
             StretchyHeaderTitle(title: Constants.title, scrollOffset: scrollOffset)
         }
-    }
-
-    private var regionMenu: some View {
-        Menu {
-            Picker(Constants.regionTitle, selection: $viewModel.countryCode) {
-                ForEach(viewModel.regions) { region in
-                    Text(verbatim: "\(region.flag) \(region.name)")
-                        .tag(region.code)
-                }
-            }
-        } label: {
-            Text(verbatim: viewModel.region.flag)
-        }
-        .accessibilityLabel("\(Constants.regionTitle) \(viewModel.region.name)")
     }
 
     @ViewBuilder
@@ -97,7 +77,9 @@ struct TonightView: View {
             }
             TimelineSection(
                 title: timelineTitle,
-                country: tonight.country,
+                region: viewModel.region,
+                regions: viewModel.regions,
+                countryCode: $viewModel.countryCode,
                 timeZone: tonight.timeZone,
                 timeSlots: tonight.timeSlots)
         }

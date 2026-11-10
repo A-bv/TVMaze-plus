@@ -16,7 +16,7 @@ See what's on TV tonight, search shows and people, and keep favorites on device.
 
 ## Features
 
-- See tonight's TV listings by time, in their channels' time zone, with new episodes on streaming and a pick of the night, or the same for any of the next six days. A flag button picks the region of the listings among those TVMaze covers. It starts on the device's region, or on the US when TVMaze has no listings for it, and the choice is kept.
+- See tonight's TV listings by time, in their channels' time zone, with new episodes on streaming and a pick of the night, or the same for any of the next six days. A flag button in the TV section picks the region of its listings among those TVMaze covers; streaming is the same everywhere. It starts on the device's region, or on the US when TVMaze has no listings for it, and the choice is kept.
 - Search shows or people by name and browse the results as soft, raised rows.
 - Open a show behind a stretchy hero picture, and browse its episodes by season, its cast, crew, gallery and titles in other countries.
 - Open an episode for its guests and crew, and move to the previous or next one in place. Tonight's listings and the Up next cards open their episode directly, with a link to its show.

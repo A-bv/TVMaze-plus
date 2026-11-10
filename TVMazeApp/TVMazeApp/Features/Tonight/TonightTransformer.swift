@@ -36,7 +36,6 @@ struct TonightTransformer {
             pick: pick.map(transform),
             streaming: streaming.map(transform),
             timeSlots: groupByTime(evening.map(transform)),
-            country: Locale.current.localizedString(forRegionCode: countryCode) ?? countryCode,
             timeZone: evening.first?.show.network?.country.flatMap { TimeZone(identifier: $0.timezone) } ?? .current)
     }
 
