@@ -48,6 +48,11 @@ struct SearchView: View {
             .onSubmit(of: .search) {
                 submittedSearch = searchText
             }
+            .onChange(of: searchText) {
+                if searchText.isEmpty {
+                    submittedSearch = ""
+                }
+            }
             .task(id: SearchQuery(entry: submittedSearch, scope: scope)) {
                 await viewModel.search(entry: submittedSearch, scope: scope)
             }

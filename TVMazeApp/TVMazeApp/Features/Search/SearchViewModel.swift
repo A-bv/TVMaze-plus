@@ -35,6 +35,10 @@ final class SearchViewModel {
     }
 
     func search(entry: String, scope: SearchScope) async {
+        guard !entry.isEmpty else {
+            state = .idle
+            return
+        }
         switch scope {
         case .shows:
             await loadShows(entry: entry)

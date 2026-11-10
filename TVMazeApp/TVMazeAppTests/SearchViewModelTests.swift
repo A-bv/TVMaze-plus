@@ -131,6 +131,17 @@ struct SearchViewModelTests {
         #expect(service.fetchCallCount == 2)
         #expect(sut.state == .loadedPeople(people: [], entry: "scott"))
     }
+
+    @Test func viewModel_whenEntryIsCleared_isIdle() async {
+        let service = MockTVMazeAPIService(mockedShows: [])
+        let sut = makeSut(service: service)
+
+        await sut.search(entry: "girls", scope: .shows)
+        await sut.search(entry: "", scope: .shows)
+
+        #expect(service.fetchCallCount == 1)
+        #expect(sut.state == .idle)
+    }
 }
 
 extension SearchViewModelTests {
