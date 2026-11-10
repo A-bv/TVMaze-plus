@@ -106,9 +106,50 @@ struct FavoritesViewModelTests {
         #expect(sut.nextAirDate(of: 55350) != nil)
         #expect(sut.nextAirDate(of: 1) == nil)
     }
+
+    @Test func viewModel_whenTheNextEpisodeIsThisWeek_showsItsWeekday() async throws {
+        let sut = try await makeLoadedSut()
+        let airDate = try #require(sut.nextAirDate(of: 55350))
+
+        let status = sut.status(of: makeFavorite(id: 55350), now: airDate.addingTimeInterval(-86_400))
+
+        #expect(status == airDate.formatted(.dateTime.weekday(.abbreviated)))
+    }
+
+    @Test func viewModel_whenTheNextEpisodeIsLater_showsItsDate() async throws {
+        let sut = try await makeLoadedSut()
+        let airDate = try #require(sut.nextAirDate(of: 55350))
+
+        let status = sut.status(of: makeFavorite(id: 55350), now: airDate.addingTimeInterval(-10 * 86_400))
+
+        #expect(status == airDate.formatted(.dateTime.day().month(.abbreviated)))
+    }
+
+    @Test func viewModel_whenAskedForTheTime_addsIt() async throws {
+        let sut = try await makeLoadedSut()
+        let airDate = try #require(sut.nextAirDate(of: 55350))
+
+        let status = sut.status(of: makeFavorite(id: 55350), includesTime: true, now: airDate.addingTimeInterval(-86_400))
+
+        #expect(status == airDate.formatted(.dateTime.weekday(.abbreviated).hour().minute()))
+    }
+
+    @Test func viewModel_whenAShowHasNoNextEpisode_showsItsStatus() {
+        let sut = FavoritesViewModel(service: MockTVMazeAPIService())
+
+        #expect(sut.status(of: makeFavorite(id: 1)) == "Running")
+    }
 }
 
 extension FavoritesViewModelTests {
+    private func makeLoadedSut() async throws -> FavoritesViewModel {
+        let service = MockTVMazeAPIService()
+        service.upNext = [55350: try Fixtures.decode(ShowUpNextModel.self, named: "show_up_next_response")]
+        let sut = FavoritesViewModel(service: service)
+        await sut.loadUpNext(showIDs: [55350])
+        return sut
+    }
+
     private func makeFavorites() -> [SavedShowModel] {
         [
             makeFavorite(id: 1, name: "Severance", rating: "8.6", savedDaysAgo: 3),
@@ -117,7 +158,7 @@ extension FavoritesViewModelTests {
         ]
     }
 
-    private func makeFavorite(id: Int, name: String, rating: String?, savedDaysAgo: Int) -> SavedShowModel {
+    private func makeFavorite(id: Int, name: String = "Abbott Elementary", rating: String? = nil, savedDaysAgo: Int = 0) -> SavedShowModel {
         let favorite = SavedShowModel(from: ShowItemModel(
             id: id,
             name: name,

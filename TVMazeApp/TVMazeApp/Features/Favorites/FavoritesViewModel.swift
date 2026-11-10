@@ -10,6 +10,10 @@ import Observation
 
 @Observable
 final class FavoritesViewModel {
+    private enum Constants {
+        static let weekDayCount = 6
+    }
+
     enum SortOrder: String, CaseIterable, Identifiable {
         case dateAdded
         case nextEpisode
@@ -47,6 +51,15 @@ final class FavoritesViewModel {
 
     func nextAirDate(of showID: Int) -> Date? {
         upNextByShow[showID]?.airDate
+    }
+
+    func status(of favorite: SavedShowModel, includesTime: Bool = false, now: Date = .now) -> String {
+        guard let airDate = nextAirDate(of: favorite.id) else { return favorite.status }
+        let lastWeekDay = Calendar.current.date(byAdding: .day, value: Constants.weekDayCount, to: now) ?? now
+        let day: Date.FormatStyle = airDate < lastWeekDay
+            ? .dateTime.weekday(.abbreviated)
+            : .dateTime.day().month(.abbreviated)
+        return airDate.formatted(includesTime ? day.hour().minute() : day)
     }
 
     func sorted(_ favorites: [SavedShowModel], by order: SortOrder) -> [SavedShowModel] {

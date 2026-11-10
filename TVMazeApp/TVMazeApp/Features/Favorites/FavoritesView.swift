@@ -34,7 +34,6 @@ struct FavoritesView: View {
         static let chipPadding: CGFloat = 6
         static let badgeOffset: CGFloat = -8
         static let rowBadgePadding: CGFloat = 16
-        static let weekDayCount = 6
     }
 
     enum Layout: String, CaseIterable, Identifiable {
@@ -158,7 +157,7 @@ struct FavoritesView: View {
                     PosterView(url: favorite.posterURL)
                         .aspectRatio(Constants.posterAspectRatio, contentMode: .fit)
                         .overlay(alignment: .bottomLeading) {
-                            GlassChip(text: status(of: favorite))
+                            GlassChip(text: viewModel.status(of: favorite))
                                 .foregroundStyle(.white)
                                 .padding(Constants.chipPadding)
                         }
@@ -168,7 +167,7 @@ struct FavoritesView: View {
                 .buttonStyle(.plain)
                 .disabled(isEditing)
                 .accessibilityLabel(favorite.name)
-                .accessibilityValue(status(of: favorite, includesTime: true))
+                .accessibilityValue(viewModel.status(of: favorite, includesTime: true))
                 .overlay(alignment: .topLeading) {
                     if isEditing {
                         removeButton(for: favorite)
@@ -188,7 +187,7 @@ struct FavoritesView: View {
                 NavigationLink {
                     ShowDetailView(show: favorite.showItem)
                 } label: {
-                    ShowRow(show: favorite.showItem, detail: status(of: favorite, includesTime: true))
+                    ShowRow(show: favorite.showItem, detail: viewModel.status(of: favorite, includesTime: true))
                 }
                 .buttonStyle(NeumorphicButtonStyle())
                 .disabled(isEditing)
@@ -224,15 +223,6 @@ struct FavoritesView: View {
         Button(Constants.removeTitle, systemImage: Constants.removeIcon, role: .destructive) {
             context.delete(favorite)
         }
-    }
-
-    private func status(of favorite: SavedShowModel, includesTime: Bool = false) -> String {
-        guard let airDate = viewModel.nextAirDate(of: favorite.id) else { return favorite.status }
-        let lastWeekDay = Calendar.current.date(byAdding: .day, value: Constants.weekDayCount, to: .now) ?? .now
-        let day: Date.FormatStyle = airDate < lastWeekDay
-            ? .dateTime.weekday(.abbreviated)
-            : .dateTime.day().month(.abbreviated)
-        return airDate.formatted(includesTime ? day.hour().minute() : day)
     }
 
     private func title(of order: FavoritesViewModel.SortOrder) -> String {
