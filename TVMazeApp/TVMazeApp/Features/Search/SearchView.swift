@@ -38,12 +38,18 @@ struct SearchView: View {
     var body: some View {
         NavigationStack {
             VStack(spacing: 0) {
+                Text(Constants.title)
+                    .font(.largeTitle.weight(.bold))
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding([.horizontal, .top])
+                    .accessibilityAddTraits(.isHeader)
                 scopePicker
                 content
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
             }
             .background(.surface)
             .navigationTitle(Constants.title)
+            .toolbarVisibility(.hidden, for: .navigationBar)
             .searchable(text: $searchText, prompt: scope == .shows ? Constants.showsPrompt : Constants.peoplePrompt)
             .onSubmit(of: .search) {
                 submittedSearch = searchText
