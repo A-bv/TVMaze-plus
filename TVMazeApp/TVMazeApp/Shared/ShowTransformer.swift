@@ -12,6 +12,12 @@ struct ShowTransformer {
         static let noSummaryMessage = String(localized: "No summary available.")
         static let noRatingMessage = String(localized: "N/A")
         static let unknownYear = String(localized: "Upcoming")
+        static let statuses = [
+            "Running": String(localized: "Running"),
+            "Ended": String(localized: "Ended"),
+            "To Be Determined": String(localized: "To Be Determined"),
+            "In Development": String(localized: "In Development")
+        ]
     }
     
     func transform(_ show: Show) -> ShowItemModel {
@@ -20,7 +26,7 @@ struct ShowTransformer {
             name: show.name,
             posterURL: makeURL(string: show.image?.medium),
             years: buildTimeRange(start: show.premiered, end: show.ended),
-            status: show.status,
+            status: Constants.statuses[show.status] ?? show.status,
             channel: show.network?.name ?? show.webChannel?.name,
             genres: show.genres.joined(separator: ", "),
             rating: formatRating(rating: show.rating.average),

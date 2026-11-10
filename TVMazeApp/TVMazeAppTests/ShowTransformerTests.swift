@@ -47,27 +47,22 @@ struct ShowTransformerTests {
 
     @Test func transformer_withShowEndingTheYearItStarted_showsOneYear() {
         let sut = makeSut()
-        let show = Show(
-            id: 0,
-            url: "www.maze-url.com",
-            name: "name",
-            type: "type",
-            language: nil,
-            genres: [],
-            status: "Ended",
-            averageRuntime: nil,
-            premiered: "2025-01-10",
-            ended: "2025-03-28",
-            officialSite: nil,
-            schedule: ShowSchedule(time: "", days: []),
-            rating: Rating(average: nil),
-            network: nil,
-            webChannel: nil,
-            image: nil,
-            summary: nil,
-            updated: 0)
+        let show = makeShow(status: "Ended", premiered: "2025-01-10", ended: "2025-03-28")
 
         #expect(sut.transform(show).years == "2025")
+    }
+
+    @Test func transformer_withKnownStatus_translatesIt() {
+        let sut = makeSut()
+        let show = makeShow(status: "Running", premiered: "2025-01-10", ended: nil)
+
+        #expect(sut.transform(show).status == String(localized: "Running"))
+    }
+
+    @Test func transformer_withUnknownStatus_keepsIt() throws {
+        let sut = makeSut()
+
+        #expect(sut.transform(try makeShow()).status == "status")
     }
 }
 
@@ -78,5 +73,27 @@ extension ShowTransformerTests {
 
     private func makeShow(withNilValues: Bool = false, isUpcoming: Bool = false) throws -> Show {
         try #require(FakeShowSearchData.makeShows(withNilValues: withNilValues, isUpcoming: isUpcoming).first).show
+    }
+
+    private func makeShow(status: String, premiered: String, ended: String?) -> Show {
+        Show(
+            id: 0,
+            url: "www.maze-url.com",
+            name: "name",
+            type: "type",
+            language: nil,
+            genres: [],
+            status: status,
+            averageRuntime: nil,
+            premiered: premiered,
+            ended: ended,
+            officialSite: nil,
+            schedule: ShowSchedule(time: "", days: []),
+            rating: Rating(average: nil),
+            network: nil,
+            webChannel: nil,
+            image: nil,
+            summary: nil,
+            updated: 0)
     }
 }
