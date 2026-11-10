@@ -1,0 +1,24 @@
+{
+  "originHash" : "d06ac9dc75034fe5220d4827adf240cb54e1796fb4000e681c7a9cf357eb5de3",
+  "pins" : [
+    {
+      "identity" : "neumorphicswiftui",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/A-bv/NeumorphicSwiftUI",
+      "state" : {
+        "revision" : "5f93bb14c1309a0a511f83a08febe0b26631d9b1",
+        "version" : "3.3.0"
+      }
+    },
+    {
+      "identity" : "parallaxkit",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/A-bv/ParallaxKit",
+      "state" : {
+        "revision" : "945154479d203fb6da6dd4f653fcd160a52afce9",
+        "version" : "2.0.0"
+      }
+    }
+  ],
+  "version" : 3
+}

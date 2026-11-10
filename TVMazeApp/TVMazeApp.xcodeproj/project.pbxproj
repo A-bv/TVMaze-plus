@@ -6,6 +6,11 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		02AB00053070000000578383 /* NeumorphicSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 02AB00033070000000578383 /* NeumorphicSwiftUI */; };
+		02AB00063070000000578383 /* ParallaxKit in Frameworks */ = {isa = PBXBuildFile; productRef = 02AB00043070000000578383 /* ParallaxKit */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		02D7D882306D515000578383 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -52,6 +57,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				02AB00053070000000578383 /* NeumorphicSwiftUI in Frameworks */,
+				02AB00063070000000578383 /* ParallaxKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,6 +119,8 @@
 			);
 			name = TVMazeApp;
 			packageProductDependencies = (
+				02AB00033070000000578383 /* NeumorphicSwiftUI */,
+				02AB00043070000000578383 /* ParallaxKit */,
 			);
 			productName = TVMazeApp;
 			productReference = 02D7D85D3067AF4700578383 /* TVMazeApp.app */;
@@ -196,6 +205,10 @@
 			);
 			mainGroup = 02D7D8543067AF4700578383;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				02AB00013070000000578383 /* XCRemoteSwiftPackageReference "NeumorphicSwiftUI" */,
+				02AB00023070000000578383 /* XCRemoteSwiftPackageReference "ParallaxKit" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 02D7D85E3067AF4700578383 /* Products */;
 			projectDirPath = "";
@@ -577,6 +590,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		02AB00013070000000578383 /* XCRemoteSwiftPackageReference "NeumorphicSwiftUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/A-bv/NeumorphicSwiftUI";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.3.0;
+			};
+		};
+		02AB00023070000000578383 /* XCRemoteSwiftPackageReference "ParallaxKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/A-bv/ParallaxKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		02AB00033070000000578383 /* NeumorphicSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 02AB00013070000000578383 /* XCRemoteSwiftPackageReference "NeumorphicSwiftUI" */;
+			productName = NeumorphicSwiftUI;
+		};
+		02AB00043070000000578383 /* ParallaxKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 02AB00023070000000578383 /* XCRemoteSwiftPackageReference "ParallaxKit" */;
+			productName = ParallaxKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 02D7D8553067AF4700578383 /* Project object */;
 }
