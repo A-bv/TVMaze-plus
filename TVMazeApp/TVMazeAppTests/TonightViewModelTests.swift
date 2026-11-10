@@ -100,6 +100,23 @@ struct TonightViewModelTests {
         #expect(!sut.isTonight)
     }
 
+    @Test func viewModel_tonight_titlesItsListingsAndPickForTonight() {
+        let sut = makeSut()
+
+        #expect(sut.timelineTitle == String(localized: "On TV tonight"))
+        #expect(sut.pickTitle == String(localized: "Tonight's pick"))
+    }
+
+    @Test func viewModel_whenAnotherDayIsSelected_titlesItsListingsAndPickWithItsWeekday() {
+        let sut = makeSut()
+
+        sut.selectedDay = sut.days[1]
+
+        let weekday = sut.days[1].formatted(.dateTime.weekday(.wide))
+        #expect(sut.timelineTitle == String(localized: "On TV \(weekday) evening"))
+        #expect(sut.pickTitle == String(localized: "Pick for \(weekday)"))
+    }
+
     @Test func viewModel_whenScheduleFails_isFailed() async {
         let sut = makeSut(service: MockTVMazeAPIService(error: TVMazeAPIServiceError.invalidResponse))
 

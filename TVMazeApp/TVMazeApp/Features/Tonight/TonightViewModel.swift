@@ -13,6 +13,8 @@ final class TonightViewModel {
     private enum Constants {
         static let dayCount = 7
         static let fallbackCountryCode = "US"
+        static let tonightTitle = String(localized: "On TV tonight")
+        static let tonightPick = String(localized: "Tonight's pick")
         static let countryCodeKey = "countryCode"
         static let countryCodes = [
             "AU", "BE", "BR", "CA", "CN", "DE", "DK", "FR", "GB", "JP", "KR", "MX", "NL", "RU", "TR", "US"
@@ -72,12 +74,24 @@ final class TonightViewModel {
         selectedDay == days.first
     }
 
+    var timelineTitle: String {
+        isTonight ? Constants.tonightTitle : String(localized: "On TV \(weekday) evening")
+    }
+
+    var pickTitle: String {
+        isTonight ? Constants.tonightPick : String(localized: "Pick for \(weekday)")
+    }
+
     var request: ScheduleRequest {
         ScheduleRequest(day: selectedDay, countryCode: countryCode)
     }
 
     var region: RegionItemModel {
         RegionItemModel(code: countryCode)
+    }
+
+    private var weekday: String {
+        selectedDay.formatted(.dateTime.weekday(.wide))
     }
 
     func loadSchedule() async {

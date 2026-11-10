@@ -13,8 +13,6 @@ struct TonightView: View {
     private enum Constants {
         static let title = String(localized: "Guide")
         static let streamingTitle = String(localized: "New on streaming")
-        static let tonightTitle = String(localized: "On TV tonight")
-        static let tonightPick = String(localized: "Tonight's pick")
         static let settingsTitle = String(localized: "Settings")
         static let settingsIcon = "gearshape"
         static let sectionSpacing: CGFloat = 32
@@ -73,7 +71,7 @@ struct TonightView: View {
             } label: {
                 TonightHero(
                     pick: pick,
-                    eyebrow: eyebrow,
+                    eyebrow: viewModel.pickTitle,
                     timeZone: tonight.timeZone,
                     timeZoneName: tonight.isPickOnTV ? tonight.timeZoneName : nil,
                     scrollOffset: scrollOffset)
@@ -103,7 +101,7 @@ struct TonightView: View {
                 }
             }
             TimelineSection(
-                title: timelineTitle,
+                title: viewModel.timelineTitle,
                 regionName: viewModel.region.name,
                 timeZone: tonight.timeZone,
                 timeZoneName: tonight.timeZoneName,
@@ -114,18 +112,6 @@ struct TonightView: View {
     private var pick: ScheduleItemModel? {
         guard case .loaded(let tonight) = viewModel.state else { return nil }
         return tonight.pick
-    }
-
-    private var weekday: String {
-        viewModel.selectedDay.formatted(.dateTime.weekday(.wide))
-    }
-
-    private var timelineTitle: String {
-        viewModel.isTonight ? Constants.tonightTitle : String(localized: "On TV \(weekday) evening")
-    }
-
-    private var eyebrow: String {
-        viewModel.isTonight ? Constants.tonightPick : String(localized: "Pick for \(weekday)")
     }
 
     private func caption(for entry: ScheduleItemModel) -> String {
