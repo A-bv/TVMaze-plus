@@ -54,7 +54,7 @@ struct AroundEpisodeSection: View {
                     .foregroundStyle(.secondaryText)
                 Text(episode.name)
                     .font(.subheadline.weight(.semibold))
-                    .foregroundStyle(.primary)
+                    .foregroundStyle(Color.primary)
                     .lineLimit(Constants.lineLimit, reservesSpace: true)
             }
             .multilineTextAlignment(.leading)

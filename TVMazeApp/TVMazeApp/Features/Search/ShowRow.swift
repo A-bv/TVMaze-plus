@@ -31,7 +31,7 @@ struct ShowRow: View {
             VStack(alignment: .leading, spacing: Constants.textSpacing) {
                 Text(show.name)
                     .font(.headline)
-                    .foregroundStyle(.primary)
+                    .foregroundStyle(Color.primary)
                 Text(show.years)
                 if let channel = show.channel {
                     Text(channel)

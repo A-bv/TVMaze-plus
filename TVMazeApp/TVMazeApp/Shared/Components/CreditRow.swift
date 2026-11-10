@@ -20,7 +20,7 @@ struct CreditRow: View {
         HStack(alignment: .firstTextBaseline, spacing: Constants.spacing) {
             Text(name)
                 .font(.subheadline.weight(.semibold))
-                .foregroundStyle(.primary)
+                .foregroundStyle(Color.primary)
             Spacer()
             Text(role)
                 .font(.subheadline)

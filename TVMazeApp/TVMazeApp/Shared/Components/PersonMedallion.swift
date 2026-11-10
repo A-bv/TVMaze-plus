@@ -31,7 +31,7 @@ struct PersonMedallion: View {
                 }
             Text(credit.person.name)
                 .font(.footnote.weight(.semibold))
-                .foregroundStyle(.primary)
+                .foregroundStyle(Color.primary)
             Text(credit.role)
                 .font(.caption)
                 .foregroundStyle(.secondaryText)

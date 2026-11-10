@@ -30,7 +30,7 @@ struct EpisodeRow: View {
             VStack(alignment: .leading, spacing: Constants.textSpacing) {
                 Text(title)
                     .font(.subheadline.weight(.semibold))
-                    .foregroundStyle(.primary)
+                    .foregroundStyle(Color.primary)
                 if !details.isEmpty {
                     Text(details)
                         .font(.caption)

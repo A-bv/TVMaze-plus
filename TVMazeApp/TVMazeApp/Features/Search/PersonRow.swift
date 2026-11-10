@@ -29,7 +29,7 @@ struct PersonRow: View {
             VStack(alignment: .leading, spacing: Constants.textSpacing) {
                 Text(person.name)
                     .font(.headline)
-                    .foregroundStyle(.primary)
+                    .foregroundStyle(Color.primary)
                 if !details.isEmpty {
                     Text(details)
                         .font(.subheadline)
