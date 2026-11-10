@@ -15,4 +15,7 @@ protocol TVMazeAPIService {
     func fetchCastCredits(personID: Int) async throws -> [PersonCastCreditModel]
     func fetchCrewCredits(personID: Int) async throws -> [PersonCrewCreditModel]
     func fetchGuestCredits(personID: Int) async throws -> [PersonGuestCreditModel]
+    func fetchSchedule(date: Date, countryCode: String) async throws -> [ScheduleEpisodeModel]
+    func fetchWebSchedule(date: Date) async throws -> [ScheduleEpisodeModel]
+    func fetchUpNext(showID: Int) async throws -> ShowUpNextModel
 }

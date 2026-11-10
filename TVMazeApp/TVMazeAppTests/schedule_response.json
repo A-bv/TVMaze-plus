@@ -1,0 +1,272 @@
+[
+  {
+    "id": 3793933,
+    "url": "https://www.tvmaze.com/episodes/3793933/the-terrors-of-jordan-mendoza-1x09-i-think-we-should-be-buds",
+    "name": "I think we should be buds",
+    "season": 1,
+    "number": 9,
+    "type": "regular",
+    "airdate": "2026-11-08",
+    "airtime": "00:00",
+    "airstamp": "2026-11-09T05:00:00+00:00",
+    "runtime": 15,
+    "rating": {
+      "average": null
+    },
+    "image": null,
+    "summary": null,
+    "show": {
+      "id": 86450,
+      "url": "https://www.tvmaze.com/shows/86450/the-terrors-of-jordan-mendoza",
+      "name": "The Terrors of Jordan Mendoza",
+      "type": "Scripted",
+      "language": "English",
+      "genres": [
+        "Comedy",
+        "Horror"
+      ],
+      "status": "Running",
+      "runtime": 15,
+      "averageRuntime": 15,
+      "premiered": "2026-09-13",
+      "ended": null,
+      "officialSite": "https://www.adultswim.com/videos/the-terrors-of-jordan-mendoza",
+      "schedule": {
+        "time": "",
+        "days": []
+      },
+      "rating": {
+        "average": null
+      },
+      "weight": 95,
+      "network": {
+        "id": 10,
+        "name": "Adult Swim",
+        "country": {
+          "name": "United States",
+          "code": "US",
+          "timezone": "America/New_York"
+        },
+        "officialSite": "https://www.adultswim.com/"
+      },
+      "webChannel": null,
+      "dvdCountry": null,
+      "externals": {
+        "tvrage": null,
+        "thetvdb": 466803,
+        "imdb": "tt38652227"
+      },
+      "image": {
+        "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/639/1597876.jpg",
+        "original": "https://static.tvmaze.com/uploads/images/original_untouched/639/1597876.jpg"
+      },
+      "summary": "<p><b>The Terrors of Jordan Mendoza </b>follows a very scared man as he navigates a barrage of absurd, terrifying, and hilarious dreamscapes. </p>",
+      "updated": 1793775885,
+      "_links": {
+        "self": {
+          "href": "https://api.tvmaze.com/shows/86450"
+        },
+        "previousepisode": {
+          "href": "https://api.tvmaze.com/episodes/3793933",
+          "name": "I think we should be buds"
+        },
+        "nextepisode": {
+          "href": "https://api.tvmaze.com/episodes/3793934",
+          "name": "What was I gonna say?"
+        }
+      }
+    },
+    "_links": {
+      "self": {
+        "href": "https://api.tvmaze.com/episodes/3793933"
+      },
+      "show": {
+        "href": "https://api.tvmaze.com/shows/86450",
+        "name": "The Terrors of Jordan Mendoza"
+      }
+    }
+  },
+  {
+    "id": 3796905,
+    "url": "https://www.tvmaze.com/episodes/3796905/way-too-early-2026-11-09-episode-218",
+    "name": "Episode 218",
+    "season": 2026,
+    "number": 218,
+    "type": "regular",
+    "airdate": "2026-11-09",
+    "airtime": "05:00",
+    "airstamp": "2026-11-09T10:00:00+00:00",
+    "runtime": 60,
+    "rating": {
+      "average": null
+    },
+    "image": null,
+    "summary": "<p>Alaska and Mississippi Senate races remain too close to call, Trump gives revealing interview to 60 Minutes</p>",
+    "show": {
+      "id": 15308,
+      "url": "https://www.tvmaze.com/shows/15308/way-too-early",
+      "name": "Way Too Early",
+      "type": "News",
+      "language": "English",
+      "genres": [],
+      "status": "Running",
+      "runtime": 60,
+      "averageRuntime": 59,
+      "premiered": "2009-07-27",
+      "ended": null,
+      "officialSite": "http://www.msnbc.com/way-too-early",
+      "schedule": {
+        "time": "05:00",
+        "days": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday"
+        ]
+      },
+      "rating": {
+        "average": null
+      },
+      "weight": 78,
+      "network": {
+        "id": 201,
+        "name": "MS NOW",
+        "country": {
+          "name": "United States",
+          "code": "US",
+          "timezone": "America/New_York"
+        },
+        "officialSite": "https://www.ms.now/live"
+      },
+      "webChannel": null,
+      "dvdCountry": null,
+      "externals": {
+        "tvrage": null,
+        "thetvdb": 282682,
+        "imdb": null
+      },
+      "image": {
+        "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/557/1394869.jpg",
+        "original": "https://static.tvmaze.com/uploads/images/original_untouched/557/1394869.jpg"
+      },
+      "summary": "<p>The fast-paced program brings viewers everything they need to know to start their days--from news and politics to sports and pop culture.</p>",
+      "updated": 1794227112,
+      "_links": {
+        "self": {
+          "href": "https://api.tvmaze.com/shows/15308"
+        },
+        "previousepisode": {
+          "href": "https://api.tvmaze.com/episodes/3796905",
+          "name": "Episode 218"
+        },
+        "nextepisode": {
+          "href": "https://api.tvmaze.com/episodes/3796906",
+          "name": "Episode 219"
+        }
+      }
+    },
+    "_links": {
+      "self": {
+        "href": "https://api.tvmaze.com/episodes/3796905"
+      },
+      "show": {
+        "href": "https://api.tvmaze.com/shows/15308",
+        "name": "Way Too Early"
+      }
+    }
+  },
+  {
+    "id": 3796883,
+    "url": "https://www.tvmaze.com/episodes/3796883/morning-joe-2026-11-09-episode-221",
+    "name": "Episode 221",
+    "season": 2026,
+    "number": 221,
+    "type": "regular",
+    "airdate": "2026-11-09",
+    "airtime": "06:00",
+    "airstamp": "2026-11-09T11:00:00+00:00",
+    "runtime": 180,
+    "rating": {
+      "average": null
+    },
+    "image": {
+      "medium": "https://static.tvmaze.com/uploads/images/medium_landscape/650/1626328.jpg",
+      "original": "https://static.tvmaze.com/uploads/images/original_untouched/650/1626328.jpg"
+    },
+    "summary": null,
+    "show": {
+      "id": 15309,
+      "url": "https://www.tvmaze.com/shows/15309/morning-joe",
+      "name": "Morning Joe",
+      "type": "News",
+      "language": "English",
+      "genres": [],
+      "status": "Running",
+      "runtime": 180,
+      "averageRuntime": 193,
+      "premiered": "2007-04-09",
+      "ended": null,
+      "officialSite": "https://www.nbc.com/morning-joe",
+      "schedule": {
+        "time": "06:00",
+        "days": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday"
+        ]
+      },
+      "rating": {
+        "average": 1.2
+      },
+      "weight": 86,
+      "network": {
+        "id": 201,
+        "name": "MS NOW",
+        "country": {
+          "name": "United States",
+          "code": "US",
+          "timezone": "America/New_York"
+        },
+        "officialSite": "https://www.ms.now/live"
+      },
+      "webChannel": null,
+      "dvdCountry": null,
+      "externals": {
+        "tvrage": null,
+        "thetvdb": 282626,
+        "imdb": "tt1170244"
+      },
+      "image": {
+        "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/613/1532636.jpg",
+        "original": "https://static.tvmaze.com/uploads/images/original_untouched/613/1532636.jpg"
+      },
+      "summary": "<p>On <b>Morning Joe</b>, the hosts Joe Scarborough, Mika Brzezinski, and Willie Geist engage in dynamic discussion about political news and issues important to all Americans. Morning Joe attracts a variety of guests, including top newsmakers, politicians and cultural influencers.</p>",
+      "updated": 1794242642,
+      "_links": {
+        "self": {
+          "href": "https://api.tvmaze.com/shows/15309"
+        },
+        "previousepisode": {
+          "href": "https://api.tvmaze.com/episodes/3796883",
+          "name": "Episode 221"
+        },
+        "nextepisode": {
+          "href": "https://api.tvmaze.com/episodes/3796884",
+          "name": "Episode 222"
+        }
+      }
+    },
+    "_links": {
+      "self": {
+        "href": "https://api.tvmaze.com/episodes/3796883"
+      },
+      "show": {
+        "href": "https://api.tvmaze.com/shows/15309",
+        "name": "Morning Joe"
+      }
+    }
+  }
+]

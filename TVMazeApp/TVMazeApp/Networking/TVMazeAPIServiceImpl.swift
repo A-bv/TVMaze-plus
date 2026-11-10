@@ -26,6 +26,11 @@ final class TVMazeAPIServiceImpl: TVMazeAPIService {
         static let guestCreditsPath = "/guestcastcredits"
         static let showEmbed = "show"
         static let episodeEmbed = "episode"
+        static let upNextEmbeds = ["nextepisode", "images"]
+        static let schedulePath = "/schedule"
+        static let webSchedulePath = "/schedule/web"
+        static let dateQueryName = "date"
+        static let countryQueryName = "country"
     }
 
     private let session: DataSession
@@ -64,6 +69,29 @@ final class TVMazeAPIServiceImpl: TVMazeAPIService {
 
     func fetchGuestCredits(personID: Int) async throws -> [PersonGuestCreditModel] {
         try await fetchPersonCredits(personID: personID, path: Constant.guestCreditsPath, embed: Constant.episodeEmbed)
+    }
+
+    func fetchSchedule(date: Date, countryCode: String) async throws -> [ScheduleEpisodeModel] {
+        try await fetch(
+            path: Constant.schedulePath,
+            queryItems: [
+                URLQueryItem(name: Constant.dateQueryName, value: formatDay(date)),
+                URLQueryItem(name: Constant.countryQueryName, value: countryCode)
+            ])
+    }
+
+    func fetchWebSchedule(date: Date) async throws -> [ScheduleEpisodeModel] {
+        try await fetch(
+            path: Constant.webSchedulePath,
+            queryItems: [URLQueryItem(name: Constant.dateQueryName, value: formatDay(date))])
+    }
+
+    func fetchUpNext(showID: Int) async throws -> ShowUpNextModel {
+        try await fetch(path: Constant.showPath + String(showID), queryItems: embedQueryItems(Constant.upNextEmbeds))
+    }
+
+    private func formatDay(_ date: Date) -> String {
+        date.formatted(Date.ISO8601FormatStyle(timeZone: .current).year().month().day())
     }
 
     private func fetchPersonCredits<Model: Decodable>(personID: Int, path: String, embed: String) async throws -> Model {

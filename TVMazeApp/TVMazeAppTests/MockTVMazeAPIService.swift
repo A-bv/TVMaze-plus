@@ -5,6 +5,7 @@
 //  Created by Alexandre Bevilacqua on 10.11.2026.
 //
 
+import Foundation
 @testable import TVMazeApp
 
 final class MockTVMazeAPIService: TVMazeAPIService {
@@ -16,6 +17,9 @@ final class MockTVMazeAPIService: TVMazeAPIService {
     var castCredits: [PersonCastCreditModel] = []
     var crewCredits: [PersonCrewCreditModel] = []
     var guestCredits: [PersonGuestCreditModel] = []
+    var schedule: [ScheduleEpisodeModel] = []
+    var webSchedule: [ScheduleEpisodeModel] = []
+    var upNext: [Int: ShowUpNextModel] = [:]
     private(set) var fetchCallCount = 0
 
     init(
@@ -52,6 +56,18 @@ final class MockTVMazeAPIService: TVMazeAPIService {
 
     func fetchGuestCredits(personID: Int) async throws -> [PersonGuestCreditModel] {
         try respond(with: guestCredits)
+    }
+
+    func fetchSchedule(date: Date, countryCode: String) async throws -> [ScheduleEpisodeModel] {
+        try respond(with: schedule)
+    }
+
+    func fetchWebSchedule(date: Date) async throws -> [ScheduleEpisodeModel] {
+        try respond(with: webSchedule)
+    }
+
+    func fetchUpNext(showID: Int) async throws -> ShowUpNextModel {
+        try respond(with: upNext[showID])
     }
 
     private func respond<Model>(with model: Model?) throws -> Model {

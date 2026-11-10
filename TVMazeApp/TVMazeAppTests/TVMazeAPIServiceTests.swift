@@ -153,11 +153,64 @@ struct TVMazeAPIServiceTests {
         #expect(credit.embedded.episode.links.show.name == "Parks and Recreation")
         #expect(credit.links.character.name == "Ben Wyatt")
     }
+
+    @Test func service_whenRealScheduleResponse_decodesTheEpisodesWithTheirShows() async throws {
+        let mockedSession = MockedURLSession(fakeData: try Fixtures.data(named: "schedule_response"), statusCode: 200)
+        let sut = makeSut(session: mockedSession)
+
+        let schedule = try await sut.fetchSchedule(date: try makeDay(), countryCode: "US")
+
+        #expect(mockedSession.requestedURL?.absoluteString == "https://api.tvmaze.com/schedule?date=2026-11-09&country=US")
+        #expect(schedule.count == 3)
+        #expect(schedule.first?.episode.name == "I think we should be buds")
+        #expect(schedule.first?.show.name == "The Terrors of Jordan Mendoza")
+    }
+
+    @Test func service_whenRealWebScheduleResponse_decodesTheEpisodesWithTheirEmbeddedShows() async throws {
+        let mockedSession = MockedURLSession(fakeData: try Fixtures.data(named: "web_schedule_response"), statusCode: 200)
+        let sut = makeSut(session: mockedSession)
+
+        let schedule = try await sut.fetchWebSchedule(date: try makeDay())
+
+        #expect(mockedSession.requestedURL?.absoluteString == "https://api.tvmaze.com/schedule/web?date=2026-11-09")
+        #expect(schedule.count == 3)
+        #expect(schedule.first?.show.name == "I Was Actually There")
+        #expect(schedule.first?.show.webChannel?.name == "ABC iview")
+    }
+
+    @Test func service_whenRealUpNextResponse_decodesTheNextEpisodeAndImages() async throws {
+        let mockedSession = MockedURLSession(fakeData: try Fixtures.data(named: "show_up_next_response"), statusCode: 200)
+        let sut = makeSut(session: mockedSession)
+
+        let upNext = try await sut.fetchUpNext(showID: 55350)
+
+        let expectedURL = "https://api.tvmaze.com/shows/55350?embed%5B%5D=nextepisode&embed%5B%5D=images"
+        #expect(mockedSession.requestedURL?.absoluteString == expectedURL)
+        #expect(upNext.show.name == "Abbott Elementary")
+        #expect(upNext.embedded.nextepisode?.name == "Competition")
+        #expect(upNext.embedded.images.count == 18)
+    }
+
+    @Test func service_whenShowHasNoNextEpisode_decodesItAsMissing() async throws {
+        let data = try Fixtures.data(named: "show_up_next_response")
+        var json = try #require(try JSONSerialization.jsonObject(with: data) as? [String: Any])
+        json["_embedded"] = ["images": []]
+        let mockedSession = MockedURLSession(fakeData: try JSONSerialization.data(withJSONObject: json), statusCode: 200)
+        let sut = makeSut(session: mockedSession)
+
+        let upNext = try await sut.fetchUpNext(showID: 55350)
+
+        #expect(upNext.embedded.nextepisode == nil)
+    }
 }
 
 extension TVMazeAPIServiceTests {
     private func makeSut(session: DataSession) -> TVMazeAPIService {
         TVMazeAPIServiceImpl(session: session)
+    }
+
+    private func makeDay() throws -> Date {
+        try #require(Calendar.current.date(from: DateComponents(year: 2026, month: 11, day: 9, hour: 12)))
     }
 }
 

@@ -1,0 +1,260 @@
+[
+  {
+    "id": 3787784,
+    "url": "https://www.tvmaze.com/episodes/3787784/i-was-actually-there-3x01-julia-gillards-misogyny-speech-9-october-2012",
+    "name": "Julia Gillard's Misogyny Speech, 9 October 2012",
+    "season": 3,
+    "number": 1,
+    "type": "regular",
+    "airdate": "2026-11-09",
+    "airtime": "07:00",
+    "airstamp": "2026-11-08T20:00:00+00:00",
+    "runtime": 30,
+    "rating": {
+      "average": null
+    },
+    "image": null,
+    "summary": "<p>A heated parliamentary debate turned into one of our most influential political speeches. Australia's first female PM Julia Gillard joins political allies and opponents, journalists and eyewitnesses to reflect on that speech.</p>",
+    "_links": {
+      "self": {
+        "href": "https://api.tvmaze.com/episodes/3787784"
+      },
+      "show": {
+        "href": "https://api.tvmaze.com/shows/78302",
+        "name": "I Was Actually There"
+      }
+    },
+    "_embedded": {
+      "show": {
+        "id": 78302,
+        "url": "https://www.tvmaze.com/shows/78302/i-was-actually-there",
+        "name": "I Was Actually There",
+        "type": "Documentary",
+        "language": "English",
+        "genres": [
+          "History"
+        ],
+        "status": "Running",
+        "runtime": null,
+        "averageRuntime": 30,
+        "premiered": "2024-07-09",
+        "ended": null,
+        "officialSite": "https://iview.abc.net.au/show/i-was-actually-there",
+        "schedule": {
+          "time": "",
+          "days": [
+            "Tuesday"
+          ]
+        },
+        "rating": {
+          "average": null
+        },
+        "weight": 88,
+        "network": null,
+        "webChannel": {
+          "id": 149,
+          "name": "ABC iview",
+          "country": {
+            "name": "Australia",
+            "code": "AU",
+            "timezone": "Australia/Sydney"
+          },
+          "officialSite": "https://iview.abc.net.au/"
+        },
+        "dvdCountry": null,
+        "externals": {
+          "tvrage": null,
+          "thetvdb": 445002,
+          "imdb": "tt32872544"
+        },
+        "image": {
+          "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/526/1317141.jpg",
+          "original": "https://static.tvmaze.com/uploads/images/original_untouched/526/1317141.jpg"
+        },
+        "summary": "<p>What if our history was told by the people who were actually there? What if this retelling came with all its unvarnished, irreverent and occasionally contradictory humanity still intact?</p><p><b>I Was Actually There</b> will interview Australians who were there when our most defining and memorable events happened. What was it like to witness the miraculous rescue at the Beaconsfield Mine? Or flee the raging waters of the Boxing Day tsunami? Or wag school to meet the Beatles in their prime?</p><p>Through powerful contemporary interviews with diverse and colourful characters, the show will ask these Australians what they saw, how they reacted and how it changed them. While looking to the past, the series will reflect who we are now and examine why these moments still resonate.</p>",
+        "updated": 1794158647,
+        "_links": {
+          "self": {
+            "href": "https://api.tvmaze.com/shows/78302"
+          },
+          "previousepisode": {
+            "href": "https://api.tvmaze.com/episodes/3787789",
+            "name": "Lismore Floods, 28 February 2022"
+          }
+        }
+      }
+    }
+  },
+  {
+    "id": 3787785,
+    "url": "https://www.tvmaze.com/episodes/3787785/i-was-actually-there-3x02-thredbo-landslide-30-july-1997",
+    "name": "Thredbo Landslide, 30 July 1997",
+    "season": 3,
+    "number": 2,
+    "type": "regular",
+    "airdate": "2026-11-09",
+    "airtime": "07:00",
+    "airstamp": "2026-11-08T20:00:00+00:00",
+    "runtime": 30,
+    "rating": {
+      "average": null
+    },
+    "image": null,
+    "summary": "<p>The 1997 Thredbo landslide was one of the first tragedies in Australia to unfold as a live media event, with reporters broadcasting from the mountain. After 54 hours, news broke that a sole survivor had been found alive.</p>",
+    "_links": {
+      "self": {
+        "href": "https://api.tvmaze.com/episodes/3787785"
+      },
+      "show": {
+        "href": "https://api.tvmaze.com/shows/78302",
+        "name": "I Was Actually There"
+      }
+    },
+    "_embedded": {
+      "show": {
+        "id": 78302,
+        "url": "https://www.tvmaze.com/shows/78302/i-was-actually-there",
+        "name": "I Was Actually There",
+        "type": "Documentary",
+        "language": "English",
+        "genres": [
+          "History"
+        ],
+        "status": "Running",
+        "runtime": null,
+        "averageRuntime": 30,
+        "premiered": "2024-07-09",
+        "ended": null,
+        "officialSite": "https://iview.abc.net.au/show/i-was-actually-there",
+        "schedule": {
+          "time": "",
+          "days": [
+            "Tuesday"
+          ]
+        },
+        "rating": {
+          "average": null
+        },
+        "weight": 88,
+        "network": null,
+        "webChannel": {
+          "id": 149,
+          "name": "ABC iview",
+          "country": {
+            "name": "Australia",
+            "code": "AU",
+            "timezone": "Australia/Sydney"
+          },
+          "officialSite": "https://iview.abc.net.au/"
+        },
+        "dvdCountry": null,
+        "externals": {
+          "tvrage": null,
+          "thetvdb": 445002,
+          "imdb": "tt32872544"
+        },
+        "image": {
+          "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/526/1317141.jpg",
+          "original": "https://static.tvmaze.com/uploads/images/original_untouched/526/1317141.jpg"
+        },
+        "summary": "<p>What if our history was told by the people who were actually there? What if this retelling came with all its unvarnished, irreverent and occasionally contradictory humanity still intact?</p><p><b>I Was Actually There</b> will interview Australians who were there when our most defining and memorable events happened. What was it like to witness the miraculous rescue at the Beaconsfield Mine? Or flee the raging waters of the Boxing Day tsunami? Or wag school to meet the Beatles in their prime?</p><p>Through powerful contemporary interviews with diverse and colourful characters, the show will ask these Australians what they saw, how they reacted and how it changed them. While looking to the past, the series will reflect who we are now and examine why these moments still resonate.</p>",
+        "updated": 1794158647,
+        "_links": {
+          "self": {
+            "href": "https://api.tvmaze.com/shows/78302"
+          },
+          "previousepisode": {
+            "href": "https://api.tvmaze.com/episodes/3787789",
+            "name": "Lismore Floods, 28 February 2022"
+          }
+        }
+      }
+    }
+  },
+  {
+    "id": 3787786,
+    "url": "https://www.tvmaze.com/episodes/3787786/i-was-actually-there-3x03-cangai-siege-30-march-1993",
+    "name": "Cangai Siege, 30 March 1993",
+    "season": 3,
+    "number": 3,
+    "type": "regular",
+    "airdate": "2026-11-09",
+    "airtime": "07:00",
+    "airstamp": "2026-11-08T20:00:00+00:00",
+    "runtime": 30,
+    "rating": {
+      "average": null
+    },
+    "image": null,
+    "summary": null,
+    "_links": {
+      "self": {
+        "href": "https://api.tvmaze.com/episodes/3787786"
+      },
+      "show": {
+        "href": "https://api.tvmaze.com/shows/78302",
+        "name": "I Was Actually There"
+      }
+    },
+    "_embedded": {
+      "show": {
+        "id": 78302,
+        "url": "https://www.tvmaze.com/shows/78302/i-was-actually-there",
+        "name": "I Was Actually There",
+        "type": "Documentary",
+        "language": "English",
+        "genres": [
+          "History"
+        ],
+        "status": "Running",
+        "runtime": null,
+        "averageRuntime": 30,
+        "premiered": "2024-07-09",
+        "ended": null,
+        "officialSite": "https://iview.abc.net.au/show/i-was-actually-there",
+        "schedule": {
+          "time": "",
+          "days": [
+            "Tuesday"
+          ]
+        },
+        "rating": {
+          "average": null
+        },
+        "weight": 88,
+        "network": null,
+        "webChannel": {
+          "id": 149,
+          "name": "ABC iview",
+          "country": {
+            "name": "Australia",
+            "code": "AU",
+            "timezone": "Australia/Sydney"
+          },
+          "officialSite": "https://iview.abc.net.au/"
+        },
+        "dvdCountry": null,
+        "externals": {
+          "tvrage": null,
+          "thetvdb": 445002,
+          "imdb": "tt32872544"
+        },
+        "image": {
+          "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/526/1317141.jpg",
+          "original": "https://static.tvmaze.com/uploads/images/original_untouched/526/1317141.jpg"
+        },
+        "summary": "<p>What if our history was told by the people who were actually there? What if this retelling came with all its unvarnished, irreverent and occasionally contradictory humanity still intact?</p><p><b>I Was Actually There</b> will interview Australians who were there when our most defining and memorable events happened. What was it like to witness the miraculous rescue at the Beaconsfield Mine? Or flee the raging waters of the Boxing Day tsunami? Or wag school to meet the Beatles in their prime?</p><p>Through powerful contemporary interviews with diverse and colourful characters, the show will ask these Australians what they saw, how they reacted and how it changed them. While looking to the past, the series will reflect who we are now and examine why these moments still resonate.</p>",
+        "updated": 1794158647,
+        "_links": {
+          "self": {
+            "href": "https://api.tvmaze.com/shows/78302"
+          },
+          "previousepisode": {
+            "href": "https://api.tvmaze.com/episodes/3787789",
+            "name": "Lismore Floods, 28 February 2022"
+          }
+        }
+      }
+    }
+  }
+]
