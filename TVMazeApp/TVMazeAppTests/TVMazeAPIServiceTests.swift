@@ -15,7 +15,7 @@ struct TVMazeAPIServiceTests {
         let validData = Data("[]".utf8)
         let mockedSession = MockedURLSession(fakeData: validData, statusCode: 200)
         let sut = makeSut(session: mockedSession)
-        #expect(try await sut.fetchShowsFromAPI(show: "girls") == [])
+        #expect(try await sut.fetchShows(name: "girls") == [])
     }
     
     @Test func service_whenDataIsInvalidAndStatusCodeIs200_throwsDecodingError() async {
@@ -25,7 +25,7 @@ struct TVMazeAPIServiceTests {
         let sut = makeSut(session: mockedSession)
         let expectedError = TVMazeAPIServiceError.decodingError
         await #expect(throws: expectedError) {
-            try await sut.fetchShowsFromAPI(show: "girls")
+            try await sut.fetchShows(name: "girls")
         }
     }
     
@@ -34,7 +34,7 @@ struct TVMazeAPIServiceTests {
         let sut = makeSut(session: mockedSession)
         let expectedError = TVMazeAPIServiceError.invalidResponse
         await #expect(throws: expectedError) {
-            try await sut.fetchShowsFromAPI(show: "girls")
+            try await sut.fetchShows(name: "girls")
         }
     }
     
@@ -50,9 +50,13 @@ struct TVMazeAPIServiceTests {
         let mockedSession = MockedURLSession(fakeData: fakeFetchedData, statusCode: fakeSuccessCode)
         let sut = makeSut(session: mockedSession)
         
-        let shows = try await sut.fetchShowsFromAPI(show: "girls")
+        let shows = try await sut.fetchShows(name: "girls")
         
         #expect(shows.count == 2)
+
+        let showTheMostFilled = try #require(shows.first)
+        #expect(showTheMostFilled.show.network?.name == "HBO")
+        #expect(showTheMostFilled.show.averageRuntime == 30)
         
         let showTheMostFilledWithNil = try #require(shows.last)
         #expect(showTheMostFilledWithNil.show.premiered == nil)
@@ -64,7 +68,7 @@ struct TVMazeAPIServiceTests {
         let mockedSession = MockedURLSession(fakeData: Data("[]".utf8), statusCode: 200)
         let sut = makeSut(session: mockedSession)
 
-        _ = try await sut.fetchShowsFromAPI(show: "law & order c#?")
+        _ = try await sut.fetchShows(name: "law & order c#?")
 
         let expectedURL = "https://api.tvmaze.com/search/shows?q=law%20%26%20order%20c%23?"
         #expect(mockedSession.requestedURL?.absoluteString == expectedURL)

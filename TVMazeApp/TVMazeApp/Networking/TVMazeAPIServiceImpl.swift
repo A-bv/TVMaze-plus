@@ -21,10 +21,10 @@ final class TVMazeAPIServiceImpl: TVMazeAPIService {
         self.session = session
     }
 
-    func fetchShowsFromAPI(show: String) async throws -> [ShowSearchModel] {
+    func fetchShows(name: String) async throws -> [ShowSearchModel] {
         try await fetch(
             path: Constant.showSearchPath,
-            queryItems: [URLQueryItem(name: Constant.searchQueryName, value: show)])
+            queryItems: [URLQueryItem(name: Constant.searchQueryName, value: name)])
     }
 
     private func fetch<Model: Decodable>(path: String, queryItems: [URLQueryItem]) async throws -> Model {

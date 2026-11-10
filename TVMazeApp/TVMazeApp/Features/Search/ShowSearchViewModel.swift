@@ -32,7 +32,7 @@ final class ShowSearchViewModel {
         if case .loaded(_, entry) = state { return }
         state = .loading
         do {
-            let results = try await service.fetchShowsFromAPI(show: entry)
+            let results = try await service.fetchShows(name: entry)
             if Task.isCancelled { return }
             state = .loaded(shows: transformer.transform(results), entry: entry)
         } catch {

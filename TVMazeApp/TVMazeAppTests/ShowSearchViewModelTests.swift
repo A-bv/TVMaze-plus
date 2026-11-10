@@ -123,7 +123,7 @@ private final class MockTVMazeAPIService: TVMazeAPIService {
         self.error = error
     }
     
-    func fetchShowsFromAPI(show: String) async throws -> [ShowSearchModel] {
+    func fetchShows(name: String) async throws -> [ShowSearchModel] {
         fetchCallCount += 1
         guard let error else {
             return mockedShows
