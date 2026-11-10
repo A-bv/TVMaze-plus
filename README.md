@@ -15,7 +15,7 @@ Search TV shows, open their details and keep favorites on device. A native Swift
 
 ## Features
 
-- Search shows by name and browse the results as soft, raised rows.
+- Search shows or people by name and browse the results as soft, raised rows.
 - Open a show behind a stretchy hero picture, and browse its episodes by season, its cast, crew, gallery and titles in other countries.
 - Open an episode for its guests and crew, and move to the previous or next one in place.
 - Open anyone in the cast or crew to see the shows they're known for, their work behind the camera and their guest appearances.

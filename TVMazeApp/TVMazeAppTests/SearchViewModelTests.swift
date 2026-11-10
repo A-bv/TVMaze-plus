@@ -96,6 +96,41 @@ struct SearchViewModelTests {
 
         #expect(sut.state == .loading)
     }
+
+    @Test func viewModel_whenPeopleSearchSucceeds_isLoadedWithPeopleAndEntry() async throws {
+        let service = MockTVMazeAPIService()
+        service.people = try Fixtures.decode([PersonSearchModel].self, named: "people_search_response")
+        let sut = makeSut(service: service)
+
+        await sut.search(entry: "adam scott", scope: .people)
+
+        guard case .loadedPeople(let people, let entry) = sut.state else {
+            Issue.record("Expected a loaded people state")
+            return
+        }
+        #expect(entry == "adam scott")
+        #expect(people.count == 10)
+        #expect(people.dropFirst().first?.name == "Adam Scott")
+    }
+
+    @Test func viewModel_whenPeopleSearchFails_isFailed() async {
+        let sut = makeSut(service: MockTVMazeAPIService(error: TVMazeAPIServiceError.invalidResponse))
+
+        await sut.search(entry: "adam scott", scope: .people)
+
+        #expect(sut.state == .failed)
+    }
+
+    @Test func viewModel_whenScopeChanges_searchesAgain() async {
+        let service = MockTVMazeAPIService()
+        let sut = makeSut(service: service)
+
+        await sut.search(entry: "scott", scope: .shows)
+        await sut.search(entry: "scott", scope: .people)
+
+        #expect(service.fetchCallCount == 2)
+        #expect(sut.state == .loadedPeople(people: [], entry: "scott"))
+    }
 }
 
 extension SearchViewModelTests {

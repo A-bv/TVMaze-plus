@@ -121,16 +121,6 @@
         }
       }
     },
-    "TV Shows" : {
-      "localizations" : {
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Séries TV"
-          }
-        }
-      }
-    },
     "Type a show's name and press Search." : {
       "localizations" : {
         "fr" : {
@@ -507,6 +497,46 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Suivant"
+          }
+        }
+      }
+    },
+    "Search a person" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rechercher une personne"
+          }
+        }
+      }
+    },
+    "People" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Personnes"
+          }
+        }
+      }
+    },
+    "Search for a person" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Recherchez une personne"
+          }
+        }
+      }
+    },
+    "Type a person's name and press Search." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Saisissez le nom d’une personne et appuyez sur Rechercher."
           }
         }
       }
