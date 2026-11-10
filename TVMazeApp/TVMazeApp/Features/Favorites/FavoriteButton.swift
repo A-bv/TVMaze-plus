@@ -12,8 +12,7 @@ struct FavoriteButton: View {
     let show: ShowItemModel
     
     private enum Constants {
-        static let buttonSize: CGFloat = 40
-        static let backgroundOpacity: CGFloat = 0.3
+        static let buttonSize: CGFloat = 44
         static let addIcon = "heart"
         static let removeIcon = "heart.fill"
         static let addAccessibilityLabel = String(localized: "Add to favorites")
@@ -34,10 +33,10 @@ struct FavoriteButton: View {
             }
         } label: {
             Image(systemName: saved == nil ? Constants.addIcon : Constants.removeIcon)
-                .font(.title2)
-                .foregroundStyle(Color.primary)
+                .font(.title3)
+                .foregroundStyle(.tint)
                 .frame(width: Constants.buttonSize, height: Constants.buttonSize)
-                .background(.white.opacity(Constants.backgroundOpacity), in: Circle())
+                .contentShape(.rect)
         }
         .dynamicTypeSize(...DynamicTypeSize.xxxLarge)
         .accessibilityLabel(saved == nil ? Constants.addAccessibilityLabel : Constants.removeAccessibilityLabel)

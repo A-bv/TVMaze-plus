@@ -5,6 +5,7 @@
 //  Created by Alexandre Bevilacqua on 26.09.2026.
 //
 
+import NeumorphicSwiftUI
 import SwiftData
 import SwiftUI
 
@@ -18,6 +19,8 @@ struct ShowSearchMainView: View {
         static let emptyTitle = String(localized: "Search for a show")
         static let emptyMessage = String(localized: "Type a show's name and press Search.")
         static let emptyIcon = "tv"
+        static let rowSpacing: CGFloat = 14
+        static let favoritePadding: CGFloat = 12
     }
     
     @State private var viewModel = ShowSearchViewModel()
@@ -27,6 +30,8 @@ struct ShowSearchMainView: View {
     var body: some View {
         NavigationStack {
             content
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .background(.surface)
                 .navigationTitle(Constants.title)
                 .searchable(
                     text: $searchText,
@@ -56,24 +61,26 @@ struct ShowSearchMainView: View {
                 description: Text(Constants.errorMessage))
         case .loading:
             ProgressView()
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
         case .loaded(let shows, let entry) where shows.isEmpty:
             ContentUnavailableView.search(text: entry)
         case .loaded(let shows, _):
-            ScrollView(.horizontal) {
-                LazyHStack(alignment: .top) {
+            ScrollView {
+                LazyVStack(spacing: Constants.rowSpacing) {
                     ForEach(shows) { show in
                         NavigationLink {
                             ShowDetailView(show: show)
                         } label: {
-                            CardView(show: show)
+                            ShowRow(show: show)
                         }
-                        .buttonStyle(.plain)
+                        .buttonStyle(NeumorphicButtonStyle())
+                        .overlay(alignment: .trailing) {
+                            FavoriteButton(show: show)
+                                .padding(.trailing, Constants.favoritePadding)
+                        }
                     }
                 }
                 .padding()
             }
-            .frame(maxHeight: .infinity, alignment: .top)
         }
     }
 }

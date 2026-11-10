@@ -21,6 +21,7 @@ struct ShowTransformer {
             posterURL: makeURL(string: show.image?.medium),
             years: buildTimeRange(start: show.premiered, end: show.ended),
             status: show.status,
+            channel: show.network?.name ?? show.webChannel?.name,
             genres: show.genres.joined(separator: ", "),
             rating: formatRating(rating: show.rating.average),
             largePosterURL: makeURL(string: show.image?.original),

@@ -15,6 +15,7 @@ final class SavedShowModel {
     var posterURL: URL?
     var years: String
     var status: String
+    var channel: String?
     var genres: String
     var rating: String
     var largePosterURL: URL?
@@ -31,6 +32,7 @@ final class SavedShowModel {
         posterURL = show.posterURL
         years = show.years
         status = show.status
+        channel = show.channel
         genres = show.genres
         rating = show.rating
         largePosterURL = show.largePosterURL
@@ -48,6 +50,7 @@ final class SavedShowModel {
             posterURL: posterURL,
             years: years,
             status: status,
+            channel: channel,
             genres: genres,
             rating: rating,
             largePosterURL: largePosterURL,

@@ -67,6 +67,7 @@ struct ShowDetailView: View {
             posterURL: URL(string: "https://static.tvmaze.com/uploads/images/medium_portrait/501/1253519.jpg"),
             years: "2008 – 2019",
             status: "Ended",
+            channel: "AMC",
             genres: "Drama, Crime, Thriller",
             rating: "9.2",
             largePosterURL: URL(string: "https://static.tvmaze.com/uploads/images/original_untouched/501/1253519.jpg"),

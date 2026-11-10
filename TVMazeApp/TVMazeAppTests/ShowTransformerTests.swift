@@ -18,6 +18,7 @@ struct ShowTransformerTests {
         #expect(transformedShow.name == "valid name")
         #expect(transformedShow.years == "2021 – 2022")
         #expect(transformedShow.rating == "5.4")
+        #expect(transformedShow.channel == "channel")
         #expect(transformedShow.summary == "Text test.")
         #expect(transformedShow.websiteURL == URL(string: "https://www.site.com"))
         #expect(transformedShow.lastUpdated == Date(timeIntervalSince1970: 1790843609))
@@ -29,6 +30,7 @@ struct ShowTransformerTests {
         
         #expect(transformedShow.years == "2021")
         #expect(transformedShow.rating == String(localized: "N/A"))
+        #expect(transformedShow.channel == nil)
         #expect(transformedShow.summary == String(localized: "No summary available."))
         #expect(transformedShow.websiteURL == URL(string: "www.maze-url.com"))
     }

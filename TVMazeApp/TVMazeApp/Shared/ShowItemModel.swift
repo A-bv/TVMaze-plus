@@ -13,6 +13,7 @@ struct ShowItemModel: Identifiable, Equatable {
     let posterURL: URL?
     let years: String
     let status: String
+    let channel: String?
     let genres: String
     let rating: String
     let largePosterURL: URL?
