@@ -41,17 +41,13 @@ struct UpNextSection: View {
 
     private func card(for item: UpNextItemModel) -> some View {
         VStack(alignment: .leading) {
-            GlassChip(text: item.airDate.formatted(.relative(presentation: .named)))
+            GlassChip(text: item.airDate.formatted(.dateTime.weekday().day().month().hour().minute()))
                 .foregroundStyle(.white)
             Spacer()
             VStack(alignment: .leading, spacing: Constants.textSpacing) {
                 Text(item.show.name)
                     .font(.title3.weight(.bold))
-                Text(verbatim: [
-                    item.episode.code,
-                    item.episode.name,
-                    item.airDate.formatted(.dateTime.weekday().day().month().hour().minute())
-                ].joined(separator: Constants.separator))
+                Text(verbatim: [item.episode.code, item.episode.name].joined(separator: Constants.separator))
                     .font(.footnote.weight(.medium))
                     .opacity(Constants.shadeOpacity)
                     .lineLimit(1)
