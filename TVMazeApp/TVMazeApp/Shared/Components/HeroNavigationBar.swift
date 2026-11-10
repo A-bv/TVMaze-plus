@@ -28,7 +28,8 @@ struct HeroNavigationBar: ViewModifier {
             .navigationBarTitleDisplayMode(.inline)
             .toolbarBackground(Color.surface, for: .navigationBar)
             .toolbarBackgroundVisibility(isPastHeader ? .visible : .hidden, for: .navigationBar)
-            .toolbarColorScheme(isPastHeader ? colorScheme : nil, for: .navigationBar)
+            .toolbarColorScheme(isPastHeader ? colorScheme : .dark, for: .navigationBar)
+            .scrollEdgeEffectHidden(!isPastHeader, for: .top)
             .toolbar {
                 ToolbarItem(placement: .principal) {
                     Text(title)
