@@ -211,6 +211,16 @@
         }
       }
     },
+    "Guide" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Programme TV"
+          }
+        }
+      }
+    },
     "In Development" : {
       "localizations" : {
         "fr" : {
@@ -567,16 +577,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "À déterminer"
-          }
-        }
-      }
-    },
-    "Tonight" : {
-      "localizations" : {
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ce soir"
           }
         }
       }

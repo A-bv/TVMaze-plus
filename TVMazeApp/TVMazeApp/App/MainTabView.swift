@@ -9,7 +9,7 @@ import SwiftUI
 
 struct MainTabView: View {
     private enum Constants {
-        static let tonightTitle = String(localized: "Tonight")
+        static let tonightTitle = String(localized: "Guide")
         static let tonightIcon = "tv"
         static let favoritesTitle = String(localized: "Favorites")
         static let favoritesIcon = "heart"

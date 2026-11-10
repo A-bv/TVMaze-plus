@@ -11,7 +11,7 @@ import SwiftUI
 
 struct TonightView: View {
     private enum Constants {
-        static let title = String(localized: "Tonight")
+        static let title = String(localized: "Guide")
         static let streamingTitle = String(localized: "New episodes on streaming")
         static let tonightTitle = String(localized: "On TV tonight")
         static let tonightPick = String(localized: "Tonight's pick")

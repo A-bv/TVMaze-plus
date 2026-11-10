@@ -7,7 +7,7 @@ See what's on TV tonight, search shows and people, and keep favorites on device.
 [![License: MIT](https://img.shields.io/badge/License-MIT-lightgrey)](LICENSE)
 
 <p align="center">
-  <img src="docs/screenshots/tonight.png" width="160" alt="Tonight tab with NCIS as tonight's pick behind a large hero picture, a strip of seven days and new streaming shows">
+  <img src="docs/screenshots/tonight.png" width="160" alt="Guide tab with NCIS as tonight's pick behind a large hero picture, a strip of seven days and new streaming shows">
   <img src="docs/screenshots/search.png" width="160" alt="Search results for “stranger” as soft raised rows, each with a poster, years, channel, rating and a heart">
   <img src="docs/screenshots/show.png" width="160" alt="Stranger Things show screen with its poster as a stretchy header, rating, episode and runtime tiles, and a favorite button">
   <img src="docs/screenshots/favorites.png" width="160" alt="Favorites tab with the next episode of a saved show in an Up next card, above a grid of saved show posters">
@@ -19,10 +19,10 @@ See what's on TV tonight, search shows and people, and keep favorites on device.
 - See tonight's TV listings by time, in their channels' time zone shown as a GMT offset like "GMT-5", with new episodes on streaming and a pick of the night, taken from TV or from streaming when the region has no evening listings, or the same for any of the next six days. A flag button in the TV section picks the region of its listings among those TVMaze covers; streaming is the same everywhere. It starts on the device's region, or on the US when TVMaze has no listings for it, and the choice is kept.
 - Search shows or people by name and browse the results as soft, raised rows.
 - Open a show behind a stretchy hero picture, and browse its episodes by season, its cast, crew, gallery and titles in other countries.
-- Open an episode for its guests and crew, and move to the previous or next one in place. Tonight's listings and the Up next cards open their episode directly, with a link to its show.
+- Open an episode for its guests and crew, and move to the previous or next one in place. The Guide's listings and the Up next cards open their episode directly, with a link to its show.
 - Open anyone in the cast or crew to see the shows they're known for, their work behind the camera and their guest appearances.
 - Save favorites on device from any search result or show screen. Their tab shows the next episode of each one still airing, soonest first, above a grid of their posters; a long press removes one. Opening the tab also brings the saved shows up to date.
-- Reopen without a connection what was already loaded, like Tonight or a show seen before.
+- Reopen without a connection what was already loaded, like the Guide or a show seen before.
 - Use the app in English or French.
 
 ## Architecture
@@ -81,7 +81,7 @@ Requires Xcode 26.5 or later. Open `TVMazeApp/TVMazeApp.xcodeproj`, run the app 
 
 - **Swift Testing:** Apple's testing framework, newer than XCTest. `@Test` marks a test, `#expect` checks a result or an error, and `#require` stops a test early when something it needs is missing.
 - **Coverage:** the service, the ViewModel and the Transformer are tested with mocks, and the saved favorites with an in-memory database, all without internet.
-- **UI tests:** `XCUIAutomation` drives the real app through Tonight, search and favorites using the live API, and `performAccessibilityAudit` checks the results screen, apart from what sits under the floating search bar. They're written in XCTest because Swift Testing doesn't support UI tests.
+- **UI tests:** `XCUIAutomation` drives the real app through the Guide, search and favorites using the live API, and `performAccessibilityAudit` checks the results screen, apart from what sits under the floating search bar. They're written in XCTest because Swift Testing doesn't support UI tests.
 - **Real API data:** a JSON file recorded from the real API, with one show fully filled and one with every optional field empty or missing, so decoding is checked against what the API really sends.
 
 ## License
