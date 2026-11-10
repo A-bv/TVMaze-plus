@@ -471,6 +471,16 @@
         }
       }
     },
+    "Season" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Saison"
+          }
+        }
+      }
+    },
     "Season %@" : {
       "localizations" : {
         "fr" : {

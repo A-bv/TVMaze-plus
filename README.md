@@ -43,7 +43,7 @@ With SwiftData, simple reads and writes can stay in the views, since SwiftData k
 - **Screen updates:** when data changes, SwiftUI redraws only the parts that show it. A view that has a ViewModel declares it with `@State`, instead of the older `@StateObject`, so SwiftUI creates it only once.
 - **Navigation:** screens open the next one themselves. Tapping a result follows a `NavigationLink` to the detail screen, inside a `NavigationStack`. UIKit apps often needed a separate coordinator object to move between screens.
 - **Soft Cinema design:** content sits on one soft surface. NeumorphicSwiftUI's button and toggle styles make what can be tapped look raised, and what is selected look pressed in. ParallaxKit's stretchy header and carousel make pictures move as the user scrolls.
-- **Liquid Glass (iOS 26):** Apple's new see-through design. Only what floats above the content uses it, like the back button and the tab bar, which iOS 26 gives the glass look by default, and the small labels over pictures.
+- **Liquid Glass (iOS 26):** Apple's new see-through design. Only what floats above the content uses it, like the back button and the tab bar, which iOS 26 gives the glass look by default, the small labels over pictures and the season picker.
 - **Search:** `.searchable` adds the standard iOS search bar, and `.onSubmit(of: .search)` asks the ViewModel for results when the user presses Search on the keyboard.
 - **Empty states (iOS 17):** `ContentUnavailableView` shows a message before the first search or when a search fails, and Apple's standard "No Results" view when nothing is found.
 - **Accessibility:** VoiceOver labels describe what buttons do and what values mean, and text adapts to the user's chosen size.
