@@ -13,6 +13,7 @@ struct PosterView: View {
     }
 
     let url: URL?
+    var placeholderIcon = Constants.placeholderIcon
 
     var body: some View {
         Color.clear
@@ -21,7 +22,7 @@ struct PosterView: View {
                     if let image = phase.image {
                         image.resizable().scaledToFill()
                     } else if phase.error != nil || url == nil {
-                        Image(systemName: Constants.placeholderIcon)
+                        Image(systemName: placeholderIcon)
                             .font(.largeTitle)
                             .foregroundStyle(.secondary)
                             .frame(maxWidth: .infinity, maxHeight: .infinity)

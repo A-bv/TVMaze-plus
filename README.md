@@ -16,8 +16,8 @@ Search TV shows, open their details and keep favorites on device. A native Swift
 ## Features
 
 - Search shows by name and browse the results as soft, raised rows.
-- Open a show for its full details and a link to its website.
-- Save favorites on device from any card or detail screen, and find them in their own tab.
+- Open a show behind a stretchy hero picture, and browse its episodes by season, its cast, crew, gallery and titles in other countries.
+- Save favorites on device from any search result or show screen, and find them in their own tab.
 - Use the app in English or French.
 
 ## Architecture
@@ -37,8 +37,9 @@ With SwiftData, simple reads and writes can stay in the views, since SwiftData k
 ### Views (UI)
 
 - **Screen updates:** when data changes, SwiftUI redraws only the parts that show it. A view that has a ViewModel declares it with `@State`, instead of the older `@StateObject`, so SwiftUI creates it only once.
-- **Navigation:** screens open the next one themselves. Tapping a card follows a `NavigationLink` to the detail screen, inside a `NavigationStack`. UIKit apps often needed a separate coordinator object to move between screens.
-- **Liquid Glass (iOS 26):** Apple's new see-through design. `glassEffect` gives any view the glass look, and the `.glassProminent` button style makes a button stand out with it.
+- **Navigation:** screens open the next one themselves. Tapping a result follows a `NavigationLink` to the detail screen, inside a `NavigationStack`. UIKit apps often needed a separate coordinator object to move between screens.
+- **Soft Cinema design:** content sits on one soft surface. NeumorphicSwiftUI's button and toggle styles make what can be tapped look raised, and what is selected look pressed in. ParallaxKit's stretchy header and carousel make pictures move as the user scrolls.
+- **Liquid Glass (iOS 26):** Apple's new see-through design. Only what floats above the content uses it, like the back button and the tab bar, which iOS 26 gives the glass look by default.
 - **Search:** `.searchable` adds the standard iOS search bar, and `.onSubmit(of: .search)` asks the ViewModel for results when the user presses Search on the keyboard.
 - **Empty states (iOS 17):** `ContentUnavailableView` shows a message before the first search or when a search fails, and Apple's standard "No Results" view when nothing is found.
 - **Accessibility:** VoiceOver labels describe what buttons do and what values mean, and text adapts to the user's chosen size.
