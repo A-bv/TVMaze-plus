@@ -597,7 +597,7 @@
 			repositoryURL = "https://github.com/A-bv/NeumorphicSwiftUI";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 3.4.0;
+				minimumVersion = 3.4.1;
 			};
 		};
 		02AB00023070000000578383 /* XCRemoteSwiftPackageReference "ParallaxKit" */ = {
