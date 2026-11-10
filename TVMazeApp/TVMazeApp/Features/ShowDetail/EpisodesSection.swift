@@ -32,7 +32,7 @@ struct EpisodesSection: View {
                             get: { selectedSeason == season.number },
                             set: { _ in selectedSeason = season.number }
                         )) {
-                            Text("Season \(season.number)")
+                            Text("Season \(String(season.number))")
                                 .font(.subheadline.weight(.semibold))
                                 .foregroundStyle(selectedSeason == season.number ? Color.accentColor : Color.primary)
                         }

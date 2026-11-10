@@ -49,6 +49,26 @@ struct EpisodeTransformerTests {
         #expect(transformedEpisode.imageURL == nil)
         #expect(transformedEpisode.summary == nil)
     }
+
+    @Test func transformer_withYearAsSeason_keepsTheYearWholeInTheCode() {
+        let sut = makeSut()
+        let episode = Episode(
+            id: 1,
+            name: "Episode 168",
+            season: 2026,
+            number: 1168,
+            airdate: nil,
+            airstamp: nil,
+            runtime: nil,
+            rating: Rating(average: nil),
+            image: nil,
+            summary: nil)
+
+        let transformedEpisode = sut.transform(episode)
+
+        #expect(transformedEpisode.code.contains("2026"))
+        #expect(transformedEpisode.code.contains("1168"))
+    }
 }
 
 extension EpisodeTransformerTests {

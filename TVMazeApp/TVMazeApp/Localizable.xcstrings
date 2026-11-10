@@ -341,22 +341,22 @@
         }
       }
     },
-    "S%lld" : {
+    "S%@" : {
       "localizations" : {
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "S%lld"
+            "value" : "S%@"
           }
         }
       }
     },
-    "S%lld E%lld" : {
+    "S%@ E%@" : {
       "localizations" : {
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "S%lld É%lld"
+            "value" : "S%@ É%@"
           }
         }
       }
@@ -411,12 +411,12 @@
         }
       }
     },
-    "Season %lld" : {
+    "Season %@" : {
       "localizations" : {
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Saison %lld"
+            "value" : "Saison %@"
           }
         }
       }

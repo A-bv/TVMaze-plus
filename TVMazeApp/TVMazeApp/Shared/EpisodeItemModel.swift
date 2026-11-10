@@ -20,7 +20,7 @@ struct EpisodeItemModel: Identifiable, Equatable {
     let summary: String?
 
     var code: String {
-        guard let number else { return String(localized: "S\(season)") }
-        return String(localized: "S\(season) E\(number)")
+        guard let number else { return String(localized: "S\(String(season))") }
+        return String(localized: "S\(String(season)) E\(String(number))")
     }
 }
