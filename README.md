@@ -17,7 +17,7 @@ See what's on TV tonight, search shows and people, and keep favorites on device.
 ## Features
 
 - See tonight's TV listings by time, in their channels' time zone shown as a GMT offset like "GMT-5", with new episodes on streaming and a pick of the night, taken from TV or from streaming when the region has no evening listings, or the same for any of the next six days. The TV listings name their region, which starts on the device's region, or on the US when TVMaze has no listings for it; streaming is the same everywhere.
-- Open Settings from the Guide to pick the region of the TV listings among those TVMaze covers, which is kept, and to reach the app's language in the Settings app.
+- Open Settings from the Guide to pick the region of the TV listings among those TVMaze covers, which is kept, to reach the app's language in the Settings app, and to see the app's version and where its data comes from.
 - Search shows or people by name and browse the results as soft, raised rows.
 - Open a show behind a stretchy hero picture, and browse its episodes by season, its cast, crew, gallery and titles in other countries.
 - Open an episode for its guests and crew, and move to the previous or next one in place. The Guide's listings and the Up next cards open their episode directly, with a link to its show.

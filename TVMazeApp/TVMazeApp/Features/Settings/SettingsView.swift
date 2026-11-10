@@ -15,6 +15,12 @@ struct SettingsView: View {
         static let regionFooter = String(localized: "Sets the TV listings. Streaming is the same everywhere.")
         static let languageTitle = String(localized: "Language")
         static let languageFooter = String(localized: "The language is changed in the Settings app.")
+        static let aboutTitle = String(localized: "About")
+        static let versionTitle = String(localized: "Version")
+        static let dataTitle = String(localized: "Data")
+        static let dataSource = "TVmaze"
+        static let dataURL = URL(string: "https://www.tvmaze.com")
+        static let versionKey = "CFBundleShortVersionString"
         static let fallbackLanguageCode = "en"
     }
 
@@ -48,6 +54,16 @@ struct SettingsView: View {
                     Text(Constants.languageFooter)
                 }
                 .listRowBackground(Color.surfaceGradientStart)
+                Section(Constants.aboutTitle) {
+                    LabeledContent(Constants.versionTitle, value: version)
+                    if let url = Constants.dataURL {
+                        Link(destination: url) {
+                            LabeledContent(Constants.dataTitle, value: Constants.dataSource)
+                        }
+                        .tint(.primary)
+                    }
+                }
+                .listRowBackground(Color.surfaceGradientStart)
             }
             .scrollContentBackground(.hidden)
             .background(.surface)
@@ -61,6 +77,11 @@ struct SettingsView: View {
                 }
             }
         }
+        .presentationDetents([.medium, .large])
+    }
+
+    private var version: String {
+        Bundle.main.object(forInfoDictionaryKey: Constants.versionKey) as? String ?? ""
     }
 
     private var languageName: String {
