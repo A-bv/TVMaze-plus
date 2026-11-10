@@ -17,6 +17,15 @@ struct SavedShowModelTests {
         #expect(savedShow.showItem == show)
     }
 
+    @Test func savedShow_whenUpdated_matchesTheNewShow() throws {
+        let savedShow = SavedShowModel(from: try makeShow())
+        let newShow = try #require(FakeShowSearchData.makeShows(withNilValues: true).first.map { ShowTransformer().transform($0.show) })
+
+        savedShow.update(from: newShow)
+
+        #expect(savedShow.showItem == newShow)
+    }
+
     @Test func savedShow_whenSaved_comesBackWithItsData() throws {
         let show = try makeShow()
         let container = try makeContainer()

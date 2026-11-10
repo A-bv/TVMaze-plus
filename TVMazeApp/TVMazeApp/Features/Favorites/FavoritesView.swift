@@ -38,6 +38,9 @@ struct FavoritesView: View {
                 .task(id: favorites.map(\.id)) {
                     await viewModel.loadUpNext(showIDs: favorites.map(\.id))
                 }
+                .onChange(of: viewModel.refreshedShows) { _, shows in
+                    refreshFavorites(with: shows)
+                }
         }
     }
 
@@ -59,6 +62,13 @@ struct FavoritesView: View {
                 }
                 .padding()
             }
+        }
+    }
+
+    private func refreshFavorites(with shows: [ShowItemModel]) {
+        for show in shows {
+            guard let favorite = favorites.first(where: { $0.id == show.id }), favorite.showItem != show else { continue }
+            favorite.update(from: show)
         }
     }
 

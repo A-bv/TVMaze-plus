@@ -43,6 +43,22 @@ final class SavedShowModel {
         lastUpdated = show.lastUpdated
     }
 
+    func update(from show: ShowItemModel) {
+        name = show.name
+        posterURL = show.posterURL
+        years = show.years
+        status = show.status
+        channel = show.channel
+        genres = show.genres
+        rating = show.rating
+        largePosterURL = show.largePosterURL
+        summary = show.summary
+        type = show.type
+        language = show.language
+        websiteURL = show.websiteURL
+        lastUpdated = show.lastUpdated
+    }
+
     var showItem: ShowItemModel {
         ShowItemModel(
             id: id,

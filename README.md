@@ -21,7 +21,7 @@ See what's on TV tonight, search shows and people, and keep favorites on device.
 - Open a show behind a stretchy hero picture, and browse its episodes by season, its cast, crew, gallery and titles in other countries.
 - Open an episode for its guests and crew, and move to the previous or next one in place. Tonight's listings and the Up next cards open their episode directly, with a link to its show.
 - Open anyone in the cast or crew to see the shows they're known for, their work behind the camera and their guest appearances.
-- Save favorites on device from any search result or show screen. Their tab shows the next episode of each one still airing, soonest first, above a grid of their posters; a long press removes one.
+- Save favorites on device from any search result or show screen. Their tab shows the next episode of each one still airing, soonest first, above a grid of their posters; a long press removes one. Opening the tab also brings the saved shows up to date.
 - Use the app in English or French.
 
 ## Architecture

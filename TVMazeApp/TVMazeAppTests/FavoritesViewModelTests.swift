@@ -24,6 +24,19 @@ struct FavoritesViewModelTests {
         #expect(sut.upNext.map(\.show.name) == ["Abbott Elementary"])
     }
 
+    @Test func viewModel_keepsTheLatestDataOfEveryFetchedShow() async throws {
+        let service = MockTVMazeAPIService()
+        service.upNext = [
+            55350: try Fixtures.decode(ShowUpNextModel.self, named: "show_up_next_response"),
+            1: try UpNextFixtures.make(showID: 1, hasNextEpisode: false)
+        ]
+        let sut = FavoritesViewModel(service: service)
+
+        await sut.loadUpNext(showIDs: [1, 55350])
+
+        #expect(sut.refreshedShows.map(\.id) == [1, 55350])
+    }
+
     @Test func viewModel_whenFavoritesChange_fetchesOnlyTheNewShows() async throws {
         let service = MockTVMazeAPIService()
         service.upNext = [
