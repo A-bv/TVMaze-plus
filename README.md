@@ -78,7 +78,7 @@ Requires Xcode 26.5 or later. Open `TVMazeApp/TVMazeApp.xcodeproj`, run the app 
 
 - **Swift Testing:** Apple's testing framework, newer than XCTest. `@Test` marks a test, `#expect` checks a result or an error, and `#require` stops a test early when something it needs is missing.
 - **Coverage:** the service, the ViewModel and the Transformer are tested with mocks, and the saved favorites with an in-memory database, all without internet.
-- **UI tests:** `XCUIAutomation` drives the real app through search and favorites using the live API, and `performAccessibilityAudit` checks the results screen. They're written in XCTest because Swift Testing doesn't support UI tests.
+- **UI tests:** `XCUIAutomation` drives the real app through Tonight, search and favorites using the live API, and `performAccessibilityAudit` checks the results screen, apart from what sits under the floating search bar. They're written in XCTest because Swift Testing doesn't support UI tests.
 - **Real API data:** a JSON file recorded from the real API, with one show fully filled and one with every optional field empty or missing, so decoding is checked against what the API really sends.
 
 ## License

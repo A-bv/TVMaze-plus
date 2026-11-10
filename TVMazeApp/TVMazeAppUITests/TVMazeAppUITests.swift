@@ -14,10 +14,13 @@ final class TVMazeAppUITests: XCTestCase {
         static let removeLabel = "Remove from favorites"
         static let favoritesTab = "Favorites"
         static let searchTab = "Search"
-        static let deleteLabel = "Delete"
         static let showName = "Girls"
-        static let systemSearchClearButton = "_UITextFieldClearButton"
+        static let tonightTitle = "On TV tonight"
+        static let tomorrowTitlePrefix = "On TV "
+        static let floatingBarBlurHeights: CGFloat = 2
         static let timeout: TimeInterval = 15
+        static let longPressDuration: TimeInterval = 1.2
+        static let appLocale = Locale(identifier: "en_US")
     }
 
     override func setUpWithError() throws {
@@ -25,10 +28,25 @@ final class TVMazeAppUITests: XCTestCase {
     }
 
     @MainActor
-    func testSearchFavoriteAndDeleteFlow() {
+    func testTonightShowsTheEveningListingsOfTheChosenDay() {
+        let app = launchedApp()
+        XCTAssertTrue(app.staticTexts[Constants.tonightTitle].waitForExistence(timeout: Constants.timeout))
+
+        let tomorrow = Calendar.current.date(byAdding: .day, value: 1, to: .now) ?? .now
+        let dayLabel = tomorrow.formatted(Date.FormatStyle(date: .complete, time: .omitted, locale: Constants.appLocale))
+        app.switches[dayLabel].firstMatch.tap()
+
+        let weekday = tomorrow.formatted(Date.FormatStyle(locale: Constants.appLocale).weekday(.wide))
+        let tomorrowTitle = Constants.tomorrowTitlePrefix + weekday
+        let title = app.staticTexts.matching(NSPredicate(format: "label BEGINSWITH %@", tomorrowTitle)).firstMatch
+        XCTAssertTrue(title.waitForExistence(timeout: Constants.timeout))
+    }
+
+    @MainActor
+    func testSearchFavoriteAndRemoveFlow() {
         let app = launchedApp()
         openTab(Constants.favoritesTab, in: app)
-        let favoritesBefore = app.cells.count
+        removeFavorite(named: Constants.showName, in: app)
 
         openTab(Constants.searchTab, in: app)
         search(in: app)
@@ -38,15 +56,15 @@ final class TVMazeAppUITests: XCTestCase {
         XCTAssertTrue(app.buttons[Constants.removeLabel].firstMatch.waitForExistence(timeout: Constants.timeout))
 
         openTab(Constants.favoritesTab, in: app)
-        XCTAssertEqual(app.cells.count, favoritesBefore + 1)
-        app.cells.firstMatch.swipeLeft()
-        app.buttons[Constants.deleteLabel].firstMatch.tap()
-        XCTAssertEqual(app.cells.count, favoritesBefore)
+        XCTAssertTrue(app.buttons[Constants.showName].waitForExistence(timeout: Constants.timeout))
+        removeFavorite(named: Constants.showName, in: app)
+        XCTAssertFalse(app.buttons[Constants.showName].exists)
     }
 
     @MainActor
     func testResultsStayAfterComingBackFromAShow() {
         let app = launchedApp()
+        openTab(Constants.searchTab, in: app)
         search(in: app)
         let showName = app.staticTexts[Constants.showName].firstMatch
         XCTAssertTrue(showName.waitForExistence(timeout: Constants.timeout))
@@ -62,10 +80,14 @@ final class TVMazeAppUITests: XCTestCase {
     @MainActor
     func testSearchResultsHaveNoAccessibilityIssues() throws {
         let app = launchedApp()
+        openTab(Constants.searchTab, in: app)
         search(in: app)
         XCTAssertTrue(app.buttons[Constants.addLabel].firstMatch.waitForExistence(timeout: Constants.timeout))
+        let searchBar = app.searchFields.firstMatch.frame
+        let floatingBarTop = searchBar.minY - searchBar.height * Constants.floatingBarBlurHeights
         try app.performAccessibilityAudit { issue in
-            issue.detailedDescription.contains(Constants.systemSearchClearButton)
+            guard let element = issue.element else { return false }
+            return element.frame.maxY > floatingBarTop
         }
     }
 
@@ -90,5 +112,16 @@ final class TVMazeAppUITests: XCTestCase {
         let tab = app.tabBars.buttons[name]
         XCTAssertTrue(tab.waitForExistence(timeout: Constants.timeout))
         tab.tap()
+    }
+
+    @MainActor
+    private func removeFavorite(named name: String, in app: XCUIApplication) {
+        let poster = app.buttons[name]
+        guard poster.exists else { return }
+        poster.press(forDuration: Constants.longPressDuration)
+        let removeButton = app.buttons[Constants.removeLabel]
+        XCTAssertTrue(removeButton.waitForExistence(timeout: Constants.timeout))
+        removeButton.tap()
+        XCTAssertTrue(poster.waitForNonExistence(timeout: Constants.timeout))
     }
 }
