@@ -291,6 +291,16 @@
         }
       }
     },
+    "Language" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Langue"
+          }
+        }
+      }
+    },
     "Layout" : {
       "localizations" : {
         "fr" : {
@@ -591,6 +601,26 @@
         }
       }
     },
+    "Sets the TV listings. Streaming is the same everywhere." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Définit le programme TV. Le streaming est le même partout."
+          }
+        }
+      }
+    },
+    "Settings" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Réglages"
+          }
+        }
+      }
+    },
     "Share" : {
       "localizations" : {
         "fr" : {
@@ -657,6 +687,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Touchez le cœur d’une série pour la garder ici."
+          }
+        }
+      }
+    },
+    "The language is changed in the Settings app." : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La langue se change dans l’app Réglages."
           }
         }
       }

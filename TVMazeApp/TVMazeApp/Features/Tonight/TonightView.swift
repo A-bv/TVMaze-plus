@@ -15,11 +15,14 @@ struct TonightView: View {
         static let streamingTitle = String(localized: "New on streaming")
         static let tonightTitle = String(localized: "On TV tonight")
         static let tonightPick = String(localized: "Tonight's pick")
+        static let settingsTitle = String(localized: "Settings")
+        static let settingsIcon = "gearshape"
         static let sectionSpacing: CGFloat = 32
         static let separator = " · "
     }
 
     @State private var viewModel = TonightViewModel()
+    @State private var isShowingSettings = false
 
     var body: some View {
         NavigationStack {
@@ -37,6 +40,16 @@ struct TonightView: View {
             }
             .background(.surface)
             .heroNavigationBar(title: Constants.title)
+            .toolbar {
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button(Constants.settingsTitle, systemImage: Constants.settingsIcon) {
+                        isShowingSettings = true
+                    }
+                }
+            }
+            .sheet(isPresented: $isShowingSettings) {
+                SettingsView(regions: viewModel.regions, countryCode: $viewModel.countryCode)
+            }
             .task(id: viewModel.request) {
                 await viewModel.loadSchedule()
             }
@@ -82,9 +95,7 @@ struct TonightView: View {
             }
             TimelineSection(
                 title: timelineTitle,
-                region: viewModel.region,
-                regions: viewModel.regions,
-                countryCode: $viewModel.countryCode,
+                regionName: viewModel.region.name,
                 timeZone: tonight.timeZone,
                 timeZoneName: tonight.timeZoneName,
                 timeSlots: tonight.timeSlots)

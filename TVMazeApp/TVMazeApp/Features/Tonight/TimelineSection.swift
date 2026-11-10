@@ -9,26 +9,21 @@ import SwiftUI
 
 struct TimelineSection: View {
     private enum Constants {
+        static let separator = " · "
         static let emptyMessage = String(localized: "No evening listings on this day.")
     }
 
     let title: String
-    let region: RegionItemModel
-    let regions: [RegionItemModel]
-    @Binding var countryCode: String
+    let regionName: String
     let timeZone: TimeZone
     let timeZoneName: String
     let timeSlots: [TimeSlotItemModel]
 
     var body: some View {
         DetailSection(title: title) {
-            HStack {
-                RegionMenu(region: region, regions: regions, countryCode: $countryCode)
-                Spacer()
-                Text(verbatim: timeZoneName)
-                    .font(.subheadline)
-                    .foregroundStyle(.secondaryText)
-            }
+            Text(verbatim: regionName + Constants.separator + timeZoneName)
+                .font(.subheadline)
+                .foregroundStyle(.secondaryText)
             if timeSlots.isEmpty {
                 Text(Constants.emptyMessage)
                     .foregroundStyle(.secondaryText)
