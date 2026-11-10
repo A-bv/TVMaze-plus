@@ -32,7 +32,7 @@ struct ShowOverviewSection: View {
             if !show.genres.isEmpty {
                 Text(show.genres)
                     .font(.subheadline)
-                    .foregroundStyle(.secondary)
+                    .foregroundStyle(.secondaryText)
             }
 
             HStack(spacing: Constants.tileSpacing) {

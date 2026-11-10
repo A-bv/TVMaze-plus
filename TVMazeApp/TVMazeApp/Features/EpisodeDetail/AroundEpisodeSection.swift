@@ -51,7 +51,7 @@ struct AroundEpisodeSection: View {
                     .clipShape(.rect(cornerRadius: Constants.cornerRadius))
                 Text(verbatim: "\(label)\(Constants.separator)\(episode.code)")
                     .font(.caption)
-                    .foregroundStyle(.secondary)
+                    .foregroundStyle(.secondaryText)
                 Text(episode.name)
                     .font(.subheadline.weight(.semibold))
                     .foregroundStyle(.primary)

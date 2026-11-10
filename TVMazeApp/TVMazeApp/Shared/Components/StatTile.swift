@@ -34,7 +34,7 @@ struct StatTile: View {
             }
             Text(title)
                 .font(.caption)
-                .foregroundStyle(.secondary)
+                .foregroundStyle(.secondaryText)
         }
         .frame(maxWidth: .infinity)
         .padding(.vertical, Constants.verticalPadding)

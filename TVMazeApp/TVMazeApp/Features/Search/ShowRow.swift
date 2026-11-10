@@ -43,7 +43,7 @@ struct ShowRow: View {
                     .accessibilityLabel("\(Constants.ratingAccessibilityLabel) \(show.rating)")
             }
             .font(.subheadline)
-            .foregroundStyle(.secondary)
+            .foregroundStyle(.secondaryText)
             .multilineTextAlignment(.leading)
 
             Spacer(minLength: Constants.trailingSpace)

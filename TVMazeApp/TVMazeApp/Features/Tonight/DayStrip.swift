@@ -27,7 +27,7 @@ struct DayStrip: View {
                     VStack(spacing: Constants.textSpacing) {
                         Text(day.formatted(.dateTime.weekday(.abbreviated)))
                             .font(.caption2.weight(.semibold))
-                            .foregroundStyle(.secondary)
+                            .foregroundStyle(.secondaryText)
                         Text(day.formatted(.dateTime.day()))
                             .font(.headline)
                             .foregroundStyle(selectedDay == day ? Color.accentColor : Color.primary)

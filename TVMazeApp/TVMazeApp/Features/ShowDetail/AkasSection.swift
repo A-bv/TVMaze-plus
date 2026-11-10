@@ -31,7 +31,7 @@ struct AkasSection: View {
                         if let country = aka.country {
                             Text(country)
                                 .font(.caption)
-                                .foregroundStyle(.secondary)
+                                .foregroundStyle(.secondaryText)
                         }
                     }
                     .frame(maxWidth: .infinity, alignment: .leading)

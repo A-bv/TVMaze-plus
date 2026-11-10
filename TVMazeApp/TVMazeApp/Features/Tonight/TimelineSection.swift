@@ -24,10 +24,10 @@ struct TimelineSection: View {
         DetailSection(title: title) {
             Text(country)
                 .font(.subheadline)
-                .foregroundStyle(.secondary)
+                .foregroundStyle(.secondaryText)
             if timeSlots.isEmpty {
                 Text(Constants.emptyMessage)
-                    .foregroundStyle(.secondary)
+                    .foregroundStyle(.secondaryText)
                     .frame(maxWidth: .infinity)
                     .padding(.vertical)
             }

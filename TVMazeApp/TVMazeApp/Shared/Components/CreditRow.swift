@@ -24,7 +24,7 @@ struct CreditRow: View {
             Spacer()
             Text(role)
                 .font(.subheadline)
-                .foregroundStyle(.secondary)
+                .foregroundStyle(.secondaryText)
                 .multilineTextAlignment(.trailing)
         }
         .padding(.vertical, Constants.verticalPadding)

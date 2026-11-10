@@ -32,12 +32,12 @@ struct ScheduleRow: View {
                     .lineLimit(1)
                 Text(verbatim: "\(entry.episode.code)\(Constants.separator)\(entry.episode.name)")
                     .font(.subheadline)
-                    .foregroundStyle(.secondary)
+                    .foregroundStyle(.secondaryText)
                     .lineLimit(1)
                 if let channel = entry.show.channel {
                     Text(channel)
                         .font(.caption.weight(.semibold))
-                        .foregroundStyle(.secondary)
+                        .foregroundStyle(.secondaryText)
                 }
             }
             .frame(maxWidth: .infinity, alignment: .leading)

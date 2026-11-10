@@ -17,7 +17,7 @@ struct AttributionFooter: View {
         if let url = Constants.url {
             Link(Constants.title, destination: url)
                 .font(.caption)
-                .foregroundStyle(.secondary)
+                .foregroundStyle(.secondaryText)
                 .frame(maxWidth: .infinity)
         }
     }

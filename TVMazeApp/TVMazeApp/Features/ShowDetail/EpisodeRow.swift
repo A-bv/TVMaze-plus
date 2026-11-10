@@ -34,7 +34,7 @@ struct EpisodeRow: View {
                 if !details.isEmpty {
                     Text(details)
                         .font(.caption)
-                        .foregroundStyle(.secondary)
+                        .foregroundStyle(.secondaryText)
                 }
                 if let rating = episode.rating {
                     Label(rating, systemImage: Constants.ratingIcon)
@@ -62,7 +62,7 @@ struct EpisodeRow: View {
                 .overlay {
                     Text(episode.number.map(String.init) ?? "")
                         .font(.title3.weight(.bold))
-                        .foregroundStyle(.secondary)
+                        .foregroundStyle(.secondaryText)
                 }
         }
     }

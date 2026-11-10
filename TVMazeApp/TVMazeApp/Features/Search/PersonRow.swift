@@ -33,7 +33,7 @@ struct PersonRow: View {
                 if !details.isEmpty {
                     Text(details)
                         .font(.subheadline)
-                        .foregroundStyle(.secondary)
+                        .foregroundStyle(.secondaryText)
                 }
             }
             .multilineTextAlignment(.leading)

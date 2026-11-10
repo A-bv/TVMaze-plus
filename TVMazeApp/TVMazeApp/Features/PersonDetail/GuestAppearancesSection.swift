@@ -29,7 +29,7 @@ struct GuestAppearancesSection: View {
                             .font(.subheadline.weight(.semibold))
                         Text(details(of: appearance))
                             .font(.caption)
-                            .foregroundStyle(.secondary)
+                            .foregroundStyle(.secondaryText)
                         Text("as \(appearance.character)")
                             .font(.caption)
                             .foregroundStyle(.tint)

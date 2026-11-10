@@ -48,7 +48,7 @@ struct EpisodesSection: View {
             if episodes.isEmpty {
                 Text(Constants.emptyMessage)
                     .font(.subheadline)
-                    .foregroundStyle(.secondary)
+                    .foregroundStyle(.secondaryText)
             } else {
                 VStack(alignment: .leading, spacing: Constants.episodeSpacing) {
                     ForEach(episodes) { episode in

@@ -34,7 +34,7 @@ struct PersonMedallion: View {
                 .foregroundStyle(.primary)
             Text(credit.role)
                 .font(.caption)
-                .foregroundStyle(.secondary)
+                .foregroundStyle(.secondaryText)
         }
         .lineLimit(Constants.lineLimit)
         .multilineTextAlignment(.center)
