@@ -321,12 +321,12 @@
         }
       }
     },
-    "New episodes on streaming" : {
+    "New on streaming" : {
       "localizations" : {
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nouveaux épisodes en streaming"
+            "value" : "Nouveau en streaming"
           }
         }
       }

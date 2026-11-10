@@ -12,10 +12,9 @@ import SwiftUI
 struct TonightView: View {
     private enum Constants {
         static let title = String(localized: "Guide")
-        static let streamingTitle = String(localized: "New episodes on streaming")
+        static let streamingTitle = String(localized: "New on streaming")
         static let tonightTitle = String(localized: "On TV tonight")
         static let tonightPick = String(localized: "Tonight's pick")
-        static let streamingIcon = "play.tv"
         static let sectionSpacing: CGFloat = 32
         static let separator = " · "
     }
@@ -75,7 +74,7 @@ struct TonightView: View {
             }
         case .loaded(let tonight):
             if !tonight.streaming.isEmpty {
-                DetailSection(title: Constants.streamingTitle, icon: Constants.streamingIcon) {
+                DetailSection(title: Constants.streamingTitle) {
                     ShowCarousel(items: tonight.streaming, show: \.show, caption: caption) { entry in
                         EpisodeDetailView(episode: entry.episode, show: entry.show)
                     }
