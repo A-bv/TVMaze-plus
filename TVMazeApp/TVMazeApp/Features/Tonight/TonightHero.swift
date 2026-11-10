@@ -58,7 +58,7 @@ struct TonightHero: View {
             }
             if let airDate = pick.episode.airDate {
                 GlassChip(text: airDate.formatted(
-                    Date.FormatStyle(date: .omitted, time: .shortened, timeZone: timeZone)))
+                    Date.FormatStyle(timeZone: timeZone).hour().minute().timeZone(.specificName(.short))))
             }
         }
     }
