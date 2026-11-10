@@ -110,7 +110,7 @@ final class TVMazeAPIServiceImpl: TVMazeAPIService {
         }
 
         let url = endpoint.appending(queryItems: queryItems)
-        let (data, response) = try await session.data(from: url)
+        let (data, response) = try await data(from: url)
 
         guard let response = response as? HTTPURLResponse, response.statusCode == Constant.successCode else {
             throw TVMazeAPIServiceError.invalidResponse
@@ -120,6 +120,14 @@ final class TVMazeAPIServiceImpl: TVMazeAPIService {
             return try JSONDecoder().decode(Model.self, from: data)
         } catch {
             throw TVMazeAPIServiceError.decodingError
+        }
+    }
+
+    private func data(from url: URL) async throws -> (Data, URLResponse) {
+        do {
+            return try await session.data(for: URLRequest(url: url))
+        } catch let error as URLError where error.code != .cancelled {
+            return try await session.data(for: URLRequest(url: url, cachePolicy: .returnCacheDataDontLoad))
         }
     }
 }

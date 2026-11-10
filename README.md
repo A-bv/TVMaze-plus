@@ -22,6 +22,7 @@ See what's on TV tonight, search shows and people, and keep favorites on device.
 - Open an episode for its guests and crew, and move to the previous or next one in place. Tonight's listings and the Up next cards open their episode directly, with a link to its show.
 - Open anyone in the cast or crew to see the shows they're known for, their work behind the camera and their guest appearances.
 - Save favorites on device from any search result or show screen. Their tab shows the next episode of each one still airing, soonest first, above a grid of their posters; a long press removes one. Opening the tab also brings the saved shows up to date.
+- Reopen without a connection what was already loaded, like Tonight or a show seen before.
 - Use the app in English or French.
 
 ## Architecture
@@ -63,6 +64,7 @@ With SwiftData, simple reads and writes can stay in the views, since SwiftData k
 - **`async/await`:** the app waits for the API's answer without freezing the screen, instead of using the older completion handlers.
 - **`Decodable`:** turns the API's JSON text into networking models automatically. Fields the API sometimes leaves out are optional, so a missing one doesn't cause an error. Only the fields the app uses are decoded, so changes to the others can't break a search.
 - **Typed errors:** API failures use their own error type, so each failure is clear and easy to test.
+- **Offline cache:** `URLCache` keeps the API's answers and the pictures on the device. When a request fails because the network is down, the service asks again for the cached answer only, so screens already seen still open.
 - **DataSession:** a protocol that exists only for tests. In the app the service uses `URLSession`, but for tests we give it a fake session instead. Both follow `DataSession`, so the service accepts either one and is tested without internet.
 
 ### Persistence

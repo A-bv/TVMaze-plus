@@ -10,6 +10,15 @@ import SwiftData
 
 @main
 struct TVMazeAppApp: App {
+    private enum Constants {
+        static let memoryCapacity = 20 * 1024 * 1024
+        static let diskCapacity = 200 * 1024 * 1024
+    }
+
+    init() {
+        URLCache.shared = URLCache(memoryCapacity: Constants.memoryCapacity, diskCapacity: Constants.diskCapacity)
+    }
+
     var body: some Scene {
         WindowGroup {
             MainTabView()

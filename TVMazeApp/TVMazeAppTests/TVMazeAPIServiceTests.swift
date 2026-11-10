@@ -205,6 +205,24 @@ struct TVMazeAPIServiceTests {
 
         #expect(upNext.embedded.nextepisode == nil)
     }
+
+    @Test func service_whenTheNetworkFails_returnsTheCachedResponse() async throws {
+        let mockedSession = MockedURLSession(fakeData: Data("[]".utf8), statusCode: 200, networkError: URLError(.notConnectedToInternet))
+        let sut = makeSut(session: mockedSession)
+
+        #expect(try await sut.fetchShows(name: "girls") == [])
+        #expect(mockedSession.cachePolicies == [.useProtocolCachePolicy, .returnCacheDataDontLoad])
+    }
+
+    @Test func service_whenTheRequestIsCancelled_doesNotReadTheCache() async {
+        let mockedSession = MockedURLSession(fakeData: Data("[]".utf8), statusCode: 200, networkError: URLError(.cancelled))
+        let sut = makeSut(session: mockedSession)
+
+        await #expect(throws: URLError(.cancelled)) {
+            try await sut.fetchShows(name: "girls")
+        }
+        #expect(mockedSession.cachePolicies == [.useProtocolCachePolicy])
+    }
 }
 
 extension TVMazeAPIServiceTests {
@@ -220,16 +238,23 @@ extension TVMazeAPIServiceTests {
 private final class MockedURLSession: DataSession {
     private let fakeData: Data
     private let statusCode: Int
+    private let networkError: URLError?
     private(set) var requestedURL: URL?
+    private(set) var cachePolicies: [URLRequest.CachePolicy] = []
 
-    init(fakeData: Data, statusCode: Int) {
+    init(fakeData: Data, statusCode: Int, networkError: URLError? = nil) {
         self.fakeData = fakeData
         self.statusCode = statusCode
+        self.networkError = networkError
     }
 
-    func data(from url: URL) async throws -> (Data, URLResponse) {
-        requestedURL = url
-        guard let fakeResponse: URLResponse = HTTPURLResponse(
+    func data(for request: URLRequest) async throws -> (Data, URLResponse) {
+        requestedURL = request.url
+        cachePolicies.append(request.cachePolicy)
+        if let networkError, request.cachePolicy != .returnCacheDataDontLoad {
+            throw networkError
+        }
+        guard let url = request.url, let fakeResponse: URLResponse = HTTPURLResponse(
             url: url,
             statusCode: statusCode,
             httpVersion: nil,
