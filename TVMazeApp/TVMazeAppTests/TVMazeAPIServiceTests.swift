@@ -161,9 +161,11 @@ struct TVMazeAPIServiceTests {
         let schedule = try await sut.fetchSchedule(date: try makeDay(), countryCode: "US")
 
         #expect(mockedSession.requestedURL?.absoluteString == "https://api.tvmaze.com/schedule?date=2026-11-09&country=US")
-        #expect(schedule.count == 3)
+        #expect(schedule.count == 4)
         #expect(schedule.first?.episode.name == "I think we should be buds")
+        #expect(schedule.first?.airtime == "00:00")
         #expect(schedule.first?.show.name == "The Terrors of Jordan Mendoza")
+        #expect(schedule.first?.show.weight == 95)
     }
 
     @Test func service_whenRealWebScheduleResponse_decodesTheEpisodesWithTheirEmbeddedShows() async throws {
@@ -173,8 +175,9 @@ struct TVMazeAPIServiceTests {
         let schedule = try await sut.fetchWebSchedule(date: try makeDay())
 
         #expect(mockedSession.requestedURL?.absoluteString == "https://api.tvmaze.com/schedule/web?date=2026-11-09")
-        #expect(schedule.count == 3)
+        #expect(schedule.count == 5)
         #expect(schedule.first?.show.name == "I Was Actually There")
+        #expect(schedule.last?.airtime == "")
         #expect(schedule.first?.show.webChannel?.name == "ABC iview")
     }
 

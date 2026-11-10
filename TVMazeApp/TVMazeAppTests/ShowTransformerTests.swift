@@ -90,6 +90,7 @@ extension ShowTransformerTests {
             officialSite: nil,
             schedule: ShowSchedule(time: "", days: []),
             rating: Rating(average: nil),
+            weight: 0,
             network: nil,
             webChannel: nil,
             image: nil,

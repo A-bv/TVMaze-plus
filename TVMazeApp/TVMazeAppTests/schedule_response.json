@@ -87,185 +87,268 @@
     }
   },
   {
-    "id": 3796905,
-    "url": "https://www.tvmaze.com/episodes/3796905/way-too-early-2026-11-09-episode-218",
-    "name": "Episode 218",
-    "season": 2026,
-    "number": 218,
+    "id": 3788658,
+    "url": "https://www.tvmaze.com/episodes/3788658/fbi-9x06-ultimatum",
+    "name": "Ultimatum",
+    "season": 9,
+    "number": 6,
     "type": "regular",
     "airdate": "2026-11-09",
-    "airtime": "05:00",
-    "airstamp": "2026-11-09T10:00:00+00:00",
-    "runtime": 60,
+    "airtime": "20:00",
+    "airstamp": "2026-11-10T01:00:00+00:00",
+    "runtime": 61,
     "rating": {
       "average": null
     },
     "image": null,
-    "summary": "<p>Alaska and Mississippi Senate races remain too close to call, Trump gives revealing interview to 60 Minutes</p>",
+    "summary": "<p>A highly radioactive material is stolen from a medical disposal facility, sending the team to track down the thief. Meanwhile, after Eva goes to check on her mom, she finds herself in the middle of a fragile situation on the Staten Island Ferry.</p>",
     "show": {
-      "id": 15308,
-      "url": "https://www.tvmaze.com/shows/15308/way-too-early",
-      "name": "Way Too Early",
-      "type": "News",
+      "id": 32158,
+      "url": "https://www.tvmaze.com/shows/32158/fbi",
+      "name": "FBI",
+      "type": "Scripted",
       "language": "English",
-      "genres": [],
+      "genres": [
+        "Drama",
+        "Crime"
+      ],
       "status": "Running",
       "runtime": 60,
-      "averageRuntime": 59,
-      "premiered": "2009-07-27",
+      "averageRuntime": 60,
+      "premiered": "2018-09-25",
       "ended": null,
-      "officialSite": "http://www.msnbc.com/way-too-early",
+      "officialSite": "https://www.cbs.com/shows/fbi/",
       "schedule": {
-        "time": "05:00",
+        "time": "20:00",
         "days": [
-          "Monday",
-          "Tuesday",
-          "Wednesday",
-          "Thursday",
-          "Friday"
+          "Monday"
         ]
       },
       "rating": {
-        "average": null
+        "average": 7.1
       },
-      "weight": 78,
+      "weight": 100,
       "network": {
-        "id": 201,
-        "name": "MS NOW",
+        "id": 2,
+        "name": "CBS",
         "country": {
           "name": "United States",
           "code": "US",
           "timezone": "America/New_York"
         },
-        "officialSite": "https://www.ms.now/live"
+        "officialSite": "https://www.cbs.com/"
       },
       "webChannel": null,
       "dvdCountry": null,
       "externals": {
         "tvrage": null,
-        "thetvdb": 282682,
-        "imdb": null
+        "thetvdb": 350071,
+        "imdb": "tt7491982"
       },
       "image": {
-        "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/557/1394869.jpg",
-        "original": "https://static.tvmaze.com/uploads/images/original_untouched/557/1394869.jpg"
+        "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/644/1611428.jpg",
+        "original": "https://static.tvmaze.com/uploads/images/original_untouched/644/1611428.jpg"
       },
-      "summary": "<p>The fast-paced program brings viewers everything they need to know to start their days--from news and politics to sports and pop culture.</p>",
-      "updated": 1794227112,
+      "summary": "<p><b>FBI</b> is a fast-paced drama about the inner workings of the New York Field Office of the Federal Bureau of Investigation. These first-class agents, including Special Agent Maggie Bell and her partner, Special Agent Omar Adom 'OA' Zidan, bring all their talents, intellect and technical expertise on major cases in order to keep New York and the country safe.</p>",
+      "updated": 1794238415,
       "_links": {
         "self": {
-          "href": "https://api.tvmaze.com/shows/15308"
+          "href": "https://api.tvmaze.com/shows/32158"
         },
         "previousepisode": {
-          "href": "https://api.tvmaze.com/episodes/3796905",
-          "name": "Episode 218"
+          "href": "https://api.tvmaze.com/episodes/3788657",
+          "name": "Atonement"
         },
         "nextepisode": {
-          "href": "https://api.tvmaze.com/episodes/3796906",
-          "name": "Episode 219"
+          "href": "https://api.tvmaze.com/episodes/3788658",
+          "name": "Ultimatum"
         }
       }
     },
     "_links": {
       "self": {
-        "href": "https://api.tvmaze.com/episodes/3796905"
+        "href": "https://api.tvmaze.com/episodes/3788658"
       },
       "show": {
-        "href": "https://api.tvmaze.com/shows/15308",
-        "name": "Way Too Early"
+        "href": "https://api.tvmaze.com/shows/32158",
+        "name": "FBI"
       }
     }
   },
   {
-    "id": 3796883,
-    "url": "https://www.tvmaze.com/episodes/3796883/morning-joe-2026-11-09-episode-221",
-    "name": "Episode 221",
-    "season": 2026,
-    "number": 221,
+    "id": 3793932,
+    "url": "https://www.tvmaze.com/episodes/3793932/st-denis-medical-3x02-is-that-a-dinosaur",
+    "name": "Is That A Dinosaur?",
+    "season": 3,
+    "number": 2,
     "type": "regular",
     "airdate": "2026-11-09",
-    "airtime": "06:00",
-    "airstamp": "2026-11-09T11:00:00+00:00",
-    "runtime": 180,
+    "airtime": "20:00",
+    "airstamp": "2026-11-10T01:00:00+00:00",
+    "runtime": 30,
     "rating": {
       "average": null
     },
-    "image": {
-      "medium": "https://static.tvmaze.com/uploads/images/medium_landscape/650/1626328.jpg",
-      "original": "https://static.tvmaze.com/uploads/images/original_untouched/650/1626328.jpg"
-    },
-    "summary": null,
+    "image": null,
+    "summary": "<p>Ron refuses to be babied on his first day back; Alex faces off with Val over some I.O.U.'s; Bruce deepens his relationship with Dr. Emerson.</p>",
     "show": {
-      "id": 15309,
-      "url": "https://www.tvmaze.com/shows/15309/morning-joe",
-      "name": "Morning Joe",
-      "type": "News",
+      "id": 63498,
+      "url": "https://www.tvmaze.com/shows/63498/st-denis-medical",
+      "name": "St. Denis Medical",
+      "type": "Scripted",
       "language": "English",
-      "genres": [],
+      "genres": [
+        "Comedy",
+        "Medical"
+      ],
       "status": "Running",
-      "runtime": 180,
-      "averageRuntime": 193,
-      "premiered": "2007-04-09",
+      "runtime": 30,
+      "averageRuntime": 30,
+      "premiered": "2024-11-12",
       "ended": null,
-      "officialSite": "https://www.nbc.com/morning-joe",
+      "officialSite": "https://www.nbc.com/st-denis-medical",
       "schedule": {
-        "time": "06:00",
+        "time": "20:00",
         "days": [
-          "Monday",
-          "Tuesday",
-          "Wednesday",
-          "Thursday",
-          "Friday"
+          "Monday"
         ]
       },
       "rating": {
-        "average": 1.2
+        "average": 4.9
       },
-      "weight": 86,
+      "weight": 99,
       "network": {
-        "id": 201,
-        "name": "MS NOW",
+        "id": 1,
+        "name": "NBC",
         "country": {
           "name": "United States",
           "code": "US",
           "timezone": "America/New_York"
         },
-        "officialSite": "https://www.ms.now/live"
+        "officialSite": "https://www.nbc.com/"
       },
       "webChannel": null,
       "dvdCountry": null,
       "externals": {
         "tvrage": null,
-        "thetvdb": 282626,
-        "imdb": "tt1170244"
+        "thetvdb": 435916,
+        "imdb": "tt21433690"
       },
       "image": {
-        "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/613/1532636.jpg",
-        "original": "https://static.tvmaze.com/uploads/images/original_untouched/613/1532636.jpg"
+        "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/646/1617479.jpg",
+        "original": "https://static.tvmaze.com/uploads/images/original_untouched/646/1617479.jpg"
       },
-      "summary": "<p>On <b>Morning Joe</b>, the hosts Joe Scarborough, Mika Brzezinski, and Willie Geist engage in dynamic discussion about political news and issues important to all Americans. Morning Joe attracts a variety of guests, including top newsmakers, politicians and cultural influencers.</p>",
-      "updated": 1794242642,
+      "summary": "<p><b>St. Denis Medical </b>is a mockumentary about an underfunded, understaffed Oregon hospital where the dedicated doctors and nurses try their best to treat patients while maintaining their own sanity.</p>",
+      "updated": 1793862224,
       "_links": {
         "self": {
-          "href": "https://api.tvmaze.com/shows/15309"
+          "href": "https://api.tvmaze.com/shows/63498"
         },
         "previousepisode": {
-          "href": "https://api.tvmaze.com/episodes/3796883",
-          "name": "Episode 221"
+          "href": "https://api.tvmaze.com/episodes/3652149",
+          "name": "He Ain't Noah Wyle"
         },
         "nextepisode": {
-          "href": "https://api.tvmaze.com/episodes/3796884",
-          "name": "Episode 222"
+          "href": "https://api.tvmaze.com/episodes/3793932",
+          "name": "Is That A Dinosaur?"
         }
       }
     },
     "_links": {
       "self": {
-        "href": "https://api.tvmaze.com/episodes/3796883"
+        "href": "https://api.tvmaze.com/episodes/3793932"
       },
       "show": {
-        "href": "https://api.tvmaze.com/shows/15309",
-        "name": "Morning Joe"
+        "href": "https://api.tvmaze.com/shows/63498",
+        "name": "St. Denis Medical"
+      }
+    }
+  },
+  {
+    "id": 3656885,
+    "url": "https://www.tvmaze.com/episodes/3656885/the-fall-and-rise-of-reggie-dinkins-2x02-the-spaghetti-loop",
+    "name": "The Spaghetti Loop",
+    "season": 2,
+    "number": 2,
+    "type": "regular",
+    "airdate": "2026-11-09",
+    "airtime": "20:30",
+    "airstamp": "2026-11-10T01:30:00+00:00",
+    "runtime": 30,
+    "rating": {
+      "average": null
+    },
+    "image": null,
+    "summary": "<p>Tobin and Rusty both attempt to become financially independent from the Dinkins family, but Reggie has other ideas.</p>",
+    "show": {
+      "id": 84605,
+      "url": "https://www.tvmaze.com/shows/84605/the-fall-and-rise-of-reggie-dinkins",
+      "name": "The Fall and Rise of Reggie Dinkins",
+      "type": "Scripted",
+      "language": "English",
+      "genres": [
+        "Comedy"
+      ],
+      "status": "Running",
+      "runtime": 30,
+      "averageRuntime": 30,
+      "premiered": "2026-01-18",
+      "ended": null,
+      "officialSite": "https://www.nbc.com/the-fall-and-rise-of-reggie-dinkins",
+      "schedule": {
+        "time": "20:30",
+        "days": [
+          "Monday"
+        ]
+      },
+      "rating": {
+        "average": 6.2
+      },
+      "weight": 99,
+      "network": {
+        "id": 1,
+        "name": "NBC",
+        "country": {
+          "name": "United States",
+          "code": "US",
+          "timezone": "America/New_York"
+        },
+        "officialSite": "https://www.nbc.com/"
+      },
+      "webChannel": null,
+      "dvdCountry": null,
+      "externals": {
+        "tvrage": null,
+        "thetvdb": 463588,
+        "imdb": "tt36153709"
+      },
+      "image": {
+        "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/646/1616254.jpg",
+        "original": "https://static.tvmaze.com/uploads/images/original_untouched/646/1616254.jpg"
+      },
+      "summary": "<p><b>The Fall and Rise of Reggie Dinkins</b> focuses on a disgraced former football player, who is on a mission to rehabilitate his image.</p>",
+      "updated": 1794232364,
+      "_links": {
+        "self": {
+          "href": "https://api.tvmaze.com/shows/84605"
+        },
+        "previousepisode": {
+          "href": "https://api.tvmaze.com/episodes/3652150",
+          "name": "We Keep the Kisses"
+        },
+        "nextepisode": {
+          "href": "https://api.tvmaze.com/episodes/3656885",
+          "name": "The Spaghetti Loop"
+        }
+      }
+    },
+    "_links": {
+      "self": {
+        "href": "https://api.tvmaze.com/episodes/3656885"
+      },
+      "show": {
+        "href": "https://api.tvmaze.com/shows/84605",
+        "name": "The Fall and Rise of Reggie Dinkins"
       }
     }
   }

@@ -23,6 +23,7 @@ enum FakeShowSearchData {
                 officialSite: withNilValues ? nil : "https://www.site.com",
                 schedule: ShowSchedule(time: "21:00", days: ["Friday"]),
                 rating: Rating(average: withNilValues ? nil : 5.4),
+                weight: 90,
                 network: nil,
                 webChannel: withNilValues ? nil : Channel(name: "channel", country: nil),
                 image: isUpcoming ? nil : ImageLinks(medium: "medium", original: "original"),

@@ -7,9 +7,11 @@
 
 struct ScheduleEpisodeModel: Decodable, Equatable {
     let episode: Episode
+    let airtime: String
     let show: Show
 
     private enum CodingKeys: String, CodingKey {
+        case airtime
         case show
         case embedded = "_embedded"
     }
@@ -17,6 +19,7 @@ struct ScheduleEpisodeModel: Decodable, Equatable {
     init(from decoder: Decoder) throws {
         episode = try Episode(from: decoder)
         let container = try decoder.container(keyedBy: CodingKeys.self)
+        airtime = try container.decode(String.self, forKey: .airtime)
         if let show = try container.decodeIfPresent(Show.self, forKey: .show) {
             self.show = show
         } else {

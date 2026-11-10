@@ -19,6 +19,7 @@ struct Show: Decodable, Equatable {
     let officialSite: String?
     let schedule: ShowSchedule
     let rating: Rating
+    let weight: Int
     let network: Channel?
     let webChannel: Channel?
     let image: ImageLinks?

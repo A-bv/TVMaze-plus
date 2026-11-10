@@ -256,5 +256,179 @@
         }
       }
     }
+  },
+  {
+    "id": 3788747,
+    "url": "https://www.tvmaze.com/episodes/3788747/love-is-blind-11x13-the-reunion",
+    "name": "The Reunion",
+    "season": 11,
+    "number": 13,
+    "type": "regular",
+    "airdate": "2026-11-09",
+    "airtime": "",
+    "airstamp": "2026-11-09T12:00:00+00:00",
+    "runtime": null,
+    "rating": {
+      "average": null
+    },
+    "image": null,
+    "summary": null,
+    "_links": {
+      "self": {
+        "href": "https://api.tvmaze.com/episodes/3788747"
+      },
+      "show": {
+        "href": "https://api.tvmaze.com/shows/46167",
+        "name": "Love Is Blind"
+      }
+    },
+    "_embedded": {
+      "show": {
+        "id": 46167,
+        "url": "https://www.tvmaze.com/shows/46167/love-is-blind",
+        "name": "Love Is Blind",
+        "type": "Reality",
+        "language": "English",
+        "genres": [
+          "Romance"
+        ],
+        "status": "Running",
+        "runtime": null,
+        "averageRuntime": 61,
+        "premiered": "2020-02-13",
+        "ended": null,
+        "officialSite": "https://www.netflix.com/title/80996601",
+        "schedule": {
+          "time": "",
+          "days": [
+            "Wednesday"
+          ]
+        },
+        "rating": {
+          "average": 5.3
+        },
+        "weight": 98,
+        "network": null,
+        "webChannel": {
+          "id": 1,
+          "name": "Netflix",
+          "country": null,
+          "officialSite": "https://www.netflix.com/"
+        },
+        "dvdCountry": null,
+        "externals": {
+          "tvrage": null,
+          "thetvdb": 376459,
+          "imdb": "tt11704040"
+        },
+        "image": {
+          "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/613/1533160.jpg",
+          "original": "https://static.tvmaze.com/uploads/images/original_untouched/613/1533160.jpg"
+        },
+        "summary": "<p>With no distractions from the outside world, the singles talk to a stream of potential love interests and when a meaningful connection is made, they propose and then lay their eyes on their fiancé for the first time. Engaged and back in the real world, as the couples plan their wedding day, they will quickly discover whether they can turn their emotional connection into a physical one before the fast-approaching ceremony.</p>",
+        "updated": 1793798936,
+        "_links": {
+          "self": {
+            "href": "https://api.tvmaze.com/shows/46167"
+          },
+          "previousepisode": {
+            "href": "https://api.tvmaze.com/episodes/3788747",
+            "name": "The Reunion"
+          }
+        }
+      }
+    }
+  },
+  {
+    "id": 3793132,
+    "url": "https://www.tvmaze.com/episodes/3793132/murdoch-mysteries-20x06-a-date-with-fate",
+    "name": "A Date with Fate",
+    "season": 20,
+    "number": 6,
+    "type": "regular",
+    "airdate": "2026-11-09",
+    "airtime": "",
+    "airstamp": "2026-11-09T17:00:00+00:00",
+    "runtime": null,
+    "rating": {
+      "average": null
+    },
+    "image": null,
+    "summary": null,
+    "_links": {
+      "self": {
+        "href": "https://api.tvmaze.com/episodes/3793132"
+      },
+      "show": {
+        "href": "https://api.tvmaze.com/shows/593",
+        "name": "Murdoch Mysteries"
+      }
+    },
+    "_embedded": {
+      "show": {
+        "id": 593,
+        "url": "https://www.tvmaze.com/shows/593/murdoch-mysteries",
+        "name": "Murdoch Mysteries",
+        "type": "Scripted",
+        "language": "English",
+        "genres": [
+          "Drama",
+          "Crime",
+          "Mystery"
+        ],
+        "status": "Running",
+        "runtime": null,
+        "averageRuntime": 59,
+        "premiered": "2008-01-24",
+        "ended": null,
+        "officialSite": "https://gem.cbc.ca/murdoch-mysteries",
+        "schedule": {
+          "time": "",
+          "days": [
+            "Monday"
+          ]
+        },
+        "rating": {
+          "average": 8.1
+        },
+        "weight": 100,
+        "network": null,
+        "webChannel": {
+          "id": 108,
+          "name": "CBC Gem",
+          "country": {
+            "name": "Canada",
+            "code": "CA",
+            "timezone": "America/Toronto"
+          },
+          "officialSite": "https://gem.cbc.ca/"
+        },
+        "dvdCountry": null,
+        "externals": {
+          "tvrage": 17791,
+          "thetvdb": 81670,
+          "imdb": "tt1091909"
+        },
+        "image": {
+          "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/644/1610487.jpg",
+          "original": "https://static.tvmaze.com/uploads/images/original_untouched/644/1610487.jpg"
+        },
+        "summary": "<p>Set in Toronto at the dawn of the 20th century, <b>Murdoch Mysteries </b>is a one-hour drama series that explores the intriguing world of William Murdoch, a methodical and dashing detective who pioneers innovative forensic techniques to solve some of the city's most gruesome murders. Murdoch's colleagues include the love of his life, coroner and psychiatrist Dr. Julia Ogden, a staunch ally who shares the detective's fascination for science; Constable George Crabtree, Murdoch's eager but sometimes naïve right-hand man; Inspector Brackenreid, Murdoch's skeptical yet reluctantly supportive boss; and coroner Dr. Emily Grace, Dr. Ogden's protégé.</p>",
+        "updated": 1794235392,
+        "_links": {
+          "self": {
+            "href": "https://api.tvmaze.com/shows/593"
+          },
+          "previousepisode": {
+            "href": "https://api.tvmaze.com/episodes/3793132",
+            "name": "A Date with Fate"
+          },
+          "nextepisode": {
+            "href": "https://api.tvmaze.com/episodes/3809429",
+            "name": "Last Tango in Toronto"
+          }
+        }
+      }
+    }
   }
 ]
