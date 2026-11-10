@@ -1,5 +1,5 @@
 //
-//  ShowSearchViewModel.swift
+//  SearchViewModel.swift
 //  TVMazeApp
 //
 //  Created by Alexandre Bevilacqua on 30.09.2026.
@@ -9,7 +9,7 @@ import Observation
 import Foundation
 
 @Observable
-final class ShowSearchViewModel {
+final class SearchViewModel {
 
     enum SearchState: Equatable {
         case idle

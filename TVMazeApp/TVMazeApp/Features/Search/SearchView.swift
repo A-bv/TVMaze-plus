@@ -1,5 +1,5 @@
 //
-//  ShowSearchMainView.swift
+//  SearchView.swift
 //  TVMazeApp
 //
 //  Created by Alexandre Bevilacqua on 26.09.2026.
@@ -9,7 +9,7 @@ import NeumorphicSwiftUI
 import SwiftData
 import SwiftUI
 
-struct ShowSearchMainView: View {
+struct SearchView: View {
     private enum Constants {
         static let title = String(localized: "TV Shows")
         static let searchPrompt = String(localized: "Search a show")
@@ -23,7 +23,7 @@ struct ShowSearchMainView: View {
         static let favoritePadding: CGFloat = 12
     }
     
-    @State private var viewModel = ShowSearchViewModel()
+    @State private var viewModel = SearchViewModel()
     @State private var searchText = ""
     @State private var submittedSearch = ""
 
@@ -86,6 +86,6 @@ struct ShowSearchMainView: View {
 }
 
 #Preview {
-    ShowSearchMainView()
+    SearchView()
         .modelContainer(for: SavedShowModel.self, inMemory: true)
 }

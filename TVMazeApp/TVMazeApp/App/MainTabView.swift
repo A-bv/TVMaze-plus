@@ -18,7 +18,7 @@ struct MainTabView: View {
     var body: some View {
         TabView {
             Tab(Constants.searchTitle, systemImage: Constants.searchIcon) {
-                ShowSearchMainView()
+                SearchView()
             }
             Tab(Constants.favoritesTitle, systemImage: Constants.favoritesIcon) {
                 FavoritesView()

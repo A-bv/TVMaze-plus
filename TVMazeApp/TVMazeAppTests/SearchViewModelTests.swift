@@ -1,5 +1,5 @@
 //
-//  ShowSearchViewModelTests.swift
+//  SearchViewModelTests.swift
 //  TVMazeAppTests
 //
 //  Created by Alexandre Bevilacqua on 30.09.2026.
@@ -10,7 +10,7 @@ import Testing
 import Foundation
 
 @MainActor
-struct ShowSearchViewModelTests {
+struct SearchViewModelTests {
     @Test func viewModel_whenSearchSucceeds_isLoadedWithShowsAndEntry() async {
         let fakeData = FakeShowSearchData.makeShows()
         let expected = fakeData.map { ShowTransformer().transform($0.show) }
@@ -98,12 +98,12 @@ struct ShowSearchViewModelTests {
     }
 }
 
-extension ShowSearchViewModelTests {
-    private func makeSut(service: TVMazeAPIService) -> ShowSearchViewModel {
-        ShowSearchViewModel(service: service)
+extension SearchViewModelTests {
+    private func makeSut(service: TVMazeAPIService) -> SearchViewModel {
+        SearchViewModel(service: service)
     }
 
-    private func cancelledSearch(_ sut: ShowSearchViewModel, entry: String) async {
+    private func cancelledSearch(_ sut: SearchViewModel, entry: String) async {
         let search = Task { await sut.loadShows(entry: entry) }
         search.cancel()
         await search.value
