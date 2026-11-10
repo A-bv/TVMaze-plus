@@ -11,7 +11,6 @@ import SwiftUI
 
 struct EpisodeDetailView: View {
     private enum Constants {
-        static let headerHeight: CGFloat = 380
         static let sectionSpacing: CGFloat = 32
         static let tileSpacing: CGFloat = 14
         static let separator = " · "
@@ -46,7 +45,7 @@ struct EpisodeDetailView: View {
     var body: some View {
         let episode = viewModel.episode
 
-        StretchyHeaderScrollView(headerHeight: Constants.headerHeight, cardColor: .surface) {
+        StretchyHeaderScrollView(headerHeight: HeroImage.height, cardColor: .surface) {
             HeroImage(url: episode.largeImageURL ?? fallbackImageURL)
         } headerOverlay: { scrollOffset in
             StretchyHeaderTitle(
@@ -76,7 +75,7 @@ struct EpisodeDetailView: View {
         }
         .id(episode.id)
         .background(.surface)
-        .heroNavigationBar(title: episode.name, headerHeight: Constants.headerHeight)
+        .heroNavigationBar(title: episode.name)
         .task(id: episode.id) {
             await viewModel.loadGuests()
         }

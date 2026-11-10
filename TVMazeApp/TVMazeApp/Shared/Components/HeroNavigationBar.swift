@@ -13,7 +13,6 @@ struct HeroNavigationBar: ViewModifier {
     }
 
     let title: String
-    let headerHeight: CGFloat
 
     @Environment(\.colorScheme) private var colorScheme
     @State private var isPastHeader = false
@@ -21,7 +20,7 @@ struct HeroNavigationBar: ViewModifier {
     func body(content: Content) -> some View {
         content
             .onScrollGeometryChange(for: Bool.self) { geometry in
-                geometry.contentOffset.y > headerHeight - Constants.barHeight
+                geometry.contentOffset.y > HeroImage.height - Constants.barHeight
             } action: { _, isPast in
                 isPastHeader = isPast
             }
@@ -41,7 +40,7 @@ struct HeroNavigationBar: ViewModifier {
 }
 
 extension View {
-    func heroNavigationBar(title: String, headerHeight: CGFloat) -> some View {
-        modifier(HeroNavigationBar(title: title, headerHeight: headerHeight))
+    func heroNavigationBar(title: String) -> some View {
+        modifier(HeroNavigationBar(title: title))
     }
 }

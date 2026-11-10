@@ -15,7 +15,6 @@ struct TonightView: View {
         static let streamingTitle = String(localized: "New on streaming")
         static let tonightTitle = String(localized: "On TV tonight")
         static let tonightPick = String(localized: "Tonight's pick")
-        static let headerHeight: CGFloat = 460
         static let sectionSpacing: CGFloat = 32
         static let separator = " · "
     }
@@ -24,7 +23,7 @@ struct TonightView: View {
 
     var body: some View {
         NavigationStack {
-            StretchyHeaderScrollView(headerHeight: Constants.headerHeight, cardColor: .surface) {
+            StretchyHeaderScrollView(headerHeight: HeroImage.height, cardColor: .surface) {
                 HeroImage(url: pick?.show.largePosterURL)
             } headerOverlay: { scrollOffset in
                 header(scrollOffset: scrollOffset)
@@ -37,7 +36,7 @@ struct TonightView: View {
                 .padding([.horizontal, .bottom])
             }
             .background(.surface)
-            .heroNavigationBar(title: Constants.title, headerHeight: Constants.headerHeight)
+            .heroNavigationBar(title: Constants.title)
             .task(id: viewModel.selectedDay) {
                 await viewModel.loadSchedule()
             }

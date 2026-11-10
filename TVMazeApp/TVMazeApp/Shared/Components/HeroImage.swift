@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct HeroImage: View {
+    static let height: CGFloat = 460
+
     private enum Constants {
         static let shadeOpacity = 0.8
         static let placeholderIcon = "tv"
