@@ -15,7 +15,7 @@ struct ShowItemModel: Identifiable, Equatable {
     let status: String
     let channel: String?
     let genres: String
-    let rating: String
+    let rating: String?
     let largePosterURL: URL?
     let summary: String
     let type: String

@@ -36,7 +36,10 @@ struct ShowOverviewSection: View {
             }
 
             HStack(spacing: Constants.tileSpacing) {
-                StatTile(title: Constants.ratingTitle, value: show.rating, icon: Constants.ratingIcon)
+                StatTile(
+                    title: Constants.ratingTitle,
+                    value: show.rating ?? Constants.missingValue,
+                    icon: Constants.ratingIcon)
                 StatTile(
                     title: Constants.episodesTitle,
                     value: detail.map { String($0.episodeCount) } ?? Constants.missingValue)

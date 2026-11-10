@@ -36,11 +36,13 @@ struct ShowRow: View {
                 if let channel = show.channel {
                     Text(channel)
                 }
-                Label(show.rating, systemImage: Constants.ratingIcon)
-                    .labelStyle(.titleAndIcon)
-                    .font(.footnote.weight(.semibold))
-                    .foregroundStyle(.tint)
-                    .accessibilityLabel("\(Constants.ratingAccessibilityLabel) \(show.rating)")
+                if let rating = show.rating {
+                    Label(rating, systemImage: Constants.ratingIcon)
+                        .labelStyle(.titleAndIcon)
+                        .font(.footnote.weight(.semibold))
+                        .foregroundStyle(.tint)
+                        .accessibilityLabel("\(Constants.ratingAccessibilityLabel) \(rating)")
+                }
             }
             .font(.subheadline)
             .foregroundStyle(.secondaryText)

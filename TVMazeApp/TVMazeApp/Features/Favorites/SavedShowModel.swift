@@ -17,7 +17,7 @@ final class SavedShowModel {
     var status: String
     var channel: String?
     var genres: String
-    var rating: String
+    var rating: String?
     var largePosterURL: URL?
     var summary: String
     var type: String

@@ -29,7 +29,7 @@ struct ShowTransformerTests {
         let transformedShow = sut.transform(try makeShow(withNilValues: true))
         
         #expect(transformedShow.years == "2021")
-        #expect(transformedShow.rating == String(localized: "N/A"))
+        #expect(transformedShow.rating == nil)
         #expect(transformedShow.channel == nil)
         #expect(transformedShow.summary == String(localized: "No summary available."))
         #expect(transformedShow.websiteURL == URL(string: "www.maze-url.com"))

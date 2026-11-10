@@ -241,16 +241,6 @@
         }
       }
     },
-    "N/A" : {
-      "localizations" : {
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "N/D"
-          }
-        }
-      }
-    },
     "New on streaming" : {
       "localizations" : {
         "fr" : {

@@ -10,7 +10,6 @@ import Foundation
 struct ShowTransformer {
     private enum Constants {
         static let noSummaryMessage = String(localized: "No summary available.")
-        static let noRatingMessage = String(localized: "N/A")
         static let unknownYear = String(localized: "Upcoming")
         static let statuses = [
             "Running": String(localized: "Running"),
@@ -29,7 +28,7 @@ struct ShowTransformer {
             status: Constants.statuses[show.status] ?? show.status,
             channel: show.network?.name ?? show.webChannel?.name,
             genres: show.genres.joined(separator: ", "),
-            rating: formatRating(rating: show.rating.average),
+            rating: show.rating.average.map { String(format: "%.1f", $0) },
             largePosterURL: makeURL(string: show.image?.original),
             summary: cleanSummary(htmlSummary: show.summary),
             type: show.type,
@@ -51,13 +50,6 @@ struct ShowTransformer {
     private func makeURL(string: String?) -> URL? {
         guard let string else { return nil }
         return URL(string: string)
-    }
-    
-    private func formatRating(rating: Double?) -> String {
-        guard let rating else {
-            return Constants.noRatingMessage
-        }
-        return String(format: "%.1f", rating)
     }
     
     private func cleanSummary(htmlSummary: String?) -> String {

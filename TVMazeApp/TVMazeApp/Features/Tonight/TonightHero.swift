@@ -51,7 +51,9 @@ struct TonightHero: View {
 
     private var chips: some View {
         HStack(spacing: Constants.spacing) {
-            GlassChip(text: pick.show.rating, icon: Constants.ratingIcon)
+            if let rating = pick.show.rating {
+                GlassChip(text: rating, icon: Constants.ratingIcon)
+            }
             if let channel = pick.show.channel {
                 GlassChip(text: channel)
             }
