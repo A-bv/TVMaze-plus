@@ -30,6 +30,7 @@ struct PersonDetailView: View {
             HeroImage(url: person.largeImageURL, placeholderIcon: Constants.placeholderIcon)
         } headerOverlay: { scrollOffset in
             StretchyHeaderTitle(title: person.name, subtitle: subtitle, scrollOffset: scrollOffset)
+                .heroShade()
         } content: {
             VStack(alignment: .leading, spacing: Constants.sectionSpacing) {
                 tiles

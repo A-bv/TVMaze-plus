@@ -52,6 +52,7 @@ struct EpisodeDetailView: View {
                 title: episode.name,
                 subtitle: "\(showName)\(Constants.separator)\(episode.code)",
                 scrollOffset: scrollOffset)
+            .heroShade()
         } content: {
             VStack(alignment: .leading, spacing: Constants.sectionSpacing) {
                 tiles

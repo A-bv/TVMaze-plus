@@ -25,6 +25,7 @@ struct ShowDetailView: View {
             HeroImage(url: show.largePosterURL)
         } headerOverlay: { scrollOffset in
             StretchyHeaderTitle(title: show.name, subtitle: subtitle, scrollOffset: scrollOffset)
+                .heroShade()
         } content: {
             VStack(alignment: .leading, spacing: Constants.sectionSpacing) {
                 ShowOverviewSection(show: show, detail: detail)

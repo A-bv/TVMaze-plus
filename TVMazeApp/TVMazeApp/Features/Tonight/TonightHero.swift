@@ -17,8 +17,6 @@ struct TonightHero: View {
         static let horizontalPadding: CGFloat = 36
         static let bottomPadding: CGFloat = 76
         static let fadeOutDistance: CGFloat = 100
-        static let shadeTopPadding: CGFloat = 120
-        static let shadeOpacity = 0.6
     }
 
     let pick: ScheduleItemModel
@@ -46,20 +44,10 @@ struct TonightHero: View {
         .frame(maxWidth: .infinity, alignment: .leading)
         .padding(.horizontal, Constants.horizontalPadding)
         .padding(.bottom, Constants.bottomPadding)
-        .padding(.top, Constants.shadeTopPadding)
-        .background {
-            LinearGradient(
-                colors: [.clear, shade, shade, shade],
-                startPoint: .top,
-                endPoint: .bottom)
-        }
+        .heroShade()
         .contentShape(.rect)
         .opacity(max(0, min(1, 1 - abs(scrollOffset) / Constants.fadeOutDistance)))
         .accessibilityElement(children: .combine)
-    }
-
-    private var shade: Color {
-        .black.opacity(Constants.shadeOpacity)
     }
 
     private var chips: some View {
