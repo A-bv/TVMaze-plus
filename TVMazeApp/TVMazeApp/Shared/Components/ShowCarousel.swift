@@ -10,12 +10,12 @@ import SwiftUI
 
 struct ShowCarousel<Item: Identifiable, Destination: View>: View {
     private enum Constants {
-        static var height: CGFloat { 280 }
+        static var height: CGFloat { 200 }
         static var horizontalBleed: CGFloat { -16 }
         static var textSpacing: CGFloat { 2 }
         static var shadeOpacity: Double { 0.8 }
         static var style: ParallaxCarouselStyle {
-            ParallaxCarouselStyle(cardWidthInset: 170, cornerRadius: 20, parallaxDistance: 40)
+            ParallaxCarouselStyle(cardWidthInset: 90, cornerRadius: 24, parallaxDistance: 50)
         }
     }
 
