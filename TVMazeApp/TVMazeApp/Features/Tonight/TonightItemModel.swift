@@ -28,3 +28,23 @@ struct TimeSlotItemModel: Identifiable, Equatable {
 
     var id: Date { time }
 }
+
+struct RegionItemModel: Identifiable, Equatable {
+    private enum Constants {
+        static let flagScalarOffset: UInt32 = 127397
+    }
+
+    let code: String
+
+    var id: String { code }
+
+    var name: String {
+        Locale.current.localizedString(forRegionCode: code) ?? code
+    }
+
+    var flag: String {
+        String(String.UnicodeScalarView(code.unicodeScalars.compactMap {
+            UnicodeScalar(Constants.flagScalarOffset + $0.value)
+        }))
+    }
+}

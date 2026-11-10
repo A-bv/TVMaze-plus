@@ -13,6 +13,10 @@ final class TonightViewModel {
     private enum Constants {
         static let dayCount = 7
         static let fallbackCountryCode = "US"
+        static let countryCodeKey = "countryCode"
+        static let countryCodes = [
+            "AU", "BE", "BR", "CA", "CN", "DE", "DK", "FR", "GB", "JP", "KR", "MX", "NL", "RU", "TR", "US"
+        ]
     }
 
     enum TonightState: Equatable {
@@ -21,22 +25,42 @@ final class TonightViewModel {
         case failed
     }
 
+    struct ScheduleRequest: Equatable {
+        let day: Date
+        let countryCode: String
+    }
+
     private let service: TVMazeAPIService
-    private let countryCode: String
+    private let defaults: UserDefaults
     private let transformer = TonightTransformer()
 
     let days: [Date]
+    let regions: [RegionItemModel]
     var selectedDay: Date
+    var countryCode: String {
+        didSet {
+            defaults.set(countryCode, forKey: Constants.countryCodeKey)
+        }
+    }
     private(set) var state: TonightState = .loading
-    private var loadedDay: Date?
+    private var loadedRequest: ScheduleRequest?
 
     init(
         service: TVMazeAPIService = TVMazeAPIServiceImpl(),
-        countryCode: String? = Locale.current.region?.identifier,
+        defaults: UserDefaults = .standard,
+        deviceCountryCode: String? = Locale.current.region?.identifier,
         now: Date = .now
     ) {
         self.service = service
-        self.countryCode = countryCode ?? Constants.fallbackCountryCode
+        self.defaults = defaults
+        let savedCountryCode = defaults.string(forKey: Constants.countryCodeKey)
+        let coveredCountryCode = [savedCountryCode, deviceCountryCode]
+            .compactMap { $0 }
+            .first { Constants.countryCodes.contains($0) }
+        countryCode = coveredCountryCode ?? Constants.fallbackCountryCode
+        regions = Constants.countryCodes
+            .map { RegionItemModel(code: $0) }
+            .sorted { $0.name.localizedCompare($1.name) == .orderedAscending }
         let today = Calendar.current.startOfDay(for: now)
         days = (0..<Constants.dayCount).compactMap {
             Calendar.current.date(byAdding: .day, value: $0, to: today)
@@ -48,33 +72,31 @@ final class TonightViewModel {
         selectedDay == days.first
     }
 
+    var request: ScheduleRequest {
+        ScheduleRequest(day: selectedDay, countryCode: countryCode)
+    }
+
+    var region: RegionItemModel {
+        RegionItemModel(code: countryCode)
+    }
+
     func loadSchedule() async {
-        guard loadedDay != selectedDay else { return }
-        loadedDay = nil
+        let request = request
+        guard loadedRequest != request else { return }
+        loadedRequest = nil
         state = .loading
         do {
-            let (schedule, countryCode) = try await fetchTVSchedule()
-            let webSchedule = try await service.fetchWebSchedule(date: selectedDay)
+            let schedule = try await service.fetchSchedule(date: request.day, countryCode: request.countryCode)
+            let webSchedule = try await service.fetchWebSchedule(date: request.day)
             if Task.isCancelled { return }
             state = .loaded(transformer.transform(
                 schedule: schedule,
                 webSchedule: webSchedule,
-                countryCode: countryCode))
-            loadedDay = selectedDay
+                countryCode: request.countryCode))
+            loadedRequest = request
         } catch {
             if Task.isCancelled { return }
             state = .failed
         }
-    }
-
-    private func fetchTVSchedule() async throws -> (schedule: [ScheduleEpisodeModel], countryCode: String) {
-        let schedule = try await service.fetchSchedule(date: selectedDay, countryCode: countryCode)
-        guard schedule.isEmpty, countryCode != Constants.fallbackCountryCode else {
-            return (schedule, countryCode)
-        }
-        let fallbackSchedule = try await service.fetchSchedule(
-            date: selectedDay,
-            countryCode: Constants.fallbackCountryCode)
-        return (fallbackSchedule, Constants.fallbackCountryCode)
     }
 }

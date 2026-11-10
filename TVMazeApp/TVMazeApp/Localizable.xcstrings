@@ -361,6 +361,16 @@
         }
       }
     },
+    "Region" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Région"
+          }
+        }
+      }
+    },
     "Remove from favorites" : {
       "localizations" : {
         "fr" : {

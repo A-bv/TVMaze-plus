@@ -13,7 +13,7 @@ import Testing
 struct TonightViewModelTests {
     @Test func viewModel_offersAWeekStartingToday() {
         let now = Date(timeIntervalSince1970: 1_794_300_000)
-        let sut = TonightViewModel(service: MockTVMazeAPIService(), countryCode: "US", now: now)
+        let sut = makeSut(now: now)
 
         #expect(sut.days.count == 7)
         #expect(sut.days.first == Calendar.current.startOfDay(for: now))
@@ -23,7 +23,7 @@ struct TonightViewModelTests {
 
     @Test func viewModel_whenScheduleLoads_isLoaded() async throws {
         let service = try makeService(scheduleCountryCode: "US")
-        let sut = TonightViewModel(service: service, countryCode: "US")
+        let sut = makeSut(service: service)
 
         await sut.loadSchedule()
 
@@ -31,19 +31,49 @@ struct TonightViewModelTests {
         #expect(service.requestedCountryCodes == ["US"])
     }
 
-    @Test func viewModel_whenLocalScheduleIsEmpty_fallsBackToTheUS() async throws {
+    @Test func viewModel_startsWithTheDeviceRegion() {
+        let sut = makeSut(deviceCountryCode: "GB")
+
+        #expect(sut.countryCode == "GB")
+        #expect(sut.region.flag == "🇬🇧")
+    }
+
+    @Test func viewModel_whenTheDeviceRegionHasNoListings_startsWithTheUS() {
+        let sut = makeSut(deviceCountryCode: "CH")
+
+        #expect(sut.countryCode == "US")
+    }
+
+    @Test func viewModel_whenARegionWasPicked_startsWithIt() {
+        let defaults = makeDefaults()
+        makeSut(defaults: defaults).countryCode = "JP"
+
+        let sut = makeSut(defaults: defaults)
+
+        #expect(sut.countryCode == "JP")
+    }
+
+    @Test func viewModel_offersTheDeviceRegionAmongItsRegions() {
+        let sut = makeSut()
+
+        #expect(sut.regions.contains(sut.region))
+        #expect(sut.regions.map(\.name) == sut.regions.map(\.name).sorted { $0.localizedCompare($1) == .orderedAscending })
+    }
+
+    @Test func viewModel_whenAnotherRegionIsPicked_loadsItsSchedule() async throws {
         let service = try makeService(scheduleCountryCode: "US")
-        let sut = TonightViewModel(service: service, countryCode: "CH")
+        let sut = makeSut(service: service)
 
         await sut.loadSchedule()
+        sut.countryCode = "GB"
+        await sut.loadSchedule()
 
-        #expect(sut.state == .loaded(try makeTonight()))
-        #expect(service.requestedCountryCodes == ["CH", "US"])
+        #expect(service.requestedCountryCodes == ["US", "GB"])
     }
 
     @Test func viewModel_whenDayIsAlreadyLoaded_doesNotLoadAgain() async throws {
         let service = try makeService(scheduleCountryCode: "US")
-        let sut = TonightViewModel(service: service, countryCode: "US")
+        let sut = makeSut(service: service)
 
         await sut.loadSchedule()
         await sut.loadSchedule()
@@ -53,7 +83,7 @@ struct TonightViewModelTests {
 
     @Test func viewModel_whenAnotherDayIsSelected_loadsAgain() async throws {
         let service = try makeService(scheduleCountryCode: "US")
-        let sut = TonightViewModel(service: service, countryCode: "US")
+        let sut = makeSut(service: service)
 
         await sut.loadSchedule()
         sut.selectedDay = sut.days[1]
@@ -63,7 +93,7 @@ struct TonightViewModelTests {
     }
 
     @Test func viewModel_whenAnotherDayIsSelected_isNotTonight() {
-        let sut = TonightViewModel(service: MockTVMazeAPIService(), countryCode: "US")
+        let sut = makeSut()
 
         sut.selectedDay = sut.days[1]
 
@@ -71,9 +101,7 @@ struct TonightViewModelTests {
     }
 
     @Test func viewModel_whenScheduleFails_isFailed() async {
-        let sut = TonightViewModel(
-            service: MockTVMazeAPIService(error: TVMazeAPIServiceError.invalidResponse),
-            countryCode: "US")
+        let sut = makeSut(service: MockTVMazeAPIService(error: TVMazeAPIServiceError.invalidResponse))
 
         await sut.loadSchedule()
 
@@ -82,6 +110,24 @@ struct TonightViewModelTests {
 }
 
 extension TonightViewModelTests {
+    @discardableResult
+    private func makeSut(
+        service: TVMazeAPIService = MockTVMazeAPIService(),
+        defaults: UserDefaults? = nil,
+        deviceCountryCode: String = "US",
+        now: Date = .now
+    ) -> TonightViewModel {
+        TonightViewModel(
+            service: service,
+            defaults: defaults ?? makeDefaults(),
+            deviceCountryCode: deviceCountryCode,
+            now: now)
+    }
+
+    private func makeDefaults() -> UserDefaults {
+        UserDefaults(suiteName: UUID().uuidString) ?? .standard
+    }
+
     private func makeService(scheduleCountryCode: String) throws -> MockTVMazeAPIService {
         let service = MockTVMazeAPIService()
         service.schedules[scheduleCountryCode] = try Fixtures.decode([ScheduleEpisodeModel].self, named: "schedule_response")
