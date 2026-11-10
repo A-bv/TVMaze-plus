@@ -17,6 +17,7 @@ Search TV shows, open their details and keep favorites on device. A native Swift
 
 - Search shows by name and browse the results as soft, raised rows.
 - Open a show behind a stretchy hero picture, and browse its episodes by season, its cast, crew, gallery and titles in other countries.
+- Open anyone in the cast or crew to see the shows they're known for, their work behind the camera and their guest appearances.
 - Save favorites on device from any search result or show screen, and find them in their own tab.
 - Use the app in English or French.
 

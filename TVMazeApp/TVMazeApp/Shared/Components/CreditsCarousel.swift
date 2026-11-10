@@ -1,5 +1,5 @@
 //
-//  CastSection.swift
+//  CreditsCarousel.swift
 //  TVMazeApp
 //
 //  Created by Alexandre Bevilacqua on 10.11.2026.
@@ -7,21 +7,26 @@
 
 import SwiftUI
 
-struct CastSection: View {
+struct CreditsCarousel: View {
     private enum Constants {
-        static let title = String(localized: "Cast")
         static let spacing: CGFloat = 14
         static let shadowSpace: CGFloat = 10
     }
 
-    let cast: [CreditItemModel]
+    let title: String
+    let credits: [CreditItemModel]
 
     var body: some View {
-        DetailSection(title: Constants.title) {
+        DetailSection(title: title) {
             ScrollView(.horizontal) {
                 LazyHStack(alignment: .top, spacing: Constants.spacing) {
-                    ForEach(cast) { credit in
-                        PersonMedallion(credit: credit)
+                    ForEach(credits) { credit in
+                        NavigationLink {
+                            PersonDetailView(person: credit.person)
+                        } label: {
+                            PersonMedallion(credit: credit)
+                        }
+                        .buttonStyle(.plain)
                     }
                 }
                 .padding(.vertical, Constants.shadowSpace)

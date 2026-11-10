@@ -5,7 +5,6 @@
 //  Created by Alexandre Bevilacqua on 07.10.2026.
 //
 
-import NeumorphicSwiftUI
 import ParallaxKit
 import SwiftData
 import SwiftUI
@@ -13,32 +12,18 @@ import SwiftUI
 struct ShowDetailView: View {
     private enum Constants {
         static let headerHeight: CGFloat = 520
-        static let barHeight: CGFloat = 120
-        static let barFadeHeight: CGFloat = 24
-        static let barFadeStart = 0.6
         static let sectionSpacing: CGFloat = 32
-        static let shadeOpacity = 0.8
         static let separator = " · "
-        static let errorTitle = String(localized: "Something went wrong")
-        static let errorMessage = String(localized: "Check your connection and try again.")
-        static let errorIcon = "exclamationmark.triangle"
-        static let retryTitle = String(localized: "Try again")
+        static let castTitle = String(localized: "Cast")
     }
 
     let show: ShowItemModel
 
     @State private var viewModel = ShowDetailViewModel()
-    @State private var isPastHeader = false
 
     var body: some View {
         StretchyHeaderScrollView(headerHeight: Constants.headerHeight, cardColor: .surface) {
-            PosterView(url: show.largePosterURL)
-                .overlay {
-                    LinearGradient(
-                        colors: [.clear, .black.opacity(Constants.shadeOpacity)],
-                        startPoint: .center,
-                        endPoint: .bottom)
-                }
+            HeroImage(url: show.largePosterURL)
         } headerOverlay: { scrollOffset in
             StretchyHeaderTitle(title: show.name, subtitle: subtitle, scrollOffset: scrollOffset)
         } content: {
@@ -50,33 +35,7 @@ struct ShowDetailView: View {
             .padding([.horizontal, .bottom])
         }
         .background(.surface)
-        .onScrollGeometryChange(for: Bool.self) { geometry in
-            geometry.contentOffset.y > Constants.headerHeight - Constants.barHeight
-        } action: { _, isPast in
-            isPastHeader = isPast
-        }
-        .navigationTitle(show.name)
-        .navigationBarTitleDisplayMode(.inline)
-        .overlay(alignment: .top) {
-            LinearGradient(
-                stops: [
-                    .init(color: .surface, location: Constants.barFadeStart),
-                    .init(color: .surface.opacity(0), location: 1)
-                ],
-                startPoint: .top,
-                endPoint: .bottom)
-                .frame(height: Constants.barFadeHeight)
-                .ignoresSafeArea(edges: .top)
-                .opacity(isPastHeader ? 1 : 0)
-                .allowsHitTesting(false)
-        }
-        .toolbar {
-            ToolbarItem(placement: .principal) {
-                Text(show.name)
-                    .font(.headline)
-                    .opacity(isPastHeader ? 1 : 0)
-            }
-        }
+        .heroNavigationBar(title: show.name, headerHeight: Constants.headerHeight)
         .task {
             await viewModel.loadDetail(showID: show.id)
         }
@@ -89,15 +48,8 @@ struct ShowDetailView: View {
             ProgressView()
                 .frame(maxWidth: .infinity)
         case .failed:
-            ContentUnavailableView {
-                Label(Constants.errorTitle, systemImage: Constants.errorIcon)
-            } description: {
-                Text(Constants.errorMessage)
-            } actions: {
-                Button(Constants.retryTitle) {
-                    Task { await viewModel.loadDetail(showID: show.id) }
-                }
-                .buttonStyle(NeumorphicButtonStyle())
+            LoadingErrorView {
+                await viewModel.loadDetail(showID: show.id)
             }
         case .loaded(let detail):
             if !detail.seasons.isEmpty {
@@ -107,7 +59,7 @@ struct ShowDetailView: View {
                     episodes: viewModel.selectedEpisodes)
             }
             if !detail.cast.isEmpty {
-                CastSection(cast: detail.cast)
+                CreditsCarousel(title: Constants.castTitle, credits: detail.cast)
             }
             if !detail.gallery.isEmpty {
                 GallerySection(gallery: detail.gallery)

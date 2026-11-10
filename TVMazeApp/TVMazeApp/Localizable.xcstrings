@@ -350,6 +350,116 @@
           }
         }
       }
+    },
+    "Age" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Âge"
+          }
+        }
+      }
+    },
+    "Shows" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Séries"
+          }
+        }
+      }
+    },
+    "Guest roles" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rôles d’invité"
+          }
+        }
+      }
+    },
+    "Known for" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Connu pour"
+          }
+        }
+      }
+    },
+    "Behind the camera" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Derrière la caméra"
+          }
+        }
+      }
+    },
+    "Guest appearances" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Apparitions"
+          }
+        }
+      }
+    },
+    "as %@" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "dans le rôle de %@"
+          }
+        }
+      }
+    },
+    "Born %@" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Naissance : %@"
+          }
+        }
+      }
+    },
+    "Died %@" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Décès : %@"
+          }
+        }
+      }
+    },
+    "S%lld" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "S%lld"
+          }
+        }
+      }
+    },
+    "S%lld E%lld" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "S%lld É%lld"
+          }
+        }
+      }
     }
   },
   "version" : "1.0"

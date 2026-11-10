@@ -8,10 +8,6 @@
 import Foundation
 
 struct PersonTransformer {
-    private enum Constants {
-        static let roleSeparator = " · "
-    }
-
     func transform(_ person: Person) -> PersonItemModel {
         PersonItemModel(
             id: person.id,
@@ -24,20 +20,8 @@ struct PersonTransformer {
     }
 
     func transformCredits(_ credits: [(person: Person, role: String)]) -> [CreditItemModel] {
-        var people: [Person] = []
-        var roles: [Int: [String]] = [:]
-        for credit in credits {
-            if roles[credit.person.id] == nil {
-                people.append(credit.person)
-            }
-            if roles[credit.person.id]?.contains(credit.role) != true {
-                roles[credit.person.id, default: []].append(credit.role)
-            }
-        }
-        return people.map { person in
-            CreditItemModel(
-                person: transform(person),
-                role: roles[person.id, default: []].joined(separator: Constants.roleSeparator))
+        CreditGrouping.group(credits.map { ($0.person, $0.role) }, id: \.id).map { credit in
+            CreditItemModel(person: transform(credit.owner), role: credit.role)
         }
     }
 

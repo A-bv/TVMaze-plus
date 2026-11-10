@@ -18,4 +18,9 @@ struct EpisodeItemModel: Identifiable, Equatable {
     let imageURL: URL?
     let largeImageURL: URL?
     let summary: String?
+
+    var code: String {
+        guard let number else { return String(localized: "S\(season)") }
+        return String(localized: "S\(season) E\(number)")
+    }
 }
