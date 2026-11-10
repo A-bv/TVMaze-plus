@@ -460,6 +460,56 @@
           }
         }
       }
+    },
+    "Air date" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Diffusion"
+          }
+        }
+      }
+    },
+    "Guest cast" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Invités"
+          }
+        }
+      }
+    },
+    "Around this episode" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Autour de cet épisode"
+          }
+        }
+      }
+    },
+    "Previous" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Précédent"
+          }
+        }
+      }
+    },
+    "Next" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Suivant"
+          }
+        }
+      }
     }
   },
   "version" : "1.0"

@@ -56,7 +56,9 @@ struct ShowDetailView: View {
                 EpisodesSection(
                     seasons: detail.seasons,
                     selectedSeason: $viewModel.selectedSeason,
-                    episodes: viewModel.selectedEpisodes)
+                    episodes: viewModel.selectedEpisodes,
+                    showName: show.name,
+                    fallbackImageURL: show.largePosterURL)
             }
             if !detail.cast.isEmpty {
                 CreditsCarousel(title: Constants.castTitle, credits: detail.cast)

@@ -20,6 +20,8 @@ struct EpisodesSection: View {
     let seasons: [SeasonItemModel]
     @Binding var selectedSeason: Int?
     let episodes: [EpisodeItemModel]
+    let showName: String
+    let fallbackImageURL: URL?
 
     var body: some View {
         DetailSection(title: Constants.title) {
@@ -41,7 +43,7 @@ struct EpisodesSection: View {
             }
             .scrollIndicators(.hidden)
             .scrollClipDisabled()
-            .defaultScrollAnchor(.trailing)
+            .defaultScrollAnchor(.trailing, for: .initialOffset)
 
             if episodes.isEmpty {
                 Text(Constants.emptyMessage)
@@ -50,7 +52,16 @@ struct EpisodesSection: View {
             } else {
                 VStack(alignment: .leading, spacing: Constants.episodeSpacing) {
                     ForEach(episodes) { episode in
-                        EpisodeRow(episode: episode)
+                        NavigationLink {
+                            EpisodeDetailView(
+                                episode: episode,
+                                episodes: seasons.flatMap(\.episodes),
+                                showName: showName,
+                                fallbackImageURL: fallbackImageURL)
+                        } label: {
+                            EpisodeRow(episode: episode)
+                        }
+                        .buttonStyle(.plain)
                     }
                 }
             }
