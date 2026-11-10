@@ -41,6 +41,27 @@ struct TonightViewModelTests {
         #expect(service.requestedCountryCodes == ["CH", "US"])
     }
 
+    @Test func viewModel_whenDayIsAlreadyLoaded_doesNotLoadAgain() async throws {
+        let service = try makeService(scheduleCountryCode: "US")
+        let sut = TonightViewModel(service: service, countryCode: "US")
+
+        await sut.loadSchedule()
+        await sut.loadSchedule()
+
+        #expect(service.requestedCountryCodes == ["US"])
+    }
+
+    @Test func viewModel_whenAnotherDayIsSelected_loadsAgain() async throws {
+        let service = try makeService(scheduleCountryCode: "US")
+        let sut = TonightViewModel(service: service, countryCode: "US")
+
+        await sut.loadSchedule()
+        sut.selectedDay = sut.days[1]
+        await sut.loadSchedule()
+
+        #expect(service.requestedCountryCodes == ["US", "US"])
+    }
+
     @Test func viewModel_whenAnotherDayIsSelected_isNotTonight() {
         let sut = TonightViewModel(service: MockTVMazeAPIService(), countryCode: "US")
 

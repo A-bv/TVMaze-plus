@@ -28,6 +28,7 @@ final class TonightViewModel {
     let days: [Date]
     var selectedDay: Date
     private(set) var state: TonightState = .loading
+    private var loadedDay: Date?
 
     init(
         service: TVMazeAPIService = TVMazeAPIServiceImpl(),
@@ -48,6 +49,8 @@ final class TonightViewModel {
     }
 
     func loadSchedule() async {
+        guard loadedDay != selectedDay else { return }
+        loadedDay = nil
         state = .loading
         do {
             let (schedule, countryCode) = try await fetchTVSchedule()
@@ -57,6 +60,7 @@ final class TonightViewModel {
                 schedule: schedule,
                 webSchedule: webSchedule,
                 countryCode: countryCode))
+            loadedDay = selectedDay
         } catch {
             if Task.isCancelled { return }
             state = .failed
