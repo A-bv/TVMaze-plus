@@ -10,8 +10,6 @@ import SwiftUI
 struct HeroNavigationBar: ViewModifier {
     private enum Constants {
         static let barHeight: CGFloat = 120
-        static let fadeHeight: CGFloat = 24
-        static let fadeStart = 0.6
     }
 
     let title: String
@@ -27,21 +25,10 @@ struct HeroNavigationBar: ViewModifier {
             } action: { _, isPast in
                 isPastHeader = isPast
             }
-            .overlay(alignment: .top) {
-                LinearGradient(
-                    stops: [
-                        .init(color: .surface, location: Constants.fadeStart),
-                        .init(color: .surface.opacity(0), location: 1)
-                    ],
-                    startPoint: .top,
-                    endPoint: .bottom)
-                    .frame(height: Constants.fadeHeight)
-                    .ignoresSafeArea(edges: .top)
-                    .opacity(isPastHeader ? 1 : 0)
-                    .allowsHitTesting(false)
-            }
             .navigationTitle(title)
             .navigationBarTitleDisplayMode(.inline)
+            .toolbarBackground(Color.surface, for: .navigationBar)
+            .toolbarBackgroundVisibility(isPastHeader ? .visible : .hidden, for: .navigationBar)
             .toolbarColorScheme(isPastHeader ? colorScheme : nil, for: .navigationBar)
             .toolbar {
                 ToolbarItem(placement: .principal) {
