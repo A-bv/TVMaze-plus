@@ -10,7 +10,7 @@ import SwiftUI
 
 struct ShowCarousel<Item: Identifiable, Destination: View>: View {
     private enum Constants {
-        static var height: CGFloat { 340 }
+        static var height: CGFloat { 280 }
         static var horizontalBleed: CGFloat { -16 }
         static var textSpacing: CGFloat { 2 }
         static var shadeOpacity: Double { 0.8 }
