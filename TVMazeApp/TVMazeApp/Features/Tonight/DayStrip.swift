@@ -11,7 +11,8 @@ import SwiftUI
 struct DayStrip: View {
     private enum Constants {
         static let textSpacing: CGFloat = 4
-        static let cornerRadius: CGFloat = 14
+        static let verticalPadding: CGFloat = 8
+        static let cornerRadius: CGFloat = 18
         static let weekdayKerning: CGFloat = 0.5
     }
 
@@ -27,15 +28,16 @@ struct DayStrip: View {
                 )) {
                     VStack(spacing: Constants.textSpacing) {
                         Text(day.formatted(.dateTime.weekday(.abbreviated)))
-                            .font(.caption2.weight(.bold))
+                            .font(.caption2.weight(.semibold))
                             .textCase(.uppercase)
                             .kerning(Constants.weekdayKerning)
                             .foregroundStyle(.secondaryText)
                         Text(day.formatted(.dateTime.day()))
-                            .font(.title3.weight(.bold))
+                            .font(.title3.weight(.semibold))
                             .foregroundStyle(selectedDay == day ? Color.accentColor : Color.primary)
                     }
                     .frame(maxWidth: .infinity)
+                    .padding(.vertical, Constants.verticalPadding)
                 }
                 .toggleStyle(NeumorphicToggleStyle())
                 .accessibilityLabel(day.formatted(date: .complete, time: .omitted))

@@ -18,6 +18,7 @@ struct TonightView: View {
         static let settingsTitle = String(localized: "Settings")
         static let settingsIcon = "gearshape"
         static let sectionSpacing: CGFloat = 32
+        static let contentTopPadding: CGFloat = 24
         static let separator = " · "
     }
 
@@ -26,7 +27,11 @@ struct TonightView: View {
 
     var body: some View {
         NavigationStack {
-            StretchyHeaderScrollView(headerHeight: HeroImage.height, cardColor: .surface) {
+            StretchyHeaderScrollView(
+                headerHeight: HeroImage.height,
+                cardColor: .surface,
+                contentTopPadding: Constants.contentTopPadding
+            ) {
                 HeroImage(url: pick?.show.largePosterURL)
             } headerOverlay: { scrollOffset in
                 header(scrollOffset: scrollOffset)
