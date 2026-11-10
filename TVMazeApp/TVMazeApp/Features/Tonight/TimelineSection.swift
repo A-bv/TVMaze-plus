@@ -10,7 +10,6 @@ import SwiftUI
 struct TimelineSection: View {
     private enum Constants {
         static let emptyMessage = String(localized: "No evening listings on this day.")
-        static let rowSpacing: CGFloat = 14
     }
 
     let title: String
@@ -33,21 +32,7 @@ struct TimelineSection: View {
                 if timeSlot.id != timeSlots.first?.id {
                     Divider()
                 }
-                VStack(alignment: .leading, spacing: Constants.rowSpacing) {
-                    Text(timeSlot.time.formatted(Date.FormatStyle(date: .omitted, time: .shortened, timeZone: timeZone)))
-                        .font(.subheadline.weight(.bold))
-                        .monospacedDigit()
-                        .foregroundStyle(Color.accentColor)
-                        .accessibilityAddTraits(.isHeader)
-                    ForEach(timeSlot.entries) { entry in
-                        NavigationLink {
-                            ShowDetailView(show: entry.show)
-                        } label: {
-                            ScheduleRow(entry: entry)
-                        }
-                        .buttonStyle(.plain)
-                    }
-                }
+                TimeSlotView(timeSlot: timeSlot, timeZone: timeZone)
             }
         }
     }
