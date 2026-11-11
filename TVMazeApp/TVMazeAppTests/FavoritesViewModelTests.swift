@@ -91,6 +91,13 @@ struct FavoritesViewModelTests {
         #expect(sut.upNext.map(\.show.name) == ["Abbott Elementary"])
     }
 
+    @Test func viewModel_namesEverySortOrderDifferently() {
+        let titles = FavoritesViewModel.SortOrder.allCases.map(\.title)
+
+        #expect(Set(titles).count == titles.count)
+        #expect(!titles.contains(""))
+    }
+
     @Test func viewModel_sortsByDateAdded_newestFirst() {
         let favorites = makeFavorites()
 
