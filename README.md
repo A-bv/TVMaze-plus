@@ -27,7 +27,7 @@ See what's on TV tonight, search shows and people, and keep favorites on device.
 - Save favorites on device from any search result or show screen. Their tab shows the next episode of each one still airing, soonest first.
 - Browse the saved shows as a grid of posters, or as a list with their year, channel, rating and next air day. Sort them by date added, next episode, name or rating, and remove one with Edit or a long press. Opening the tab also brings them up to date.
 - Reopen without a connection what was already loaded, like the Guide or a show seen before.
-- Use the app in English or French.
+- Use the app in English or French, in light or dark mode, following the system.
 
 ## Architecture
 
