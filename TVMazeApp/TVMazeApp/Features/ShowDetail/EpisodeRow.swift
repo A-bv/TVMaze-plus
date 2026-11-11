@@ -16,6 +16,7 @@ struct EpisodeRow: View {
         static let textSpacing: CGFloat = 3
         static let separator = " · "
         static let ratingIcon = "star.fill"
+        static let placeholderIcon = "tv"
         static let ratingAccessibilityLabel = String(localized: "Rating")
     }
 
@@ -60,9 +61,10 @@ struct EpisodeRow: View {
                 startPoint: .topLeading,
                 endPoint: .bottomTrailing)
                 .overlay {
-                    Text(episode.number.map(String.init) ?? "")
-                        .font(.title3.weight(.bold))
+                    Image(systemName: Constants.placeholderIcon)
+                        .font(.title3)
                         .foregroundStyle(.secondaryText)
+                        .accessibilityHidden(true)
                 }
         }
     }
