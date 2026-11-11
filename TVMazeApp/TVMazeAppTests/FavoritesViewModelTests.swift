@@ -37,6 +37,24 @@ struct FavoritesViewModelTests {
         #expect(sut.refreshedShows.map(\.id) == [1, 55350])
     }
 
+    @Test func viewModel_updatesTheSavedShowsWithTheirLatestData() async throws {
+        let sut = try await makeLoadedSut()
+        let favorite = makeFavorite(id: 55350, name: "Old name")
+
+        sut.refresh([favorite])
+
+        #expect(favorite.name == "Abbott Elementary")
+    }
+
+    @Test func viewModel_leavesTheShowsItDidNotFetchAsTheyAre() async throws {
+        let sut = try await makeLoadedSut()
+        let favorite = makeFavorite(id: 1, name: "Old name")
+
+        sut.refresh([favorite])
+
+        #expect(favorite.name == "Old name")
+    }
+
     @Test func viewModel_whenFavoritesChange_fetchesOnlyTheNewShows() async throws {
         let service = MockTVMazeAPIService()
         service.upNext = [

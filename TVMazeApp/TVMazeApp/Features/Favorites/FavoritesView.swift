@@ -74,8 +74,8 @@ struct FavoritesView: View {
                 .task(id: favorites.map(\.id)) {
                     await viewModel.loadUpNext(showIDs: favorites.map(\.id))
                 }
-                .onChange(of: viewModel.refreshedShows) { _, shows in
-                    refreshFavorites(with: shows)
+                .onChange(of: viewModel.refreshedShows) {
+                    viewModel.refresh(favorites)
                 }
                 .onChange(of: favorites.isEmpty) { _, isEmpty in
                     if isEmpty {
@@ -123,7 +123,7 @@ struct FavoritesView: View {
             .pickerStyle(.inline)
             Picker(Constants.sortTitle, selection: $sortOrder.animation()) {
                 ForEach(FavoritesViewModel.SortOrder.allCases) { order in
-                    Text(title(of: order))
+                    Text(order.title)
                 }
             }
             .pickerStyle(.menu)
@@ -132,22 +132,6 @@ struct FavoritesView: View {
 
     private var sortedFavorites: [SavedShowModel] {
         viewModel.sorted(favorites, by: sortOrder)
-    }
-
-    private func title(of order: FavoritesViewModel.SortOrder) -> String {
-        switch order {
-        case .dateAdded: String(localized: "Date added")
-        case .nextEpisode: String(localized: "Next episode")
-        case .name: String(localized: "Name")
-        case .rating: String(localized: "Rating")
-        }
-    }
-
-    private func refreshFavorites(with shows: [ShowItemModel]) {
-        for show in shows {
-            guard let favorite = favorites.first(where: { $0.id == show.id }), favorite.showItem != show else { continue }
-            favorite.update(from: show)
-        }
     }
 }
 

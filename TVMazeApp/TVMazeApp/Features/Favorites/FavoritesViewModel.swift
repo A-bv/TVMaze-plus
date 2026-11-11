@@ -21,6 +21,15 @@ final class FavoritesViewModel {
         case rating
 
         var id: Self { self }
+
+        var title: String {
+            switch self {
+            case .dateAdded: String(localized: "Date added")
+            case .nextEpisode: String(localized: "Next episode")
+            case .name: String(localized: "Name")
+            case .rating: String(localized: "Rating")
+            }
+        }
     }
 
     private let service: TVMazeAPIService
@@ -47,6 +56,13 @@ final class FavoritesViewModel {
         upNext = showIDs
             .compactMap { upNextByShow[$0] }
             .sorted { $0.airDate < $1.airDate }
+    }
+
+    func refresh(_ favorites: [SavedShowModel]) {
+        for show in refreshedShows {
+            guard let favorite = favorites.first(where: { $0.id == show.id }), favorite.showItem != show else { continue }
+            favorite.update(from: show)
+        }
     }
 
     func nextAirDate(of showID: Int) -> Date? {
