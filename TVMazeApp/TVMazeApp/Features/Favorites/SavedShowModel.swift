@@ -25,7 +25,7 @@ final class SavedShowModel {
     var websiteURL: URL?
     var lastUpdated: Date
     var savedAt: Date = Date.now
-    
+
     init(from show: ShowItemModel) {
         id = show.id
         name = show.name

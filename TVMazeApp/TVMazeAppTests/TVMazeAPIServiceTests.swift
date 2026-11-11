@@ -17,7 +17,7 @@ struct TVMazeAPIServiceTests {
         let sut = makeSut(session: mockedSession)
         #expect(try await sut.fetchShows(name: "girls") == [])
     }
-    
+
     @Test func service_whenDataIsInvalidAndStatusCodeIs200_throwsDecodingError() async {
         let invalidJson = "{[]}"
         let invalidData = Data(invalidJson.utf8)
@@ -28,7 +28,7 @@ struct TVMazeAPIServiceTests {
             try await sut.fetchShows(name: "girls")
         }
     }
-    
+
     @Test func service_whenStatusCodeIs404_throwsInvalidResponseError() async {
         let mockedSession = MockedURLSession(fakeData: Data(), statusCode: 404)
         let sut = makeSut(session: mockedSession)
@@ -37,19 +37,19 @@ struct TVMazeAPIServiceTests {
             try await sut.fetchShows(name: "girls")
         }
     }
-    
+
     @Test func service_whenRealGirlsResponse_decodesAllShows() async throws {
         let mockedSession = MockedURLSession(fakeData: try Fixtures.data(named: "girls_search_response"), statusCode: 200)
         let sut = makeSut(session: mockedSession)
-        
+
         let shows = try await sut.fetchShows(name: "girls")
-        
+
         #expect(shows.count == 2)
 
         let showTheMostFilled = try #require(shows.first)
         #expect(showTheMostFilled.show.network?.name == "HBO")
         #expect(showTheMostFilled.show.averageRuntime == 30)
-        
+
         let showTheMostFilledWithNil = try #require(shows.last)
         #expect(showTheMostFilledWithNil.show.premiered == nil)
         #expect(showTheMostFilledWithNil.show.image == nil)

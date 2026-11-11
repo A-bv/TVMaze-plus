@@ -29,7 +29,7 @@ enum FakeShowSearchData {
                 image: isUpcoming ? nil : ImageLinks(medium: "medium", original: "original"),
                 summary: withNilValues ? nil : "<p>Text <b>test.</b></p>",
                 updated: 1790843609)
-            
+
             return [ShowSearchModel(show: show)]
     }
 }

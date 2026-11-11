@@ -18,7 +18,7 @@ struct ShowTransformer {
             "In Development": String(localized: "In Development")
         ]
     }
-    
+
     func transform(_ show: Show) -> ShowItemModel {
         ShowItemModel(
             id: show.id,
@@ -36,7 +36,7 @@ struct ShowTransformer {
             websiteURL: URL(string: show.officialSite ?? show.url),
             lastUpdated: Date(timeIntervalSince1970: TimeInterval(show.updated)))
     }
-    
+
     private func buildTimeRange(start: String?, end: String?) -> String {
         guard let startYear = start?.split(separator: "-").first else {
             return Constants.unknownYear
@@ -46,12 +46,12 @@ struct ShowTransformer {
         }
         return "\(startYear) – \(endYear)"
     }
-    
+
     private func makeURL(string: String?) -> URL? {
         guard let string else { return nil }
         return URL(string: string)
     }
-    
+
     private func cleanSummary(htmlSummary: String?) -> String {
         guard let htmlSummary else {
             return Constants.noSummaryMessage

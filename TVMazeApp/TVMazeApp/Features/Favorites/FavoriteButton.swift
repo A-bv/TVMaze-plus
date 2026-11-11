@@ -9,8 +9,6 @@ import SwiftData
 import SwiftUI
 
 struct FavoriteButton: View {
-    let show: ShowItemModel
-    
     private enum Constants {
         static let buttonSize: CGFloat = 44
         static let addIcon = "heart"
@@ -18,6 +16,8 @@ struct FavoriteButton: View {
         static let addAccessibilityLabel = String(localized: "Add to favorites")
         static let removeAccessibilityLabel = String(localized: "Remove from favorites")
     }
+
+    let show: ShowItemModel
 
     @Environment(\.modelContext) private var context
     @Query private var favorites: [SavedShowModel]

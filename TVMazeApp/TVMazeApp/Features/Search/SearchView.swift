@@ -29,7 +29,7 @@ struct SearchView: View {
         static let scopeSpacing: CGFloat = 12
         static let favoritePadding: CGFloat = 12
     }
-    
+
     @State private var viewModel = SearchViewModel()
     @State private var searchText = ""
     @State private var submittedSearch = ""

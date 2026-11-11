@@ -14,7 +14,7 @@ struct ShowTransformerTests {
     @Test func transformer_withInitialData_transformsToExpectedData() throws {
         let sut = makeSut()
         let transformedShow = sut.transform(try makeShow())
-        
+
         #expect(transformedShow.name == "valid name")
         #expect(transformedShow.years == "2021 – 2022")
         #expect(transformedShow.rating == "5.4")
@@ -23,11 +23,11 @@ struct ShowTransformerTests {
         #expect(transformedShow.websiteURL == URL(string: "https://www.site.com"))
         #expect(transformedShow.lastUpdated == Date(timeIntervalSince1970: 1790843609))
     }
-    
+
     @Test func transformer_withNilData_transformsToExpectedData() throws {
         let sut = makeSut()
         let transformedShow = sut.transform(try makeShow(withNilValues: true))
-        
+
         #expect(transformedShow.years == "2021")
         #expect(transformedShow.rating == nil)
         #expect(transformedShow.channel == nil)
