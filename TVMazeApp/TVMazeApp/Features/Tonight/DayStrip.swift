@@ -20,6 +20,20 @@ struct DayStrip: View {
     @Binding var selectedDay: Date
 
     var body: some View {
+        ViewThatFits(in: .horizontal) {
+            strip
+            ScrollView(.horizontal) {
+                strip
+            }
+            .scrollIndicators(.hidden)
+            .scrollClipDisabled()
+        }
+        .transformEnvironment(\.neumorphicMetrics) { metrics in
+            metrics.cornerRadius = Constants.cornerRadius
+        }
+    }
+
+    private var strip: some View {
         HStack(spacing: 0) {
             ForEach(days, id: \.self) { day in
                 Toggle(isOn: Binding(
@@ -42,9 +56,6 @@ struct DayStrip: View {
                 .toggleStyle(NeumorphicToggleStyle())
                 .accessibilityLabel(day.formatted(date: .complete, time: .omitted))
             }
-        }
-        .transformEnvironment(\.neumorphicMetrics) { metrics in
-            metrics.cornerRadius = Constants.cornerRadius
         }
     }
 }
