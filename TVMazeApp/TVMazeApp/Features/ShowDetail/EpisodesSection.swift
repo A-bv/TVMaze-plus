@@ -23,6 +23,7 @@ struct EpisodesSection: View {
     let seasons: [SeasonItemModel]
     @Binding var selectedSeason: Int?
     let episodes: [EpisodeItemModel]
+    let allEpisodes: [EpisodeItemModel]
     let showName: String
     let fallbackImageURL: URL?
 
@@ -40,7 +41,7 @@ struct EpisodesSection: View {
                         NavigationLink {
                             EpisodeDetailView(
                                 episode: episode,
-                                episodes: seasons.flatMap(\.episodes),
+                                episodes: allEpisodes,
                                 showName: showName,
                                 fallbackImageURL: fallbackImageURL)
                         } label: {

@@ -12,7 +12,6 @@ import SwiftUI
 struct ShowDetailView: View {
     private enum Constants {
         static let sectionSpacing: CGFloat = 32
-        static let separator = " · "
         static let castTitle = String(localized: "Cast")
     }
 
@@ -24,11 +23,11 @@ struct ShowDetailView: View {
         StretchyHeaderScrollView(headerHeight: HeroImage.height, cardColor: .surface) {
             HeroImage(url: show.largePosterURL)
         } headerOverlay: { scrollOffset in
-            StretchyHeaderTitle(title: show.name, subtitle: subtitle, scrollOffset: scrollOffset)
+            StretchyHeaderTitle(title: show.name, subtitle: viewModel.subtitle(of: show), scrollOffset: scrollOffset)
                 .heroShade()
         } content: {
             VStack(alignment: .leading, spacing: Constants.sectionSpacing) {
-                ShowOverviewSection(show: show, detail: detail)
+                ShowOverviewSection(show: show, detail: viewModel.detail)
                 sections
                 AttributionFooter()
             }
@@ -57,6 +56,7 @@ struct ShowDetailView: View {
                     seasons: detail.seasons,
                     selectedSeason: $viewModel.selectedSeason,
                     episodes: viewModel.selectedEpisodes,
+                    allEpisodes: viewModel.allEpisodes,
                     showName: show.name,
                     fallbackImageURL: show.largePosterURL)
             }
@@ -73,17 +73,6 @@ struct ShowDetailView: View {
                 AkasSection(akas: detail.akas)
             }
         }
-    }
-
-    private var detail: ShowDetailItemModel? {
-        guard case .loaded(let detail) = viewModel.state else { return nil }
-        return detail
-    }
-
-    private var subtitle: String {
-        [show.years, show.status, show.channel]
-            .compactMap { $0 }
-            .joined(separator: Constants.separator)
     }
 }
 

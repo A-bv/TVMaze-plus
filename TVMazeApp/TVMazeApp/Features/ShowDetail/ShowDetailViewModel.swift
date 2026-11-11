@@ -10,6 +10,9 @@ import Observation
 
 @Observable
 final class ShowDetailViewModel {
+    private enum Constants {
+        static let separator = " · "
+    }
 
     enum DetailState: Equatable {
         case loading
@@ -27,9 +30,23 @@ final class ShowDetailViewModel {
         self.service = service
     }
 
+    var detail: ShowDetailItemModel? {
+        guard case .loaded(let detail) = state else { return nil }
+        return detail
+    }
+
     var selectedEpisodes: [EpisodeItemModel] {
-        guard case .loaded(let detail) = state else { return [] }
-        return detail.seasons.first { $0.number == selectedSeason }?.episodes ?? []
+        detail?.seasons.first { $0.number == selectedSeason }?.episodes ?? []
+    }
+
+    var allEpisodes: [EpisodeItemModel] {
+        detail?.seasons.flatMap(\.episodes) ?? []
+    }
+
+    func subtitle(of show: ShowItemModel) -> String {
+        [show.years, show.status, show.channel]
+            .compactMap { $0 }
+            .joined(separator: Constants.separator)
     }
 
     func loadDetail(showID: Int) async {
