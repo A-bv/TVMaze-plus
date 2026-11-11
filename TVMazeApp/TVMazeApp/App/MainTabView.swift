@@ -17,6 +17,10 @@ struct MainTabView: View {
         static let searchIcon = "magnifyingglass"
     }
 
+    init() {
+        UINavigationBar.applySoftCinemaTitles()
+    }
+
     var body: some View {
         TabView {
             Tab(Constants.tonightTitle, systemImage: Constants.tonightIcon) {

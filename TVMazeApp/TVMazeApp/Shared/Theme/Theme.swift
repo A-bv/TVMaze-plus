@@ -11,6 +11,23 @@ import SwiftUI
 extension View {
     func softCinemaTheme() -> some View {
         neumorphicTheme(.softCinema, metrics: .softCinema)
+            .fontDesign(.rounded)
+    }
+}
+
+extension UINavigationBar {
+    static func applySoftCinemaTitles() {
+        let bar = appearance()
+        bar.largeTitleTextAttributes = [.font: UIFont.rounded(.largeTitle, traits: .traitBold)]
+        bar.titleTextAttributes = [.font: UIFont.rounded(.headline)]
+    }
+}
+
+private extension UIFont {
+    static func rounded(_ style: TextStyle, traits: UIFontDescriptor.SymbolicTraits = []) -> UIFont {
+        let descriptor = UIFontDescriptor.preferredFontDescriptor(withTextStyle: style)
+        let styled = descriptor.withSymbolicTraits(traits)?.withDesign(.rounded) ?? descriptor
+        return UIFont(descriptor: styled, size: 0)
     }
 }
 
