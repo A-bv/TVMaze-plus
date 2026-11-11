@@ -16,6 +16,7 @@ final class TonightViewModel {
         static let tonightTitle = String(localized: "On TV tonight")
         static let tonightPick = String(localized: "Tonight's pick")
         static let countryCodeKey = "countryCode"
+        static let separator = " · "
         static let countryCodes = [
             "AU", "BE", "BR", "CA", "CN", "DE", "DK", "FR", "GB", "JP", "KR", "MX", "NL", "RU", "TR", "US"
         ]
@@ -90,8 +91,19 @@ final class TonightViewModel {
         RegionItemModel(code: countryCode)
     }
 
+    var pick: ScheduleItemModel? {
+        guard case .loaded(let tonight) = state else { return nil }
+        return tonight.pick
+    }
+
     private var weekday: String {
         selectedDay.formatted(.dateTime.weekday(.wide))
+    }
+
+    func caption(for entry: ScheduleItemModel) -> String {
+        [entry.show.channel, entry.episode.code]
+            .compactMap { $0 }
+            .joined(separator: Constants.separator)
     }
 
     func loadSchedule() async {

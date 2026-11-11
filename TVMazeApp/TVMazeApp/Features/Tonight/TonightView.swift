@@ -17,7 +17,6 @@ struct TonightView: View {
         static let settingsIcon = "gearshape"
         static let sectionSpacing: CGFloat = 32
         static let contentTopPadding: CGFloat = 24
-        static let separator = " · "
     }
 
     @State private var viewModel = TonightViewModel()
@@ -30,7 +29,7 @@ struct TonightView: View {
                 cardColor: .surface,
                 contentTopPadding: Constants.contentTopPadding
             ) {
-                HeroImage(url: pick?.show.largePosterURL)
+                HeroImage(url: viewModel.pick?.show.largePosterURL)
             } headerOverlay: { scrollOffset in
                 header(scrollOffset: scrollOffset)
             } content: {
@@ -95,7 +94,7 @@ struct TonightView: View {
         case .loaded(let tonight):
             if !tonight.streaming.isEmpty {
                 DetailSection(title: Constants.streamingTitle) {
-                    ShowCarousel(items: tonight.streaming, show: \.show, caption: caption) { entry in
+                    ShowCarousel(items: tonight.streaming, show: \.show, caption: viewModel.caption) { entry in
                         EpisodeDetailView(episode: entry.episode, show: entry.show)
                     }
                 }
@@ -107,17 +106,6 @@ struct TonightView: View {
                 timeZoneName: tonight.timeZoneName,
                 timeSlots: tonight.timeSlots)
         }
-    }
-
-    private var pick: ScheduleItemModel? {
-        guard case .loaded(let tonight) = viewModel.state else { return nil }
-        return tonight.pick
-    }
-
-    private func caption(for entry: ScheduleItemModel) -> String {
-        [entry.show.channel, entry.episode.code]
-            .compactMap { $0 }
-            .joined(separator: Constants.separator)
     }
 }
 

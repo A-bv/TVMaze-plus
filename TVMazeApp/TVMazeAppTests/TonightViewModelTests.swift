@@ -31,6 +31,25 @@ struct TonightViewModelTests {
         #expect(service.requestedCountryCodes == ["US"])
     }
 
+    @Test func viewModel_whenScheduleLoads_offersItsPick() async throws {
+        let sut = makeSut(service: try makeService(scheduleCountryCode: "US"))
+
+        await sut.loadSchedule()
+
+        #expect(sut.pick == (try makeTonight()).pick)
+    }
+
+    @Test func viewModel_beforeScheduleLoads_hasNoPick() {
+        #expect(makeSut().pick == nil)
+    }
+
+    @Test func viewModel_captionsAStreamingEpisodeWithItsChannelAndCode() throws {
+        let sut = makeSut()
+        let entry = try #require(try makeTonight().streaming.first { $0.show.name == "Love Is Blind" })
+
+        #expect(sut.caption(for: entry) == "Netflix · \(entry.episode.code)")
+    }
+
     @Test func viewModel_startsWithTheDeviceRegion() {
         let sut = makeSut(deviceCountryCode: "GB")
 
