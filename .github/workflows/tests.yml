@@ -1,0 +1,21 @@
+name: Tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  unit-tests:
+    runs-on: macos-26
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run the unit tests
+        working-directory: TVMazeApp
+        run: |
+          xcodebuild test \
+            -project TVMazeApp.xcodeproj \
+            -scheme TVMazeApp \
+            -destination 'platform=iOS Simulator,name=iPhone 17 Pro' \
+            -only-testing:TVMazeAppTests \
+            CODE_SIGNING_ALLOWED=NO
