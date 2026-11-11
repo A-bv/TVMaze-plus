@@ -14,7 +14,6 @@ struct HeroNavigationBar: ViewModifier {
 
     let title: String
 
-    @Environment(\.colorScheme) private var colorScheme
     @State private var isPastHeader = false
 
     func body(content: Content) -> some View {
@@ -28,7 +27,7 @@ struct HeroNavigationBar: ViewModifier {
             .navigationBarTitleDisplayMode(.inline)
             .toolbarBackground(Color.surface, for: .navigationBar)
             .toolbarBackgroundVisibility(isPastHeader ? .visible : .hidden, for: .navigationBar)
-            .toolbarColorScheme(isPastHeader ? colorScheme : .dark, for: .navigationBar)
+            .toolbarColorScheme(isPastHeader ? nil : .dark, for: .navigationBar)
             .scrollEdgeEffectHidden(!isPastHeader, for: .top)
             .toolbar {
                 ToolbarItem(placement: .principal) {
