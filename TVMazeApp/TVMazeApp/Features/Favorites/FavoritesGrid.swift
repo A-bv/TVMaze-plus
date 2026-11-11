@@ -14,7 +14,6 @@ struct FavoritesGrid: View {
         static let columnCount = 3
         static let posterAspectRatio: CGFloat = 2 / 3
         static let posterCornerRadius: CGFloat = 14
-        static let chipPadding: CGFloat = 6
         static let badgeOffset: CGFloat = -8
     }
 
@@ -33,11 +32,6 @@ struct FavoritesGrid: View {
                 } label: {
                     PosterView(url: favorite.posterURL)
                         .aspectRatio(Constants.posterAspectRatio, contentMode: .fit)
-                        .overlay(alignment: .bottomLeading) {
-                            GlassChip(text: viewModel.status(of: favorite))
-                                .foregroundStyle(.white)
-                                .padding(Constants.chipPadding)
-                        }
                         .clipShape(.rect(cornerRadius: Constants.posterCornerRadius))
                         .neumorphicShadow()
                 }
