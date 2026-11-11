@@ -48,7 +48,6 @@ struct UpNextSection: View {
                     .font(.title3.weight(.bold))
                 Text(verbatim: item.episode.label)
                     .font(.footnote.weight(.medium))
-                    .opacity(Constants.shadeOpacity)
                     .lineLimit(1)
             }
             .foregroundStyle(.white)

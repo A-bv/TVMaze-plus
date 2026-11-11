@@ -36,7 +36,6 @@ struct ShowCarousel<Item: Identifiable, Destination: View>: View {
                         .font(.headline)
                     Text(caption(item))
                         .font(.caption)
-                        .opacity(Constants.shadeOpacity)
                 }
                 .foregroundStyle(.white)
                 .multilineTextAlignment(.leading)
