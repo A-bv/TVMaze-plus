@@ -7,22 +7,24 @@ See what's on TV tonight, search shows and people, and keep favorites on device.
 [![License: MIT](https://img.shields.io/badge/License-MIT-lightgrey)](LICENSE)
 
 <p align="center">
-  <img src="docs/screenshots/tonight.png" width="160" alt="Guide tab with NCIS as tonight's pick behind a large hero picture, a strip of seven days and new streaming shows">
+  <img src="docs/screenshots/tonight.png" width="160" alt="Guide tab with Scrubs as tonight's pick behind a large hero picture with rating, channel and time chips, a strip of seven days and new streaming shows">
   <img src="docs/screenshots/search.png" width="160" alt="Search results for “stranger” as soft raised rows, each with a poster, years, channel, rating and a heart">
   <img src="docs/screenshots/show.png" width="160" alt="Stranger Things show screen with its poster as a stretchy header, rating, episode and runtime tiles, and a favorite button">
   <img src="docs/screenshots/favorites.png" width="160" alt="Favorites tab with the next episode of a saved show in an Up next card, above a grid of saved show posters">
-  <img src="docs/screenshots/show-dark.png" width="160" alt="The Stranger Things show screen in dark mode">
+  <img src="docs/screenshots/show-dark.png" width="160" alt="The Severance show screen in dark mode, saved in favorites">
 </p>
 
 ## Features
 
-- See tonight's TV listings by time, in their channels' time zone shown as a GMT offset like "GMT-5", with new episodes on streaming and a pick of the night, taken from TV or from streaming when the region has no evening listings, or the same for any of the next six days. The TV listings name their region, which starts on the device's region, or on the US when TVMaze has no listings for it; streaming is the same everywhere.
-- Open Settings from the Guide to pick the region of the TV listings among those TVMaze covers, which is kept, to reach the app's language in the Settings app, and to see the app's version and where its data comes from.
+- See tonight's TV listings by time, with new episodes on streaming and a pick of the night, or the same for any of the next six days.
+- Read each time in its channels' time zone, shown as a GMT offset like "GMT-5". When a region has no evening listings, the pick comes from streaming.
+- Open Settings from the Guide to pick the region of the TV listings, reach the app's language in the Settings app, and see the app's version and where its data comes from. The region starts on the device's own, or on the US when TVMaze has no listings for it; streaming is the same everywhere.
 - Search shows or people by name and browse the results as soft, raised rows.
 - Open a show behind a stretchy hero picture, and browse its episodes by season, its cast, crew, gallery and titles in other countries.
 - Open an episode for its guests and crew, and move to the previous or next one in place. The Guide's listings and the Up next cards open their episode directly, with a link to its show.
 - Open anyone in the cast or crew to see the shows they're known for, their work behind the camera and their guest appearances.
-- Save favorites on device from any search result or show screen. Their tab shows the next episode of each one still airing, soonest first, above the saved shows as a grid of posters or as a list with their year, channel, rating and next air day or status. They can be sorted by date added, next episode, name or rating, and Edit or a long press removes one. Opening the tab also brings the saved shows up to date.
+- Save favorites on device from any search result or show screen. Their tab shows the next episode of each one still airing, soonest first.
+- Browse the saved shows as a grid of posters, or as a list with their year, channel, rating and next air day. Sort them by date added, next episode, name or rating, and remove one with Edit or a long press. Opening the tab also brings them up to date.
 - Reopen without a connection what was already loaded, like the Guide or a show seen before.
 - Use the app in English or French.
 
