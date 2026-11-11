@@ -22,15 +22,16 @@ struct FavoriteButton: View {
     @Environment(\.modelContext) private var context
     @Query private var favorites: [SavedShowModel]
 
+    init(show: ShowItemModel) {
+        self.show = show
+        _favorites = Query(filter: SavedShowModel.matching(show))
+    }
+
     var body: some View {
-        let saved = favorites.first(where: { $0.id == show.id })
+        let saved = favorites.first
 
         Button {
-            if let saved {
-                context.delete(saved)
-            } else {
-                context.insert(SavedShowModel(from: show))
-            }
+            context.toggleFavorite(show, saved: saved)
         } label: {
             Image(systemName: saved == nil ? Constants.addIcon : Constants.removeIcon)
                 .font(.title3)

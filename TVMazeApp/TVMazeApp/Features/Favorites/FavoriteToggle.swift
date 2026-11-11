@@ -23,18 +23,17 @@ struct FavoriteToggle: View {
     @Environment(\.modelContext) private var context
     @Query private var favorites: [SavedShowModel]
 
+    init(show: ShowItemModel) {
+        self.show = show
+        _favorites = Query(filter: SavedShowModel.matching(show))
+    }
+
     var body: some View {
-        let saved = favorites.first(where: { $0.id == show.id })
+        let saved = favorites.first
 
         Toggle(isOn: Binding(
             get: { saved != nil },
-            set: { isOn in
-                if isOn {
-                    context.insert(SavedShowModel(from: show))
-                } else if let saved {
-                    context.delete(saved)
-                }
-            }
+            set: { _ in context.toggleFavorite(show, saved: saved) }
         )) {
             Label(
                 saved == nil ? Constants.addTitle : Constants.savedTitle,

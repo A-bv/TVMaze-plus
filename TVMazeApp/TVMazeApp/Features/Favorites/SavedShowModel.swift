@@ -77,3 +77,10 @@ final class SavedShowModel {
             lastUpdated: lastUpdated)
     }
 }
+
+extension SavedShowModel {
+    static func matching(_ show: ShowItemModel) -> Predicate<SavedShowModel> {
+        let id = show.id
+        return #Predicate { $0.id == id }
+    }
+}
