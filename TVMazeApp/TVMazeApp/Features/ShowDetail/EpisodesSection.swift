@@ -73,15 +73,27 @@ struct EpisodesSection: View {
                 .modifier(SeasonChip(isSelected: true))
             }
         } else {
-            HStack(spacing: Constants.seasonSpacing) {
-                ForEach(seasons) { season in
-                    Button {
-                        selectedSeason = season.number
-                    } label: {
-                        Text("Season \(String(season.number))")
-                            .modifier(SeasonChip(isSelected: selectedSeason == season.number))
+            ScrollViewReader { proxy in
+                ScrollView(.horizontal) {
+                    HStack(spacing: Constants.seasonSpacing) {
+                        ForEach(seasons) { season in
+                            Button {
+                                selectedSeason = season.number
+                            } label: {
+                                Text("Season \(String(season.number))")
+                                    .modifier(SeasonChip(isSelected: selectedSeason == season.number))
+                            }
+                            .accessibilityAddTraits(selectedSeason == season.number ? .isSelected : [])
+                            .id(season.number)
+                        }
                     }
-                    .accessibilityAddTraits(selectedSeason == season.number ? .isSelected : [])
+                }
+                .scrollIndicators(.hidden)
+                .scrollClipDisabled()
+                .onChange(of: selectedSeason, initial: true) { _, season in
+                    withAnimation {
+                        proxy.scrollTo(season)
+                    }
                 }
             }
         }
