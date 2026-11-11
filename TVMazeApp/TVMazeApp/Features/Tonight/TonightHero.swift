@@ -13,7 +13,6 @@ struct TonightHero: View {
         static let spacing: CGFloat = 8
         static let chipTopPadding: CGFloat = 6
         static let eyebrowKerning: CGFloat = 1.5
-        static let eyebrowOpacity = 0.85
         static let horizontalPadding: CGFloat = 36
         static let bottomPadding: CGFloat = 76
         static let fadeOutDistance: CGFloat = 100
@@ -31,7 +30,6 @@ struct TonightHero: View {
                 .font(.caption.weight(.bold))
                 .textCase(.uppercase)
                 .kerning(Constants.eyebrowKerning)
-                .opacity(Constants.eyebrowOpacity)
             Text(pick.show.name)
                 .font(.largeTitle.weight(.bold))
             Text(verbatim: pick.episode.label)
@@ -40,6 +38,7 @@ struct TonightHero: View {
                 .padding(.top, Constants.chipTopPadding)
         }
         .foregroundStyle(.white)
+        .dynamicTypeSize(...DynamicTypeSize.xxxLarge)
         .multilineTextAlignment(.leading)
         .frame(maxWidth: .infinity, alignment: .leading)
         .padding(.horizontal, Constants.horizontalPadding)
