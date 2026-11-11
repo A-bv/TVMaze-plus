@@ -2,6 +2,7 @@
 
 See what's on TV tonight, search shows and people, and keep favorites on device. A native SwiftUI app for iOS 26.5, built on the [TVMaze API](https://www.tvmaze.com/api). Its only dependencies are two design kits of my own, [NeumorphicSwiftUI](https://github.com/A-bv/NeumorphicSwiftUI) and [ParallaxKit](https://github.com/A-bv/ParallaxKit), added as Swift packages.
 
+[![Tests](https://github.com/A-bv/TVMaze-plus/actions/workflows/tests.yml/badge.svg)](https://github.com/A-bv/TVMaze-plus/actions/workflows/tests.yml)
 ![Swift 6](https://img.shields.io/badge/Swift-6-F05138?logo=swift&logoColor=white)
 ![iOS 26.5+](https://img.shields.io/badge/iOS-26.5%2B-007AFF?logo=apple&logoColor=white)
 [![License: MIT](https://img.shields.io/badge/License-MIT-lightgrey)](LICENSE)
@@ -85,7 +86,7 @@ Requires Xcode 26.5 or later. Open `TVMazeApp/TVMazeApp.xcodeproj`, run the app 
 - **Swift Testing:** Apple's testing framework, newer than XCTest. `@Test` marks a test, `#expect` checks a result or an error, and `#require` stops a test early when something it needs is missing.
 - **Coverage:** the service, the ViewModel and the Transformer are tested with mocks, and the saved favorites with an in-memory database, all without internet.
 - **UI tests:** `XCUIAutomation` drives the real app through the Guide, search and favorites using the live API, and `performAccessibilityAudit` checks the results screen, apart from what sits under the floating search bar. They're written in XCTest because Swift Testing doesn't support UI tests.
-- **Continuous integration:** GitHub Actions runs the unit tests on every push and pull request. The UI tests stay local, since they depend on the live API.
+- **Continuous integration:** GitHub Actions runs the unit tests on every push and pull request, and the Tests badge at the top shows the latest result. The UI tests stay local, since they depend on the live API.
 - **Real API data:** a JSON file recorded from the real API, with one show fully filled and one with every optional field empty or missing, so decoding is checked against what the API really sends.
 
 ## License
