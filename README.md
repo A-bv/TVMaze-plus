@@ -1,6 +1,6 @@
 # TVMazeApp
 
-See what's on TV tonight, search shows and people, and keep favorites on device. A native SwiftUI app for iOS 26.5, built on the [TVMaze API](https://www.tvmaze.com/api). Its only dependencies are two design kits of my own, [NeumorphicSwiftUI](https://github.com/A-bv/NeumorphicSwiftUI) and [ParallaxKit](https://github.com/A-bv/ParallaxKit), added as Swift packages.
+See what's on TV tonight, search shows and people, and keep favorites on device. A native SwiftUI app for iOS 26.5, built on the [TVmaze API](https://www.tvmaze.com/api). Its only dependencies are two design kits of my own, [NeumorphicSwiftUI](https://github.com/A-bv/NeumorphicSwiftUI) and [ParallaxKit](https://github.com/A-bv/ParallaxKit), added as Swift packages.
 
 [![Tests](https://github.com/A-bv/TVMaze-plus/actions/workflows/tests.yml/badge.svg)](https://github.com/A-bv/TVMaze-plus/actions/workflows/tests.yml)
 ![Swift 6](https://img.shields.io/badge/Swift-6-F05138?logo=swift&logoColor=white)
@@ -19,7 +19,7 @@ See what's on TV tonight, search shows and people, and keep favorites on device.
 
 - See tonight's TV listings by time, with new episodes on streaming and a pick of the night, or the same for any of the next six days.
 - Read each time in its channels' time zone, shown as a GMT offset like "GMT-5". When a region has no evening listings, the pick comes from streaming.
-- Open Settings from the Guide to pick the region of the TV listings, reach the app's language in the Settings app, and see the app's version and where its data comes from. The region starts on the device's own, or on the US when TVMaze has no listings for it; streaming is the same everywhere.
+- Open Settings from the Guide to pick the region of the TV listings, reach the app's language in the Settings app, and see the app's version and where its data comes from. The region starts on the device's own when the app offers it, or on the US otherwise. Streaming is the same everywhere.
 - Search shows or people by name and browse the results as soft, raised rows.
 - Open a show behind a stretchy hero picture, and browse its episodes by season, its cast, crew, gallery and titles in other countries.
 - Open an episode for its guests and crew, and move to the previous or next one in place. The Guide's listings and the Up next cards open their episode directly, with a link to its show.
@@ -40,7 +40,7 @@ The app follows the MVVM architecture (Model–View–ViewModel), which splits t
 With SwiftData, simple reads and writes can stay in the views, since SwiftData keeps the screen up to date by itself. Favorites work this way: the hearts and the poster grid read and write SwiftData directly, and only the Up next row, which calls the API, has a ViewModel.
 
 <p align="center">
-  <img src="docs/architecture.svg" width="860" alt="The App (@main) shows the tab bar and creates the SwiftData store. The tab bar, a TabView, has one tab per feature. In a feature, here search: the main view sends the search to the ViewModel and gets its state back, and opens the detail view with a NavigationLink. The ViewModel fetches from the service and gets networking models back, then passes them to the Transformer and gets domain models back. The service calls the TVMaze API over HTTPS with URLSession, behind the DataSession protocol that tests replace with a fake. Favorites: the favorite button, on the main and detail views, and the favorite list save, delete and read favorites directly in SwiftData, the persistence layer, at the same level as networking.">
+  <img src="docs/architecture.svg" width="860" alt="The App (@main) shows the tab bar and creates the SwiftData store. The tab bar, a TabView, has one tab per feature. In a feature, here search: the main view sends the search to the ViewModel and gets its state back, and opens the detail view with a NavigationLink. The ViewModel fetches from the service and gets networking models back, then passes them to the Transformer and gets domain models back. The service calls the TVmaze API over HTTPS with URLSession, behind the DataSession protocol that tests replace with a fake. Favorites: the favorite button, on the main and detail views, and the favorite list save, delete and read favorites directly in SwiftData, the persistence layer, at the same level as networking.">
 </p>
 
 ### Views (UI)
@@ -48,7 +48,7 @@ With SwiftData, simple reads and writes can stay in the views, since SwiftData k
 - **Screen updates:** when data changes, SwiftUI redraws only the parts that show it. A view that has a ViewModel declares it with `@State`, instead of the older `@StateObject`, so SwiftUI creates it only once.
 - **Navigation:** screens open the next one themselves. Tapping a result follows a `NavigationLink` to the detail screen, inside a `NavigationStack`. UIKit apps often needed a separate coordinator object to move between screens.
 - **Soft Cinema design:** content sits on one soft surface. NeumorphicSwiftUI's button and toggle styles make what can be tapped look raised, and what is selected look pressed in. ParallaxKit's stretchy header and carousel make pictures move as the user scrolls. Text uses SF Pro Rounded, whose soft letters match the soft surfaces, including the navigation titles.
-- **Liquid Glass (iOS 26):** Apple's new see-through design. Only what floats above the content uses it, like the back button and the tab bar, which iOS 26 gives the glass look by default, the small labels over pictures and the season picker.
+- **Liquid Glass (iOS 26):** Apple's new see-through design, used only for what floats above the content. iOS 26 gives it to the back button and the tab bar by default, and the app adds it to the small labels over pictures and to the season buttons.
 - **Search:** `.searchable` adds the standard iOS search bar, and `.onSubmit(of: .search)` asks the ViewModel for results when the user presses Search on the keyboard.
 - **Empty states (iOS 17):** `ContentUnavailableView` shows a message before the first search or when a search fails, and Apple's standard "No Results" view when nothing is found.
 - **Accessibility:** VoiceOver labels describe what buttons do and what values mean, and text adapts to the user's chosen size.
@@ -91,4 +91,6 @@ Requires Xcode 26.5 or later. Open `TVMazeApp/TVMazeApp.xcodeproj`, run the app 
 
 ## License
 
-MIT. See [LICENSE](LICENSE).
+The code is under the MIT license. See [LICENSE](LICENSE).
+
+The show and people data comes from [TVmaze](https://www.tvmaze.com) under the [CC BY-SA](https://creativecommons.org/licenses/by-sa/4.0/) license, and the app credits TVmaze as its source.
