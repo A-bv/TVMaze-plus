@@ -10,12 +10,16 @@ jobs:
     runs-on: macos-26
     steps:
       - uses: actions/checkout@v4
+      - name: Pick an iPhone simulator
+        run: |
+          id=$(xcrun simctl list devices available --json | jq -r '.devices | to_entries | map(select(.key | contains("iOS"))) | sort_by(.key | capture("iOS-(?<v>[0-9-]+)").v | split("-") | map(tonumber)) | last | .value | map(select(.name | startswith("iPhone"))) | first | .udid')
+          echo "SIMULATOR_ID=$id" >> "$GITHUB_ENV"
       - name: Run the unit tests
         working-directory: TVMazeApp
         run: |
           xcodebuild test \
             -project TVMazeApp.xcodeproj \
             -scheme TVMazeApp \
-            -destination 'platform=iOS Simulator,name=iPhone 17 Pro' \
+            -destination "id=$SIMULATOR_ID" \
             -only-testing:TVMazeAppTests \
             CODE_SIGNING_ALLOWED=NO
