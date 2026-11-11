@@ -10,6 +10,9 @@ import Observation
 
 @Observable
 final class PersonDetailViewModel {
+    private enum Constants {
+        static let separator = " · "
+    }
 
     enum DetailState: Equatable {
         case loading
@@ -24,6 +27,11 @@ final class PersonDetailViewModel {
 
     init(service: TVMazeAPIService = TVMazeAPIServiceImpl()) {
         self.service = service
+    }
+
+    var detail: PersonDetailItemModel? {
+        guard case .loaded(let detail) = state else { return nil }
+        return detail
     }
 
     func loadDetail(personID: Int) async {
@@ -47,5 +55,15 @@ final class PersonDetailViewModel {
     func age(of person: PersonItemModel, now: Date = .now) -> Int? {
         guard let birthday = person.birthday else { return nil }
         return Calendar.current.dateComponents([.year], from: birthday, to: person.deathday ?? now).year
+    }
+
+    func subtitle(of person: PersonItemModel) -> String {
+        [
+            person.birthday.map { String(localized: "Born \($0.formatted(date: .long, time: .omitted))") },
+            person.deathday.map { String(localized: "Died \($0.formatted(date: .long, time: .omitted))") },
+            person.country
+        ]
+            .compactMap { $0 }
+            .joined(separator: Constants.separator)
     }
 }

@@ -13,7 +13,6 @@ struct PersonDetailView: View {
     private enum Constants {
         static let sectionSpacing: CGFloat = 32
         static let tileSpacing: CGFloat = 14
-        static let separator = " · "
         static let placeholderIcon = "person.fill"
         static let ageTitle = String(localized: "Age")
         static let showsTitle = String(localized: "Shows")
@@ -29,7 +28,7 @@ struct PersonDetailView: View {
         StretchyHeaderScrollView(headerHeight: HeroImage.height, cardColor: .surface) {
             HeroImage(url: person.largeImageURL, placeholderIcon: Constants.placeholderIcon)
         } headerOverlay: { scrollOffset in
-            StretchyHeaderTitle(title: person.name, subtitle: subtitle, scrollOffset: scrollOffset)
+            StretchyHeaderTitle(title: person.name, subtitle: viewModel.subtitle(of: person), scrollOffset: scrollOffset)
                 .heroShade()
         } content: {
             VStack(alignment: .leading, spacing: Constants.sectionSpacing) {
@@ -53,10 +52,10 @@ struct PersonDetailView: View {
             }
             StatTile(
                 title: Constants.showsTitle,
-                value: detail.map { String($0.showCount) } ?? Constants.missingValue)
+                value: viewModel.detail.map { String($0.showCount) } ?? Constants.missingValue)
             StatTile(
                 title: Constants.guestRolesTitle,
-                value: detail.map { String($0.guestAppearances.count) } ?? Constants.missingValue)
+                value: viewModel.detail.map { String($0.guestAppearances.count) } ?? Constants.missingValue)
         }
     }
 
@@ -81,21 +80,6 @@ struct PersonDetailView: View {
                 GuestAppearancesSection(appearances: detail.guestAppearances)
             }
         }
-    }
-
-    private var detail: PersonDetailItemModel? {
-        guard case .loaded(let detail) = viewModel.state else { return nil }
-        return detail
-    }
-
-    private var subtitle: String {
-        [
-            person.birthday.map { String(localized: "Born \($0.formatted(date: .long, time: .omitted))") },
-            person.deathday.map { String(localized: "Died \($0.formatted(date: .long, time: .omitted))") },
-            person.country
-        ]
-            .compactMap { $0 }
-            .joined(separator: Constants.separator)
     }
 }
 

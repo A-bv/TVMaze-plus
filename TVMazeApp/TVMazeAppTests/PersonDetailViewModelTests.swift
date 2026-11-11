@@ -25,6 +25,30 @@ struct PersonDetailViewModelTests {
         #expect(service.fetchCallCount == 3)
     }
 
+    @Test func viewModel_subtitlesALivingPersonWithTheirBirthAndCountry() throws {
+        let sut = makeSut(service: MockTVMazeAPIService())
+        let person = try makePerson(deathday: nil, country: "United States")
+        let birthday = try #require(person.birthday)
+
+        let subtitle = sut.subtitle(of: person)
+
+        let born = String(localized: "Born \(birthday.formatted(date: .long, time: .omitted))")
+        #expect(subtitle == "\(born) · United States")
+    }
+
+    @Test func viewModel_subtitlesADeceasedPersonWithTheirDeath() throws {
+        let sut = makeSut(service: MockTVMazeAPIService())
+        let deathday = try makeDate(year: 2000, month: 1, day: 1)
+        let person = try makePerson(deathday: deathday)
+        let birthday = try #require(person.birthday)
+
+        let subtitle = sut.subtitle(of: person)
+
+        let born = String(localized: "Born \(birthday.formatted(date: .long, time: .omitted))")
+        let died = String(localized: "Died \(deathday.formatted(date: .long, time: .omitted))")
+        #expect(subtitle == "\(born) · \(died)")
+    }
+
     @Test func viewModel_whenCreditsFail_isFailed() async {
         let sut = makeSut(service: MockTVMazeAPIService(error: TVMazeAPIServiceError.invalidResponse))
 
@@ -79,7 +103,7 @@ extension PersonDetailViewModelTests {
         try #require(Calendar.current.date(from: DateComponents(year: year, month: month, day: day)))
     }
 
-    private func makePerson(deathday: Date?) throws -> PersonItemModel {
+    private func makePerson(deathday: Date?, country: String? = nil) throws -> PersonItemModel {
         PersonItemModel(
             id: 31964,
             name: "Adam Scott",
@@ -87,6 +111,6 @@ extension PersonDetailViewModelTests {
             largeImageURL: nil,
             birthday: try makeDate(year: 1973, month: 4, day: 3),
             deathday: deathday,
-            country: nil)
+            country: country)
     }
 }
