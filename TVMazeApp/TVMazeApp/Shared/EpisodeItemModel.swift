@@ -28,4 +28,15 @@ struct EpisodeItemModel: Identifiable, Equatable {
         guard name.wholeMatch(of: /Episode \d+/) == nil else { return code }
         return "\(code) · \(name)"
     }
+
+    var numberedName: String {
+        guard let number else { return name }
+        return "\(number) · \(name)"
+    }
+
+    var details: String {
+        [airDate?.formatted(date: .abbreviated, time: .omitted), runtime?.runtimeText]
+            .compactMap { $0 }
+            .joined(separator: " · ")
+    }
 }

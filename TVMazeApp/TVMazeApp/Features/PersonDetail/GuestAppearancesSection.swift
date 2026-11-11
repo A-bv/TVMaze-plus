@@ -13,7 +13,6 @@ struct GuestAppearancesSection: View {
         static let collapsedCount = 6
         static let spacing: CGFloat = 16
         static let textSpacing: CGFloat = 3
-        static let separator = " · "
     }
 
     let appearances: [GuestAppearanceItemModel]
@@ -27,7 +26,7 @@ struct GuestAppearancesSection: View {
                     VStack(alignment: .leading, spacing: Constants.textSpacing) {
                         Text(appearance.episode.name)
                             .font(.subheadline.weight(.semibold))
-                        Text(details(of: appearance))
+                        Text(appearance.details)
                             .font(.caption)
                             .foregroundStyle(.secondaryText)
                         Text("as \(appearance.character)")
@@ -42,15 +41,5 @@ struct GuestAppearancesSection: View {
                 ShowAllButton(count: appearances.count, isExpanded: $isExpanded)
             }
         }
-    }
-
-    private func details(of appearance: GuestAppearanceItemModel) -> String {
-        [
-            appearance.showName,
-            appearance.episode.code,
-            appearance.episode.airDate?.formatted(date: .abbreviated, time: .omitted)
-        ]
-            .compactMap { $0 }
-            .joined(separator: Constants.separator)
     }
 }

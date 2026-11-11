@@ -27,4 +27,10 @@ struct GuestAppearanceItemModel: Identifiable, Equatable {
     let character: String
 
     var id: Int { episode.id }
+
+    var details: String {
+        [showName, episode.code, episode.airDate?.formatted(date: .abbreviated, time: .omitted)]
+            .compactMap { $0 }
+            .joined(separator: " · ")
+    }
 }

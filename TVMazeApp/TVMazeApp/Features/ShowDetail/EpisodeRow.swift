@@ -14,7 +14,6 @@ struct EpisodeRow: View {
         static let cornerRadius: CGFloat = 10
         static let spacing: CGFloat = 14
         static let textSpacing: CGFloat = 3
-        static let separator = " · "
         static let ratingIcon = "star.fill"
         static let placeholderIcon = "tv"
         static let ratingAccessibilityLabel = String(localized: "Rating")
@@ -29,11 +28,11 @@ struct EpisodeRow: View {
                 .clipShape(.rect(cornerRadius: Constants.cornerRadius))
 
             VStack(alignment: .leading, spacing: Constants.textSpacing) {
-                Text(title)
+                Text(episode.numberedName)
                     .font(.subheadline.weight(.semibold))
                     .foregroundStyle(Color.primary)
-                if !details.isEmpty {
-                    Text(details)
+                if !episode.details.isEmpty {
+                    Text(episode.details)
                         .font(.caption)
                         .foregroundStyle(.secondaryText)
                 }
@@ -67,19 +66,5 @@ struct EpisodeRow: View {
                         .accessibilityHidden(true)
                 }
         }
-    }
-
-    private var title: String {
-        guard let number = episode.number else { return episode.name }
-        return "\(number)\(Constants.separator)\(episode.name)"
-    }
-
-    private var details: String {
-        [
-            episode.airDate?.formatted(date: .abbreviated, time: .omitted),
-            episode.runtime?.runtimeText
-        ]
-            .compactMap { $0 }
-            .joined(separator: Constants.separator)
     }
 }

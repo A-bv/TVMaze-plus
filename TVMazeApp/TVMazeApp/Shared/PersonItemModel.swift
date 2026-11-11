@@ -15,6 +15,12 @@ struct PersonItemModel: Identifiable, Equatable {
     let birthday: Date?
     let deathday: Date?
     let country: String?
+
+    var details: String {
+        [birthday.map { String(localized: "Born \($0.formatted(.dateTime.year()))") }, country]
+            .compactMap { $0 }
+            .joined(separator: " · ")
+    }
 }
 
 struct CreditItemModel: Identifiable, Equatable {

@@ -13,7 +13,6 @@ struct PersonRow: View {
         static let spacing: CGFloat = 14
         static let textSpacing: CGFloat = 4
         static let padding: CGFloat = 6
-        static let separator = " · "
         static let placeholderIcon = "person.fill"
         static let chevronIcon = "chevron.right"
     }
@@ -30,8 +29,8 @@ struct PersonRow: View {
                 Text(person.name)
                     .font(.headline)
                     .foregroundStyle(Color.primary)
-                if !details.isEmpty {
-                    Text(details)
+                if !person.details.isEmpty {
+                    Text(person.details)
                         .font(.subheadline)
                         .foregroundStyle(.secondaryText)
                 }
@@ -45,14 +44,5 @@ struct PersonRow: View {
                 .foregroundStyle(.tertiary)
         }
         .padding(Constants.padding)
-    }
-
-    private var details: String {
-        [
-            person.birthday.map { String(localized: "Born \($0.formatted(.dateTime.year()))") },
-            person.country
-        ]
-            .compactMap { $0 }
-            .joined(separator: Constants.separator)
     }
 }
