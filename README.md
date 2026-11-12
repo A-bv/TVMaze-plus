@@ -1,18 +1,21 @@
 # TVMazeApp
 
-See what's on TV tonight, search shows and people, and keep favorites on device. A native SwiftUI app for iOS 26.5, built on the [TVmaze API](https://www.tvmaze.com/api). Its only dependencies are two design kits of my own, [NeumorphicSwiftUI](https://github.com/A-bv/NeumorphicSwiftUI) and [ParallaxKit](https://github.com/A-bv/ParallaxKit), added as Swift packages.
+**See what's on TV tonight, search shows and people, and keep favorites on device.**
 
 [![Tests](https://github.com/A-bv/TVMaze-plus/actions/workflows/tests.yml/badge.svg)](https://github.com/A-bv/TVMaze-plus/actions/workflows/tests.yml)
 ![Swift 6](https://img.shields.io/badge/Swift-6-F05138?logo=swift&logoColor=white)
 ![iOS 26.5+](https://img.shields.io/badge/iOS-26.5%2B-007AFF?logo=apple&logoColor=white)
+![SwiftUI](https://img.shields.io/badge/UI-SwiftUI-8E44AD)
 [![License: MIT](https://img.shields.io/badge/License-MIT-lightgrey)](LICENSE)
 
+A native SwiftUI app built on the [TVmaze API](https://www.tvmaze.com/api). Its only dependencies are two design kits of my own, [NeumorphicSwiftUI](https://github.com/A-bv/NeumorphicSwiftUI) and [ParallaxKit](https://github.com/A-bv/ParallaxKit), added as Swift packages.
+
 <p align="center">
-  <img src="docs/screenshots/tonight.png" width="160" alt="Guide tab with Scrubs as tonight's pick behind a large hero picture with rating, channel and time chips, a strip of seven days and new streaming shows">
-  <img src="docs/screenshots/search.png" width="160" alt="Search results for “stranger” as soft raised rows, each with a poster, years, channel, rating and a heart">
-  <img src="docs/screenshots/show.png" width="160" alt="Stranger Things show screen with its poster as a stretchy header, rating, episode and runtime tiles, and a favorite button">
-  <img src="docs/screenshots/favorites.png" width="160" alt="Favorites tab with the next episode of a saved show in an Up next card, above a grid of saved show posters">
-  <img src="docs/screenshots/show-dark.png" width="160" alt="The Severance show screen in dark mode, saved in favorites">
+  <a href="docs/screenshots/tonight.png"><img src="docs/screenshots/tonight.png" width="160" alt="Guide tab with Scrubs as tonight's pick behind a large hero picture with rating, channel and time chips, a strip of seven days and new streaming shows"></a>
+  <a href="docs/screenshots/search.png"><img src="docs/screenshots/search.png" width="160" alt="Search results for “stranger” as soft raised rows, each with a poster, years, channel, rating and a heart"></a>
+  <a href="docs/screenshots/show.png"><img src="docs/screenshots/show.png" width="160" alt="Stranger Things show screen with its poster as a stretchy header, rating, episode and runtime tiles, and a favorite button"></a>
+  <a href="docs/screenshots/favorites.png"><img src="docs/screenshots/favorites.png" width="160" alt="Favorites tab with the next episode of a saved show in an Up next card, above a grid of saved show posters"></a>
+  <a href="docs/screenshots/show-dark.png"><img src="docs/screenshots/show-dark.png" width="160" alt="The Severance show screen in dark mode, saved in favorites"></a>
 </p>
 
 ## Features
@@ -40,20 +43,20 @@ The app follows the MVVM architecture (Model–View–ViewModel), which splits t
 With SwiftData, simple reads and writes can stay in the views, since SwiftData keeps the screen up to date by itself. Favorites work this way: the hearts and the poster grid read and write SwiftData directly, and only the Up next row, which calls the API, has a ViewModel.
 
 <p align="center">
-  <img src="docs/architecture.svg" width="860" alt="The App (@main) shows the tab bar and creates the SwiftData store. The tab bar, a TabView, has one tab per feature. In a feature, here search: the main view sends the search to the ViewModel and gets its state back, and opens the detail view with a NavigationLink. The ViewModel fetches from the service and gets networking models back, then passes them to the Transformer and gets domain models back. The service calls the TVmaze API over HTTPS with URLSession, behind the DataSession protocol that tests replace with a fake. Favorites: the favorite button, on the main and detail views, and the favorite list save, delete and read favorites directly in SwiftData, the persistence layer, at the same level as networking.">
+  <a href="docs/architecture.svg"><img src="docs/architecture.svg" width="100%" alt="The App (@main) shows the tab bar and creates the SwiftData store. The tab bar, a TabView, has one tab per feature. In a feature, here search: the main view sends the search to the ViewModel and gets its state back, and opens the detail view with a NavigationLink. The ViewModel fetches from the service and gets networking models back, then passes them to the Transformer and gets domain models back. The service calls the TVmaze API over HTTPS with URLSession, behind the DataSession protocol that tests replace with a fake. Favorites: the favorite button, on the main and detail views, and the favorite list save, delete and read favorites directly in SwiftData, the persistence layer, at the same level as networking."></a>
 </p>
 
 ### Views (UI)
 
-- **Screen updates:** when data changes, SwiftUI redraws only the parts that show it. A view that has a ViewModel declares it with `@State`, instead of the older `@StateObject`, so SwiftUI creates it only once.
+- **Screen updates:** when data changes, SwiftUI redraws only the parts that show it. A view that has a ViewModel declares it with `@State`, so SwiftUI creates it only once.
 - **Navigation:** screens open the next one themselves. Tapping a result follows a `NavigationLink` to the detail screen, inside a `NavigationStack`. UIKit apps often needed a separate coordinator object to move between screens.
 - **Soft Cinema design:** content sits on one soft surface. NeumorphicSwiftUI's button and toggle styles make what can be tapped look raised, and what is selected look pressed in. ParallaxKit's stretchy header and carousel make pictures move as the user scrolls. Text uses SF Pro Rounded, whose soft letters match the soft surfaces, including the navigation titles. The [design prototype](docs/design-prototype.pdf) shows the screens as first drawn, before the build.
 - **Liquid Glass (iOS 26):** Apple's new see-through design, used only for what floats above the content. iOS 26 gives it to the back button and the tab bar by default, and the app adds it to the small labels over pictures and to the season buttons.
 - **Search:** `.searchable` adds the standard iOS search bar, and `.onSubmit(of: .search)` asks the ViewModel for results when the user presses Search on the keyboard.
 - **Empty states (iOS 17):** `ContentUnavailableView` shows a message before the first search or when a search fails, and Apple's standard "No Results" view when nothing is found.
 - **Accessibility:** VoiceOver labels describe what buttons do and what values mean, and text adapts to the user's chosen size.
-- **Localization (Xcode 15):** a String Catalog holds the app's text in English and French, instead of the older `.strings` files.
-- **Tabs (iOS 18):** each tab is declared with the new `Tab` API, instead of the older `.tabItem`. The Search tab has the search role, which iOS 26 shows as its own round button beside the tab bar.
+- **Localization (Xcode 15):** a String Catalog holds the app's text in English and French.
+- **Tabs (iOS 18):** each tab is declared with the new `Tab` API. The Search tab has the search role, which iOS 26 shows as its own round button beside the tab bar.
 
 ### ViewModel (logic)
 
@@ -65,7 +68,7 @@ With SwiftData, simple reads and writes can stay in the views, since SwiftData k
 
 ### Networking
 
-- **`async/await`:** the app waits for the API's answer without freezing the screen, instead of using the older completion handlers.
+- **`async/await`:** the app waits for the API's answer without freezing the screen.
 - **`Decodable`:** turns the API's JSON text into networking models automatically. Fields the API sometimes leaves out are optional, so a missing one doesn't cause an error. Only the fields the app uses are decoded, so changes to the others can't break a search.
 - **Typed errors:** API failures use their own error type, so each failure is clear and easy to test.
 - **Offline cache:** `URLCache` keeps the API's answers and the pictures on the device. When a request fails because the network is down, the service asks again for the cached answer only, so screens already seen still open.
@@ -74,20 +77,37 @@ With SwiftData, simple reads and writes can stay in the views, since SwiftData k
 ### Persistence
 
 - **SwiftData (iOS 17):** Apple's tool for saving data on the device, newer than Core Data. Marking a class `@Model` is enough for SwiftData to save it, here the favorites.
-- **Reads:** `@Query`, the SwiftData version of Core Data's `@FetchRequest`, loads the favorites into a view and refreshes it by itself whenever one is added or removed. A heart asks only for its own show, with a `#Predicate` filter, instead of loading every favorite.
+- **Reads:** `@Query` loads the favorites into a view and refreshes it by itself whenever one is added or removed. A heart asks only for its own show, with a `#Predicate` filter, instead of loading every favorite.
 - **Writes:** views save and delete favorites through the model context, SwiftData's object for changes, which they reach with `@Environment`. For example, the favorite button turns the show on screen into a saved favorite.
 
-## Getting started
+## Build & run
 
-Requires Xcode 26.5 or later. Open `TVMazeApp/TVMazeApp.xcodeproj`, run the app with **⌘R** and the tests with **⌘U**.
+Requires Xcode 26.5 or later.
+
+```sh
+git clone https://github.com/A-bv/TVMaze-plus.git
+cd TVMaze-plus
+open TVMazeApp/TVMazeApp.xcodeproj
+```
+
+Run the **TVMazeApp** scheme with **⌘R**, and the tests with **⌘U** or:
+
+```sh
+xcodebuild test -project TVMazeApp/TVMazeApp.xcodeproj -scheme TVMazeApp \
+  -destination 'platform=iOS Simulator,name=iPhone 17 Pro'
+```
 
 ## Tests
 
-- **Swift Testing:** Apple's testing framework, newer than XCTest. `@Test` marks a test, `#expect` checks a result or an error, and `#require` stops a test early when something it needs is missing.
+- **Swift Testing:** Apple's testing framework. `@Test` marks a test, `#expect` checks a result or an error, and `#require` stops a test early when something it needs is missing.
 - **Coverage:** the service, the ViewModel and the Transformer are tested with mocks, and the saved favorites with an in-memory database, all without internet.
 - **UI tests:** `XCUIAutomation` drives the real app through the Guide, search and favorites using the live API, and `performAccessibilityAudit` checks the results screen, apart from what sits under the floating search bar. They're written in XCTest because Swift Testing doesn't support UI tests.
 - **Continuous integration:** GitHub Actions runs the unit tests on every push and pull request, and the Tests badge at the top shows the latest result. The UI tests stay local, since they depend on the live API.
 - **Real API data:** a JSON file recorded from the real API, with one show fully filled and one with every optional field empty or missing, so decoding is checked against what the API really sends.
+
+## Author
+
+Built and maintained by [A-bv](https://github.com/A-bv) · [LinkedIn](https://www.linkedin.com/in/bba4).
 
 ## License
 
