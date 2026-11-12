@@ -20,17 +20,16 @@ A native SwiftUI app built on the [TVmaze API](https://www.tvmaze.com/api). Its 
 
 ## Features
 
-- See tonight's TV listings by time, with new episodes on streaming and a pick of the night, or the same for any of the next six days.
-- Read each time in its channels' time zone, shown as a GMT offset like "GMT-5". When a region has no evening listings, the pick comes from streaming.
-- Open Settings from the Guide to pick the region of the TV listings, reach the app's language in the Settings app, and see the app's version and where its data comes from. The region starts on the device's own when the app offers it, or on the US otherwise. Streaming is the same everywhere.
-- Search shows or people by name and browse the results as soft, raised rows.
-- Open a show behind a stretchy hero picture, and browse its episodes by season, its cast, crew, gallery and titles in other countries.
-- Open an episode for its guests and crew, and move to the previous or next one in place. The Guide's listings and the Up next cards open their episode directly, with a link to its show.
-- Open anyone in the cast or crew to see the shows they're known for, their work behind the camera and their guest appearances.
-- Save favorites on device from any search result or show screen. Their tab shows the next episode of each one still airing, soonest first.
-- Browse the saved shows as a grid of posters, or as a list with their year, channel, rating and next air day. Sort them by date added, next episode, name or rating, and remove one with Edit or a long press. Opening the tab also brings them up to date.
-- Reopen without a connection what was already loaded, like the Guide or a show seen before.
-- Use the app in English or French, in light or dark mode, following the system.
+- See tonight's TV listings, with a pick of the night and new episodes on streaming.
+- Browse the listings for the next six days, in any of 16 regions.
+- Search shows and people.
+- Open a show for its episodes, cast, crew and gallery.
+- Open an episode for its guests and crew.
+- Open a person for the shows they're known for.
+- Save shows to your favorites, and browse them as a grid or a list.
+- See the next episode of each favorite.
+- Reopen screens already seen, even offline.
+- Use the app in English or French, in light or dark mode.
 
 ## Architecture
 
