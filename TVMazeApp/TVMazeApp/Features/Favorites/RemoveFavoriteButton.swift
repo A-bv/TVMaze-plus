@@ -42,7 +42,7 @@ struct RemoveFavoriteButton: View {
                     .symbolRenderingMode(.palette)
                     .foregroundStyle(.white, .red)
             }
-            .accessibilityLabel("\(Constants.title), \(favorite.name)")
+            .accessibilityLabel(Text(verbatim: "\(Constants.title), \(favorite.name)"))
         }
     }
 }
