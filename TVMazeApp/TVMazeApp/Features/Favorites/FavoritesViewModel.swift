@@ -41,7 +41,7 @@ final class FavoritesViewModel {
     private(set) var upNext: [UpNextItemModel] = []
     private(set) var refreshedShows: [ShowItemModel] = []
 
-    init(service: TVMazeAPIService = TVMazeAPIServiceImpl()) {
+    init(service: TVMazeAPIService) {
         self.service = service
     }
 

@@ -16,13 +16,15 @@ struct CreditsCarousel: View {
     let title: String
     let credits: [CreditItemModel]
 
+    @Environment(\.tvMazeService) private var service
+
     var body: some View {
         DetailSection(title: title) {
             ScrollView(.horizontal) {
                 LazyHStack(alignment: .top, spacing: Constants.spacing) {
                     ForEach(credits) { credit in
                         NavigationLink {
-                            PersonDetailView(person: credit.person)
+                            PersonDetailView(person: credit.person, service: service)
                         } label: {
                             PersonMedallion(credit: credit)
                         }

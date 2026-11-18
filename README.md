@@ -63,7 +63,7 @@ With SwiftData, simple reads and writes can stay in the views, since SwiftData k
 - **Concurrency (Xcode 26):** with the new `MainActor` default isolation, all code runs on the main thread, the one that updates the screen, unless marked otherwise. So the ViewModel needs no `@MainActor`, and the app passes Swift 6's strict concurrency checks.
 - **Loading and errors:** the ViewModel tracks loading and errors, so the screen shows a spinner while waiting and an error message when something fails.
 - **Transformer:** the API sends raw data, such as dates like "2016-07-15" and summaries with HTML tags. The Transformer turns it into the domain models the screens use: years like "2016 – 2025", a rating like "8.4", the summary as plain text, and a default when a field is missing. Dates stay dates until they're shown, so they always appear in the user's language and format. When the API changes, the screens don't have to.
-- **Dependency injection:** to make the ViewModel testable, its service goes through a protocol, with the real one as the default, so tests can pass a fake one, called a mock.
+- **Dependency injection:** the service goes through a protocol. The app hands it to the screens through the SwiftUI environment, and each screen passes it to its ViewModel, so tests can give a fake one, called a mock.
 
 ### Networking
 

@@ -30,7 +30,7 @@ final class SearchViewModel {
 
     private(set) var state: SearchState = .idle
 
-    init(service: TVMazeAPIService = TVMazeAPIServiceImpl()) {
+    init(service: TVMazeAPIService) {
         self.service = service
     }
 

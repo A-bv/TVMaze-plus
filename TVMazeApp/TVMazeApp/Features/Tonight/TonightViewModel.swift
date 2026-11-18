@@ -49,7 +49,7 @@ final class TonightViewModel {
     private var loadedRequest: ScheduleRequest?
 
     init(
-        service: TVMazeAPIService = TVMazeAPIServiceImpl(),
+        service: TVMazeAPIService,
         defaults: UserDefaults = .standard,
         deviceCountryCode: String? = Locale.current.region?.identifier,
         now: Date = .now

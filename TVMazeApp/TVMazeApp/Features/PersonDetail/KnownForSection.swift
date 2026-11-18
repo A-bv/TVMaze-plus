@@ -14,10 +14,12 @@ struct KnownForSection: View {
 
     let credits: [ShowCreditItemModel]
 
+    @Environment(\.tvMazeService) private var service
+
     var body: some View {
         DetailSection(title: Constants.title) {
             ShowCarousel(items: credits, show: \.show, caption: \.role) { credit in
-                ShowDetailView(show: credit.show)
+                ShowDetailView(show: credit.show, service: service)
             }
         }
     }

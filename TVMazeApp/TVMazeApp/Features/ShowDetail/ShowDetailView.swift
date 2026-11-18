@@ -17,7 +17,12 @@ struct ShowDetailView: View {
 
     let show: ShowItemModel
 
-    @State private var viewModel = ShowDetailViewModel()
+    @State private var viewModel: ShowDetailViewModel
+
+    init(show: ShowItemModel, service: TVMazeAPIService) {
+        self.show = show
+        _viewModel = State(initialValue: ShowDetailViewModel(service: service))
+    }
 
     var body: some View {
         StretchyHeaderScrollView(headerHeight: HeroImage.height, cardColor: .surface) {
@@ -93,7 +98,8 @@ struct ShowDetailView: View {
                 type: "Scripted",
                 language: "English",
                 websiteURL: URL(string: "http://www.amc.com/shows/breaking-bad"),
-                lastUpdated: Date(timeIntervalSince1970: 1769198028)))
+                lastUpdated: Date(timeIntervalSince1970: 1769198028)),
+            service: TVMazeAPIServiceImpl())
     }
     .modelContainer(for: SavedShowModel.self, inMemory: true)
 }

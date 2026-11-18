@@ -27,6 +27,8 @@ struct EpisodesSection: View {
     let showName: String
     let fallbackImageURL: URL?
 
+    @Environment(\.tvMazeService) private var service
+
     var body: some View {
         DetailSection(title: Constants.title) {
             seasonPicker
@@ -43,7 +45,8 @@ struct EpisodesSection: View {
                                 episode: episode,
                                 episodes: allEpisodes,
                                 showName: showName,
-                                fallbackImageURL: fallbackImageURL)
+                                fallbackImageURL: fallbackImageURL,
+                                service: service)
                         } label: {
                             EpisodeRow(episode: episode)
                         }

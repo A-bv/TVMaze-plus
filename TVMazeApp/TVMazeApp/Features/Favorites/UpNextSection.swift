@@ -20,13 +20,15 @@ struct UpNextSection: View {
 
     let upNext: [UpNextItemModel]
 
+    @Environment(\.tvMazeService) private var service
+
     var body: some View {
         DetailSection(title: Constants.title) {
             ParallaxCarousel(upNext, style: Constants.style) { item in
                 PosterView(url: item.backgroundURL)
             } overlay: { item in
                 NavigationLink {
-                    EpisodeDetailView(episode: item.episode, show: item.show)
+                    EpisodeDetailView(episode: item.episode, show: item.show, service: service)
                 } label: {
                     card(for: item)
                 }

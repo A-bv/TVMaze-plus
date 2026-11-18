@@ -17,6 +17,8 @@ struct MainTabView: View {
         static let searchIcon = "magnifyingglass"
     }
 
+    @Environment(\.tvMazeService) private var service
+
     init() {
         UINavigationBar.applySoftCinemaTitles()
     }
@@ -24,13 +26,13 @@ struct MainTabView: View {
     var body: some View {
         TabView {
             Tab(Constants.tonightTitle, systemImage: Constants.tonightIcon) {
-                TonightView()
+                TonightView(service: service)
             }
             Tab(Constants.favoritesTitle, systemImage: Constants.favoritesIcon) {
-                FavoritesView()
+                FavoritesView(service: service)
             }
             Tab(Constants.searchTitle, systemImage: Constants.searchIcon, role: .search) {
-                SearchView()
+                SearchView(service: service)
             }
         }
     }

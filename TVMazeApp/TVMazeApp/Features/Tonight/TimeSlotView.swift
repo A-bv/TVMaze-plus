@@ -17,6 +17,7 @@ struct TimeSlotView: View {
     let timeSlot: TimeSlotItemModel
     let timeZone: TimeZone
 
+    @Environment(\.tvMazeService) private var service
     @State private var isExpanded = false
 
     var body: some View {
@@ -28,7 +29,7 @@ struct TimeSlotView: View {
                 .accessibilityAddTraits(.isHeader)
             ForEach(visibleEntries) { entry in
                 NavigationLink {
-                    EpisodeDetailView(episode: entry.episode, show: entry.show)
+                    EpisodeDetailView(episode: entry.episode, show: entry.show, service: service)
                 } label: {
                     ScheduleRow(entry: entry)
                 }

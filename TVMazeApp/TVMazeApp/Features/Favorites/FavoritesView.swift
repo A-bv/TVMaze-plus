@@ -46,10 +46,14 @@ struct FavoritesView: View {
     }
 
     @Query(sort: \SavedShowModel.savedAt, order: .reverse) private var favorites: [SavedShowModel]
-    @State private var viewModel = FavoritesViewModel()
+    @State private var viewModel: FavoritesViewModel
     @State private var isEditing = false
     @AppStorage("favoritesLayout") private var layout = Layout.grid
     @AppStorage("favoritesSortOrder") private var sortOrder = FavoritesViewModel.SortOrder.dateAdded
+
+    init(service: TVMazeAPIService) {
+        _viewModel = State(initialValue: FavoritesViewModel(service: service))
+    }
 
     var body: some View {
         NavigationStack {
@@ -136,6 +140,6 @@ struct FavoritesView: View {
 }
 
 #Preview {
-    FavoritesView()
+    FavoritesView(service: TVMazeAPIServiceImpl())
         .modelContainer(for: SavedShowModel.self, inMemory: true)
 }

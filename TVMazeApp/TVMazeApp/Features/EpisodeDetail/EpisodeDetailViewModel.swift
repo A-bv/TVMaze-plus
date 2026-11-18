@@ -27,7 +27,7 @@ final class EpisodeDetailViewModel {
     init(
         episode: EpisodeItemModel,
         episodes: [EpisodeItemModel],
-        service: TVMazeAPIService = TVMazeAPIServiceImpl()
+        service: TVMazeAPIService
     ) {
         self.episode = episode
         self.episodes = episodes

@@ -19,8 +19,13 @@ struct TonightView: View {
         static let contentTopPadding: CGFloat = 24
     }
 
-    @State private var viewModel = TonightViewModel()
+    @Environment(\.tvMazeService) private var service
+    @State private var viewModel: TonightViewModel
     @State private var isShowingSettings = false
+
+    init(service: TVMazeAPIService) {
+        _viewModel = State(initialValue: TonightViewModel(service: service))
+    }
 
     var body: some View {
         NavigationStack {
@@ -66,7 +71,7 @@ struct TonightView: View {
     private func header(scrollOffset: CGFloat) -> some View {
         if case .loaded(let tonight) = viewModel.state, let pick = tonight.pick {
             NavigationLink {
-                EpisodeDetailView(episode: pick.episode, show: pick.show)
+                EpisodeDetailView(episode: pick.episode, show: pick.show, service: service)
             } label: {
                 TonightHero(
                     pick: pick,
@@ -95,7 +100,7 @@ struct TonightView: View {
             if !tonight.streaming.isEmpty {
                 DetailSection(title: Constants.streamingTitle) {
                     ShowCarousel(items: tonight.streaming, show: \.show, caption: viewModel.caption) { entry in
-                        EpisodeDetailView(episode: entry.episode, show: entry.show)
+                        EpisodeDetailView(episode: entry.episode, show: entry.show, service: service)
                     }
                 }
             }
@@ -110,6 +115,6 @@ struct TonightView: View {
 }
 
 #Preview {
-    TonightView()
+    TonightView(service: TVMazeAPIServiceImpl())
         .modelContainer(for: SavedShowModel.self, inMemory: true)
 }

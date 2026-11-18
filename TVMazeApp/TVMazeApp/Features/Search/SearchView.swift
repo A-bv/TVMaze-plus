@@ -30,10 +30,15 @@ struct SearchView: View {
         static let favoritePadding: CGFloat = 12
     }
 
-    @State private var viewModel = SearchViewModel()
+    @Environment(\.tvMazeService) private var service
+    @State private var viewModel: SearchViewModel
     @State private var searchText = ""
     @State private var submittedSearch = ""
     @State private var scope = SearchViewModel.SearchScope.shows
+
+    init(service: TVMazeAPIService) {
+        _viewModel = State(initialValue: SearchViewModel(service: service))
+    }
 
     var body: some View {
         NavigationStack {
@@ -110,7 +115,7 @@ struct SearchView: View {
                 LazyVStack(spacing: Constants.rowSpacing) {
                     ForEach(shows) { show in
                         NavigationLink {
-                            ShowDetailView(show: show)
+                            ShowDetailView(show: show, service: service)
                         } label: {
                             ShowRow(show: show)
                         }
@@ -130,7 +135,7 @@ struct SearchView: View {
                 LazyVStack(spacing: Constants.rowSpacing) {
                     ForEach(people) { person in
                         NavigationLink {
-                            PersonDetailView(person: person)
+                            PersonDetailView(person: person, service: service)
                         } label: {
                             PersonRow(person: person)
                         }
@@ -149,6 +154,6 @@ private struct SearchQuery: Equatable {
 }
 
 #Preview {
-    SearchView()
+    SearchView(service: TVMazeAPIServiceImpl())
         .modelContainer(for: SavedShowModel.self, inMemory: true)
 }

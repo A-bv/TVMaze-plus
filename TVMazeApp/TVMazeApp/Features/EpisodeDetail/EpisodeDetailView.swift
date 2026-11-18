@@ -28,18 +28,18 @@ struct EpisodeDetailView: View {
 
     @State private var viewModel: EpisodeDetailViewModel
 
-    init(episode: EpisodeItemModel, episodes: [EpisodeItemModel], showName: String, fallbackImageURL: URL?) {
+    init(episode: EpisodeItemModel, episodes: [EpisodeItemModel], showName: String, fallbackImageURL: URL?, service: TVMazeAPIService) {
         self.showName = showName
         self.fallbackImageURL = fallbackImageURL
         show = nil
-        _viewModel = State(initialValue: EpisodeDetailViewModel(episode: episode, episodes: episodes))
+        _viewModel = State(initialValue: EpisodeDetailViewModel(episode: episode, episodes: episodes, service: service))
     }
 
-    init(episode: EpisodeItemModel, show: ShowItemModel) {
+    init(episode: EpisodeItemModel, show: ShowItemModel, service: TVMazeAPIService) {
         showName = show.name
         fallbackImageURL = show.largePosterURL
         self.show = show
-        _viewModel = State(initialValue: EpisodeDetailViewModel(episode: episode, episodes: [episode]))
+        _viewModel = State(initialValue: EpisodeDetailViewModel(episode: episode, episodes: [episode], service: service))
     }
 
     var body: some View {
@@ -134,7 +134,7 @@ struct EpisodeDetailView: View {
         summary: "An old romance intersects with a deadly present threat.")
 
     NavigationStack {
-        EpisodeDetailView(episode: episode, episodes: [episode], showName: "Severance", fallbackImageURL: nil)
+        EpisodeDetailView(episode: episode, episodes: [episode], showName: "Severance", fallbackImageURL: nil, service: TVMazeAPIServiceImpl())
     }
     .modelContainer(for: SavedShowModel.self, inMemory: true)
 }

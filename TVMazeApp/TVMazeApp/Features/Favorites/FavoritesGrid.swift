@@ -21,6 +21,8 @@ struct FavoritesGrid: View {
     let viewModel: FavoritesViewModel
     let isEditing: Bool
 
+    @Environment(\.tvMazeService) private var service
+
     var body: some View {
         LazyVGrid(
             columns: Array(repeating: GridItem(spacing: Constants.spacing), count: Constants.columnCount),
@@ -28,7 +30,7 @@ struct FavoritesGrid: View {
         ) {
             ForEach(favorites) { favorite in
                 NavigationLink {
-                    ShowDetailView(show: favorite.showItem)
+                    ShowDetailView(show: favorite.showItem, service: service)
                 } label: {
                     PosterView(url: favorite.posterURL)
                         .aspectRatio(Constants.posterAspectRatio, contentMode: .fit)

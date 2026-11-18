@@ -22,7 +22,12 @@ struct PersonDetailView: View {
 
     let person: PersonItemModel
 
-    @State private var viewModel = PersonDetailViewModel()
+    @State private var viewModel: PersonDetailViewModel
+
+    init(person: PersonItemModel, service: TVMazeAPIService) {
+        self.person = person
+        _viewModel = State(initialValue: PersonDetailViewModel(service: service))
+    }
 
     var body: some View {
         StretchyHeaderScrollView(headerHeight: HeroImage.height, cardColor: .surface) {
@@ -93,7 +98,8 @@ struct PersonDetailView: View {
                 largeImageURL: URL(string: "https://static.tvmaze.com/uploads/images/original_untouched/3/8618.jpg"),
                 birthday: Date(timeIntervalSince1970: 102_643_200),
                 deathday: nil,
-                country: "United States"))
+                country: "United States"),
+            service: TVMazeAPIServiceImpl())
     }
     .modelContainer(for: SavedShowModel.self, inMemory: true)
 }

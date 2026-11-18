@@ -25,7 +25,7 @@ final class PersonDetailViewModel {
 
     private(set) var state: DetailState = .loading
 
-    init(service: TVMazeAPIService = TVMazeAPIServiceImpl()) {
+    init(service: TVMazeAPIService) {
         self.service = service
     }
 

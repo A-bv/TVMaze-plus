@@ -26,7 +26,7 @@ final class ShowDetailViewModel {
     private(set) var state: DetailState = .loading
     var selectedSeason: Int?
 
-    init(service: TVMazeAPIService = TVMazeAPIServiceImpl()) {
+    init(service: TVMazeAPIService) {
         self.service = service
     }
 

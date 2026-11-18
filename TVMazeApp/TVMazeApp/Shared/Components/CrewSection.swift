@@ -15,6 +15,7 @@ struct CrewSection: View {
 
     let crew: [CreditItemModel]
 
+    @Environment(\.tvMazeService) private var service
     @State private var isExpanded = false
 
     var body: some View {
@@ -22,7 +23,7 @@ struct CrewSection: View {
             VStack(spacing: 0) {
                 ForEach(isExpanded ? crew : Array(crew.prefix(Constants.collapsedCount))) { credit in
                     NavigationLink {
-                        PersonDetailView(person: credit.person)
+                        PersonDetailView(person: credit.person, service: service)
                     } label: {
                         CreditRow(name: credit.person.name, role: credit.role)
                     }

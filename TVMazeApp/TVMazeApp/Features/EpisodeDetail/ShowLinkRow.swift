@@ -21,9 +21,11 @@ struct ShowLinkRow: View {
 
     let show: ShowItemModel
 
+    @Environment(\.tvMazeService) private var service
+
     var body: some View {
         NavigationLink {
-            ShowDetailView(show: show)
+            ShowDetailView(show: show, service: service)
         } label: {
             HStack(spacing: Constants.spacing) {
                 PosterView(url: show.posterURL)

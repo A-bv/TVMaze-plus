@@ -18,11 +18,13 @@ struct FavoritesList: View {
     let viewModel: FavoritesViewModel
     let isEditing: Bool
 
+    @Environment(\.tvMazeService) private var service
+
     var body: some View {
         LazyVStack(spacing: Constants.spacing) {
             ForEach(favorites) { favorite in
                 NavigationLink {
-                    ShowDetailView(show: favorite.showItem)
+                    ShowDetailView(show: favorite.showItem, service: service)
                 } label: {
                     ShowRow(show: favorite.showItem, detail: viewModel.status(of: favorite, includesTime: true))
                 }
