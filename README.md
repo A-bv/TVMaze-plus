@@ -78,6 +78,7 @@ With SwiftData, simple reads and writes can stay in the views, since SwiftData k
 - **SwiftData (iOS 17):** Apple's tool for saving data on the device, newer than Core Data. Marking a class `@Model` is enough for SwiftData to save it, here the favorites.
 - **Reads:** `@Query` loads the favorites into a view and refreshes it by itself whenever one is added or removed. A heart asks only for its own show, with a `#Predicate` filter, instead of loading every favorite.
 - **Writes:** views save and delete favorites through the model context, SwiftData's object for changes, which they reach with `@Environment`. For example, the favorite button turns the show on screen into a saved favorite.
+- **Privacy manifest:** `PrivacyInfo.xcprivacy` tells the App Store that the app reads `UserDefaults` only for its own settings (reason CA92.1), and that it collects no data and doesn't track.
 
 ## Build & run
 
