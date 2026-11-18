@@ -1,0 +1,277 @@
+{
+  "id": 2939707,
+  "url": "https://www.tvmaze.com/episodes/2939707/severance-2x07-chikhai-bardo",
+  "name": "Chikhai Bardo",
+  "season": 2,
+  "number": 7,
+  "type": "regular",
+  "airdate": "2025-02-28",
+  "airtime": "",
+  "airstamp": "2025-02-28T12:00:00+00:00",
+  "runtime": 50,
+  "rating": {
+    "average": 7.7
+  },
+  "image": {
+    "medium": "https://static.tvmaze.com/uploads/images/medium_landscape/556/1392078.jpg",
+    "original": "https://static.tvmaze.com/uploads/images/original_untouched/556/1392078.jpg"
+  },
+  "summary": "<p>An old romance intersects with a deadly present threat.</p>",
+  "_links": {
+    "self": {
+      "href": "https://api.tvmaze.com/episodes/2939707"
+    },
+    "show": {
+      "href": "https://api.tvmaze.com/shows/44933",
+      "name": "Severance"
+    }
+  },
+  "_embedded": {
+    "guestcast": [
+      {
+        "person": {
+          "id": 756,
+          "url": "https://www.tvmaze.com/people/756/olafur-darri-olafsson",
+          "name": "Ólafur Darri Ólafsson",
+          "country": {
+            "name": "United States",
+            "code": "US",
+            "timezone": "America/New_York"
+          },
+          "birthday": "1973-03-13",
+          "deathday": null,
+          "gender": "Male",
+          "image": {
+            "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/547/1367744.jpg",
+            "original": "https://static.tvmaze.com/uploads/images/original_untouched/547/1367744.jpg"
+          },
+          "updated": 1771283632,
+          "_links": {
+            "self": {
+              "href": "https://api.tvmaze.com/people/756"
+            }
+          }
+        },
+        "character": {
+          "id": 1347063,
+          "url": "https://www.tvmaze.com/characters/1347063/severance-mr-drummond",
+          "name": "Mr. Drummond",
+          "image": {
+            "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/628/1570392.jpg",
+            "original": "https://static.tvmaze.com/uploads/images/original_untouched/628/1570392.jpg"
+          },
+          "_links": {
+            "self": {
+              "href": "https://api.tvmaze.com/characters/1347063"
+            }
+          }
+        },
+        "self": false,
+        "voice": false
+      },
+      {
+        "person": {
+          "id": 7989,
+          "url": "https://www.tvmaze.com/people/7989/karen-aldridge",
+          "name": "Karen Aldridge",
+          "country": null,
+          "birthday": null,
+          "deathday": null,
+          "gender": "Female",
+          "image": {
+            "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/76/190319.jpg",
+            "original": "https://static.tvmaze.com/uploads/images/original_untouched/76/190319.jpg"
+          },
+          "updated": 1756887109,
+          "_links": {
+            "self": {
+              "href": "https://api.tvmaze.com/people/7989"
+            }
+          }
+        },
+        "character": {
+          "id": 972832,
+          "url": "https://www.tvmaze.com/characters/972832/severance-asal-regabhi",
+          "name": "Asal Regabhi",
+          "image": null,
+          "_links": {
+            "self": {
+              "href": "https://api.tvmaze.com/characters/972832"
+            }
+          }
+        },
+        "self": false,
+        "voice": false
+      },
+      {
+        "person": {
+          "id": 45568,
+          "url": "https://www.tvmaze.com/people/45568/robby-benson",
+          "name": "Robby Benson",
+          "country": {
+            "name": "United States",
+            "code": "US",
+            "timezone": "America/New_York"
+          },
+          "birthday": "1956-01-21",
+          "deathday": null,
+          "gender": "Male",
+          "image": {
+            "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/557/1394690.jpg",
+            "original": "https://static.tvmaze.com/uploads/images/original_untouched/557/1394690.jpg"
+          },
+          "updated": 1787412907,
+          "_links": {
+            "self": {
+              "href": "https://api.tvmaze.com/people/45568"
+            }
+          }
+        },
+        "character": {
+          "id": 1354464,
+          "url": "https://www.tvmaze.com/characters/1354464/severance-dr-mauer",
+          "name": "Dr. Mauer",
+          "image": null,
+          "_links": {
+            "self": {
+              "href": "https://api.tvmaze.com/characters/1354464"
+            }
+          }
+        },
+        "self": false,
+        "voice": false
+      },
+      {
+        "person": {
+          "id": 19772,
+          "url": "https://www.tvmaze.com/people/19772/sandra-bernhard",
+          "name": "Sandra Bernhard",
+          "country": {
+            "name": "United States",
+            "code": "US",
+            "timezone": "America/New_York"
+          },
+          "birthday": "1955-06-06",
+          "deathday": null,
+          "gender": "Female",
+          "image": {
+            "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/140/350277.jpg",
+            "original": "https://static.tvmaze.com/uploads/images/original_untouched/140/350277.jpg"
+          },
+          "updated": 1765365702,
+          "_links": {
+            "self": {
+              "href": "https://api.tvmaze.com/people/19772"
+            }
+          }
+        },
+        "character": {
+          "id": 1359116,
+          "url": "https://www.tvmaze.com/characters/1359116/severance-cecily",
+          "name": "Cecily",
+          "image": null,
+          "_links": {
+            "self": {
+              "href": "https://api.tvmaze.com/characters/1359116"
+            }
+          }
+        },
+        "self": false,
+        "voice": false
+      },
+      {
+        "person": {
+          "id": 31462,
+          "url": "https://www.tvmaze.com/people/31462/eric-j-carlson",
+          "name": "Eric J. Carlson",
+          "country": null,
+          "birthday": null,
+          "deathday": null,
+          "gender": "Male",
+          "image": {
+            "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/151/377541.jpg",
+            "original": "https://static.tvmaze.com/uploads/images/original_untouched/151/377541.jpg"
+          },
+          "updated": 1763043786,
+          "_links": {
+            "self": {
+              "href": "https://api.tvmaze.com/people/31462"
+            }
+          }
+        },
+        "character": {
+          "id": 1359117,
+          "url": "https://www.tvmaze.com/characters/1359117/severance-mark-watcher",
+          "name": "Mark Watcher",
+          "image": null,
+          "_links": {
+            "self": {
+              "href": "https://api.tvmaze.com/characters/1359117"
+            }
+          }
+        },
+        "self": false,
+        "voice": false
+      }
+    ],
+    "guestcrew": [
+      {
+        "person": {
+          "id": 33271,
+          "url": "https://www.tvmaze.com/people/33271/mark-friedman",
+          "name": "Mark Friedman",
+          "country": null,
+          "birthday": null,
+          "deathday": null,
+          "gender": "Male",
+          "image": null,
+          "updated": 1737345433,
+          "_links": {
+            "self": {
+              "href": "https://api.tvmaze.com/people/33271"
+            }
+          }
+        },
+        "guestCrewType": "Writer"
+      },
+      {
+        "person": {
+          "id": 169453,
+          "url": "https://www.tvmaze.com/people/169453/dan-erickson",
+          "name": "Dan Erickson",
+          "country": null,
+          "birthday": null,
+          "deathday": null,
+          "gender": "Male",
+          "image": null,
+          "updated": 1737345433,
+          "_links": {
+            "self": {
+              "href": "https://api.tvmaze.com/people/169453"
+            }
+          }
+        },
+        "guestCrewType": "Writer"
+      },
+      {
+        "person": {
+          "id": 219337,
+          "url": "https://www.tvmaze.com/people/219337/jessica-lee-gagne",
+          "name": "Jessica Lee Gagné",
+          "country": null,
+          "birthday": null,
+          "deathday": null,
+          "gender": "Female",
+          "image": null,
+          "updated": 1737345863,
+          "_links": {
+            "self": {
+              "href": "https://api.tvmaze.com/people/219337"
+            }
+          }
+        },
+        "guestCrewType": "Director"
+      }
+    ]
+  }
+}

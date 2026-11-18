@@ -1,0 +1,461 @@
+[
+  {
+    "type": "Executive Producer",
+    "_links": {
+      "show": {
+        "href": "https://api.tvmaze.com/shows/20652",
+        "name": "Ghosted"
+      }
+    },
+    "_embedded": {
+      "show": {
+        "id": 20652,
+        "url": "https://www.tvmaze.com/shows/20652/ghosted",
+        "name": "Ghosted",
+        "type": "Scripted",
+        "language": "English",
+        "genres": [
+          "Comedy",
+          "Mystery",
+          "Supernatural"
+        ],
+        "status": "Ended",
+        "runtime": 30,
+        "averageRuntime": 30,
+        "premiered": "2017-10-01",
+        "ended": "2018-07-22",
+        "officialSite": "http://www.fox.com/ghosted",
+        "schedule": {
+          "time": "21:30",
+          "days": [
+            "Sunday"
+          ]
+        },
+        "rating": {
+          "average": 5.5
+        },
+        "weight": 95,
+        "network": {
+          "id": 4,
+          "name": "FOX",
+          "country": {
+            "name": "United States",
+            "code": "US",
+            "timezone": "America/New_York"
+          },
+          "officialSite": "https://www.fox.com/"
+        },
+        "webChannel": null,
+        "dvdCountry": null,
+        "externals": {
+          "tvrage": null,
+          "thetvdb": 328568,
+          "imdb": "tt6053538"
+        },
+        "image": {
+          "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/121/302697.jpg",
+          "original": "https://static.tvmaze.com/uploads/images/original_untouched/121/302697.jpg"
+        },
+        "summary": "<p>Described as a sort of comedic X-Files<i>, </i><b>Ghosted</b> centers on Leroy Wright, a cynical, hilarious skeptic, and Max Allison, a genius \"true believer\" in the paranormal, who are hired by the Underground Investigative Service to look into the rampant \"unexplained\" activity in Los Angeles — all while uncovering a larger mystery that could threaten the existence of the human race.</p>",
+        "updated": 1726438646,
+        "_links": {
+          "self": {
+            "href": "https://api.tvmaze.com/shows/20652"
+          },
+          "previousepisode": {
+            "href": "https://api.tvmaze.com/episodes/1428859",
+            "name": "Hello Boys"
+          }
+        }
+      }
+    }
+  },
+  {
+    "type": "Producer",
+    "_links": {
+      "show": {
+        "href": "https://api.tvmaze.com/shows/44933",
+        "name": "Severance"
+      }
+    },
+    "_embedded": {
+      "show": {
+        "id": 44933,
+        "url": "https://www.tvmaze.com/shows/44933/severance",
+        "name": "Severance",
+        "type": "Scripted",
+        "language": "English",
+        "genres": [
+          "Drama",
+          "Science-Fiction",
+          "Mystery"
+        ],
+        "status": "Running",
+        "runtime": null,
+        "averageRuntime": 49,
+        "premiered": "2022-02-18",
+        "ended": null,
+        "officialSite": "https://tv.apple.com/show/severance/umc.cmc.1srk2goyh2q2zdxcx605w8vtx",
+        "schedule": {
+          "time": "",
+          "days": [
+            "Friday"
+          ]
+        },
+        "rating": {
+          "average": 7.7
+        },
+        "weight": 100,
+        "network": null,
+        "webChannel": {
+          "id": 310,
+          "name": "Apple TV",
+          "country": null,
+          "officialSite": "https://tv.apple.com/"
+        },
+        "dvdCountry": null,
+        "externals": {
+          "tvrage": null,
+          "thetvdb": 371980,
+          "imdb": "tt11280740"
+        },
+        "image": {
+          "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/548/1371406.jpg",
+          "original": "https://static.tvmaze.com/uploads/images/original_untouched/548/1371406.jpg"
+        },
+        "summary": "<p>Mark Scout leads a team at Lumon Industries, whose employees have undergone a severance procedure, which surgically divides their memories between their work and personal lives. This daring experiment in \"work-life balance\" is called into question as Mark finds himself at the center of an unraveling mystery that will force him to confront the true nature of his work… and of himself.</p>",
+        "updated": 1790712623,
+        "_links": {
+          "self": {
+            "href": "https://api.tvmaze.com/shows/44933"
+          },
+          "previousepisode": {
+            "href": "https://api.tvmaze.com/episodes/2939710",
+            "name": "Cold Harbor"
+          }
+        }
+      }
+    }
+  },
+  {
+    "type": "Executive Producer",
+    "_links": {
+      "show": {
+        "href": "https://api.tvmaze.com/shows/1137",
+        "name": "Party Down"
+      }
+    },
+    "_embedded": {
+      "show": {
+        "id": 1137,
+        "url": "https://www.tvmaze.com/shows/1137/party-down",
+        "name": "Party Down",
+        "type": "Scripted",
+        "language": "English",
+        "genres": [
+          "Comedy"
+        ],
+        "status": "Ended",
+        "runtime": null,
+        "averageRuntime": 30,
+        "premiered": "2009-03-20",
+        "ended": "2023-03-31",
+        "officialSite": "https://www.starz.com/us/en/series/party-down/2011",
+        "schedule": {
+          "time": "",
+          "days": [
+            "Friday"
+          ]
+        },
+        "rating": {
+          "average": 7.2
+        },
+        "weight": 94,
+        "network": null,
+        "webChannel": {
+          "id": 46,
+          "name": "Lionsgate+",
+          "country": null,
+          "officialSite": "https://www.lionsgateplus.com/"
+        },
+        "dvdCountry": null,
+        "externals": {
+          "tvrage": 21884,
+          "thetvdb": 83616,
+          "imdb": "tt1073507"
+        },
+        "image": {
+          "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/453/1134634.jpg",
+          "original": "https://static.tvmaze.com/uploads/images/original_untouched/453/1134634.jpg"
+        },
+        "summary": "<p><b>Party Down</b> follows a group of Hollywood dreamers - struggling actors and writers - stuck working as caterers while waiting for their big show business break.</p>",
+        "updated": 1761479257,
+        "_links": {
+          "self": {
+            "href": "https://api.tvmaze.com/shows/1137"
+          },
+          "previousepisode": {
+            "href": "https://api.tvmaze.com/episodes/2466499",
+            "name": "Sepulveda Basin High School Spring Play Opening Night"
+          }
+        }
+      }
+    }
+  },
+  {
+    "type": "Creator",
+    "_links": {
+      "show": {
+        "href": "https://api.tvmaze.com/shows/4130",
+        "name": "The Greatest Event in Television History"
+      }
+    },
+    "_embedded": {
+      "show": {
+        "id": 4130,
+        "url": "https://www.tvmaze.com/shows/4130/the-greatest-event-in-television-history",
+        "name": "The Greatest Event in Television History",
+        "type": "Documentary",
+        "language": "English",
+        "genres": [
+          "Comedy"
+        ],
+        "status": "Ended",
+        "runtime": 11,
+        "averageRuntime": 11,
+        "premiered": "2012-10-11",
+        "ended": "2014-01-23",
+        "officialSite": null,
+        "schedule": {
+          "time": "",
+          "days": [
+            "Thursday"
+          ]
+        },
+        "rating": {
+          "average": null
+        },
+        "weight": 81,
+        "network": {
+          "id": 10,
+          "name": "Adult Swim",
+          "country": {
+            "name": "United States",
+            "code": "US",
+            "timezone": "America/New_York"
+          },
+          "officialSite": "https://www.adultswim.com/"
+        },
+        "webChannel": null,
+        "dvdCountry": null,
+        "externals": {
+          "tvrage": 34731,
+          "thetvdb": 263711,
+          "imdb": "tt2496468"
+        },
+        "image": {
+          "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/339/848754.jpg",
+          "original": "https://static.tvmaze.com/uploads/images/original_untouched/339/848754.jpg"
+        },
+        "summary": "<p>Join host Jeff Probst and actual person Adam Scott as they call in all of their celebrity favors for four separate attempts to create the single <b>Greatest Event in</b> <b>Television History</b>.</p>",
+        "updated": 1694754674,
+        "_links": {
+          "self": {
+            "href": "https://api.tvmaze.com/shows/4130"
+          },
+          "previousepisode": {
+            "href": "https://api.tvmaze.com/episodes/263323",
+            "name": "Part IV (Bosom Buddies)"
+          }
+        }
+      }
+    }
+  },
+  {
+    "type": "Executive Producer",
+    "_links": {
+      "show": {
+        "href": "https://api.tvmaze.com/shows/44933",
+        "name": "Severance"
+      }
+    },
+    "_embedded": {
+      "show": {
+        "id": 44933,
+        "url": "https://www.tvmaze.com/shows/44933/severance",
+        "name": "Severance",
+        "type": "Scripted",
+        "language": "English",
+        "genres": [
+          "Drama",
+          "Science-Fiction",
+          "Mystery"
+        ],
+        "status": "Running",
+        "runtime": null,
+        "averageRuntime": 49,
+        "premiered": "2022-02-18",
+        "ended": null,
+        "officialSite": "https://tv.apple.com/show/severance/umc.cmc.1srk2goyh2q2zdxcx605w8vtx",
+        "schedule": {
+          "time": "",
+          "days": [
+            "Friday"
+          ]
+        },
+        "rating": {
+          "average": 7.7
+        },
+        "weight": 100,
+        "network": null,
+        "webChannel": {
+          "id": 310,
+          "name": "Apple TV",
+          "country": null,
+          "officialSite": "https://tv.apple.com/"
+        },
+        "dvdCountry": null,
+        "externals": {
+          "tvrage": null,
+          "thetvdb": 371980,
+          "imdb": "tt11280740"
+        },
+        "image": {
+          "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/548/1371406.jpg",
+          "original": "https://static.tvmaze.com/uploads/images/original_untouched/548/1371406.jpg"
+        },
+        "summary": "<p>Mark Scout leads a team at Lumon Industries, whose employees have undergone a severance procedure, which surgically divides their memories between their work and personal lives. This daring experiment in \"work-life balance\" is called into question as Mark finds himself at the center of an unraveling mystery that will force him to confront the true nature of his work… and of himself.</p>",
+        "updated": 1790712623,
+        "_links": {
+          "self": {
+            "href": "https://api.tvmaze.com/shows/44933"
+          },
+          "previousepisode": {
+            "href": "https://api.tvmaze.com/episodes/2939710",
+            "name": "Cold Harbor"
+          }
+        }
+      }
+    }
+  },
+  {
+    "type": "Executive Producer",
+    "_links": {
+      "show": {
+        "href": "https://api.tvmaze.com/shows/93116",
+        "name": "Shifter"
+      }
+    },
+    "_embedded": {
+      "show": {
+        "id": 93116,
+        "url": "https://www.tvmaze.com/shows/93116/shifter",
+        "name": "Shifter",
+        "type": "Scripted",
+        "language": "English",
+        "genres": [
+          "Science-Fiction"
+        ],
+        "status": "In Development",
+        "runtime": null,
+        "averageRuntime": null,
+        "premiered": null,
+        "ended": null,
+        "officialSite": null,
+        "schedule": {
+          "time": "",
+          "days": []
+        },
+        "rating": {
+          "average": null
+        },
+        "weight": 92,
+        "network": null,
+        "webChannel": {
+          "id": 2,
+          "name": "Hulu",
+          "country": {
+            "name": "United States",
+            "code": "US",
+            "timezone": "America/New_York"
+          },
+          "officialSite": "https://www.hulu.com/"
+        },
+        "dvdCountry": null,
+        "externals": {
+          "tvrage": null,
+          "thetvdb": null,
+          "imdb": null
+        },
+        "image": null,
+        "summary": "<p><b>Shifter</b> is set in the near-future, where a banned cosmetic procedure lets people change their faces on the fly, creating a new underground industry of Shifters, who can become anyone you want, for any purpose you can imagine, for a fee. Rose is making a name for herself as one of the best, but the more she gives to her gigs, the more she risks losing herself.</p>",
+        "updated": 1784093770,
+        "_links": {
+          "self": {
+            "href": "https://api.tvmaze.com/shows/93116"
+          }
+        }
+      }
+    }
+  },
+  {
+    "type": "Creator",
+    "_links": {
+      "show": {
+        "href": "https://api.tvmaze.com/shows/93116",
+        "name": "Shifter"
+      }
+    },
+    "_embedded": {
+      "show": {
+        "id": 93116,
+        "url": "https://www.tvmaze.com/shows/93116/shifter",
+        "name": "Shifter",
+        "type": "Scripted",
+        "language": "English",
+        "genres": [
+          "Science-Fiction"
+        ],
+        "status": "In Development",
+        "runtime": null,
+        "averageRuntime": null,
+        "premiered": null,
+        "ended": null,
+        "officialSite": null,
+        "schedule": {
+          "time": "",
+          "days": []
+        },
+        "rating": {
+          "average": null
+        },
+        "weight": 92,
+        "network": null,
+        "webChannel": {
+          "id": 2,
+          "name": "Hulu",
+          "country": {
+            "name": "United States",
+            "code": "US",
+            "timezone": "America/New_York"
+          },
+          "officialSite": "https://www.hulu.com/"
+        },
+        "dvdCountry": null,
+        "externals": {
+          "tvrage": null,
+          "thetvdb": null,
+          "imdb": null
+        },
+        "image": null,
+        "summary": "<p><b>Shifter</b> is set in the near-future, where a banned cosmetic procedure lets people change their faces on the fly, creating a new underground industry of Shifters, who can become anyone you want, for any purpose you can imagine, for a fee. Rose is making a name for herself as one of the best, but the more she gives to her gigs, the more she risks losing herself.</p>",
+        "updated": 1784093770,
+        "_links": {
+          "self": {
+            "href": "https://api.tvmaze.com/shows/93116"
+          }
+        }
+      }
+    }
+  }
+]

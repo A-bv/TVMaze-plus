@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		02AB00053070000000578383 /* NeumorphicSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 02AB00033070000000578383 /* NeumorphicSwiftUI */; };
 		02AB00063070000000578383 /* ParallaxKit in Frameworks */ = {isa = PBXBuildFile; productRef = 02AB00043070000000578383 /* ParallaxKit */; };
+		02AB00073070000000578383 /* NeumorphicSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 02AB00093070000000578383 /* NeumorphicSwiftUI */; };
+		02AB00083070000000578383 /* ParallaxKit in Frameworks */ = {isa = PBXBuildFile; productRef = 02AB000A3070000000578383 /* ParallaxKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -23,8 +25,8 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = 02D7D8553067AF4700578383 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 02D7D85C3067AF4700578383;
-			remoteInfo = TVMazeApp;
+			remoteGlobalIDString = 02D7D8B0306D515000578383;
+			remoteInfo = TVMazeAppUITestHost;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -32,11 +34,25 @@
 		02D7D85D3067AF4700578383 /* TVMazeApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TVMazeApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		02D7D87E306D515000578383 /* TVMazeAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TVMazeAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		02D7D89B306D515000578383 /* TVMazeAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TVMazeAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		02D7D8B1306D515000578383 /* TVMazeAppUITestHost.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TVMazeAppUITestHost.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		02D7D8B9306D515000578383 /* Exceptions for "TVMazeApp" folder in "TVMazeAppUITestHost" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				App/TVMazeAppApp.swift,
+			);
+			target = 02D7D8B0306D515000578383 /* TVMazeAppUITestHost */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		02D7D85F3067AF4700578383 /* TVMazeApp */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				02D7D8B9306D515000578383 /* Exceptions for "TVMazeApp" folder in "TVMazeAppUITestHost" target */,
+			);
 			path = TVMazeApp;
 			sourceTree = "<group>";
 		};
@@ -48,6 +64,11 @@
 		02D7D89C306D515000578383 /* TVMazeAppUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = TVMazeAppUITests;
+			sourceTree = "<group>";
+		};
+		02D7D8B2306D515000578383 /* TVMazeAppUITestHost */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = TVMazeAppUITestHost;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -76,6 +97,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		02D7D8B4306D515000578383 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				02AB00073070000000578383 /* NeumorphicSwiftUI in Frameworks */,
+				02AB00083070000000578383 /* ParallaxKit in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -85,6 +115,7 @@
 				02D7D85F3067AF4700578383 /* TVMazeApp */,
 				02D7D87F306D515000578383 /* TVMazeAppTests */,
 				02D7D89C306D515000578383 /* TVMazeAppUITests */,
+				02D7D8B2306D515000578383 /* TVMazeAppUITestHost */,
 				02D7D85E3067AF4700578383 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -95,6 +126,7 @@
 				02D7D85D3067AF4700578383 /* TVMazeApp.app */,
 				02D7D87E306D515000578383 /* TVMazeAppTests.xctest */,
 				02D7D89B306D515000578383 /* TVMazeAppUITests.xctest */,
+				02D7D8B1306D515000578383 /* TVMazeAppUITestHost.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -172,6 +204,31 @@
 			productReference = 02D7D89B306D515000578383 /* TVMazeAppUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		02D7D8B0306D515000578383 /* TVMazeAppUITestHost */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 02D7D8B6306D515000578383 /* Build configuration list for PBXNativeTarget "TVMazeAppUITestHost" */;
+			buildPhases = (
+				02D7D8B3306D515000578383 /* Sources */,
+				02D7D8B4306D515000578383 /* Frameworks */,
+				02D7D8B5306D515000578383 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				02D7D85F3067AF4700578383 /* TVMazeApp */,
+				02D7D8B2306D515000578383 /* TVMazeAppUITestHost */,
+			);
+			name = TVMazeAppUITestHost;
+			packageProductDependencies = (
+				02AB00093070000000578383 /* NeumorphicSwiftUI */,
+				02AB000A3070000000578383 /* ParallaxKit */,
+			);
+			productName = TVMazeAppUITestHost;
+			productReference = 02D7D8B1306D515000578383 /* TVMazeAppUITestHost.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -191,7 +248,10 @@
 					};
 					02D7D89A306D515000578383 = {
 						CreatedOnToolsVersion = 26.5;
-						TestTargetID = 02D7D85C3067AF4700578383;
+						TestTargetID = 02D7D8B0306D515000578383;
+					};
+					02D7D8B0306D515000578383 = {
+						CreatedOnToolsVersion = 26.5;
 					};
 				};
 			};
@@ -217,6 +277,7 @@
 				02D7D85C3067AF4700578383 /* TVMazeApp */,
 				02D7D87D306D515000578383 /* TVMazeAppTests */,
 				02D7D89A306D515000578383 /* TVMazeAppUITests */,
+				02D7D8B0306D515000578383 /* TVMazeAppUITestHost */,
 			);
 		};
 /* End PBXProject section */
@@ -237,6 +298,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		02D7D89F306D515000578383 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		02D7D8B5306D515000578383 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -267,6 +335,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		02D7D8B3306D515000578383 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -277,7 +352,7 @@
 		};
 		02D7D8A1306D515000578383 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 02D7D85C3067AF4700578383 /* TVMazeApp */;
+			target = 02D7D8B0306D515000578383 /* TVMazeAppUITestHost */;
 			targetProxy = 02D7D8A0306D515000578383 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -526,7 +601,7 @@
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = TVMazeApp;
+				TEST_TARGET_NAME = TVMazeAppUITestHost;
 			};
 			name = Debug;
 		};
@@ -546,7 +621,71 @@
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = TVMazeApp;
+				TEST_TARGET_NAME = TVMazeAppUITestHost;
+			};
+			name = Release;
+		};
+		02D7D8B7306D515000578383 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = ANNM3BXP39;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = nordkapp.TVMazeAppUITestHost;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		02D7D8B8306D515000578383 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = ANNM3BXP39;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = nordkapp.TVMazeAppUITestHost;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -589,6 +728,15 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		02D7D8B6306D515000578383 /* Build configuration list for PBXNativeTarget "TVMazeAppUITestHost" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				02D7D8B7306D515000578383 /* Debug */,
+				02D7D8B8306D515000578383 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
@@ -617,6 +765,16 @@
 			productName = NeumorphicSwiftUI;
 		};
 		02AB00043070000000578383 /* ParallaxKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 02AB00023070000000578383 /* XCRemoteSwiftPackageReference "ParallaxKit" */;
+			productName = ParallaxKit;
+		};
+		02AB00093070000000578383 /* NeumorphicSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 02AB00013070000000578383 /* XCRemoteSwiftPackageReference "NeumorphicSwiftUI" */;
+			productName = NeumorphicSwiftUI;
+		};
+		02AB000A3070000000578383 /* ParallaxKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 02AB00023070000000578383 /* XCRemoteSwiftPackageReference "ParallaxKit" */;
 			productName = ParallaxKit;

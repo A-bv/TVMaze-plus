@@ -10,6 +10,10 @@ import XCTest
 final class TVMazeAppUITests: XCTestCase {
     private enum Constants {
         static let search = "girls"
+        static let noResultsSearch = "nothing"
+        static let failingSearch = "fail"
+        static let noResultsTitle = "No Results"
+        static let errorTitle = "Something went wrong"
         static let addLabel = "Add to favorites"
         static let removeLabel = "Remove from favorites"
         static let favoritesTab = "Favorites"
@@ -78,6 +82,25 @@ final class TVMazeAppUITests: XCTestCase {
     }
 
     @MainActor
+    func testSearchWithoutMatchShowsNoResults() {
+        let app = launchedApp()
+        openTab(Constants.searchTab, in: app)
+        search(Constants.noResultsSearch, in: app)
+
+        let noResults = app.staticTexts.matching(NSPredicate(format: "label BEGINSWITH %@", Constants.noResultsTitle)).firstMatch
+        XCTAssertTrue(noResults.waitForExistence(timeout: Constants.timeout))
+    }
+
+    @MainActor
+    func testFailedSearchShowsTheErrorMessage() {
+        let app = launchedApp()
+        openTab(Constants.searchTab, in: app)
+        search(Constants.failingSearch, in: app)
+
+        XCTAssertTrue(app.staticTexts[Constants.errorTitle].waitForExistence(timeout: Constants.timeout))
+    }
+
+    @MainActor
     func testSearchResultsHaveNoAccessibilityIssues() throws {
         let app = launchedApp()
         openTab(Constants.searchTab, in: app)
@@ -100,11 +123,11 @@ final class TVMazeAppUITests: XCTestCase {
     }
 
     @MainActor
-    private func search(in app: XCUIApplication) {
+    private func search(_ text: String = Constants.search, in app: XCUIApplication) {
         let field = app.searchFields.firstMatch
         XCTAssertTrue(field.waitForExistence(timeout: Constants.timeout))
         field.tap()
-        field.typeText(Constants.search + "\n")
+        field.typeText(text + "\n")
     }
 
     @MainActor
