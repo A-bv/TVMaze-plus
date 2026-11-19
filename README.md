@@ -102,7 +102,7 @@ xcodebuild test -project TVMazeApp/TVMazeApp.xcodeproj -scheme TVMazeApp \
 - **Swift Testing:** Apple's testing framework. `@Test` marks a test, `#expect` checks a result or an error, and `#require` stops a test early when something it needs is missing.
 - **Coverage:** the service, the ViewModel and the Transformer are tested with mocks, and the saved favorites with an in-memory database, all without internet.
 - **UI tests:** `XCUIAutomation` drives a test version of the app through the Guide, search, favorites, empty results and errors, and `performAccessibilityAudit` checks the results screen, apart from what sits under the floating search bar. The test version gives the real service a fake session that answers with recorded JSON, so the tests need no network and the app holds no test code. They're written in XCTest because Swift Testing doesn't support UI tests.
-- **Continuous integration:** GitHub Actions runs the unit tests on every push and pull request, and the Tests badge at the top shows the latest result.
+- **Continuous integration:** GitHub Actions runs the unit and UI tests on every push and pull request, and the Tests badge at the top shows the latest result.
 - **Real API data:** a JSON file recorded from the real API, with one show fully filled and one with every optional field empty or missing, so decoding is checked against what the API really sends.
 
 ## Author
